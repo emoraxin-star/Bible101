@@ -1,0 +1,291 @@
+======================================================================
+LIBERTEA.DLL - EXTRACTED POINTERS, OFFSETS & IDs
+======================================================================
+
+--- GAME API ENDPOINTS ---
+  POST api.live.prod.thehelldiversgame.com/api/Operation/Mission/end
+  (SC/Medal farming fires batches of 9 calls x 500ms with 58s cooldown)
+
+--- DISTRIBUTION & AUTH ---
+  Discord:      https://discord.gg/exCgdvYPxd
+  Update C2:    https://libertea.libertea4.workers.dev/menu/version
+  Download C2:  https://libertea.libertea4.workers.dev/menu/download
+  Auth:         Username/Password or Access Key (subscription-based)
+  GUID:         60862556-ee16-4ae4-b002-64f6acbc66c6
+
+--- KEY WIN32 API USED ---
+  NtProtectVirtualMemory  (via direct syscall stub, bypasses ntdll hooks)
+  NtQueryInformationProcess (via syscall)
+  GetModuleInformation
+  FlsAlloc / FlsGetValue / FlsSetValue  (Fiber Local Storage)
+  XInputGetState / XInputGetCapabilities
+  wglSwapIntervalEXT  (OpenGL overlay render hook)
+  SeDebugPrivilege     (in Bypass.exe injector)
+
+--- HOOK PATTERN SIGNATURES (x86-64 byte patterns in game.dll) ---
+
+  [GodMode / Player]
+    GodMode: N/A (likely patches specific flags)
+    [GodMode] READY ... Hook1=0x%llX Hook2=0x%llX Hook3=0x%llX
+
+  [Grenade Count Bypass]
+    0F 5B DB F3 41 0F 59 4E ?? F3 ...
+    NOP grenade count conversion
+    conditional jump (bypass strategem count)
+
+  [No Boundary]
+    0F 84 ?? ?? ?? ?? 80 7F ?? ?? 0F 85 ?? ?? ?? ?? F3 0F
+    conditional jump (bypass boundary)
+
+  [Landing Speed Multiply]
+    F3 0F 11 44 3B ?? F3 0F 59 C7 F3 0F 5A C0
+
+  [Stratagem/Weapon/Armor Unlock]
+    48 8B 0D ?? ?? ?? ?? 44 89 80 60 0C
+    [UnlockArmory] Patches stratagem/weapon/armor unlock checks
+
+  [Grenade Fuse Time]
+    F3 0F 11 44 C8 ?? 0F
+
+  [Turret Overheat]
+    F3 0F 11 4C A8 ?? 49
+    No Turret Overheat
+
+  [Turret Duration]
+    F3 45 0F 11 5E ?? E9
+    Inf Turret Duration
+
+  [Active Session Pointer]
+    48 8B 35 ?? ?? ?? ?? 49 8B E9 41 8B D8 48 8B 88 28 01
+    GetActiveSession() = 0x%llX
+
+  [Alternate Session Pattern]
+    48 8B 35 ?? ?? ?? ?? 33 C9 49 8B E9 41 8B D8 4C 8B 90 28 01
+
+  [Reward Multiplier]
+    41 8B 47 ?? 4C 8B 7C 24 ?? 4C
+
+  [Stratagem Count Decrement]
+    42 83 2C 81 ?? 48  (patch to NOP/JMP for infinite)
+
+  [Kill Counter]
+    39 46 ?? 75 ?? FF C5  (Kill Count: %.0f)
+
+  [Stim Count]
+    Stims (No Use) patch
+
+  [SC Entity Hash Table]
+    NOP both hash table INSERT calls that mark SC entities as consumed
+
+  [Laser Overheat]
+    No Laser Overheat pattern
+
+  [Instant Charge]
+    Instant Charge pattern
+
+  [Stratagem Instant Call]
+    Instant Strat Callin: patches call-in time
+
+  [Present Hook (Overlay)]
+    ScPresent::Install: hwnd=%p origWndProc=%p
+    wglSwapIntervalEXT hook for ImGui overlay rendering
+
+--- GAME STRUCTURE MEMBER REFERENCES ---
+
+  ScActivityAPC structure:
+    actObj=%p TID=%u
+    actId32=0x%08X  (activity ID)
+    objId=0x%08X    (object ID)
+    ctr=0x%X flag=0x%X ring=%u  (control/flag/ring buffer index)
+    url="%.40s"  (API URL)
+
+  Mission capture data:
+    missionId=%s         (mission string identifier)
+    capturedWarTime      (war time during capture)
+    serObjOrigAddr       (server object original address)
+    entityDeep           (JSON: entity hierarchy snapshot)
+    entityDataDeep       (JSON: entity data payload)
+
+  Session data:
+    Session+0x28, +0x128, etc. (multiple structure offsets)
+    GetActiveSession() -> 0x%llX or NULL
+    session active flag checks
+
+  SC Loop state:
+    Crashes absorbed: %d  (survives game crashes)
+    cooldown: 58 seconds between batch fires
+    batch: 9 API calls spaced 500ms
+    mid=%s  (mission ID in flight)
+    retry #%d/%d  (retry mechanism)
+
+--- WEAPON LIST (51 primary weapons for XP override) ---
+
+  AR-23P Liberator Penetrator
+  AR-23C Liberator Concussive
+  AR-23A Liberator Carbine
+  AR-48 Truth Whisperer
+  AR-59 Suppressor
+  R-72 Censor
+  R-63CS Diligence Counter-Sniper
+  MA5C Assault Rifle
+  M7S SMG
+  SMG-203 Gallant
+  SMG/FLAM-34 Stoker
+  SG-8F Punisher Fire of Liberty
+  SG-225SP Breaker Spray & Pray
+  SG-97 Sweeper
+  M90A Shotgun
+  DBS-2 Double Freedom
+  AR/GL-21 One-Two
+  Las-16 Trident
+  Autocannon
+  Laser Cannon
+  Quasar Cannon
+  Flamethrower
+  Railgun
+  ...  (+28 more weapons)
+
+--- IMGUI MENU TOGGLE IDs ---
+
+  ##mult           Reward Multiplier toggle (ON/OFF)
+  ##maxrew         MAX ALL rewards button
+  ##fxp            XP Multiplier slider
+  ##fmed           Medals Multiplier slider
+  ##fslips         Req Slips Multiplier slider
+  ##diff           Force Difficulty toggle
+  ##difflvl        Difficulty tier combo (1-10)
+  ##samp           Add Samples Instantly toggle
+  ##smax           Max samples button
+  ##fsamp_c        Common samples slider
+  ##fsamp_r        Rare samples slider
+  ##fsamp_s        Super samples slider
+  ##sr             Samples Over Limit Reward toggle
+  ##srmax          Max sample reward button
+  ##src            Common reward slider
+  ##srr            Rare reward slider
+  ##srs            Super reward slider
+  ##shut5          Instant Shuttle toggle
+  ##ic5            Instant Complete toggle
+  ##spd            Movement Speed slider
+  ##smult          Speed multiplier slider
+  ##isc            Instant Strat Call-in toggle
+  ##msd            Mass Strat Drop toggle
+  ##msc            Mass Strat Drop count
+  ##fov            FOV slider
+  ##ua             Unlock All Armory toggle
+  ##wxpovr         Weapon XP Override toggle
+  ##repperwep      Replays per gun counter
+  ##ag             All Guns ON toggle
+  ##sg             Selected Guns ON toggle
+  ##pwcombo        Primary weapon combo dropdown
+  ##sgall          Select all weapons
+  ##sgnone         Deselect all weapons
+  ##sgsearch       Weapon search input
+  ##sglist         Weapon checkbox list
+  ##SCTimer        SC Timer value (minutes, 0=unlimited)
+  ##goal           SC Goal value
+  ##sct            SC Tracker reset button
+  ##afk            AFK Prevention toggle
+  ##erad_ih        Infinite Horde Mode toggle
+  ##ap_scan        Scan Armor button
+  ##ap_armor       Armor selection dropdown
+  ##ap_pass        Passive selection dropdown
+  ##ap_go          Apply armor mod button
+  ##ap_rst         Reset armor defaults button
+  ##lock_screen    Login screen container
+  ##userinput      Username input field
+  ##passinput      Password input field
+  ##keyinput       Access key input field
+  ##sub_info       Subscription info display
+  ##libertea_main  Main window container
+  ##content_area   Content tab area
+  ##farming_scroll Farming tab scroll area
+  ##sc_scroll      Super Credits tab scroll
+  ##replay_scroll  Replay tab scroll
+  ##log_scroll     Logs tab scroll
+  ##misc_scroll    Misc tab scroll
+  ##inbox_scroll   Updates/Inbox tab scroll
+  ##pk             Dark Fluid Pack editor
+  ##pk_rst         Reset pack defaults
+
+--- DIFFICULTY TIERS ---
+
+  1 - Trivial (0%)
+  2 - Easy (0%)
+  3 - Medium (25%)
+  4 - Challenging (50%)
+  5 - Hard (75%)
+  6 - Extreme (100%)
+  7 - Super Helldive (150%)
+  8 - (200%)
+
+--- GAME FILE PATHS ---
+
+  Steam\steamapps\common\Helldivers 2\bin\data\exploded_dat
+  C:\libertea_replay_cap.json  (replay capture file)
+  %s\ntdll.dll  (resolved at runtime for syscall stubs)
+
+--- DEBUG LOG FORMAT STRINGS ---
+
+  === LIBERTEA CRASH LOG ===
+  Time:        %04u-%02u-%02u %02u:%02u:%02u
+  [HTTP] INJECT: missionId="%s" (%s) injected (%d ... %d bytes)
+  [HTTP-RESP] POST missionId=%s
+  [HTTP-RESP] Golden capture: hi2=%p rawPost=%p
+  [SC] MIDSWAP call %d/%d: str=%d bin=%d
+  [SC] VEH recovered crash  (Vectored Exception Handler crash recovery)
+  [GodMode] READY ... Hook1=0x%llX Hook2=0x%llX Hook3=0x%llX
+  [WeaponEditor] Hook
+  [UnlockArmory] %s
+  [AllGuns] Weapon: %s (%d/%d), cycle %d/%d
+  [SelectedGuns] Weapon: %s (slot %d/%d), cycle %d/%d
+  [WeaponOvr] Patched %d weapon slot(s) -> ID %u (%s)
+  [Auto] No capture data - probe a mission first
+  [Replay] Watchdog: reset stuck replayInProgress flag
+  WARNING: Game may have updated ... %d/%d patterns found. Some features may not work.
+  WARNING: Hook mismatch ... update may be needed
+  Hook verified
+  Handler install failed
+
+--- KEY .TEXT SECTION FUNCTION RVAs (base=RVA 0x1000) ---
+
+  Entry / DllMain:           0x1000
+  Core Init (call):          0x1480
+  Import Resolver Tail-Call: 0x8BEB8
+  Allocator (malloc):        0x8BB24
+  Init Helper:               0x8B880
+  Object Constructor Helper: 0x8D920 / 0x8D9A0
+  Get Data Ptr:              0x11C0
+  Lock/Acquire:              0x11D0
+  Init/Create:               0x1300
+  Import stubs group:        0x1020 - 0x10A0
+  Decompression entry:       in .rsrc section (0x3C4F30 RVA)
+
+--- SC FARMING LOOP MECHANICS ---
+
+  1. Probe a mission to capture data (entityDeep, entityDataDeep, warTime)
+  2. Store capture in C:\libertea_replay_cap.json
+  3. Auto-Replay fires batches of 9 API calls to:
+     POST api.live.prod.thehelldiversgame.com/api/Operation/Mission/end
+  4. Each batch: 9 calls x 500ms apart
+  5. Cooldown between batches: 58 seconds
+  6. Alternates SC and Medal batches
+  7. Crash recovery via Vectored Exception Handler (VEH)
+  8. SC goal auto-stops when reached
+  9. Auto-sync distributes SC across lobby players
+  10. NOPs hash table INSERT calls to prevent duplicate detection
+
+--- INJECTOR BYPASS TECHNIQUE ---
+
+  1. Enable SeDebugPrivilege via ntdll.dll
+  2. Target: helldivers2.exe
+  3. Block/remove GameMon.des / GameMon64.des (GameGuard drivers)
+  4. Inject LIBERTEA.DLL via CreateRemoteThread or similar
+  5. DLL loads, DllMain decompresses .text via custom aPLib variant
+  6. Resolve imports, scan for game.dll patterns, install hooks
+  7. Create ImGui overlay window (LIBERTEAWnd class)
+  8. Hook wglSwapIntervalEXT / Present for overlay rendering
+
+======================================================================
+END OF EXTRACTION
+======================================================================

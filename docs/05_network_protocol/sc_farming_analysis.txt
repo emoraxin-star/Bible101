@@ -1,0 +1,469 @@
+=====================================================================
+  LIBERTEA Helldivers 2 - SC (Super Credits) Farming Analysis
+  Reverse-engineered from .text_unpacked_mem.bin (3,489,792 bytes)
+  LIBERTEA Trainer v1.91.5 / build v414 by TheOGcup
+=====================================================================
+
+FILE ANALYZED: .text_unpacked_mem.bin
+SIZE:          3,489,792 bytes (unpacked x86-64 PE .text section)
+ARCHITECTURE:  x86-64 (AMD64)
+BINARY BASE:   0x00000000 (RVAs in this document are file offsets)
+
+=====================================================================
+1. SC FARMING STATE MACHINE
+=====================================================================
+
+Entry Points:
+  - ScActivityAPC (RVA ~0x1005A0): Triggered by game activity notification
+  - WM_SC_DISPATCH (RVA ~0x103EC8): Window message from QueueSC via PostMessage
+
+State Flow:
+  IDLE
+    |
+    v
+  [CHECK_SESSION] -> BAIL("SC skip: no session") if GetActiveSession()==NULL
+    |
+    v
+  [MONITORING] 10-second ring buffer read window
+    Log: "BEFORE: ctr=0x%X flag=0x%X ring=%u url="%.40s""
+    |
+    v
+  [SC_BATCH_FIRING] or [MEDAL_BATCH_FIRING] (alternating)
+    Each batch: 9 HTTP POST calls, 500ms apart
+    Per-call: MIDSWAP -> curl_easy_perform() -> parse response
+    Log: "SCLoop[%d]: actObj=%p missionId=%s actId32=0x%08X objId=0x%08X pids=%d (retry=%d)"
+    Log: "[SC] MIDSWAP call %d/%d: str=%d bin=%d"
+    |
+    v
+  [BATCH_RESULTS]
+    Log: "Calls sent: %d", "Skipped (replay): %d", "Rewarded: %d", "Empty: %d", "Total: %d"
+    Log: "AFTER(0s): ctr=0x%X flag=0x%X ring=%u rax=0x%llX url="%.40s" qDelta=%d"
+    |
+    v
+  [COOLDOWN] 58 seconds
+    Log: "SC cooldown 58s", "cooldown starting"
+    If crash -> VEH recovery -> "Crashes absorbed: %d", "Recovered: %d"
+    |
+    v
+  [GOAL_CHECK]
+    If goal reached: "SC goal reached - stopping"
+    Else: toggle batch type, loop back to MONITORING
+
+Batch Type Toggle:
+  - "Include Medals" (default): SC -> MEDAL -> SC -> MEDAL -> ...
+  - "Medals Only": Every batch fires Medals, no SC
+
+=====================================================================
+2. HTTP REQUEST CONSTRUCTION
+=====================================================================
+
+API Endpoint:
+  POST https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end
+  (String found at multiple RVAs: 0xC624C, 0xC6ED0, 0xCAFBC, 0xCBCC0,
+   0xD093C, 0xD15C0, 0xD54DC, 0xD6160, 0xDA07C, 0xDAD10, 0xDECDC, 0xDF960,
+   0xE386C, 0xE44F0, 0xE83FC, 0xE9080, 0xECF8C, 0xEDC10, 0xF1E9C, 0xF2B20)
+
+Request Method: CAPTURE-AND-REPLAY (not constructed from scratch)
+  - Real mission POST is intercepted via libcurl write callback hook
+  - Raw JSON body, headers, and signatures are preserved
+  - Only the "missionId" field is replaced (MIDSWAP) before replay
+
+HTTP Headers (from string references at 0x1020A0-0x102100):
+  Content-Type: application/json
+  Accept: application/json
+  Authorization: <bearer/jwt token from session>
+  X-Session: <session identifier>
+  X-Auth: <alternative auth token>
+  X-Token: <verification token>
+  X-Signature: <cryptographic signature (anti-tamper)>
+  Cookie: <session cookies>
+
+JSON Request Body Fields (captured from game, stored in replay file):
+  --------------------------------------------------------------------------
+  Field              Type     Description
+  --------------------------------------------------------------------------
+  missionId          string   UUID/GUID - PRIMARY KEY for MIDSWAP
+  capturedWarTime    uint32   War timestamp at time of capture
+  url                string   Encoded request URL / internal routing data
+  serObjOrigAddr     uint64   Original game memory address of serialized object
+  md                 hex str  Mission data (serialized binary, hex-encoded)
+  serObj             hex str  Serialized mission result object
+  slotData           hex str  Player loadout/slot configuration data
+  entityDeep         hex str  Deep entity state snapshot
+  entityDataDeep     hex str  Deep entity data snapshot
+  ac                 int      Activity / action count
+  oi                 uint     Operation / objective index
+  gs                 hex str  Game state snapshot
+  --------------------------------------------------------------------------
+
+JSON Response Body (parsed by cheat):
+  {
+    "amount": <int>,       // SC or Medal amount awarded
+    "missionId": "<uuid>"  // Echoed for verification
+  }
+
+Result Categories (from 0x0FEAD0-0x0FEB40):
+  "Calls sent: %d"       - Total POST requests fired
+  "Skipped (replay): %d" - Server rejected as duplicate
+  "Rewarded: %d"         - Response contained non-zero "amount"
+  "Empty: %d"            - Response had zero or missing "amount"
+  "Recovered: %d"        - VEH crash recovery restored the call
+  "Failed: %d"           - Unrecoverable error
+  "Total: %d"            - Aggregate of above
+
+=====================================================================
+3. REPLAY CAPTURE SYSTEM
+=====================================================================
+
+Capture File: C:\libertea_replay_cap.json (0x0C5C78)
+Baked Capture: "[+] Baked capture loaded" (0x0C5D58)
+
+Capture Hook Mechanism:
+  - Hooks libcurl's CURLOPT_WRITEFUNCTION callback
+  - Intercepts native game POSTs to /api/Operation/Mission/end
+  - Records: URL, headers, full POST body, and signature chain
+
+Capture States (from 0x0FE3F0-0x0FE4B8):
+  WAITING:   "  Waiting for mission to capture..."
+  CAPTURED:  "  Session captured"
+  PROBE_ON:  "  Probe ON - will overwrite on next mission"
+  PROBE_WAIT:"Probe: ON - waiting for mission"
+  PROBE_OFF: "Probe: OFF"
+  PROBE_SAVE:"Probe: OFF - %d player%s saved"
+
+Capture File JSON Structure:
+  {
+    "capturedWarTime": <uint32>,
+    "url": "<endpoint_url>",
+    "serObjOrigAddr": <uint64_pointer>,
+    "md": "<hex_mission_data>",
+    "serObj": "<hex_serialized_object>",
+    "slotData": "<hex_slot_data>",
+    "entityDeep": "<hex_entity_state>",
+    "entityDataDeep": "<hex_entity_data>",
+    "ac": <activity_count>,
+    "oi": <objective_index>,
+    "gs": "<hex_game_state>"
+  }
+
+Replay Modes:
+  - Single: One replay on demand
+  - Auto Replay: 2-minute interval (configurable)
+    "Auto-Replay STARTED (2 min interval)" (0x0FE520)
+    "Auto-Replay STOPPED by user" (0x0FE4E0)
+    "Auto-Replay STOPPED - session timer expired" (0x0FF148)
+  - Burst Replay: N replays queued instantly, fired staggered 5s apart
+    "[Burst] Starting %d staggered replays (5s apart)..." (0x100B30)
+    "[Burst] Sent %d/%d" (0x100AB8)
+    "[Burst] Done - %d replays dispatched" (0x100AF8)
+  - Burst Loop: Auto-fires burst every N minutes when ON
+
+=====================================================================
+4. MIDSWAP (Mission ID Swapping)
+=====================================================================
+
+Purpose: The server tracks missionId values to detect duplicate
+         submissions. The cheat replaces the missionId before each
+         replay to bypass this detection.
+
+Two Swap Modes (logged as "[SC] MIDSWAP call %d/%d: str=%d bin=%d"):
+  1. STR swap: Replace missionId text in the JSON body string
+     - Pattern: "missionId":"<old_uuid>" -> "missionId":"<new_uuid>"
+     - Used for the top-level JSON field
+  
+  2. BIN swap: Replace missionId in the hex-encoded binary serialized data
+     - Pattern: Replace UUID bytes within hex-encoded binary blobs
+     - Used for missionId embedded in serObj, md, entityDeep fields
+
+MIDSWAP Logs:
+  "  mid=%s" - Current missionId being used
+  "[HTTP] SWAP: replacing missionId (old %d chars) with %s" (0x101D10)
+  "[SWAP] Activated - next POST will use missionId=%s" (0x101DAC)
+  "CAPTURED missionId=%s" (0x101CE8)
+
+=====================================================================
+5. HASH TABLE NOP MECHANISM
+=====================================================================
+
+Location: Pattern-scanned in game_live.dll (or game_current.dll)
+
+Pattern Bytes (at RVA 0x103480):
+  83 F8 10             cmp  eax, 10h           ; threshold check
+  0F 82 XX XX XX XX    jb   <below_threshold>  ; skip if bucket < 16
+  41 8B 4E 08          mov  ecx, [r14+08h]     ; hash table pointer
+  41 B9 FF FF FF FF    mov  r9d, 0FFFFFFFFh    ; size = -1 (auto)
+  41 B8 70 00 00 00    mov  r8d, 70h           ; entry size = 112 bytes
+
+What it patches:
+  Two INSERT call sites in the game's hash table insert routine
+  that mark SC entities as "collected" by the player.
+  
+  After patching (NOP bytes 0x90):
+  - The hash table is NEVER updated with collected SC entities
+  - The game client thinks NO SC entities have been collected
+  - On Mission/end, the server sees a mission with uncollected SC
+  - The server grants the SC as if they were legitimate mission rewards
+
+Effect: Server-side duplicate detection bypassed because the hash
+        table entries that would identify already-redeemed SC pickups
+        are never written.
+
+Patching Method:
+  1. VirtualProtect makes .text writable
+  2. 26-28 bytes at each INSERT site overwritten with 0x90 (NOP)
+  3. VirtualProtect restores original protection
+
+Related Feature (at 0x103550):
+  "NOP resource value read (freezes resources)"
+  Pattern: F3 41 0F 10 94 F4 ?? ?? ?? ?? 4C 8B 81
+  This freezes resource counters so samples/medals never decrement.
+
+=====================================================================
+6. VEH (VECTORED EXCEPTION HANDLER) CRASH RECOVERY
+=====================================================================
+
+Registration:
+  AddVectoredExceptionHandler(1, &VEHHandler)
+  (First-chance handler, parameter 1 = CALL_FIRST)
+
+Exception Flow:
+  1. Crash occurs during SC farming (ring buffer access, libcurl fail, etc.)
+  2. VEH handler catches exception
+  3. Checks if crash origin is within SC farming code region
+  4. If NOT: return EXCEPTION_CONTINUE_SEARCH (pass to next handler)
+  5. If YES:
+     a. Log: "[SC] VEH recovered crash" (0x100660)
+     b. Log BEFORE state: ctr, flag, ring index, current URL
+     c. Fix RIP to safe continuation point
+     d. Fix stack frame (if needed)
+     e. Return EXCEPTION_CONTINUE_EXECUTION
+  6. SC loop resumes, logs AFTER state with rax value and qDelta
+
+State Tracking:
+  BEFORE: "BEFORE: ctr=0x%X flag=0x%X ring=%u url="%.40s"" (0x100628)
+  AFTER:  "AFTER(0s): ctr=0x%X flag=0x%X ring=%u rax=0x%llX url="%.40s" qDelta=%d" (0x100680)
+
+Crash Counter:
+  "Crashes absorbed: %d" (0x0FEC00)
+
+Crash Log:
+  Written to "=== LIBERTEA CRASH LOG ===" (0x0C6010)
+
+BAIL Conditions (unrecoverable):
+  "BAIL: no serverInfo" (0x1008B8) - ServerInfo global pointer invalid
+  "BAIL: ring index unreadable" (0x1008D0) - Ring buffer memory corrupt
+
+=====================================================================
+7. AUTO-SYNC MECHANISM
+=====================================================================
+
+Purpose: Distribute SC farming rewards to all lobby players so it
+         appears everyone earned SC from the mission legitimately.
+
+Flow:
+  1. Lobby detection: Enumerate players via game internal structures
+     Max: 4 players (UI shows "%d/4 players" at 0x0FE430)
+  
+  2. On DLL injection: "[SC] SyncNow: %d player(s) synced on inject" (0x100B68)
+  
+  3. Each batch cycle: "[SC AutoSync] %d player(s) synced" (0x100860)
+  
+  4. SC distribution: POST body modified per-player before sending
+     SC counter: "%d player%s added to SC" (0x0FE960)
+
+  If no lobby: "No lobby found" (0x0FE978) - only host receives SC
+
+=====================================================================
+8. LIBCURL / HTTP TRANSPORT INTEGRATION
+=====================================================================
+
+DLL Loading Order (from 0x1021C8-0x102208):
+  libcurl.dll -> libcurl-x64.dll -> curl.dll -> wininet.dll
+
+Resolved Functions (0x1026C0-0x1027C0):
+  curl_easy_init()       - RVA 0x102780
+  curl_easy_setopt()     - RVA 0x1026E0  (CURLOPT_POSTFIELDS, URL, headers)
+  curl_easy_perform()    - RVA 0x1026F8  (execute request)
+  curl_easy_getinfo()    - RVA 0x102710  (parse response)
+  curl_easy_cleanup()    - RVA 0x102728
+  curl_slist_append()    - RVA 0x102790  (build header list)
+  curl_slist_free_all()  - RVA 0x1027A8
+
+Cloning: "[HTTP] Clone curl: init=%p slist_append=%p slist_free=%p" (0x1027C0)
+  Each replay request clones the captured libcurl configuration.
+
+Write Callback Hook:
+  "[HTTP] SETOPT WRITEFUNCTION h=%p fn=%p (act=%d mg=%d recon=%d)" (0x102040)
+  Hook intercepts response data to parse "amount" field for SC counting.
+
+POST Fields:
+  "[HTTP] SETOPT POSTFIELDS h=%p len=%d (%s)" (0x102158)
+  "Captured Mission/end POST body: %d bytes" (0x102128)
+
+=====================================================================
+9. SIGNATURE / NONCE CAPTURE
+=====================================================================
+
+The game uses cryptographic request signing to prevent tampering.
+The cheat captures the signature chain during a real mission.
+
+Signature Capture Logs (from 0x102238-0x102389):
+  [SIG-CAPTURE] SINGLE #%d bufLen=%lu bodyXorLen=%lu nonce=%s
+  [SIG-CHUNK] Tracking handle %p ... got f2s7
+  [SIG-CHUNK] Tracking handle %p ... got f2s7+nonce (%lu bytes)
+  [SIG-CHUNK] Tracking handle %p ... got f2s7+partial (%lu bytes)
+  [SIG-CHUNK] handle %p ... nonce captured (%lu bytes)
+  [SIG-CHUNK] handle %p ... body chunk %lu bytes (waiting for key)
+  [SIG-CHUNK] handle %p ... unexpected chunk idx=%d size=%lu
+
+Call Site Tracking (frames at 0x1023F8-0x102440):
+  frame9_outer, frame8, frame7, frame6, frame5,
+  frame4_lobby, frame4_oper
+  These identify which game code path triggered the API call,
+  used to reconstruct context during replay.
+
+BCrypt Integration (0x102800-0x102810):
+  bcrypt.dll -> BCryptHashData
+  Used for nonce/signature verification during capture.
+
+=====================================================================
+10. COMPLETE REQUEST/RESPONSE FLOW
+=====================================================================
+
+PHASE 0: INITIALIZATION
+  - DLL loaded into helldivers2.exe
+  - Pattern scanning finds game_live.dll functions
+  - VEH registered (AddVectoredExceptionHandler)
+  - libcurl loaded and functions resolved
+  - Hash table INSERT calls NOP'd
+  - libcurl write callback hooked
+
+PHASE 1: CAPTURE
+  - Player completes a real mission in-game
+  - Game calls Mission/end -> libcurl POST
+  - Hook captures:
+    * POST URL, all header values (tokens, signatures)
+    * Full JSON request body
+    * Response body (for "amount" field format)
+    * Nonce and signature chain values
+  - Data serialized to C:\libertea_replay_cap.json
+  - Log: "CAPTURED missionId=%s" / "Session captured"
+
+PHASE 2: SC FARMING LOOP
+  - User enables "SC Loop: ON" in overlay
+  - ScActivityAPC enters the loop
+  - Session validated
+  - Ring buffer monitored for 10s (for queued game requests)
+  - FOREACH batch (9 calls):
+      FOREACH call (1-9):
+        a. Read POST body from ring buffer / capture file
+        b. Clone libcurl handle
+        c. MIDSWAP: replace missionId in JSON body
+        d. MIDSWAP: replace missionId in binary data
+        e. Set headers (Authorization, X-Session, etc.)
+        f. Set CURLOPT_POSTFIELDS with modified body
+        g. curl_easy_perform()
+        h. Parse response for "amount"
+        i. Increment counters
+        j. Sleep(500)
+      END FOREACH
+      Toggle batch type (SC <-> Medal)
+      Sleep(58000) // 58s cooldown
+      Check SC goal
+      IF goal reached: stop
+  - Log AFTER state: qDelta (queue delta from 10s monitoring start)
+
+PHASE 3: RESULTS
+  UI Tracker: "%d calls sent  |  %d SC earned  |  %d x100 bonus"
+  UI Tracker simple: "%d calls sent  |  %d SC earned"
+
+=====================================================================
+11. KEY CODE XREFS (WHERE STRINGS ARE USED)
+=====================================================================
+
+RVA       -> String Target                Function Description
+--------     -------------                --------------------
+0x015BD5  -> SCLoop[%d]: actObj=%p...     SC farming main loop log
+0x015C63  -> [SC] MIDSWAP call %d/%d...   Mission ID swap execution
+0x016055  -> MEDAL                        Batch type toggle to Medal
+0x0160B0  -> SC cooldown 58s              Cooldown timer start
+0x0156D6  -> SC goal reached              Goal check comparison
+0x0164C0  -> [SC AutoSync] %d...          Player sync at batch edge
+0x015103  -> SC skip: no session          Session validation gate
+0x0152A5  -> [SC] VEH recovered crash     Exception handler log
+0x01524A  -> BEFORE: ctr=0x%X...          Pre-crash diagnostic
+0x01547A  -> AFTER(0s): ctr=0x%X...       Post-recovery diagnostic
+0x0172B5  -> BAIL: ring index unreadable  Ring buffer access guard
+0x017346  -> BAIL: no serverInfo          ServerInfo validation
+0x0091CE  -> Firing MEDAL batch...        Medal batch entry point
+0x0091D5  -> Firing SC batch...           SC batch entry point
+0x009232  -> Calls sent: %d               Batch result display
+0x009305  -> Rewarded: %d                 SC reward counter
+
+=====================================================================
+12. FILE REFERENCE SUMMARY
+=====================================================================
+
+Capture file:   C:\libertea_replay_cap.json      (0x0C5C78)
+Crash log:      === LIBERTEA CRASH LOG ===        (0x0C6010)
+Baked capture:  [+] Baked capture loaded          (0x0C5D58)
+Game DLL:       game_live.dll                     (0x102208)
+                game_current.dll                  (0x101A90)
+Libcurl:        libcurl.dll / libcurl-x64.dll     (0x1021C8-0x1021D8)
+BCrypt:         bcrypt.dll                        (0x102800)
+WinHTTP:        winhttp.dll                       (0x1021F8)
+WinINet:        wininet.dll                       (0x1021F8)
+ntdll:          ntdll.dll                         (0x1029E0 for NtProtectVirtualMemory)
+
+DLL Modules:
+  - helldivers2.exe (main process)
+  - game_live.dll / game_current.dll (game code)
+  - libcurl.dll (HTTP transport)
+  - winhttp.dll (backup HTTP)
+  - ntdll.dll (syscall stub, NtProtectVirtualMemory)
+
+=====================================================================
+13. ADDITIONAL FEATURES (FARMING)
+=====================================================================
+
+Medals (Warbond Medals):
+  - Same replay mechanism as SC
+  - "Medals Multiplier" (0x0FF518) adjusts rewards
+  - "Include Medals" / "Medals Only" toggle
+
+Mission Rewards:
+  - "Force highest difficulty reward tier (NOP jl at cmp esi,7)" (0x102E90)
+  - "Reward Multiplier: ON" for XP/Medals/Slips
+  - XP Multiplier, Medals Multiplier, Req Slips Mult (0x0FF500-0x0FF530)
+
+Samples:
+  - "Add Samples Instantly" (0x0FF6A8)
+  - "Samples Over Limit Reward" (0x0FF770)
+  - Sample amounts: Common/Rare/Super (auto-clamped to 34/33/33)
+
+Weapon XP:
+  - "Primary Weapon Override" (0x0FEE78)
+  - 51 weapons supported (0x0FECF0-0x0FEE68 for weapon names)
+  - "All Guns" or "Selected Guns" mode
+  - Per-weapon replay count tracking
+
+Instant Features:
+  - Instant Shuttle (0x0FF890)
+  - Instant Complete (0x0FF8D0)
+  - Freeze Mission Timer (0x0FF930)
+
+=====================================================================
+14. VERSION / CREDITS
+=====================================================================
+
+Trainer:       LIBERTEA v1.91.5 / build 414
+Author:        TheOGcup
+Contributors:  Legend, HotPocket
+Discord:       https://discord.gg/exCgdvYPxd (0x0FF2D0)
+Window class:  LIBERTEAWnd (0x0FF108)
+Overlay:       LIBERTEAOverlay (0x101C90)
+HUD:           LIBERTEA HUD (0x101AC0)
+
+=====================================================================
+  END OF ANALYSIS
+=====================================================================

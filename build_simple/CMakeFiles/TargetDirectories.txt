@@ -1,0 +1,5 @@
+C:/Users/emora/OneDrive/Desktop/2/build_simple/CMakeFiles/LiberTeaBrowser.dir
+C:/Users/emora/OneDrive/Desktop/2/build_simple/CMakeFiles/ALL_BUILD.dir
+C:/Users/emora/OneDrive/Desktop/2/build_simple/CMakeFiles/ZERO_CHECK.dir
+C:/Users/emora/OneDrive/Desktop/2/build_simple/imgui/CMakeFiles/imgui.dir
+C:/Users/emora/OneDrive/Desktop/2/build_simple/imgui/CMakeFiles/imgui_backend.dir

@@ -1,0 +1,155 @@
+================================================================================
+  LIBERTEA.DLL - MASTER INDEX & TEAM DELIVERABLES
+  Helldivers 2 Internal Cheat - Complete Reverse Engineering Package
+================================================================================
+
+Total package: 24 files, ~4.5 MB across analysis docs + scripts + binaries
+
+================================================================================
+  TEAM ASSIGNMENTS & DELIVERABLES
+================================================================================
+
+TEAM 1: aPLib Decompressor (Custom Packer Reversal)
+  Script:      _analyze.py (9,623 bytes)
+  Binary:      .text_unpacked_mem.bin (3,489,792 bytes) <-- GROUND TRUTH
+  Binary:      compressed.bin (458,544 bytes) <-- source data
+  Result:      Static decompressor partially implemented; final solution
+               used LoadLibrary + memory dump (DllMain runs native unpacker)
+  Status:      .text successfully extracted via native execution
+
+TEAM 2: Hook System & Pattern Scanner
+  Script:      pattern_extractor.py (11,580 bytes)
+  Data:        patterns_extracted.json (17,975 bytes)
+  Document:    hook_system_analysis.txt (22,234 bytes)
+  Findings:
+    - 73 IDA-style patterns across 4 DLLs (game.dll:67, winhttp.dll:2, bcrypt.dll:2, game_current.dll:2)
+    - 6 hook types: NOP_PATCH (27), CODE_PATCH (30), FUNCTION_PROLOGUE (5),
+      POINTER_RESOLVE (5), FUNCTION_RETURN (4), CONDITIONAL_INVERT (2)
+    - 4-phase architecture: resolve bases -> pattern scan -> hook install -> overlay render
+    - Syscall stub: dynamic SSN resolution from ntdll.dll, stub built at runtime
+    - Overlay: ScPresent::Install uses window subclassing + WM_SC_DISPATCH for thread-safe rendering
+    - All 28 features mapped to hook types and pattern offsets
+
+TEAM 3: SC/Medal Farming Protocol
+  Script:      sc_protocol_analysis.py (43,533 bytes)
+  Document:    sc_farming_analysis.txt (19,459 bytes)
+  Findings:
+    - State machine: 9-call batches, 500ms apart, 58s cooldown, alternating SC/Medal
+    - HTTP capture: libcurl write callback hook intercepts real POST, only missionId replaced
+    - Replay: C:\libertea_replay_cap.json with 12 JSON fields
+    - Hash table NOP: 2 INSERT sites NOP'd to prevent server-side duplicate detection
+    - Auto-sync: modifies POST body per-player to distribute SC across lobby
+    - VEH crash recovery: AddVectoredExceptionHandler(1, ...) with BEFORE/AFTER logging
+
+TEAM 4: Architecture & Build Recreation
+  Script:      pe_analyzer.py (36,815 bytes) -- in build_scripts\
+  Document:    architecture_recreation.txt (59,874 bytes)
+  Findings:
+    - 15 major components mapped by RVA ranges
+    - Full data flow diagram from injector to message loop
+    - 8 major components with recreation pseudocode and difficulty ratings
+    - 6 usable script ideas for further analysis
+    - Complete IAT dependency list (12 DLLs)
+    - Packer anomaly detection (6 anomalies confirmed)
+    - 1,132 function prologues, 162 ImGui IDs identified
+
+================================================================================
+  ANALYSIS DOCUMENTS (5 files, 434 KB)
+================================================================================
+
+libertea_analysis.txt       10 KB   Pointers, offsets, IDs, ImGui toggles, API endpoints,
+                                    weapon list, difficulty tiers, SC loop basics
+
+libertea_tech_breakdown.txt 16 KB   Build architecture, custom aPLib algorithm spec,
+                                    syscall stub analysis, build strategy (3 phases),
+                                    detection vectors (9 attack surfaces)
+
+libertea_deep_dive.txt      47 KB   Memory region map (density analysis per 4KB page),
+                                    function boundary map (680+ functions),
+                                    all meaningful strings, constant values with context,
+                                    complete pattern signatures, C++ RTTI hierarchy,
+                                    complete 30+ feature matrix
+
+libertea_complete.txt       177 KB  Full disassembly, call graph, entropy analysis,
+                                    import stubs (1,560), cross-references,
+                                    anti-debug checks (IsDebuggerPresent, RDTSC x34)
+
+libertea_niche.txt          184 KB  Format strings, HTTP headers, enum chains,
+                                    XOR/rotate/shift constants, magic numbers,
+                                    floating point constants, compiler intrinsics,
+                                    FS/GS TLS access, weapon/stratagem enumeration (50+),
+                                    armor passives, SC state machine, replay JSON format,
+                                    subscription/auth flow, per-feature memory patch table,
+                                    absolute address map, SEH/VEH/CFG references
+
+================================================================================
+  USABLE SCRIPTS (8 files)
+================================================================================
+
+pattern_extractor.py       Extract all 73 IDA patterns with metadata -> JSON
+pe_analyzer.py             Full PE analysis of packed DLL (sections, imports, resources, packer detection)
+sc_protocol_analysis.py    Document and trace SC farming state machine, HTTP capture, replay, VEH
+_analyze.py                aPLib decompressor (partial - see notes)
+unpack.py / unpack2.py     Earlier decompressor attempts (for reference)
+deep_dive.py               Generates libertea_deep_dive.txt
+niche_details.py           Generates libertea_niche.txt
+extract_analysis.py        Generates libertea_analysis.txt
+full_extract.py            Generates libertea_complete.txt
+libertea_tech_breakdown.py Generates libertea_tech_breakdown.txt
+
+================================================================================
+  DATA FILES (4 files)
+================================================================================
+
+.text_unpacked_mem.bin     3,489,792 bytes  Ground-truth unpacked .text section
+compressed.bin             458,544 bytes    aPLib compressed payload at raw offset 0x400
+payload_compressed.bin     458,540 bytes    Earlier extraction (4 bytes offset difference)
+patterns_extracted.json    17,975 bytes     All 73 pattern signatures in structured JSON
+
+================================================================================
+  KEY TECHNICAL FACTS - QUICK REFERENCE
+================================================================================
+
+Binary Identity:
+  Name:      LIBERTEA.DLL
+  Version:   v414 (from UI: "TOOL  v414")
+  Author:    TheOGcup (with Legend, HotPocket)
+  Size:      732,672 bytes (packed), 3.49 MB (.text unpacked)
+  Compiler:  MSVC 2022, C++17, static CRT
+  GUI:       Dear ImGui (ocornut/imgui), OpenGL overlay
+  Discord:   https://discord.gg/exCgdvYPxd
+
+Protection:
+  Packer:       Custom aPLib variant (bit-inverted, dec-eax gamma, sar/xor NOT offset)
+  Anti-debug:   IsDebuggerPresent, CheckRemoteDebuggerPresent, RDTSC (34 occurrences)
+  Anti-cheat:   GameGuard bypass (GameMon.des/64.des), direct syscalls, VEH recovery
+  Updates:      Cloudflare Workers (libertea.libertea4.workers.dev)
+  Auth:         Username/password or access key, subscription tiers
+
+Game Targets:
+  Process:      helldivers2.exe
+  Modules:      game.dll (67 patterns), winhttp.dll (2), bcrypt.dll (2)
+  API:          POST api.live.prod.thehelldiversgame.com/api/Operation/Mission/end
+  Files:        Steam\steamapps\common\Helldivers 2\bin\data\exploded_dat
+                C:\libertea_replay_cap.json
+
+Feature Count: 30+ features across 8 categories
+Hook Types:    NOP_PATCH (27), CODE_PATCH (30), FUNCTION_PROLOGUE (5),
+               POINTER_RESOLVE (5), FUNCTION_RETURN (4), CONDITIONAL_INVERT (2)
+Syscalls:      9 syscall stubs (NtProtectVirtualMemory + others)
+Patterns:      73 signatures across 4 DLLs
+
+================================================================================
+  RECREATION SCRIPTS (IDEAS FROM TEAM 4)
+================================================================================
+
+1. text_dumper.py        - Load DLL, trigger DllMain, dump .text from memory
+2. pattern_validator.py  - Scan game.dll for all 73 patterns, report match rate
+3. traffic_monitor.py    - Proxy/wiretap for SC farming API calls
+4. imgui_dumper.py       - Enumerate ImGui window/widget tree from overlay
+5. hook_checker.py       - Scan game.dll pages for modified code (known hook signatures)
+6. cheat_detector.py     - Scan process memory for LIBERTEA signatures
+
+================================================================================
+  END OF MASTER INDEX
+================================================================================

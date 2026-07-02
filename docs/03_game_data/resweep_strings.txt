@@ -1,0 +1,761 @@
+================================================================================
+  LIBERTEA UNPACKED .TEXT - EXHAUSTIVE RESWEEP
+  All findings NOT previously documented in libertea_niche.txt or libertea_complete.txt
+================================================================================
+
+=== 1. ENCODED/OBFUSCATED STRINGS ===
+
+BASE64 ALPHABET (found at ~0x102xxx):
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+  --> Confirms base64 encoding is used for some data serialization.
+
+HEX ENCODING ALPHABETS:
+  "0123456789ABCDEF"              (uppercase hex, for %X format)
+  "0123456789abcdefghijklmnopqrstuvwxyz"  (custom base-36 encoding?)
+
+OBSFUSCATED DATA BLOCK (large hex string, possible hash/key):
+  5E6A8B0956099E8F73549268D7FD0A2F7D1C2FC5524F1F682EFEC91AA0DB74A31938
+  FF783173BBDE56E9DC57400E34E676D9B617E4275BA6F51F837AE222D631B5EBD73E
+  BACFCD6998F1F1B9A5324A8765F237863909DFFA36F5863D4A2F426C3690344C0ABA
+  52DDE0EC08B6D1283895
+  --> 256 bytes of hex. Likely a SHA-256 hash or encrypted config blob.
+
+MANGLE LAMBDA IDENTIFIER (compiler-generated):
+  ".?AV<lambda_8451673382a5e3d3c72f51a960fc46a6>@@"
+  --> MSVC lambda name mangling. The hex string is likely a build hash.
+
+IMGUI STYLE COLOR ARRAY (long hex values for default colors):
+  "C7 44 24 24 1B 94 E7 01" = machine code writing a specific float value
+
+=== 2. UNICODE STRINGS (UTF-16LE, previously undocumented) ===
+
+CRYPTO API STRING:
+  "SHA256"            -- explicit Windows CNG/BCrypt SHA-256 usage
+  "ChainingModeCBC"   -- AES-CBC mode (Windows BCrypt)
+  "ChainingMode"      -- prefix for cipher mode selection
+  "BCryptHashData"    -- CNG hash API
+
+ANTI-DEBUG / SECURITY:
+  "NtQueryInformationProcess"  -- anti-debug check via NtDll
+  "GetSystemTimePreciseAsFileTime" -- high-res timestamps for anti-replay
+
+C++ CRT INTERNAL PATHS:
+  "minkernel\crts\ucrt\inc\corecrt_internal_strtox.h"
+  "__crt_strtox::floating_point_value::as_double"
+  "__crt_strtox::floating_point_value::as_float"
+  "_is_double"
+  --> Microsoft C runtime shipping with the binary. Indicates MSVC 2019+/2022.
+
+IMGUI BACKEND:
+  "imgui_impl_opengl2"    -- uses OpenGL 2.x for rendering overlay
+  "imgui_impl_win32"      -- Win32 window hook for overlay input
+  "imgui.ini"             -- ImGui config auto-save file
+  "imgui_log.txt"         -- ImGui debug log
+
+FONT REFERENCES:
+  "Segoe UI"              -- Windows system font used as default
+  "Segoe UI Symbol"       -- for special characters/emoji
+  "Consolas"              -- monospace font for log displays
+  "wglSwapIntervalEXT"    -- OpenGL vsync control (WGL)
+
+USER-AGENT STRING:
+  "Mozilla/5.0"           -- HTTP requests identify as a browser
+  "POST"                  -- HTTP method
+  "Content-Type: application/json" -- request content type
+
+GAME DUMP FILES:
+  "gamedump.bin"
+  "%USERPROFILE%\Documents\gamedump.bin"
+  "C:\gamedump.bin"
+  "libertea_crash.log"
+  "C:\libertea_crash.log"
+
+STEAM PATH (UTF-16LE encoded):
+  "C:\Program Files (x86)\Steam\steamapps\common\Helldivers 2\"
+  "\helldivers2.exe"
+
+LOCALE STRINGS:
+  "en-US" (default locale) + large list of locale codes in both mixed-case
+  and lowercase variants. Full MSVC CRT locale database included.
+
+.NET FRAMEWORK REFERENCE:
+  "mscoree.dll"           -- .NET CLR loader reference
+
+STDIN/STDOUT HANDLE:
+  "CONOUT$"               -- console output handle name
+
+=== 3. DEBUG SYMBOLS ===
+
+No .pdb paths found (stripped or built without debug info).
+
+COMPILER INTERNALS (MSVC):
+  "`local static guard'"         -- C++11 magic statics guard variable
+  "`local static thread guard'"  -- C++11 thread-local statics guard
+  "`vftable'"                    -- vtable RTTI data
+  "`vbtable'"                    -- virtual base table
+  "`vftable constructor closure'" -- constructor vtordisp
+  "`local vftable'"              -- local class vtable
+  "`ag-"                          -- truncated RTTI data
+  "executable format error"       -- PE loader error string
+
+RUNTIME FUNCTION LOOKUP:
+  "RtlLookupFunctionEntry returned NULL (no unwind info)"
+  --> Custom SEH/VEH exception handler using RtlLookupFunctionEntry
+
+COMPILER DEFINE / INTRINSIC:
+  "__preserve_none"          -- MSVC attribute/feature
+
+=== 4. CRYPTO ===
+
+CRYPTO APIs (from bcrypt.dll):
+  - "bcrypt.dll"                    -- loaded dynamically
+  - "BCryptHashData"                -- data hashing (SHA-256)
+  - "ChainingModeCBC"               -- block cipher mode
+  - "ChainingMode"                  -- cipher mode prefix
+  - "SHA256"                        -- algorithm identifier
+
+SIGNATURE/AUTH HEADERS:
+  - "X-Signature:"                  -- custom auth header
+  - "X-Session"                     -- session token header
+  - "X-Auth"                        -- auth token header
+  - "X-Token"                       -- token header
+  - "Authorization:"                -- standard auth header
+  - "Cookie:"                       -- cookie header
+  - "Reduced Signature"             -- ?? reduced signing mode
+
+NONCE/CHUNK-BASED SIGNING SCHEME:
+  - "f2s7"                          -- appears to be a signature protocol identifier
+  - "<$f2s7" / "<$f2s7uIL"        -- tag markers in chunked data
+  - "got f2s7"                      -- protocol detection
+  - "got f2s7+nonce (%lu bytes)"    -- nonce extraction
+  - "got f2s7+partial (%lu bytes)"  -- partial capture
+  - "nonce captured (%lu bytes)"    -- nonce captured
+  - "body chunk %lu bytes (waiting for key)" -- body decryption pending key
+  - "unexpected chunk idx=%d size=%lu" -- chunk sequence error
+  - "bodyXorLen"                    -- XOR'd body length field
+  - "[SIG-CAPTURE]" "[SIG-CHUNK]"  -- log prefixes for sig capture system
+  --> Custom HTTP response body signing/encryption breaking via chunk analysis
+
+=== 5. IP ADDRESSES ===
+
+No explicit IPv4/IPv6 addresses found in ASCII or UTF-16LE strings.
+
+=== 6. EMAIL ADDRESSES ===
+
+No email addresses found.
+
+=== 7. TIMESTAMPS ===
+
+HIGH-RES CLOCK:
+  "GetSystemTimePreciseAsFileTime"  -- precise Windows timestamp API
+  Used for precise timing, likely in anti-replay/time checks.
+
+IMGUI DATE/TIME FORMAT:
+  "%B %d, %Y  %I:%M %p"           -- full date/time display
+  "%04u-%02u-%02u %02u:%02u:%02u" -- crash log timestamp
+  "%02d/%02d/%04d %02d:%02d:%02d" -- probe data timestamp
+  "%lluh %02llum %02llus"          -- runtime duration display
+
+CRT LOCALE DATE STRINGS (UTF-16LE):
+  Full set: Sunday-Saturday, January-December
+  Format: "MM/dd/yy", "dddd, MMMM dd, yyyy", "HH:mm:ss"
+
+=== 8. VERSION STRINGS ===
+
+  "Dear ImGui 1.91.5 (19150)"      -- ImGui library version
+  "TOOL  v414"                     -- LIBERTEA tool version (from overlay)
+  ImGui internal version: 1.91.5
+
+=== 9. UNIQUE IDENTIFIERS ===
+
+GUID FOUND:
+  60862556-ee16-4ae4-b002-64f6acbc66c6
+  --> Used in SC (Super Credit) API authentication calls
+  --> Format: "%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x"
+
+COMPILER BUILD HASH:
+  lambda_8451673382a5e3d3c72f51a960fc46a6
+  --> Likely derived from a build artifact hash
+
+=== 10. ERROR CODES ===
+
+No standard HRESULT/NTSTATUS value strings found. Error handling uses
+custom log messages with printf-style codes:
+
+  "Information failed (%lu)"       -- game dump info
+  "All paths failed (%lu)"         -- file write fallback exhausted
+  "ERROR = failed / crashed"       -- log status
+  "MISS"                           -- log status
+  "[QUEUED]"                       -- log status
+  "QUEUED = processing"            -- log status
+  "TIMEOUT"                        -- SC call timeout
+  "EMPTY"                          -- SC result empty
+  "[R] Auth failed"                -- replay auth failed
+  "[R] Busy"                       -- replay busy
+  "[R] Guard reset"                -- replay guard
+  "[B] Unavailable"                -- burst unavailable
+  "[B] No data"                    -- burst no data
+  "WARNING: Hook mismatch"         -- hook validation failure
+  "AOB not found in game.dll"      -- pattern scan failure
+  "[CALL-SITE] %s RVA=0x%X NOT READABLE" -- memory access failure
+  "[Features] ALL LAYERS FAILED for addr=%p size=%zu err=%lu" -- memory protection failure
+
+=== 11. API KEY / TOKEN PATTERNS ===
+
+HTTP HEADERS (from curly bracketed captures):
+  X-Signature:
+  X-Session
+  X-Token
+  X-Auth
+  Authorization:
+  Cookie:
+  "Reduced Signature"      -- likely a toggle to use truncated signing
+
+  "Invalid username or password." -- login error string
+  "Password"                      -- field label
+
+=== 12. USER CONFIG / SETTINGS ===
+
+IMGUI CONFIG FILE:
+  "imgui.ini"              -- auto-saved ImGui layout
+
+IMGUI DEBUG LOG:
+  "imgui_log.txt"          -- debug output
+
+CRASH LOG:
+  "libertea_crash.log"     -- crash log location
+  "C:\libertea_crash.log"  -- fallback crash log path
+
+GAME DUMP:
+  "gamedump.bin"
+  "%USERPROFILE%\Documents\gamedump.bin"
+  "C:\gamedump.bin"
+
+NO registry keys (HKLM/HKCU) found in strings.
+
+IMGUI CONFIG DEBUG:
+  "Set io.ConfigDebugDetectIdConflicts=false to disable this warning
+   in non-programmers builds."
+  "[imgui-error] (current settings: Assert=%d, Log=%d, Tooltip=%d)"
+  "[imgui-error] In window '%s': %s"
+  "(Debug Log: Auto-disabled some ImGuiDebugLogFlags after 2 frames)"
+
+=== 13. PROXY/SOCKET ===
+
+PROXY / INTERCEPTION DETECTION (UTF-16LE strings):
+  "Fiddler"     "fiddler"
+  "mitmproxy"   "MITMPROXY"
+  "Burp"        "burp"        "PortSwigger"
+  "Charles"     "charles"
+  "Proxyman"    "proxyman"
+  "Requestly"
+  "HTTP Toolkit" "httptoolkit"
+  "Telerik"
+  "DO_NOT_TRUST"
+  "OWASP"
+  --> Comprehensive local proxy/MITM detection to prevent traffic analysis
+  --> These are likely used to detect if someone is intercepting the cheat's
+      HTTP traffic to the SC farming server
+
+HTTP LIBRARIES:
+  "libcurl.dll"           -- primary HTTP library
+  "libcurl-x64.dll"       -- 64-bit variant
+  "curl.dll"              -- fallback
+  "winhttp.dll"            -- Windows HTTP API
+  "wininet.dll"            -- Windows Internet API
+  "game_live.dll"          -- live game state? (referenced alongside game.dll)
+
+SOCKET ERROR:
+  "not a socket"           -- standard errno string
+
+=== 14. INJECTION / HOOKING STRINGS ===
+
+HOOK INSTALLATION:
+  "[P] Hook installed"           -- primary hook
+  "[N/A] Hooks not installed"     -- hooks not active
+  "Hook installed "               -- generic confirmation
+  "Hook verified"                 -- integrity check
+  "WARNING: Hook mismatch "       -- hook validation failed
+
+MEMORY PATCHING DETAILS:
+  "Force unconditional jump (bypass boundary)"
+  "Force unconditional jump (bypass strategem count)"
+  "NOP unlock check jump"         -- unlock armory bypass
+  "NOP both hash table INSERT calls that mark SC entities as collected"
+  "NOP landing speed multiply"
+  "NOP grenade count conversion"
+  "NOP hellbomb arm timer write"
+  "NOP shield relay cooldown write"
+  "NOP turret heat accumulation"
+  "NOP turret timer write"
+  "NOP conditional jump so turrets always expire immediately"
+  "NOP fuse timer write"
+  "NOP killstreak timer write"
+  "NOP timer decrement (subss xmm0,xmm7)"
+  "NOP resource value read (freezes resources)"
+  "NOP stamina read/drain"
+  "NOP railgun charge calculation"
+  "Return from recoil function immediately"
+  "Return TRUE to skip ragdoll check"
+  "Skip coordinate timer check"
+  "Skip pipe connection timer"
+
+HOOK TYPES (Weapon Editor):
+  "Hook0(ReadWeapon)"       -- reads weapon stats
+  "Hook1(Rounds)"           -- modifies rounds/clips
+  "Hook2(TridentDmg)"       -- modifies Trident laser damage
+  "Hook3(TridentFR)"        -- modifies Trident fire rate
+
+CODE CAVE REFERENCES:
+  "[SC-LIMIT] Code cave at %p"       -- super credit limit enforcer
+  "[SpawnSwapper] Cave=%p hook=0x%llX"
+  "[SpeedCave] Cave=%p hook=0x%llX disp=%d"
+  "[StratCave] Cave=%p hook=0x%llX disp=%d"
+  "[WeaponEditor] Hook0(ReadWeapon) cave=%p site=0x%llX"
+  "[WeaponEditor] Hook1(Rounds) cave=%p site=0x%llX"
+  "[WeaponEditor] Hook2(TridentDmg) cave=%p site=0x%llX"
+  "[WeaponEditor] Hook3(TridentFR) cave=%p site=0x%llX"
+
+SIGNATURE / AOB PATTERNS (byte sequences used for pattern scanning):
+  "01 41 04 49 8B 46 30"
+  "0F 2F 76 ?? C6 46 18 ?? 76"
+  "0F 2F C1 48 89 44 24 ?? 76"
+  "0F 5B DB F3 41 0F 59 4E ?? F3"
+  "0F 84 ?? ?? ?? ?? 83 7C 24 ?? ?? 0F 83"
+  "0F 85 ?? ?? ?? ?? 48 8B 44 24 ?? 80 78 29"
+  "0F 85 ?? ?? ?? ?? 48 8D BE ?? ?? ?? ?? 41 0F 28 CE"
+  "0F 86 ?? ?? ?? ?? 0F 29 ?? ?? F3 0F 10 3D ?? ?? ?? ?? 44 0F"
+  "2B C8 BA ?? ?? ?? ?? 49 8B"
+  "40 53 57 48 81 EC 18 0D 00 00"
+  "40 57 48 83 EC ?? 3B 15 ?? ?? ?? ?? 41 8B F8 4C 89 7C 24"
+  "41 0F 28 C1 F3 41 0F 58 C6"
+  "41 0F 2F 45 ?? 77 ?? 48"
+  "41 80 BC 24 AB 02 00 00 00"
+  "41 8B 47 ?? 4C 8B 7C 24 ?? 4C"     -- Inf Stamina pattern!
+  "42 83 2C 81 ?? 48"
+  "42 83 2C 81 ?? 49"
+  "42 FF ?? E0 49 8B 46 ?? 4E"
+  "42 FF 0C E0 49 8B 46 ?? 4E"
+  "44 8B C5 4C 8B 89 ?? ?? ?? ?? 48 8B CB 41 FF 91 ?? ?? ?? ?? 41 FF C7"
+  "45 0F B6 6D 3B"
+  "45 8B 74 D7 04 41 FF CE 3B F9"
+  "48 83 EC 18 48 8B 01"
+  "48 89 5C 24 ?? 48 89 6C 24 ?? 48 89 74 24 ?? 48 89 7C 24 ?? 41 56 3B 15 ?? ?? ?? ?? 4D 8B F0"
+  "48 89 5C 24 ?? 48 89 7C 24 ?? 4C 89 44"
+  "48 89 5C 24 ?? 48 8B D9 85 D2 75 ?? 4C"
+  "48 89 5C 24 08 57 48 83 EC 30 C7 02 FF FF FF FF"
+  "48 8B 05 ?? ?? ?? ?? 33 D2 48 8B 35"
+  "48 8B 05 ?? ?? ?? ?? 8B 90 90 63 01 00 4C 8D 88 C8 62 01 00"
+  "48 8B 0D ?? ?? ?? ?? 44 89 80 60 0C"
+  "48 8B 35 ?? ?? ?? ?? 33 C9 49 8B E9 41 8B D8 4C 8B 90 28 01"
+  "48 8B 35 ?? ?? ?? ?? 49 8B E9 41 8B D8 48 8B 88 28 01"
+  "48 8D 04 52 48 8D 0C 85 ?? ?? ?? ?? 49 8B 42 ?? 44 89 74 01"
+  "49 8B 45 ?? 48 89 45 E0 49"
+  "4C 8B F0 4C 8B 89 ?? ?? ?? ?? 48 8B C8 41 FF 91 ?? ?? ?? ?? 48 8B 0D ?? ?? ?? ?? 48 8D 15 ?? ?? ?? ?? 44 8B C3"
+  "4C 8D 85 ?? ?? ?? ?? 0F 29 85"
+  "4D 8B E0 4C 89 44 24 ?? 48 8B DA"
+  "74 ?? 32 C0 EB ?? B0 ?? 45 32 ED"
+  "74 ?? 49 8D 83 ?? ?? ?? ?? 39 50 04 74 ?? FF C1 48 83 C0 18 41 3B ?? 72 F0 EB ?? 8B"
+  "75 ?? 41 80 BF ?? ?? ?? ?? ?? 0F 85"
+  "75 ?? 41 8D 45 ?? 89 06 EB ?? C7 06"
+  "75 ?? F3 0F 10 46 ?? 0F 2F C6 72 ?? F3"
+  "76 ?? ?? ?? ?? ?? ?? ?? ?? 48 8B 44 ?? ?? 48 8B 4C ?? ?? 44 38"
+  "83 F8 10 0F 82 ?? ?? ?? ?? 41 8B 4E 08 41 B9 FF FF FF FF 41 B8 70 00 00 00"
+  "83 FE 07 7C 07 BA ?? ?? ?? ?? EB 16 83 FE 05"
+  "8B 4B ?? 48 8D 04 ?? ?? ?? ?? ?? 48"
+
+  --> These are the AOB signature patterns used to find game functions.
+  --> `??` = wildcard byte. The library scans game.dll memory for these
+      sequences, then installs hooks at the located addresses.
+  --> "41 8B 47 ?? 4C 8B 7C 24 ?? 4C" is specifically marked as Inf Stamina.
+
+CALL-SITE ANALYSIS SYSTEM:
+  The binary has an extensive call-site analysis/disassembly engine that
+  categorizes each hook point:
+  - DIRECT CALL E8 rel32     (targetRVA=0x%X)
+  - INDIRECT CALL via reg    (FF %02X)
+  - INDIRECT CALL via r%d    (41 FF %02X)
+  - CALL [rip+rel32] IAT     (0x%llX)
+  - CONTAINING func: RVA     (0x%X..0x%X)
+  --> This allows dynamic resolution of hook targets without hardcoding
+
+PROTECTION LAYERS:
+  - syscall (direct syscall instruction)
+  - ntdll_direct (call through ntdll.dll export)
+  - VirtualProtect (fallback)
+  "NtProtectVirtualMemory" used for memory protection changes
+
+=== 15. PROCESS NAMES ===
+
+Beyond helldivers2.exe, no other process names were found referenced
+as target processes. The cheat only targets the game process.
+
+DLL TARGETS (loaded by the game process):
+  "game.dll"               -- primary game logic
+  "game_current.dll"       -- live game state?
+  "game_live.dll"          -- live service module?
+  "bcrypt.dll"             -- crypto (loaded by cheat, not game)
+
+XINPUT DLLs (controller support fallback chain):
+  "xinput1_4.dll"
+  "xinput1_3.dll"
+  "xinput9_1_0.dll"
+  "xinput1_2.dll"
+  "xinput1_1.dll"
+
+=== 16. CHEAT-SPECIFIC TERMS ===
+
+HARDCODED GAME ITEM NAMES (unlock/DLC verification):
+  All primary weapons, secondary weapons, grenades, armor sets, boosters,
+  player titles are embedded as string literals. This is likely used to:
+  (a) Build the weapon selection UI
+  (b) Verify item ownership for the unlock armory feature
+  (c) Map item IDs to display names
+
+FULL WEAPON LIST:
+  Primary:
+    AR-23 Liberator, AR-23P Liberator Penetrator, AR-23A Liberator Carbine,
+    AR-23C Liberator Concussive, AR-61 Tenderizer, AR-48 Truth Whisperer,
+    AR-32 Pacifier, AR-59 Suppressor, AR-2 Coyote
+    R-63 Diligence, R-63CS Diligence Counter-Sniper, R-36 Eruptor,
+    R-2124 Constitution, R-6 Deadeye, R-2 Amendment, R-72 Censor
+    SG-8 Punisher, SG-8S Slugger, SG-8F Punisher Fire of Liberty,
+    SG-8P Punisher Plasma, SG-225 Breaker, SG-225IE Breaker Incendiary,
+    SG-225SP Breaker Spray&Pray, SG-20 Halt, SG-451 Cookout, SG-97 Sweeper
+    SMG-37 Defender, SMG-72 Pummeler, SMG-32 Reprimand, SMG-203 Gallant
+    LAS-5 Scythe, LAS-16 Sickle, Las-16 Trident, LAS-17 Double-Edged Sickle
+    PLAS-1 Scorcher, PLAS-101 Purifier, PLAS-39 Accelerator Rifle
+    JAR-5 Dominator, CE-74 Breaker, CE-27 Ground Breaker
+    AR/GL-21 One-Two (explosive combo)
+    FLAM-66 Torcher (flamethrower)
+
+  Support Weapons:
+    Machine Gun, Anti-Materiel Rifle, Railgun, Arc Thrower, Spear,
+    Autocannon, Recoilless Rifle, Flamethrower, Quasar Cannon,
+    Spire Sterilizer, Laser Cannon
+
+  Pistols/Secondary:
+    R-7 ??, R-2 Amendment, R-6 Deadeye, R-72 Censor (revolvers)
+
+  Grenades:
+    G-12 High Explosive, G-6 Frag, G-16 Impact, G-10 Incendiary,
+    G-23 Stun, G-3 Smoke, G-4 Gas, G-123 Thermite, G-13 Incendiary Impact,
+    G-50 Seeker
+
+FULL ARMOR LIST (by category):
+  Light:  SC-34 Infiltrator, SC-37 Legionnaire, SC-30 Trailblazer Scout,
+          SC-15 Drone Master, CE-67 Titan, FS-05 Marksman, AF-91 Field Chemist
+  Medium: B-01 Tactical (DP-00), B-08 Light Gunner, B-24 Enforcer,
+          B-27 Fortified Commando, SA-25 Steel Trooper, CE-74 Breaker,
+          FS-34 Exterminator, FS-23 Battle Master, CM-14 Physician
+          CE-35 Trench Engineer, CE-64 Grenadier
+  Heavy:  FS-38 Eradicator, FS-37 Ravager, FS-55 Devastator, FS-61 Dreadnought,
+          FS-11 Executioner, CE-81 Juggernaut, B-22 Model Citizen, B-27...
+          DP-11 Champion of the People, DP-40 Hero of the Federation,
+          DP-53 Saviour of the Free, SA-04...
+
+FULL PLAYER TITLE LIST (from capes/armor permutations):
+  DP-00 Tactical, DP-8 Mountain-Scaled, DP-11 Champion of the People,
+  DP-40 Hero of the Federation, DP-53 Saviour of the Free
+  FS-05 Marksman, FS-11 Executioner, FS-23 Battle Master, FS-34 Exterminator,
+  FS-37 Ravager, FS-38 Eradicator, FS-55 Devastator, FS-61 Dreadnought
+  CE-07 Demolition Specialist, CE-27 Ground Breaker, CE-35 Trench Engineer,
+  CE-64 Grenadier, CE-67 Titan, CE-74 Breaker, CE-81 Juggernaut,
+  CE-101 Guerilla Gorilla
+  SC-15 Drone Master, SC-30 Trailblazer Scout, SC-34 Infiltrator,
+  SC-37 Legionnaire
+  B-08 Light Gunner, B-22 Model Citizen, B-24 Enforcer, B-27 Fortified Commando
+  SA-04 Combat Technician, SA-7 Headfirst, SA-8 Ram, SA-12 Servo Assisted,
+  SA-25 Steel Trooper, SA-32 Dynamo
+  CM-09 Bonesnapper, CM-10 Clinician, CM-14 Physician, CM-17 Butcher,
+  CM-21 Trench Paramedic
+  CPH-26 Commandant (helmets)
+  CW-4 Arctic Ranger, CW-9 White Wolf, CW-22 Kodiak, CW-36 Winter Warrior
+  PH-9 Predator, PH-56 Jaguar, PH-202 Twigsnapper
+  I-09 Heatseeker, I-44 Salamander, I-92 Fire Fighter, I-102 Draconaught
+  TR-7 Ambassador of the Brand, TR-9 Cavalier of Democracy, TR-62 Knight,
+  TR-117 Alpha Commander
+  SR-18 Roadblock, SR-24 Street Scout, SR-64 Cinderblock
+  AF-02 Haz-Master, AF-50 Noxious Ranger, AF-52 Lockdown, AF-91 Field Chemist
+  EX-00 Prototype X, EX-03 Prototype 3, EX-16 Prototype 16
+  AC-1 Dutiful, AC-2 Obedient
+
+SPECIAL TITLES (non-armor derived):
+  GS-11 Democracy's Deputy, GS-17 Frontier Marshall, GS-66 Lawmaker
+  RS-6 Fiend Destroyer, RS-20 Constrictor, RS-40 Beast of Prey,
+  RS-67 Null Cipher, RS-89 Shadow Paragon, RS-100 Sanctioner
+  RE-1861 Parade Commander, RE-2310 Honorary Guard, RE-824 Bearer of the Standard
+  O-2 Heavy Operator, O-3 Free Spirit, O-44 Bonded Pilot
+  CPG-48 Sapper (special)
+  A-9 Helljumper (special)
+
+BOOSTER REFERENCES:
+  Inf Stamina, Supplemental Stamina, Add Resources
+  "NOP resource value read (freezes resources)"
+  "NOP stamina read/drain"
+
+STRATAGEM CATEGORIES EMBEDDED:
+  "Backpack", "Backpacks", "TURRETS", "STRATAGEMS"
+  "Eagle Strikes", "Orbitals"
+
+MISSION DIFFICULTY NAMES:
+  "7 - Super Helldive (150%)"  (only one explicitly found; others likely
+   computed from game data)
+
+ANTI-CHEAT DETECTION STRING:
+  "Cheat Engine"        -- string literal check for Cheat Engine presence
+  "%s detected "        -- generic detection log format
+
+=== 17. STEAM INTEGRATION ===
+
+STEAM PATHS (UTF-16LE, multiple copies = embedded in different code paths):
+  "Steam\steamapps\common\Helldivers 2\"   (x6+ copies in binary)
+  Path variations found:
+    - "C:\Program Files (x86)\Steam\steamapps\common\Helldivers 2\"
+    - "...\Steam\steamapps\common\Helldivers 2\bin/data"
+    - "...\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  --> The cheat scans these paths to locate the game installation
+  --> Also reads exploded_dat files from the game's data directory
+  --> Multiple copies suggest this string is embedded in different
+      functions (game path detection, file I/O, data reading)
+
+No explicit Steam API interface names (ISteamUser, etc.) found,
+suggesting Steam interaction may be indirect or through game.dll.
+
+=== 18. MEMORY ===
+
+MEMORY PROTECTION:
+  - NtProtectVirtualMemory (used for memory protection changes)
+  - "[Features] Protection layers: syscall=%s, ntdll_direct=%s,
+     VirtualProtect=fallback"
+  - "[Features] ALL LAYERS FAILED for addr=%p size=%zu err=%lu"
+
+STACK GUARD:
+  - "`local static guard'"        -- MSVC static init guard
+  - "`local static thread guard'" -- MSVC thread-local init guard
+
+MEMORY RELATED STRINGS:
+  - "[SC-LIMIT] Code cave at %p"
+  - "[R] Guard reset"             -- guard page/mechanism reset
+  - "__preserve_none"             -- MSVC preservation attribute
+  - "FlsFree"                     -- Fiber Local Storage free
+  - "to break in item call-stack, or" -- truncated error string
+
+PE SECTION HEADERS FOUND AS STRINGS:
+  ".tls"     ".tls$"     ".tls$ZZZ"    (Thread Local Storage sections)
+
+=== 19. BONUS: HIGH ENTROPY REGION ANALYSIS ===
+
+Offset 0x000F8000-0x0010A000 (~168KB) contains HIGH ENTROPY data (7.1-7.3
+bits/byte). This region is where the majority of the garbled/obfuscated
+printf-style strings were extracted. These appear to be:
+  (a) XOR-encrypted or scrambled format strings
+  (b) Possibly a custom string table with runtime deobfuscation
+  (c) Could be compressed data decoded at runtime
+
+The sheer volume (~2600+ garbled strings in the 0x0F8000 region) suggests
+a systematic string obfuscation approach for anti-analysis.
+
+=== 20. BONUS: PROBE/REPLAY/BURST ARCHITECTURE ===
+
+The cheat has three operational modes for SC farming:
+
+PROBE MODE:
+  - Captures raw HTTP POST data from real Mission/end API calls
+  - Stores: missionId, entityDeep, entityDataDeep, slotData, serObj, gs, ac, oi
+  - "capturedWarTime": %u  -- timestamp of capture
+  - "serObjOrigAddr": %llu -- original server object address
+  - "Probe data saved" / "Probe aborted: module not found"
+  - "[Probe] Game thread captured"
+  - "[P] Capture complete"
+  - JSON payload structure documented in format strings
+
+REPLAY MODE:
+  - Replays captured probe data via HTTP POST
+  - SWAP system replaces old missionId with fresh UUID
+  - "[SWAP] Activated ... next POST will use missionId=%s"
+  - "GOLDEN..UUID" -- golden capture with known-good mission UUID
+  - "[GOLDEN-CAP] ... CAPTURED missionId=%s"
+  - "[RECON-BODY]" -- body reconstruction from captured data
+  - "[RECON-URL]" / "[RECON-HDR]" / "[RECON-RESP]" -- HTTP tracing
+
+BURST MODE:
+  - Sends multiple replays in rapid succession
+  - "Burst Send (%d replays)" -- queues all replays
+  - 5-second stagger between sends
+  - "Burst complete -- %d/%d sent. Safe to exit game!"
+  - "Burst Loop" -- auto-fires bursts at set intervals
+
+SUPER CREDIT (SC) SYSTEM:
+  - "SC Tracker" tracks SC earned
+  - "MEDAL batch (9 calls x 500ms)" -- calls fire in batches
+  - 58-second cooldown between batches
+  - "MIDSWAP" -- mid-session missionId swap
+  - "SC goal reached" notification
+  - "[SC AutoSync] %d player(s) synced" -- multi-player SC sync
+  - XP Multiplier, Medal Multiplier, Slips Multiplier
+
+=== 21. BONUS: IMGUI WIDGET ID MAP ===
+
+Complete map of all ImGui ## widget identifiers (these define the UI layout):
+
+  SETTINGS TABS:
+    ##libertea_main   ##sub_info         ##misc_scroll
+    ##replay_scroll   ##replay_subtabs   ##farming_scroll
+    ##sc_scroll       ##inbox_scroll     ##log_scroll
+
+  FEATURE TOGGLES:
+    ##afk     (AFK Prevention)
+    ##bl      (Burst Loop)
+    ##diff    (Force Difficulty)
+    ##ic5     (Instant Complete)
+    ##shut5   (Instant Shuttle)
+    ##mult    (Reward Multiplier)
+    ##sr      (Samples Reward)
+    ##samp    (Add Samples)
+    ##ag      (All Guns)
+    ##sg      (Selected Guns)
+    ##ua      (Unlock All Armory)
+    ##bmf     (Offline mode)
+    ##bmo     (Online mode)
+    ##pkm     (Pack mode?)
+
+  CONFIG INPUTS:
+    ##spd     (Movement Speed)
+    ##smult   (Speed Multiplier)
+    ##fov     (FOV)
+    ##fmed    (Medals Multiplier)
+    ##fxp     (XP Multiplier)
+    ##fslips  (Req Slips Mult)
+    ##limit   (Stop after)
+    ##session (Session timer)
+    ##goal    (SC Goal)
+    ##xpset   (Set XP baseline)
+    ##xpr     (Reset XP)
+    ##sct     (SC Tracker reset)
+    ##blmin   (Burst Loop minutes)
+    ##maxreplays  (Max replays)
+    ##BurstCount  (Burst count)
+    ##repperwep    (Replays per weapon)
+    ##difflvl      (Difficulty level)
+    ##sessionmins  (Session minutes)
+    ##xpbase       (XP baseline)
+    ##pwcombo      (Primary weapon combo)
+    ##sglist       (Selected guns list)
+    ##sgsearch     (Search weapons)
+
+  SAMPLE CONFIG:
+    ##fsamp_c  (Common samples)
+    ##fsamp_r  (Rare samples)
+    ##fsamp_s  (Super samples)
+
+  PACK CONFIG (Fluid Pack - stratagem code editor):
+    ##pk       (Pack name)
+    ##pk_rst   (Reset pack)
+
+  AUTH:
+    ##keyinput   (key/license input)
+    ##passinput  (password input)
+    ##userinput  (username input)
+
+  SPECIAL:
+    ##msc     (Drop Count - mass strat)
+    ##msd     (Mass Strat Drop)
+    ##isc     (Instant Strat Callin)
+    ##erad_ih (Infinite Horde Mode)
+    ##wxpovr  (Enable weapon XP override)
+    ##we      (Weapon editor - damage/pen/FR)
+
+  WIDGET GROUPS:
+    ##ap_go      (Apply)
+    ##ap_rst     (Reset armor)
+    ##ap_armor   (Armor)
+    ##ap_scan    (Scan Armor)
+    ##ap_pass    (Passive)
+
+  REWARD TIERS:
+    ##src   (Common Reward)
+    ##srr   (Rare Reward)
+    ##srs   (Super Reward)
+
+=== 22. BONUS: WEAPON EDITOR PARAMETERS ===
+
+  Damage##we            -- damage multiplier
+  Pen. (No Angle)##we   -- penetration without angle
+  Pen. (Angle)##we       -- penetration with angle
+  Struct. Penetration##we -- structure penetration
+  FireRate (Trident)##we -- fire rate for Trident specifically
+  Demolition##we         -- demolition force
+  Enable##wxpovr          -- enable XP override per weapon
+
+=== 23. BONUS: ANTI-ANALYSIS / DETECTION EVASION ===
+
+PROXY DETECTION (prevents traffic inspection):
+  Searches for running processes: Fiddler, mitmproxy, Burp Suite,
+  Charles Proxy, Proxyman, Requestly, HTTP Toolkit, Telerik Fiddler,
+  OWASP ZAP, PortSwigger
+
+CHEAT ENGINE DETECTION:
+  "Cheat Engine"         -- string check
+  "cheat engine"         -- case variation
+  "cetrainer"            -- CE trainer detection
+  "ce-trainer"           -- hyphenated variant
+  "%s detected "         -- generic detection notification
+
+MEMORY INTEGRITY:
+  "WARNING: Hook mismatch " -- detects if hooks have been modified
+
+=== 24. BONUS: MISCELLANEOUS STRINGS NOT IN ANY OTHER DOC ===
+
+OPENGL:
+  "wglSwapIntervalEXT"    -- vsync toggle (LibERtea uses OpenGL for overlay)
+  "imgui_impl_opengl2"    -- OpenGL 2.x renderer backend
+
+\ud83d\ud...               -- Unicode emoji sequence (party popper?) used in SC notifications
+
+"frame9_outer", "frame8", "frame7", "frame6", "frame5"
+  --> Stack frame labels used in the probe capture sequence
+
+".fptable"               -- floating point table (game data)
+
+MATH CONSTANTS:
+  0x42340000 = 45.0f    (FOV default)
+  0x43960000 = 300.0f   (speed default?)
+  0x4e065bd3 = ~537 million (large counter seed?)
+
+"Helldivers2"            -- plain game name string (separate from file path)
+"F3 41 0F 10"            -- SSE instruction bytes used alongside game name
+
+LIBERTEA BRANDING:
+  "LIBERTEA"             -- plain branding
+  "LIBERTEAWnd"          -- window class name
+  "LIBERTEAOverlay"      -- overlay window class
+  "L I B E R T E A"      -- spaced branding in crash log
+  "Made by.TheOGcup"     -- author attribution? (fragmented in binary)
+  "TheOGcup"             -- likely the cheat developer
+
+GENERAL IMGUI:
+  "MESSAGE FROM DEAR IMGUI"          -- ImGui about dialog title
+  "https://github.com/ocornut/imgui/blob/master/docs/FAQ.md#qa-usage"
+  "Dear ImGui 1.91.5 (19150)"
+
+INPUT SYSTEM:
+  "Alt+", "Ctrl+", "Shift+"                 -- modifier key labels
+  "LeftAlt", "LeftCtrl", "LeftShift"        -- specific modifiers
+  "RightAlt", "RightCtrl", "RightShift"
+  "MouseLeft", "MouseRight", "MouseMiddle"  -- mouse buttons
+  "MouseX1", "MouseX2", "MouseWheelX", "MouseWheelY"
+  "(Hold CTRL to:" / "Remap w/ Ctrl+Shift:" -- UI hints
+  "Press ESC to abort picking."
+
+TABLE/CONTEXT MENUS:
+  "Copy Link###CopyLink"
+  "Reset order###ResetOrder"
+  "Size all columns to default###SizeAll"
+  "Size all columns to fit###SizeAll"
+  "Size column to fit###SizeOne"
+
+SCROLL WIDGETS:
+  "#SCROLLX", "#SCROLLY"          -- scroll axis names
+  "#RESIZE"                       -- resize widget ID
+

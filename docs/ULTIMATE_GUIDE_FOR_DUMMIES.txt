@@ -1,0 +1,3100 @@
+================================================================================
+  ULTIMATE BEGINNER'S GUIDE TO LIBERTEA
+  Understanding the Helldivers 2 Cheat — Explained Like You're Five
+================================================================================
+
+Welcome! This guide is for ANYONE who wants to understand LiberTea, even if
+you've never written a line of code, never heard of reverse engineering, and
+don't know what a "DLL" is.
+
+We'll explain EVERYTHING in plain English, using analogies you already know.
+No jargon. No assumptions. Just friendly explanations.
+
+Think of this guide as your translator between the technical world and the
+real world. It's written for the person who asks "but what does that actually
+mean?" — and we answer every single time.
+
+The guide is comprehensive. You don't need to read it all at once. Use the
+table of contents to jump to whatever interests you.
+
+================================================================================
+  TABLE OF CONTENTS
+================================================================================
+
+  SECTION 1:   WHAT IS HELLDIVERS 2?
+               - The setting and story
+               - The gameplay loop
+               - The economy and grind
+               - Why people want cheats for this game
+
+  SECTION 2:   WHAT IS A GAME CHEAT / TRAINER?
+               - The concept explained
+               - External vs internal cheats
+               - How cheats modify memory
+               - Real-world analogies
+
+  SECTION 3:   WHAT IS LIBERTEA SPECIFICALLY?
+               - Who made it
+               - What it does (feature list)
+               - How it's distributed
+               - How it's protected
+               - Why it's sophisticated
+
+  SECTION 4:   HOW DOES IT WORK? (ELI5 Level)
+               - The sticky note on the rulebook
+               - Finding the rules
+               - Changing the rules
+               - The server-side challenge
+
+  SECTION 5:   ARCHITECTURE EXPLAINED SIMPLY
+               5.1 The Injector (the delivery truck)
+               5.2 The DLL (the payload)
+               5.3 The Packer (the disguise)
+               5.4 The Overlay (the control panel)
+               5.5 The Syscall System (the back door)
+
+  SECTION 6:   EACH FEATURE EXPLAINED IN PLAIN ENGLISH
+               6.1 Farming (Mission Rewards)
+               6.2 Super Credits Farming
+               6.3 God Mode
+               6.4 Movement Speed
+               6.5 No Recoil / No Ragdoll
+               6.6 Infinite Stratagems
+               6.7 Weapon XP
+               6.8 Armory Unlock
+               6.9 Visual Features
+               6.10 Ammo Features
+               6.11 Combat Features
+               6.12 Player Features
+
+  SECTION 7:   TECHNICAL TERMS GLOSSARY (50+ Terms)
+               - DLL, Process, Memory, Hook, Pattern, Offset
+               - Syscall, SSN, Ntdll, Kernel, Driver
+               - NOP, RVA, IAT, Section, Heap, Stack, Register
+               - aPLib, Compression, Packer, Unpacking
+               - ImGui, Overlay, Subclassing, Rendering Hook
+               - VEH, SEH, Exception Handler, Crash Recovery
+               - MSVC, CRT, Static Linking, RTTI, Name Mangling
+               - HTTP, HTTPS, libcurl, WinHTTP, WinINet
+               - JSON, Base64, XOR, SHA256, AES-CBC, bcrypt
+               - GameGuard, Anti-Cheat, Signature Detection
+               - HWID, MachineGuid, Fingerprinting
+               - IDE, Debugger, Disassembler, Decompiler
+               - Fiddler, Burp Suite, Proxy, MITM
+               - RDTSC, Anti-Debug, Timing Check
+               - And many more...
+
+  SECTION 8:   THE GAMEGUARD BYPASS EXPLAINED
+               - What is GameGuard?
+               - How does it detect cheats?
+               - How does LiberTea bypass it?
+               - Why kernel-level matters
+
+  SECTION 9:   HOW TO USE THESE ANALYSIS FILES
+               - File map: which doc answers which question
+               - Script usage guide
+               - Data file reference
+
+  SECTION 10:  FREQUENTLY ASKED QUESTIONS (20 Questions)
+               - Is this still working?
+               - Can I get banned?
+               - Is this legal?
+               - Why analyze this?
+               - How long did it take?
+               - How does the overlay work?
+               - What is the f2s7 protocol?
+               - How many people made this?
+               - Can I learn from this?
+               - What does the packer do?
+               - How was the .text unpacked?
+               - What are the detection vectors?
+               - Does this work on all game versions?
+               - Can I build my own from this analysis?
+               - What are the risks of running this?
+               - How does the pattern scanner work?
+               - What's the most valuable feature?
+               - How hard would this be to detect?
+               - What tools were used for analysis?
+               - Where can I learn more?
+
+  SECTION 11:  WHO MADE THIS AND WHY?
+               - The original authors
+               - The analysis team
+               - Motivation
+
+  SECTION 12:  SAFETY, LEGALITY, AND ETHICS
+               - Safety risks
+               - Legal considerations
+               - Ethical discussion
+
+  APPENDIX A:  COMMON MISCONCEPTIONS (10 misconceptions)
+  APPENDIX B:  READING THE ANALYSIS DOCUMENTS
+  APPENDIX C:  ANALOGY REFERENCE TABLE
+  APPENDIX D:  PROJECT METHODOLOGY & TIMELINE
+  APPENDIX E:  WHAT MAKES LIBERTEA SOPHISTICATED?
+
+================================================================================
+  SECTION 1: WHAT IS HELLDIVERS 2?
+================================================================================
+
+1.1 THE SETTING AND STORY
+--------------------------
+Helldivers 2 is a third-person cooperative shooter game released in February
+2024 by Arrowhead Game Studios, a Swedish game developer. It's the sequel to
+Helldivers (2015), which was a top-down twin-stick shooter.
+
+The story: In the far future, humanity has united under a single government
+called "Super Earth." Super Earth is a satirical fascist regime that uses
+propaganda, militarism, and "managed democracy" to control its population.
+You play as a Helldiver — an elite shock trooper who drops from orbit onto
+alien planets to fight for "freedom" and "democracy."
+
+The game is heavily satirical, inspired by the movie Starship Troopers (1997).
+Everything from the propaganda broadcasts to the tutorial narrator drips with
+dark humor about militarism and authoritarianism.
+
+1.2 THE GAMEPLAY LOOP
+----------------------
+Gameplay in Helldivers 2 works like this:
+
+  STEP 1: On your ship (the "Super Destroyer"), you select a planet, a
+          difficulty level (1 through 10), and a mission type.
+  STEP 2: You and up to 3 teammates (friends or random matchmaking) drop
+          onto the planet in "hellpods" — single-person drop capsules.
+  STEP 3: You navigate the map, completing objectives like:
+          - Destroying enemy bases
+          - Rescuing civilians
+          - Activating terminals
+          - Launching ICBMs
+          - Eliminating high-value targets
+          - Collecting geological survey data
+  STEP 4: You fight two enemy factions:
+          - TERMINIDS: Giant alien bugs (like Starship Troopers). Swarm
+            tactics, melee-focused, spawning from hives.
+          - AUTOMATONS: Killer robots. Ranged combat, tanks, dropships,
+            more tactical.
+  STEP 5: You collect resources during the mission:
+          - SAMPLES (common, rare, super): Used to upgrade your ship modules.
+            Must be extracted with you — if you die, you drop them.
+          - SUPER CREDITS: Premium currency found at Points of Interest (POIs)
+            on the map. Can also be bought with real money.
+          - MEDALS: Earned from completing missions and personal orders.
+            Spent in Warbonds (battle passes).
+          - REQUISITION SLIPS: Basic in-game currency earned from missions.
+  STEP 6: You call in the extraction shuttle and survive until it arrives
+          (usually ~2 minutes of defending the extraction point).
+  STEP 7: Back on the ship, you spend your rewards on:
+          - STRATAGEMS: Offensive/defensive/support abilities you call from
+            orbit (airstrikes, turrets, supply drops, vehicles). Unlocked
+            with Requisition Slips.
+          - SHIP MODULES: Permanent upgrades to your Super Destroyer (faster
+            stratagem cooldowns, more ammo, etc.). Upgraded with Samples.
+          - WARBONDS: Battle passes that unlock weapons, armor, grenades,
+            boosters, emotes, and cosmetics. Purchased with Medals. Some
+            Warbonds cost Super Credits to unlock initially.
+
+1.3 THE ECONOMY AND GRIND
+--------------------------
+Helldivers 2 has a dual economy:
+
+  FREE CURRENCIES (earned by playing):
+    - Requisition Slips: Very common. Most players hit the cap (50,000)
+      quickly and have nothing to spend them on.
+    - Medals: Earned from missions and personal orders. Used for Warbonds.
+      Reasonable earn rate — you can complete a Warbond in a few dozen hours.
+    - Samples: Must be found on the map and extracted. Common samples are
+      easy. Rare samples require mid-difficulty. Super samples only appear
+      on difficulty 6+ and are hard to find. Upgrading all ship modules
+      requires HUNDREDS of samples.
+
+  PREMIUM CURRENCY (can be bought or found):
+    - Super Credits (SC): The premium currency. Costs real money:
+      * 150 SC = $1.99
+      * 375 SC = $4.99
+      * 1,000 SC = $9.99
+      * 2,100 SC = $19.99
+    - You CAN find SC in missions (10-40 SC per pickup at Points of Interest),
+      but grinding this way is SLOW — maybe 20-50 SC per hour of focused
+      farming.
+    - A single Warbond costs 1,000 SC ($10 worth) to unlock.
+    - There are rotating "Super Store" armor sets that cost 250-400 SC each.
+    - To unlock EVERYTHING with real money would cost HUNDREDS of dollars.
+    - To grind it all for free would take HUNDREDS of hours.
+
+1.4 WHY PEOPLE WANT CHEATS FOR THIS GAME
+-----------------------------------------
+The grind-to-reward ratio in Helldivers 2 is deliberately slow to encourage
+spending real money. This creates three types of cheat users:
+
+  GRIND-SKIPPERS: Players who enjoy the combat and co-op but don't want to
+  spend 500 hours unlocking everything. They use cheats to skip the grind
+  while still playing the game normally.
+
+  EXPLORERS: Players who want to try ALL the weapons, stratagems, and builds
+  without the time/money investment. They use cheats to unlock everything
+  and experiment.
+
+  MALICIOUS ACTORS: Players who use cheats to ruin other people's games
+  (griefing with infinite stratagems, speed hacking to objectives, etc.).
+  Note: LiberTea has features that could be used this way, but its primary
+  focus is on rewards/currency farming.
+
+The existence of cheats in Helldivers 2 is a direct result of the game's
+monetization model. When the "free" path takes hundreds of hours and the
+"paid" path costs hundreds of dollars, a significant number of players will
+seek alternative routes.
+
+================================================================================
+  SECTION 2: WHAT IS A GAME CHEAT / TRAINER?
+================================================================================
+
+2.1 THE BASIC CONCEPT
+----------------------
+A "game cheat" or "trainer" is a program that modifies a game while it's
+running to give the player advantages that aren't normally available.
+
+Think of it this way: imagine you're playing a board game. The game has rules
+written in a rulebook. A cheat is like reaching over and changing the
+rulebook while the game is in progress:
+
+  NORMAL RULE: "When you pass GO, collect $200."
+  CHEAT RULE:  "When you pass GO, collect $2,000."
+
+The game still FOLLOWS the rules — but the rules have been altered.
+
+2.2 COMPUTER GAMES AND MEMORY
+------------------------------
+In a computer game, the "rulebook" is stored in your computer's RAM (Random
+Access Memory). RAM is a giant grid of numbered slots, each holding a number.
+Each slot has an ADDRESS (where it is) and a VALUE (what number is stored there).
+
+  Address #1,048,576 contains: 100   (this might be your health)
+  Address #2,097,152 contains: 37    (this might be your ammo)
+  Address #3,145,728 contains: 0     (this might be your Super Credits)
+  Address #4,194,304 contains: "run" (this might be game code — instructions)
+
+A cheat program can:
+  a) FIND these addresses (where does the game store health?).
+  b) READ the current values (what's my health right now?).
+  c) WRITE new values (now make my health 99999).
+  d) MODIFY the code instructions (change "subtract 1" to "subtract 0").
+
+2.3 EXTERNAL VS INTERNAL CHEATS
+--------------------------------
+There are two main types of cheats:
+
+  EXTERNAL CHEAT:
+    - A SEPARATE program that runs alongside the game.
+    - It uses Windows API functions like ReadProcessMemory() and
+      WriteProcessMemory() to peek and poke at the game's memory from OUTSIDE.
+    - Analogy: Looking through the window of a building and using a long stick
+      to move things around inside.
+    - PROS: Easier to write, doesn't require injection, less likely to crash
+      the game.
+    - CONS: Slower (context switches between programs), fewer capabilities,
+      MUCH easier for anti-cheat to detect (reading/writing cross-process
+      memory is a huge red flag).
+
+  INTERNAL CHEAT:
+    - Code that is INJECTED INSIDE the game process. It runs AS PART OF the
+      game, sharing the same memory space.
+    - Analogy: Sneaking inside the building and rearranging things from within.
+    - PROS: Full access to everything (can read/write any memory instantly,
+      call game functions directly, hook game code), harder to detect from
+      outside (no cross-process activity).
+    - CONS: Harder to write (must be a DLL, must handle injection, must not
+      crash the game), any bug = instant game crash, must bypass anti-cheat
+      that's running inside the same process.
+    - LiberTea is an INTERNAL cheat.
+
+2.4 REAL-WORLD ANALOGIES
+-------------------------
+  - A cheat is like a MOD for a game, except instead of adding new content,
+    it changes the rules of the existing content.
+  - An external cheat is like using a universal remote to control a TV from
+    outside the room.
+  - An internal cheat is like replacing the TV's circuit board with one that
+    has extra features built in.
+  - A "hook" is like a detour sign on a road — traffic that was going to
+    Function A is rerouted to Function B instead.
+  - A "pattern scan" is like finding a specific page in a book by searching
+    for a unique phrase, rather than by page number.
+
+================================================================================
+  SECTION 3: WHAT IS LIBERTEA SPECIFICALLY?
+================================================================================
+
+3.1 WHO MADE IT
+---------------
+LiberTea was created by a developer known as "TheOGcup," with contributions
+from at least two other developers: "Legend" and "HotPocket."
+
+The name "LiberTea" is a play on words:
+  - "Liberty" — the freedom/democracy theme of Helldivers 2.
+  - "Tea" — a reference to "liber-tea," a drink referenced in the game's lore.
+
+3.2 WHAT IT DOES — COMPLETE FEATURE LIST
+-----------------------------------------
+LiberTea is a full-featured in-game menu with 28+ toggleable features across
+8 categories. Here's the complete list:
+
+  FARMING:
+    1. Max Reward Multiplier — Multiply all mission rewards (XP, samples,
+       medals, requisition) by any amount (2x, 5x, 10x, etc.).
+    2. Force Difficulty 1-10 — Make the game think you're on a higher
+       difficulty for better rewards.
+    3. Add Samples Instantly — Press a button to add common/rare/super
+       samples to your inventory without finding them on the map.
+    4. Samples Over Limit — Exceed the normal cap on how many samples you
+       can carry and extract.
+    5. Instant Shuttle — Call extraction and have the shuttle arrive
+       immediately (normally ~2 minutes).
+    6. Instant Complete Mission — Skip the entire mission and get full
+       rewards immediately.
+
+  SUPER CREDITS:
+    7. Super Credit Loop (Auto Batch Fire) — Automatically send fake
+       mission completions to the server to earn SC repeatedly.
+    8. Super Credit Goal — Set a target number of SC and the cheat
+       farms until you reach it.
+    9. Medal Batch — Same as SC loop but for Medals.
+    10. Medals Only Mode — Only farm Medals, not SC.
+    11. Auto Sync — Distribute earned SC to all players in your lobby
+        (so your friends get SC too).
+
+  WEAPON XP:
+    12. Primary Weapon Override — Make the game think you're using a
+        specific weapon for XP gains, even while holding a different one.
+    13. All Guns Rotation — Cycle through all 51 guns automatically,
+        gaining XP on each one.
+    14. Selected Guns List — Manually pick which guns to level up.
+
+  PLAYER:
+    15. God Mode — Never take damage.
+    16. Movement Speed — Run at any speed (1x, 2x, 10x normal).
+    17. No Ragdoll — Don't get knocked down by explosions.
+    18. No Recoil — Guns don't kick up when fired.
+
+  COMBAT:
+    19. Infinite Stratagems — Unlimited orbital/eagle strikes, turrets,
+        supplies, etc.
+    20. Instant Stratagem Call-In — Stratagems arrive the moment you
+        throw the beacon (no waiting for the ship animation).
+    21. Turret Overheat/Duration — Turrets never overheat and last forever.
+    22. Kill Counter — Track your kill count.
+    23. Infinite Horde — Make enemies spawn endlessly (for challenge runs).
+
+  VISUAL:
+    24. FOV Editor — Change your field of view (zoom in/out).
+    25. Map Hack — See all enemies, objectives, and items on the minimap.
+    26. No Laser Overheat — Energy weapons fire continuously.
+    27. Instant Charge — Charged weapons (Railgun, etc.) fire instantly.
+    28. Dark Fluid Pack — Modify the special jump pack behavior.
+    29. No Mission Boundary — Remove "desertion" zone warnings.
+    30. Longer Hover — Jetpack hover duration increased.
+
+  ARMORY:
+    31. Unlock All — Every weapon, armor piece, grenade, and booster
+        becomes available instantly.
+    32. Weapon Stats Editor — Change damage, fire rate, magazine size, etc.
+    33. Armor Passive Editor — Change armor perks and passive abilities.
+
+  AMMO:
+    34. Infinite Ammo — Magazine never empties.
+    35. No Reload — Skip reload animations.
+    36. Infinite Grenades — Grenade count never decreases.
+    37. Infinite Stims — Healing stim count never decreases.
+
+3.3 HOW IT'S DISTRIBUTED
+-------------------------
+LiberTea is not publicly available. It's distributed through:
+  - A PRIVATE DISCORD SERVER (discord.gg/exCgdvYPxd)
+  - Access is sold via SUBSCRIPTION (monthly payment) or ACCESS KEY
+    (one-time purchase)
+  - The binary files are hosted on CLOUDFLARE WORKERS CDN
+    (libertea.libertea4.workers.dev)
+  - Updates are pushed automatically through the CDN
+  - The injector (LIBERTEA_Bypass.exe) checks for updates on launch
+  - Version tracking is done through the Discord community
+
+3.4 HOW IT'S PROTECTED — ANTI-DETECTION MEASURES
+--------------------------------------------------
+LiberTea goes to extraordinary lengths to avoid being detected:
+
+  LAYER 1 — PACKING (OBFUSCATION):
+    The cheat DLL is compressed with a CUSTOM aPLib variant. The algorithm is
+    NOT the standard aPLib — it uses bit inversion, modified gamma coding, and
+    a unique offset calculation. This means:
+    - Antivirus scanners can't match known signatures.
+    - Manual reverse engineering requires figuring out the custom algorithm.
+    - The packed DLL looks like random noise bytes.
+
+  LAYER 2 — SYSCALLS (BYPASSING MONITORING):
+    Normally, programs call Windows functions through DLLs (kernel32.dll,
+    ntdll.dll). Anti-cheat tools can MONITOR these DLLs to detect suspicious
+    activity. LiberTea SKIPS THE DLLs entirely and makes raw "syscall"
+    instructions directly to the Windows kernel. This bypasses any monitoring
+    that happens at the DLL level.
+
+  LAYER 3 — GAMEGUARD BYPASS:
+    Helldivers 2 uses nProtect GameGuard, a kernel-level anti-cheat driver.
+    LiberTea blocks GameGuard's driver files (GameMon.des, GameMon64.des)
+    before GameGuard can even start. It also uses SeDebugPrivilege elevation
+    to gain the permissions needed to modify other processes.
+
+  LAYER 4 — CRASH RECOVERY (VEH):
+    If the cheat's hooks cause the game to crash, a Vectored Exception
+    Handler (VEH) catches the crash, restores the original game code,
+    logs what happened, and prevents the game from closing. This makes
+    the cheat resilient to game updates that might break hooks.
+
+  LAYER 5 — ANTI-DEBUG:
+    The cheat checks if someone is analyzing it:
+    - IsDebuggerPresent() — Windows API check for attached debuggers.
+    - CheckRemoteDebuggerPresent() — Check for remote debugging.
+    - RDTSC timing checks (34 occurrences) — Measure how long operations
+      take; debuggers slow things down, so timing anomalies reveal analysis.
+    - Process scanning for analysis tools.
+
+  LAYER 6 — PROXY DETECTION:
+    LiberTea checks for network monitoring tools:
+    - Fiddler (web debugging proxy)
+    - Burp Suite (security testing tool)
+    - Charles Proxy (HTTP monitor)
+    - mitmproxy (man-in-the-middle proxy)
+    - 8+ other proxy/debugging tools
+    If it detects any of these, it knows someone is watching its network
+    traffic and can change behavior.
+
+  LAYER 7 — HWID FINGERPRINTING:
+    Each copy of the cheat is bound to a specific computer's hardware ID
+    (derived from the MachineGuid registry key). This prevents sharing
+    and allows the authors to ban specific users.
+
+  LAYER 8 — ENCRYPTED COMMUNICATION:
+    Communication with the cheat's backend servers uses:
+    - Base64 encoding for encoding binary data as text.
+    - bcrypt (Windows crypto API) for AES-CBC encryption and SHA256 hashing.
+    - A custom "f2s7" protocol for HTTP body encryption with nonce-based
+      key exchanges and XOR obfuscation.
+
+3.5 WHY IT'S SOPHISTICATED
+----------------------------
+LiberTea is NOT a "script kiddie" cheat. It demonstrates professional-grade
+software engineering:
+
+  - Custom compression algorithm (not off-the-shelf).
+  - Multi-phase initialization architecture.
+  - Kernel-level anti-cheat bypass.
+  - Production-grade GUI (ImGui with 162+ widgets).
+  - Network protocol reverse engineering and replay system.
+  - Crash recovery infrastructure.
+  - License/auth system with subscription tiers.
+  - CDN-based update distribution.
+  - Triple HTTP backend stack for resilience.
+  - Hardware-based licensing.
+
+This is the kind of cheat that teams spend months developing, and it commands
+a premium price in the cheat marketplace for good reason.
+
+================================================================================
+  SECTION 4: HOW DOES IT WORK? (ELI5 Level)
+================================================================================
+
+4.1 THE STICKY NOTE ON THE RULEBOOK
+-------------------------------------
+The simplest way to understand LiberTea:
+
+  Imagine Helldivers 2 is a board game with a rulebook.
+  The rulebook says: "When you get hit, lose 1 health."
+
+  LiberTea puts a STICKY NOTE over that rule:
+  "When you get hit, lose 0 health."
+
+  The game still READS the rulebook. It still FOLLOWS the instructions it
+  finds there. But the instructions have been replaced with different ones.
+
+  That's it. That's the entire principle.
+
+4.2 FINDING THE RULES
+----------------------
+But to put a sticky note on the right rule, you first need to FIND it.
+The game's rulebook (its code, stored in RAM) is millions of lines long.
+
+LiberTea finds specific rules using "pattern scanning." It searches for
+UNIQUE byte sequences that identify a particular rule:
+
+  Example: The health-damage function might always start with bytes:
+    "48 89 5C 24 08 48 89 74 24 10"
+
+  No other function in the game starts with this exact sequence. So when
+  LiberTea scans the game's memory and finds this pattern, it knows:
+  "AHA! This is the health-damage function. I'll put my sticky note HERE."
+
+LiberTea has 73 of these patterns stored for different game functions.
+
+4.3 CHANGING THE RULES
+-----------------------
+Once a rule is found, LiberTea has several ways to change it:
+
+  NOP_PATCH: Erase an instruction entirely.
+    Original: "subtract 10 from health"
+    After:    "do nothing    do nothing do nothing"
+    (The NOP instruction literally means "No Operation" — do nothing.)
+
+  CODE_PATCH: Replace an instruction with a different one.
+    Original: "set speed to 1.0"
+    After:    "set speed to 5.0"
+
+  FUNCTION_PROLOGUE: Redirect the start of a function.
+    Original: "function doDamage() { calculate...; apply...; }"
+    After:    "function doDamage() { return immediately; }"
+    (The function is still called, but it immediately returns without doing
+    anything. This is how God Mode works.)
+
+  POINTER_RESOLVE: Change where a pointer points.
+    Original: "player weapon -> rifle_01"
+    After:    "player weapon -> super_gun_99"
+
+  FUNCTION_RETURN: Modify what a function returns.
+    Original: "isPlayerDead() returns TRUE"
+    After:    "isPlayerDead() returns FALSE"
+
+  CONDITIONAL_INVERT: Flip a yes/no check.
+    Original: "IF player is reloading THEN prevent shooting"
+    After:    "IF player is reloading THEN allow shooting" (JE -> JMP)
+
+4.4 THE SERVER-SIDE CHALLENGE
+-------------------------------
+Some things (like health and ammo) are handled entirely on YOUR computer.
+Changing them is straightforward — just modify the local memory.
+
+But OTHER things (like Super Credits and Medals) are stored on the GAME
+SERVER, not your computer. You can't just change a number in your RAM to
+get 99999 Super Credits — the server doesn't care what your computer says.
+
+This is where LiberTea's most clever trick comes in: REPLAY ATTACKS.
+
+Instead of modifying a number, LiberTea:
+  1. Watches your network traffic while you play legitimately.
+  2. Records a "successful mission completion" message as it's sent to
+     the server (like recording a phone call).
+  3. Later, it plays that recording BACK to the server, over and over.
+
+The server receives the recording and thinks: "Oh, the player just completed
+another mission. Here are their rewards." It doesn't know the mission was
+completed hours ago and is just being replayed.
+
+This is like recording yourself saying "I'd like to withdraw $100" at a bank,
+then playing that recording a hundred times. The bank teller keeps handing
+you money because they hear the same authorized request.
+
+To prevent the server from saying "wait, I've already seen this mission":
+  - LiberTea disables the server's duplicate-checking code (the "hash table
+    NOP" — two INSERT operations in the game's duplicate detection system
+    are erased).
+  - It changes the mission ID in each replay so they all look different
+    (MIDSWAP — mission ID swapping).
+
+================================================================================
+  SECTION 5: ARCHITECTURE EXPLAINED SIMPLY
+================================================================================
+
+LiberTea is not one big program. It's a collection of interconnected
+components, each with a specific job.
+
+5.1 THE INJECTOR (LIBERTEA_Bypass.exe)
+---------------------------------------
+What it is: A small .exe program you run before Helldivers 2.
+
+What it does in simple terms: It's the "delivery truck" that transports the
+cheat code into the game.
+
+Step-by-step:
+
+  STEP 1 — ASK FOR PERMISSION:
+    Normally, programs on Windows can't see or touch each other's memory.
+    This is like living in an apartment building where you can't enter your
+    neighbor's unit. The injector gives itself a special key called
+    "SeDebugPrivilege" that lets it access ANY program's memory.
+
+  STEP 2 — DISABLE THE ALARM SYSTEM:
+    GameGuard's driver files (GameMon.des and GameMon64.des) are like
+    security cameras in the building. The injector deletes or blocks these
+    files so GameGuard never starts — the cameras never turn on.
+
+  STEP 3 — DELIVER THE PACKAGE:
+    The injector uses Windows functions to:
+    a) Open the Helldivers 2 process (OpenProcess).
+    b) Allocate some memory inside it (VirtualAllocEx) — like renting a
+       storage unit inside the game's warehouse.
+    c) Copy the cheat DLL into that memory (WriteProcessMemory).
+    d) Create a thread inside the game that runs the DLL's startup code
+       (CreateRemoteThread) — like hiring a worker inside the warehouse
+       to unpack the delivery.
+    e) The DLL's DllMain runs, and the cheat "wakes up" inside the game.
+
+5.2 THE DLL (LIBERTEA.DLL)
+----------------------------
+What it is: The actual cheat code — a .dll file (like a .exe but it can't
+run on its own — it needs a host process to load it).
+
+What it does: Everything. Once injected, it goes through FOUR PHASES:
+
+  PHASE 1 — UNPACK:
+    The DLL arrives compressed (squished to hide from antivirus). The first
+    thing it does is DECOMPRESS itself. This is like opening a vacuum-sealed
+    bag — the contents expand to their full size.
+    - Compressed size: 458 KB
+    - Uncompressed size: 3.49 MB
+    - The decompression code is a CUSTOM algorithm (modified aPLib).
+    - This phase runs automatically when the DLL loads (within DllMain).
+
+  PHASE 2 — RESOLVE IMPORTS (IAT FIXUP):
+    The DLL needs to call Windows functions (like "draw a window" or "send
+    network data"). It doesn't know where these functions live until it
+    builds an "address book" — the Import Address Table (IAT).
+    - The packed DLL's IAT is scrambled (intentionally, to confuse analysis).
+    - Phase 2 unscrambles it and fills in the correct addresses.
+    - After this, the DLL can call any Windows function it needs.
+
+  PHASE 3 — FIND AND PATCH THE GAME:
+    Now the cheat scans the game's code for specific patterns (73 of them).
+    Each pattern is like a fingerprint that identifies a specific game
+    function. When a pattern is found, the cheat installs a HOOK at that
+    location — a redirect or modification.
+    - Patterns are in game.dll (67 patterns), winhttp.dll (2), bcrypt.dll
+      (2), and game_current.dll (2).
+    - Hooks come in 6 types (NOP_PATCH, CODE_PATCH, etc.).
+    - 404 IDA-style patterns are tested; 73 are actually used.
+    - Missing patterns trigger a warning: "Game may have updated..."
+    - Direct syscalls are used for NtProtectVirtualMemory to change memory
+      permissions (code pages are normally read-only).
+
+  PHASE 4 — CREATE THE OVERLAY:
+    LiberTea creates a transparent window on top of the game and hooks into
+    the game's rendering system (wglSwapIntervalEXT) so it can draw its
+    menu on every frame.
+    - The overlay uses ImGui (Dear ImGui) version 1.91.5.
+    - It renders via OpenGL (the game's graphics system).
+    - Window subclassing ensures the rendering runs on the correct thread.
+    - A custom Windows message (WM_SC_DISPATCH) coordinates rendering.
+    - The overlay is invisible until you press the menu key (INSERT/HOME).
+
+5.3 THE PACKER (aPLib Compression)
+-----------------------------------
+What it is: The system that compresses the cheat DLL to hide it.
+
+Why compression matters:
+  1. STEALTH: Anti-virus and anti-cheat programs scan files for known cheat
+     patterns. A compressed file looks like random noise — the scanners can't
+     recognize it.
+  2. SIZE: The unpacked .text is 3.49 MB. The packed version is 458 KB —
+     about 1/8th the size. Smaller files are easier to inject and harder to
+     notice.
+  3. PROTECTION: You can't analyze the code while it's compressed. You have
+     to figure out the unpacking algorithm first (which is custom).
+
+The aPLib algorithm (explained simply):
+  aPLib is a compression algorithm by Joergen Ibsen. The standard version
+  works like this:
+    - Read a compressed bitstream.
+    - Each bit indicates: "literal byte" (copy this byte directly) or
+      "match" (go back X bytes and copy Y bytes from the already-
+      decompressed output).
+    - Matches save space because you reference data you've already
+      decompressed.
+
+  LiberTea's CUSTOM version modifies three things:
+    1. BIT INVERSION: The bit reader logic is inverted (add/adc vs shl/rcl).
+    2. GAMMA CODING: The length encoding (how many bytes to copy) uses a
+       modified Elias gamma code with decrement-then-read logic.
+    3. OFFSET CALCULATION: The "go back X bytes" part uses XOR with
+       0xFFFFFFFF and arithmetic right shift instead of standard calculation.
+
+  The effect: Even if you KNOW it's aPLib, you can't decompress it with
+  standard aPLib tools. You must reverse engineer the modifications.
+
+  How the unpacking happens inside the DLL:
+    - The DLL's entry point (DllMain), at RVA 0x3C4F30, contains a small
+      assembly-language unpacker stub.
+    - This stub is only about 200 bytes of pure x64 assembly.
+    - It reads from RVA 0x355000 (the compressed data, at raw file offset
+      0x400) and writes to RVA 0x001000 (the .text section base).
+    - The stub was probably compiled separately (maybe in pure ASM or with a
+      special compiler flag) to be position-independent and runtime-free.
+
+5.4 THE OVERLAY (ImGui Menu)
+-----------------------------
+What it is: The cheat's user interface — a settings window with tabs,
+checkboxes, sliders, and buttons that appears on top of the game.
+
+How it renders:
+  1. The overlay is a transparent WINDOW (created with Win32 API) that sits
+     on top of the game window.
+  2. It renders using OpenGL — the same graphics system the game uses.
+  3. It hooks wglSwapIntervalEXT, a function called every frame to swap the
+     front and back graphics buffers (the "screen flip").
+  4. After the game finishes drawing its frame, but before the frame is shown
+     on screen, the overlay draws its own content (the menu).
+  5. Window subclassing is used to intercept Windows messages sent to the
+     game window. A custom message (WM_SC_DISPATCH) is registered to signal
+     "it's time to render the overlay."
+  6. The menu stays invisible until you press INSERT (or HOME), at which
+     point ImGui begins rendering widgets.
+
+ImGui (Dear ImGui) specifics:
+  - Version 1.91.5 (confirmed by embedded version string at RVA 0x104DAD).
+  - 162+ ImGui widget IDs were identified.
+  - The menu has tabs for: Farming, Super Credits, Weapon XP, Player,
+    Combat, Visual, Armory, Ammo, and Settings.
+  - Each feature has a checkbox (on/off toggle) and some have sliders or
+    input fields for values.
+  - The ImGui rendering context is created using ImGui::CreateContext().
+  - The OpenGL3 backend is used with the platform-specific Win32 backend.
+  - The rendering loop runs in a dedicated thread coordinated via
+    WM_SC_DISPATCH.
+
+5.5 THE SYSCALL SYSTEM (Direct Kernel Calls)
+----------------------------------------------
+What it is: A way to bypass Windows security monitoring.
+
+Normal flow (what most programs do):
+  Program -> kernel32.dll -> ntdll.dll -> Kernel
+
+LiberTea's flow:
+  Program -> direct syscall -> Kernel
+
+Why this matters: Anti-cheat programs HOOK ntdll.dll functions. They put
+their own monitoring code at the beginning of important functions like
+NtProtectVirtualMemory. When a normal program calls NtProtectVirtualMemory,
+the anti-cheat sees it and can decide if it's suspicious.
+
+LiberTea SKIPS ntdll.dll entirely. It makes a raw "syscall" instruction,
+which goes directly to the kernel. The anti-cheat never sees it.
+
+How syscalls work in LiberTea:
+  - Each Windows syscall has a "System Service Number" (SSN) — like a phone
+    extension.
+  - Example: NtProtectVirtualMemory might be SSN 0x50 on Windows 10 and
+    SSN 0x4F on Windows 11. The numbers change between Windows versions.
+  - LiberTea dynamically reads ntdll.dll at runtime to find the correct SSN
+    for the current Windows version.
+  - It constructs a small assembly stub for each syscall:
+      lea rcx, [function_name]    ; Load the function name
+      load SSN into eax           ; Get the system service number
+      mov eax, SSN                ; Set the syscall number
+      syscall                     ; Make the call
+  - LiberTea has 9 of these syscall stubs for different kernel functions.
+
+This technique is used by both sophisticated cheats and sophisticated malware
+for the same reason: it's hard to detect without kernel-level monitoring.
+
+================================================================================
+  SECTION 6: EACH FEATURE EXPLAINED IN PLAIN ENGLISH
+================================================================================
+
+6.1 FARMING (MISSION REWARDS)
+------------------------------
+What it does: Multiplies your mission rewards — XP, samples, medals, and
+Requisition Slips.
+
+Plain English explanation:
+  "Like using a copy machine to duplicate your mission rewards."
+
+How it works: When you complete a mission, the game calculates your rewards
+and sends them to the server. LiberTea intercepts this calculation at MULTIPLE
+points:
+  1. It patches the reward calculation function to multiply every value.
+  2. It can force the game to think you're playing on a higher difficulty
+     (difficulty directly affects reward amounts).
+  3. It can add samples directly to your inventory by calling the game's
+     add-sample function with the desired amount.
+  4. It removes the cap on how many samples you can extract with.
+
+Sub-features explained:
+
+  MAX REWARD MULTIPLIER:
+    Set to 5x, and a mission that normally gives 100 XP gives 500 XP.
+    Set to 10x, and 100 becomes 1000.
+    "Like setting the copy machine to print 10 copies instead of 1."
+
+  FORCE DIFFICULTY 1-10:
+    Higher difficulty = better rewards. Force difficulty 10 while actually
+    playing on difficulty 1, and you get the rewards of a super-hard mission
+    for the effort of an easy one.
+    "Like writing 'Level 10' on your Level 1 test paper and getting Level
+    10 credit."
+
+  ADD SAMPLES INSTANTLY:
+    Samples are scattered around the map and must be physically collected.
+    This feature just magics them into your inventory.
+    "Like having the samples delivered to your pocket instead of hunting
+    for them."
+
+  SAMPLES OVER LIMIT:
+    The game caps how many samples you can hold. This removes the cap.
+    "Like having a bottomless backpack for collecting samples."
+
+  INSTANT SHUTTLE / INSTANT COMPLETE:
+    Skip the extraction timer (normally 2 minutes) and/or the entire mission.
+    "Like having a fast-forward button for missions."
+
+6.2 SUPER CREDITS FARMING
+--------------------------
+What it does: Automatically generates Super Credits (premium currency worth
+real money).
+
+Plain English explanation:
+  "Like replaying a recording of you completing a mission that gives Super
+  Credits, over and over, while you sleep."
+
+This is the CHEAT'S MOST VALUABLE FEATURE. Super Credits normally cost:
+  - 150 SC = $1.99
+  - 1000 SC = $9.99
+  - 2100 SC = $19.99
+
+LiberTea can generate THOUSANDS of SC automatically. At the cost of a single
+subscription, you get SC worth hundreds of dollars.
+
+How it works in detail (step by step):
+
+  PHASE 1 — CAPTURE:
+    While you play legitimately, LiberTea secretly monitors your network
+    traffic. It's specifically watching for the HTTP POST request your game
+    sends to the server when you complete a mission:
+      POST api.live.prod.thehelldiversgame.com/api/Operation/Mission/end
+    This request contains ~12 JSON fields with your mission data:
+      - missionId (unique ID for this mission)
+      - difficulty
+      - objectives completed
+      - enemies killed
+      - samples collected
+      - time taken
+      - players in squad
+      - etc.
+    LiberTea captures this entire request and saves it to a file:
+      C:\libertea_replay_cap.json
+
+  PHASE 2 — REPLAY:
+    When you enable SC farming, LiberTea reads libertea_replay_cap.json
+    and starts sending it to the server repeatedly:
+    - 9 API calls per "batch"
+    - 500ms (half a second) between each call
+    - After 9 calls, waits 58 seconds (the "cooldown")
+    - Then does another batch
+    - Alternates between SC batches and Medal batches
+    The server processes each request as a legitimate mission completion
+    and awards Super Credits each time.
+
+  PHASE 3 — DUPLICATE PREVENTION:
+    The game server normally detects if you submit the same mission twice
+    (it stores mission IDs in a hash table). LiberTea defeats this by:
+    a) HASH TABLE NOP: The game's code has two INSERT operations that add
+       mission IDs to the duplicate-detection table. LiberTea replaces these
+       INSERT instructions with NOPs (do nothing). The table stays EMPTY,
+       so the server never knows it's seeing the same mission repeatedly.
+    b) MIDSWAP: LiberTea also replaces the missionId field in the replay
+       data with a different value for each batch, making each batch look
+       like a different mission.
+
+  PHASE 4 — CRASH PROTECTION:
+    A Vectored Exception Handler (VEH) is registered. If anything goes wrong
+    during replay (game update breaks the hook, network error, etc.), the
+    VEH catches the crash, restores the original game code, logs what
+    happened, and prevents the game from closing.
+
+  PHASE 5 — AUTO SYNC:
+    When playing in a multiplayer lobby, LiberTea can modify the POST body
+    for each player, distributing Super Credits to everyone in the group.
+
+Timing analysis:
+  - 9 calls per batch at 500ms intervals = 4.5 seconds per batch
+  - 58 second cooldown between batches
+  - Total cycle: ~62.5 seconds per SC/Medal batch pair
+  - At ~10-30 SC per mission replay, that's ~90-270 SC per cycle
+  - Running for 1 hour: ~86-260 SC (depending on mission reward)
+  - Running overnight (8 hours): ~700-2,080 SC
+  - That's $7-$21 worth of SC generated per night, automatically.
+
+6.3 GOD MODE
+-------------
+What it does: You never take damage from ANY source.
+
+Plain English explanation:
+  "Like telling the game you never got hit."
+
+How it works: Every game has a "take damage" function. In Helldivers 2, this
+function:
+  1. Receives: what hit you (bullet, explosion, bug claw), how much damage.
+  2. Checks: do you have armor? Damage reduction? Active shield?
+  3. Calculates: final_damage = base_damage * modifiers.
+  4. Applies: health = health - final_damage.
+  5. Checks: if health <= 0, trigger death sequence.
+
+LiberTea finds this function (using pattern scanning) and replaces the FIRST
+instruction with a "return" (just exit immediately). The function is CALLED,
+but it RETURNS before doing any damage calculation. Your health never changes.
+
+Hook type: FUNCTION_PROLOGUE — detour at function entry.
+
+6.4 MOVEMENT SPEED
+-------------------
+What it does: Makes your Helldiver run faster.
+
+Plain English explanation:
+  "Like turning up the speed dial on your character."
+
+How it works: The game stores a speed multiplier value in memory:
+  - Normal: 1.0 (100% speed)
+  - Sprint: ~1.3 (130% speed)
+  - With LiberTea: anything you want — 2.0, 3.0, even 10.0
+
+LiberTea finds the memory address where this multiplier is stored and writes
+a new value. The game reads this value every frame and applies it to your
+movement calculations.
+
+Hook type: CODE_PATCH — writes a different constant value.
+
+6.5 NO RECOIL / NO RAGDOLL
+---------------------------
+Plain English explanation:
+  No Recoil:  "Like welding your gun to a tripod."
+  No Ragdoll: "Like gluing your feet to the ground."
+
+How No Recoil works: When you fire a gun, the game applies recoil forces
+(upward and sideways kick) to your crosshair. LiberTea finds the recoil
+application code and either:
+  a) NOPs the instructions (erases them), or
+  b) Sets the recoil force multiplier to 0.0.
+
+How No Ragdoll works: When an explosion hits you, the game applies physics
+forces to your character model, making you flop around realistically.
+LiberTea finds these force calculations and NOPs them. Your character stays
+rigid and controllable even during massive explosions.
+
+6.6 INFINITE STRATAGEMS
+------------------------
+What it does: You can call in unlimited orbital strikes, turrets, supplies,
+etc. No cooldowns, no limits.
+
+Plain English explanation:
+  "Like having a vending machine that never runs out for airstrikes."
+
+How it works:
+  1. Each stratagem has a COOLDOWN (time you must wait before using it again).
+     LiberTea sets the cooldown timer to 0 or removes the timer check.
+  2. Some stratagems have a USE LIMIT (e.g., Eagle Airstrike: 3 uses, then
+     rearm). LiberTea removes the use counter.
+  3. INSTANT CALL-IN: Normally, after you throw the stratagem beacon, there's
+     a delay while the ship flies in. LiberTea skips this delay — the
+     stratagem activates instantly.
+
+Hook types: NOP_PATCH for cooldown checks, CODE_PATCH for use limits.
+
+6.7 WEAPON XP
+--------------
+What it does: Automatically levels up all your weapons.
+
+Plain English explanation:
+  "Like putting all your guns through an XP factory while you play."
+
+How it works: In Helldivers 2, each weapon gains XP when you use it to kill
+enemies. The more you use a weapon, the higher its level, which unlocks
+upgrades.
+
+LiberTea lets you:
+  1. OVERRIDE your primary weapon slot — the game thinks you're holding a
+     different weapon than you actually are. XP goes to the "fake" weapon.
+  2. AUTO-ROTATE through all 51 guns — every few minutes, it switches which
+     weapon is assigned to your slot, so all guns get XP.
+  3. SELECT specific guns to level up — pick the ones you care about.
+
+6.8 ARMORY UNLOCK
+------------------
+What it does: Instantly gives you access to EVERY weapon, armor piece,
+grenade, and booster in the game — even those from Warbonds you haven't
+purchased or unlocked.
+
+Plain English explanation:
+  "Like having a master key that opens every locker in the armory."
+
+How it works: The game stores your inventory as a list of what you own and
+what's locked. LiberTea modifies this list to mark EVERYTHING as "owned"
+and "unlocked." It also lets you edit individual weapon stats (damage, fire
+rate, magazine size, recoil) and armor passives (perks like extra grenades,
+reduced recoil, increased throwing range, etc.).
+
+6.9 VISUAL FEATURES
+--------------------
+A collection of display and awareness enhancements:
+
+  FOV EDITOR:
+    "Like adjusting your camera lens to see wider or narrower."
+    Changes the field-of-view value in the game's camera system.
+
+  MAP HACK:
+    "Like having a radar that shows every enemy on the map."
+    Reveals hidden enemies, objectives, and items on the minimap by
+    modifying the fog-of-war and visibility systems.
+
+  NO LASER OVERHEAT:
+    "Like removing the temperature gauge from laser weapons."
+    Energy/laser weapons normally build heat and need to cool down.
+    LiberTea prevents the heat value from increasing.
+
+  INSTANT CHARGE:
+    "Like removing the wind-up time on charged weapons."
+    Railgun, Arc Thrower, and other charge-up weapons fire instantly.
+
+  DARK FLUID PACK:
+    "Like giving your jump pack superpowers."
+    Modifies the special jump pack introduced in a specific game event.
+
+  NO BOUNDARY:
+    "Like tearing down the invisible walls around the mission area."
+    Removes the "you are leaving the mission area" warning and timer.
+
+  LONGER HOVER:
+    "Like adding more fuel to your jetpack."
+    Extends the hover duration of the jump pack.
+
+6.10 AMMO FEATURES
+-------------------
+What they do: Never run out of anything.
+
+  INFINITE AMMO:
+    "Like having a magical magazine that refills itself."
+    Your ammo counter never decreases. Reloading animation still plays
+    (unless "No Reload" is also on), but the ammo in reserve stays full.
+
+  NO RELOAD:
+    "Like never needing to change magazines."
+    Skip the reload animation entirely. Your gun always has a full magazine.
+
+  INFINITE GRENADES:
+    "Like having a belt that spawns new grenades as you throw them."
+    Grenade count never decreases below 1.
+
+  INFINITE STIMS:
+    "Like having a bottomless supply of healing shots."
+    Stim (healing injection) count never decreases.
+
+How they work: These are CODE_PATCH hooks. LiberTea finds the instructions
+that subtract from your ammo/grenade/stim counter and either NOPs them
+(changes to "do nothing") or changes "subtract 1" to "subtract 0."
+
+6.11 COMBAT FEATURES
+---------------------
+Additional combat-related modifications:
+
+  INFINITE STRATAGEMS:
+    See section 6.6.
+
+  INSTANT STRATAGEM CALL-IN:
+    Removes the 1-3 second delay between throwing a stratagem beacon and
+    the stratagem activating. Orbital strikes hit instantly, turrets appear
+    immediately, supplies drop the moment the beacon lands.
+
+  TURRET OVERHEAT/DURATION:
+    "Like giving your turrets infinite ammo and infinite life."
+    Turrets that normally overheat (like the Gatling Sentry) stay cool
+    forever. Turrets that normally expire after a time limit stay active.
+
+  KILL COUNTER:
+    Tracks how many enemies you've killed, displayed in the overlay.
+    "Like having a scoreboard for your body count."
+
+  INFINITE HORDE:
+    Makes enemies spawn continuously without limit. For players who want
+    MORE challenge, not less.
+
+6.12 PLAYER FEATURES
+---------------------
+  GOD MODE: See section 6.3.
+
+  MOVEMENT SPEED: See section 6.4.
+
+  NO RAGDOLL / NO RECOIL: See section 6.5.
+
+================================================================================
+  SECTION 7: TECHNICAL TERMS GLOSSARY (50+ Terms)
+================================================================================
+
+This glossary explains every technical term you'll encounter in the analysis
+documents. Terms are defined in plain English with everyday analogies.
+
+--- A ---
+
+ADDRESS:
+  The location of something in memory. Like a house number on a street.
+  Memory address 0x140001000 is "140001000 Memory Lane" — that's where a
+  specific piece of data lives.
+
+ADDRESS SPACE:
+  The entire range of memory addresses a program can use. Like the full
+  street map of a city — some houses belong to your program, some to the
+  operating system, some are empty lots.
+
+ANTI-CHEAT:
+  Software designed to detect and prevent cheating. Like a referee at a
+  sports game who watches for rule violations.
+
+ANTI-DEBUG:
+  Techniques used to detect if someone is analyzing a program with debugging
+  tools. Like a car that knows if someone is looking under the hood and
+  changes how it runs.
+
+AOB (Array of Bytes):
+  A sequence of bytes used as a search pattern. Like searching for the phrase
+  "To be or not to be" to find a specific spot in a Shakespeare play.
+
+aPLib:
+  A compression library by Joergen Ibsen. Like a vacuum sealer for data —
+  it shrinks things down. LiberTea uses a MODIFIED version with custom tweaks.
+
+API (Application Programming Interface):
+  A defined way for programs to talk to each other. Like a restaurant menu —
+  you can order what's on the menu, but you can't go into the kitchen and cook.
+
+ASSEMBLY (ASM):
+  The lowest-level programming language, directly representing CPU
+  instructions. Like speaking to the computer in its native language instead
+  of through a translator.
+
+--- B ---
+
+BASE64:
+  A method of encoding binary data (bytes) as text using 64 characters
+  (A-Z, a-z, 0-9, +, /). Like translating a foreign language into English
+  so English-speakers can read it.
+
+bcrypt:
+  Windows' built-in cryptography library. Provides encryption (AES) and
+  hashing (SHA256). Like the lock and key system for data.
+
+BINARY:
+  A file containing machine code rather than human-readable text. .exe,
+  .dll, .bin files are binary. Like a book written in a language only
+  computers can read.
+
+BIT:
+  The smallest unit of data — a single 0 or 1. Like a light switch that
+  can only be ON or OFF.
+
+BREAKPOINT:
+  A debugging tool that pauses a program at a specific instruction. Like
+  pressing pause on a video at a specific frame to examine it.
+
+BUFFER:
+  A temporary holding area for data in memory. Like a waiting room where
+  data sits before being processed.
+
+BYTE:
+  A group of 8 bits. Can represent values from 0 to 255. Like a single
+  character in a book.
+
+--- C ---
+
+CALLBACK:
+  A function that is "called back" when an event happens. Like leaving your
+  phone number and saying "call me when the pizza is ready."
+
+CDN (Content Delivery Network):
+  A network of servers that distribute files. Like pizza delivery — instead
+  of everyone driving to the pizzeria, the pizza comes to you from the
+  nearest location.
+
+CODE:
+  Instructions that tell the computer what to do. Like a recipe that tells
+  a cook what steps to perform.
+
+COMPILER:
+  A tool that converts human-readable source code into machine-readable
+  binary. Like a translator that converts English instructions into
+  computer-speak.
+
+COMPRESSION:
+  Making data smaller by removing redundancy. Like vacuum-sealing clothes
+  in a bag — same contents, less space.
+
+CRC32:
+  A checksum (error-checking code). A mathematical formula that produces a
+  32-bit fingerprint of data. If the data changes, the fingerprint changes.
+  Like a wax seal on a letter — if it's broken, you know the letter was
+  tampered with.
+
+CRT (C Runtime Library):
+  Standard functions that C/C++ programs need (memory allocation, string
+  operations, math). Like the basic tools in a toolbox that every builder
+  needs.
+
+--- D ---
+
+DEBUGGER:
+  A tool for analyzing a running program — stepping through code, inspecting
+  memory, setting breakpoints. Like a microscope for software.
+
+DECOMPRESSION:
+  The reverse of compression — expanding data back to its original size.
+  Like opening a vacuum-sealed bag and letting the contents expand.
+
+DETOUR:
+  See HOOK. A redirect in code. Like a detour sign on a road.
+
+DLL (Dynamic Link Library):
+  A file containing code that programs can load on demand. Like a plugin or
+  add-on pack. .dll files are like .exe files that need a host to run.
+
+DllMain:
+  The entry point of a DLL — the function that runs when a DLL is loaded
+  or unloaded. Like the "on switch" for a plugin.
+
+DRIVER:
+  A special type of program that runs in the operating system's kernel
+  (deepest level). Drivers can access hardware and system internals directly.
+  Like having a master key to every room in the building.
+
+--- E ---
+
+ENCRYPTION:
+  Scrambling data so only authorized parties can read it. Like writing a
+  message in a secret code that only your friend knows how to decode.
+
+ENTRY POINT:
+  The location in a program where execution starts. For .exe files: main()
+  or WinMain(). For .dll: DllMain(). Like the front door of a building.
+
+EXCEPTION:
+  An error or unusual condition during program execution. Like a car's
+  check-engine light turning on.
+
+EXECUTABLE (.exe):
+  A file that can be run directly by the operating system. Like a standalone
+  machine that you turn on with a switch.
+
+--- F ---
+
+FFI (Foreign Function Interface):
+  A way for code in one language to call functions written in another
+  language. Like a person who speaks both English and Japanese acting as
+  a translator between two people.
+
+FRAME:
+  A single rendered image in a game or video. Games render 30, 60, or more
+  frames per second. Like the individual pictures in a flipbook.
+
+FUNCTION:
+  A named block of code that performs a specific task. Like a single step
+  in a recipe: "Step 3: Chop the onions."
+
+--- G ---
+
+GAMEGUARD (nProtect GameGuard):
+  The anti-cheat system used by Helldivers 2. It runs as a kernel driver
+  and monitors for memory tampering, debugging, and cheat signatures.
+
+GAMMA CODING (Elias Gamma):
+  A way to encode small numbers using very few bits. Smaller numbers get
+  shorter codes. Like using "1" for one, "010" for two, "011" for three,
+  where smaller numbers get shorter representations.
+
+--- H ---
+
+HEAP:
+  Memory that programs allocate dynamically at runtime. Like renting a
+  storage unit when you need extra space, rather than using the space
+  built into your house.
+
+HEXADECIMAL (HEX):
+  A base-16 number system using 0-9 and A-F. 0x10 = 16 in decimal,
+  0xFF = 255. Like counting on your fingers in base 16 instead of base 10.
+
+HOOK:
+  A code redirect. Replacing the start of a function with a JUMP to new
+  code. Like a detour sign: cars going to Main Street are redirected to
+  Elm Street instead.
+
+HTTP / HTTPS:
+  The protocol used for web communication. When you browse a website, you
+  use HTTP(S). LiberTea uses HTTP POST to send mission data to game servers.
+
+HWID (Hardware ID):
+  A unique identifier derived from your computer's hardware components.
+  Like your computer's fingerprint — no two are exactly alike.
+
+--- I ---
+
+IAT (Import Address Table):
+  A list of external functions a program needs, with their addresses.
+  Like a phone book: "Need to call CreateWindow? It's at extension 4200."
+
+IDE (Integrated Development Environment):
+  Software for writing code (e.g., Visual Studio, VS Code). Like a
+  professional workshop with all the tools organized and ready.
+
+ImGui (Dear ImGui):
+  "Immediate Mode Graphical User Interface" — a C++ library for creating
+  in-game menus and tools. Used by thousands of games for debug menus,
+  level editors, and cheat overlays.
+
+INJECTION:
+  The process of inserting code into another running program. Like
+  sneaking a document into someone else's briefcase.
+
+INSTRUCTION:
+  A single command for the CPU. "Add these two numbers." "Jump to line 500."
+  "Read from memory address X." Like a single step in a dance routine.
+
+--- J ---
+
+JSON (JavaScript Object Notation):
+  A text format for structured data using key-value pairs. Like filling out
+  a form: Name: "John", Age: 30, City: "New York".
+
+--- K ---
+
+KERNEL:
+  The core of the operating system. It has FULL access to everything —
+  all memory, all hardware, all processes. Like the building's maintenance
+  room that has keys to every apartment.
+
+KEY (CRYPTOGRAPHIC):
+  A secret value used to encrypt or decrypt data. Like the specific pattern
+  cut into a physical key that opens a specific lock.
+
+--- L ---
+
+LIBCURL:
+  A library for making HTTP requests. One of three HTTP libraries LiberTea
+  can use (along with WinHTTP and WinINet).
+
+LITERAL (in compression):
+  In the aPLib algorithm, a literal is a byte that's copied directly from
+  the compressed data to the output. "Here's the actual byte, write it."
+  vs MATCH: "Go back 50 bytes and copy 8 bytes from there."
+
+LOAD ADDRESS:
+  The memory address where a DLL or EXE is loaded into RAM. Like the
+  building's street address — it might change each time you load it
+  (ASLR — Address Space Layout Randomization).
+
+--- M ---
+
+MACHINE CODE:
+  The binary instructions that a CPU executes directly. Usually seen in
+  hexadecimal form. Like the DNA of a computer program.
+
+MAGIC NUMBER:
+  A constant value in binary data that identifies a file format or data
+  structure. Like a brand logo stamped on products to show who made them.
+
+MATCH (in compression):
+  In the aPLib algorithm, a match says "go back X bytes and copy Y bytes
+  from the already-decompressed data." This saves space because you
+  reference data you've already read instead of storing it again.
+
+MEMORY (RAM):
+  Your computer's fast working space. When a program runs, its code and
+  data live in RAM. Like a whiteboard where the CPU reads and writes numbers.
+
+MSVC (Microsoft Visual C++):
+  The C++ compiler from Microsoft. The go-to tool for building Windows
+  programs. LiberTea was compiled with MSVC 2022.
+
+MUTEX:
+  A lock that prevents two threads from accessing the same resource
+  simultaneously. Like a token that says "only the person holding this
+  token can use the printer right now."
+
+--- N ---
+
+NOP (No Operation):
+  An instruction that does nothing. Bytes: 0x90 (x86) or 0x90 0x90 (x64
+  if 2-byte alignment needed). Used to "erase" existing instructions.
+
+NTDLL.DLL:
+  The lowest-level Windows DLL. All system calls eventually pass through
+  ntdll. LiberTea READS ntdll to find syscall numbers but SKIPS calling
+  through it, instead making syscalls directly.
+
+--- O ---
+
+OFFSET:
+  A distance from a reference point. "The health value is at offset +0x2C0
+  from the player object." Like saying "third house on the right" instead
+  of giving the full street address.
+
+OPCODE:
+  The numeric code for a CPU instruction. 0x90 = NOP, 0xC3 = RET (return),
+  0xE9 = JMP (jump). Like the barcode for a specific instruction.
+
+OVERLAY:
+  A transparent window rendered on top of another application. LiberTea's
+  menu is an overlay on top of Helldivers 2. Like drawing on a clear
+  plastic sheet placed over a photograph.
+
+--- P ---
+
+PACKER:
+  Software that compresses an executable and adds unpacking code. The file
+  is compressed on disk and decompresses when run. Like shrink-wrapping a
+  product with a tear strip for easy opening.
+
+PATTERN / SIGNATURE:
+  A unique sequence of bytes used to find specific code in memory. Like a
+  fingerprint: no two patterns match the same function. Wildcard bytes (??)
+  mean "match anything here."
+
+PE (Portable Executable):
+  The file format for Windows executables (.exe) and DLLs (.dll). Like the
+  standard box format for shipping products — everything has the same
+  structure.
+
+PROCESS:
+  A running program. When you double-click an .exe, Windows creates a
+  process — a container with memory, threads, and resources.
+
+PROLOGUE:
+  The beginning of a function. Usually sets up the stack frame and saves
+  registers. Like the opening credits of a movie.
+
+--- R ---
+
+RDTSC (Read Time-Stamp Counter):
+  A CPU instruction that reads a high-precision timer. LiberTea uses it to
+  detect debuggers: if operations take too long (because a debugger is
+  stepping through them), the cheat knows it's being analyzed.
+
+REGISTER:
+  A tiny, ultra-fast storage location inside the CPU. The CPU has ~16
+  general-purpose registers (RAX, RBX, RCX, RDX, etc.). Like the CPU's
+  pocket — fastest access but very limited space.
+
+REPLAY ATTACK:
+  Recording legitimate data and replaying it later. LiberTea records a
+  mission completion and replays it to farm Super Credits.
+
+RTTI (Run-Time Type Information):
+  Metadata that C++ programs include so they know class types at runtime.
+  Like name tags that objects wear so the program knows what they are.
+
+RVA (Relative Virtual Address):
+  An address expressed as an offset from the start of the file in memory.
+  Like saying "page 50" instead of "the 50th page from the beginning of
+  the book."
+
+--- S ---
+
+SECTION (.text, .data, .rdata, etc.):
+  A PE file is divided into sections with different purposes and
+  permissions. .text = code, .data = variables, .rdata = constants.
+  Like rooms in a house: kitchen (code), bedroom (data), library (constants).
+
+SEOEBUG PRIVILEGE:
+  A Windows privilege that allows a program to debug (and therefore access)
+  other programs. Like a master key for all apartments. The injector enables
+  this.
+
+SEH (Structured Exception Handling):
+  Windows' standard crash-handling system. Uses try/catch blocks. LiberTea
+  has 2,466 SEH entries (.pdata records).
+
+SHA256:
+  A cryptographic hash function. Takes any input and produces a 256-bit
+  (32-byte) "fingerprint." Like a super-precise fingerprint for data.
+
+SIGNATURE:
+  See PATTERN.
+
+SSN (System Service Number):
+  The unique number identifying each Windows syscall. Like a phone extension:
+  "NtProtectVirtualMemory? That's extension 0x50."
+
+STACK:
+  A region of memory for function calls and local variables. Last-in,
+  first-out. Like a stack of plates: you add plates to the top and take
+  them from the top.
+
+STATIC CRT:
+  The C Runtime Library compiled INTO the executable, not loaded from an
+  external DLL. Makes the file bigger but eliminates dependencies.
+
+STRING:
+  A sequence of text characters. In C/C++, usually null-terminated (ends
+  with a 0 byte). Programs use strings for messages, names, URLs, etc.
+
+SUBCLASSING:
+  A Windows technique where you intercept messages sent to a window. Like
+  redirecting someone's mail to your address so you can read it first.
+
+SYSCALL:
+  The instruction that transitions from user mode to kernel mode. The most
+  direct way to ask the OS to do something. Like a hotline directly to the
+  building manager, bypassing the front desk.
+
+--- T ---
+
+THREAD:
+  A sequence of instructions running independently. A process can have
+  many threads running simultaneously. Like having multiple workers in a
+  kitchen, each doing different tasks.
+
+TLS CALLBACK:
+  A function that runs BEFORE the main entry point. Used by some packers
+  and anti-debug code. LiberTea does NOT use TLS callbacks.
+
+TRAMPOLINE:
+  A small piece of code that bounces execution from a hook back to the
+  original function. Like a trampoline in gymnastics: you jump to the
+  trampoline, which bounces you to where you wanted to go.
+
+--- V ---
+
+VEH (Vectored Exception Handler):
+  A crash catcher. Unlike SEH (which is function-scoped), VEH is process-wide.
+  LiberTea registers a VEH to catch crashes from its hooks and restore the
+  original code. Like a safety net under a trapeze act.
+
+VTABLE (Virtual Function Table):
+  A table of function pointers used by C++ classes with virtual methods.
+  Like a phone directory for an object's methods.
+
+--- W ---
+
+WILDCARD BYTE (??):
+  In a pattern signature, "??" means "match any byte here." Used when a
+  byte changes between game versions. Like "Find the person wearing a ???
+  colored hat" — the hat color doesn't matter.
+
+WINHTTP / WININET:
+  Windows libraries for making HTTP requests. Part of LiberTea's triple-
+  stack HTTP system.
+
+WORKERS (Cloudflare Workers):
+  A serverless computing platform. LiberTea uses workers.dev for its CDN
+  and update distribution.
+
+--- X ---
+
+XOR (Exclusive OR):
+  A simple reversible bit operation. A XOR B = C, and C XOR B = A. Used
+  in LiberTea's f2s7 protocol for body obfuscation. Like a light switch
+  where flipping it twice returns to the original state.
+
+================================================================================
+  SECTION 8: THE GAMEGUARD BYPASS EXPLAINED
+================================================================================
+
+8.1 WHAT IS GAMEGUARD?
+-----------------------
+nProtect GameGuard is a kernel-level anti-cheat system developed by INCA
+Internet, a South Korean security company. It's used by many Asian MMOs and,
+as of 2024, Helldivers 2.
+
+GameGuard installs a KERNEL DRIVER (GameMon.des on 32-bit, GameMon64.des on
+64-bit) that runs at the deepest level of your operating system. From this
+privileged position, it can:
+  - Monitor ALL memory access.
+  - Detect debuggers and analysis tools.
+  - Block suspicious programs from running.
+  - Scan for known cheat signatures.
+  - Prevent process memory from being read or modified.
+
+Think of GameGuard as a security guard who has the keys to EVERY room in
+the building, including the maintenance areas and security office.
+
+8.2 HOW GAMEGUARD DETECTS CHEATS
+----------------------------------
+GameGuard uses multiple detection methods:
+
+  1. SIGNATURE SCANNING: Scans running processes' memory for known cheat
+     patterns (byte sequences that match known cheat DLLs).
+
+  2. BEHAVIORAL DETECTION: Monitors for suspicious actions:
+     - Other programs opening handles to the game process.
+     - Memory page protections being changed (NtProtectVirtualMemory calls).
+     - New threads being created in the game process.
+     - DLLs being loaded that shouldn't be there.
+
+  3. INTEGRITY CHECKING: Verifies that game files and memory haven't been
+     modified. Compares checksums of game code against known-good values.
+
+  4. DEBUGGER DETECTION: Detects debuggers attached to the game process.
+
+  5. DRIVER BLOCKING: Prevents other kernel drivers from interfering with
+     GameGuard's own driver.
+
+  6. HOOK DETECTION: Checks if Windows API functions have been modified
+     (hooked) to hide activity.
+
+8.3 HOW LIBERTEA BYPASSES GAMEGUARD
+-------------------------------------
+LiberTea's bypass is clever and multi-layered:
+
+  STEP 1 — BLOCK THE DRIVERS AT BOOT:
+    GameGuard's files (GameMon.des, GameMon64.des) must exist on disk for
+    GameGuard to load. LiberTea's injector:
+    a) Deletes these files if they exist.
+    b) Creates dummy/blocked files in their place to prevent GameGuard from
+       recreating them.
+    c) Sets file permissions to deny GameGuard's installer access.
+    This is like removing the security guard's uniform and badge BEFORE
+    their shift starts — they can't work without them.
+
+  STEP 2 — ELEVATE PRIVILEGES:
+    The injector gives itself SeDebugPrivilege, which provides the same
+    level of access a debugger would have. This lets it:
+    a) Open a handle to the game process.
+    b) Allocate memory in the game's address space.
+    c) Write data (the cheat DLL) into that memory.
+    d) Create a thread to execute the DLL.
+
+  STEP 3 — DIRECT SYSCALLS:
+    Once injected, the cheat doesn't call Windows APIs through the normal
+    DLL path. Instead, it makes direct syscall instructions. This bypasses
+    GameGuard's user-mode hooks on ntdll.dll.
+
+  STEP 4 — VEH CRASH RECOVERY:
+    If GameGuard (or the game itself) causes a crash due to the hooks,
+    the VEH catches it, restores original code, and prevents detection.
+
+8.4 WHY KERNEL-LEVEL MATTERS
+------------------------------
+There is an "arms race" between cheats and anti-cheats:
+
+  User-mode (application level):
+    - Easy to develop and deploy.
+    - Easy to detect (other user-mode programs can see what you're doing).
+    - LiberTea operates here mainly, but uses syscalls to touch kernel space.
+
+  Kernel-mode (driver level):
+    - Very hard to develop (requires kernel programming expertise, driver
+      signing certificates).
+    - Very hard to detect (only other kernel drivers can monitor you).
+    - GameGuard operates here.
+    - LiberTea doesn't have its own driver, but it bypasses GameGuard's
+      driver by preventing it from loading.
+
+The fact that LiberTea can defeat a kernel-level anti-cheat without
+installing its own kernel driver (which would be extremely risky and
+detectable) shows sophisticated design.
+
+================================================================================
+  SECTION 9: HOW TO USE THESE ANALYSIS FILES
+================================================================================
+
+9.1 FILE MAP: WHICH DOCUMENT ANSWERS WHICH QUESTION
+-----------------------------------------------------
+
+QUESTION: "I want a quick overview."
+  -> README.md
+  -> MASTER_INDEX.txt
+
+QUESTION: "I know nothing about this. Explain it simply."
+  -> docs/ULTIMATE_GUIDE_FOR_DUMMIES.txt (this file!)
+
+QUESTION: "How is the DLL packed and compressed?"
+  -> docs/01_binary_identity/libertea_tech_breakdown.txt
+  -> data/compressed.bin (the compressed data)
+  -> scripts/decompressor/unpack.py (decompressor attempt)
+
+QUESTION: "What are the PE file headers?"
+  -> docs/01_binary_identity/resweep_pe.txt
+  -> build_scripts/pe_analyzer.py
+
+QUESTION: "How does the injection work?"
+  -> docs/06_architecture/architecture_recreation.txt
+
+QUESTION: "What hooks are installed and where?"
+  -> docs/04_hook_system/hook_system_analysis.txt
+  -> data/patterns_extracted.json
+
+QUESTION: "How does Super Credit farming work?"
+  -> docs/05_network_protocol/sc_farming_analysis.txt
+  -> scripts/analysis/sc_protocol_analysis.py
+
+QUESTION: "What does each feature do?"
+  -> docs/02_code_analysis/libertea_deep_dive.txt
+
+QUESTION: "What are all the cheat's string constants?"
+  -> data/all_strings.txt
+  -> data/all_strings_raw.txt
+  -> docs/03_game_data/resweep_strings.txt
+  -> logs/agentD_string_map.txt
+
+QUESTION: "What weapons, armor, and stratagems are documented?"
+  -> docs/03_game_data/resweep_game_data.txt
+
+QUESTION: "What crypto is used?"
+  -> docs/03_game_data/resweep_strings.txt
+  -> logs/agentF_crypto_keys.txt
+
+QUESTION: "What is the f2s7 protocol?"
+  -> logs/agentG_f2s7_spec.txt
+
+QUESTION: "How does the overlay (ImGui) work?"
+  -> logs/agentH_imgui_tree.txt
+  -> docs/02_code_analysis/resweep_code.txt
+
+QUESTION: "How do the syscalls work?"
+  -> logs/agentI_syscall_infra.txt
+
+QUESTION: "How does the pattern scanner work?"
+  -> logs/agentJ_pattern_scanner.txt
+  -> scripts/extractors/pattern_extractor.py
+
+QUESTION: "What are the detection vectors?"
+  -> docs/01_binary_identity/libertea_tech_breakdown.txt
+  -> logs/hyper5_anti_analysis.txt
+
+QUESTION: "What did each analysis agent produce?"
+  -> README.md (Agent Analysis Rounds table)
+  -> logs/ directory
+
+QUESTION: "Could this be rewritten in another language?"
+  -> NON-COMMIT.txt
+
+QUESTION: "Complete function analysis?"
+  -> docs/02_code_analysis/libertea_deep_dive.txt (680+ functions)
+  -> docs/01_binary_identity/libertea_complete.txt (full disassembly)
+
+QUESTION: "How do I rebuild/recreate this?"
+  -> docs/06_architecture/architecture_recreation.txt
+
+QUESTION: "Import/export table details?"
+  -> logs/agentC_import_map.txt
+
+9.2 SCRIPT USAGE GUIDE
+-----------------------
+All scripts are in the scripts/ directory. Most are Python 3.
+
+PREREQUISITES:
+  pip install capstone pefile
+
+EXTRACTORS (scripts/extractors/):
+  Generate analysis documents from binary data.
+  - pattern_extractor.py: Extract all patterns to JSON.
+    Run: python pattern_extractor.py
+  - deep_dive.py: Generate libertea_deep_dive.txt.
+  - niche_details.py: Generate libertea_niche.txt.
+  - extract_analysis.py: Generate libertea_analysis.txt.
+  - full_extract.py: Generate libertea_complete.txt.
+  - libertea_tech_breakdown.py: Generate libertea_tech_breakdown.txt.
+
+ANALYSIS (scripts/analysis/):
+  In-depth protocol and function analysis.
+  - sc_protocol_analysis.py: SC farming state machine with data classes.
+    Run: python sc_protocol_analysis.py
+  - pattern_scanner.py: Pattern scanning utilities.
+  - _analyze.py: aPLib decompressor (partial implementation).
+    Run: python _analyze.py
+
+DECOMPRESSOR (scripts/decompressor/):
+  Unpack attempts for the aPLib compressed .text section.
+  - unpack.py: Decompressor attempt 1.
+  - unpack2.py: Decompressor attempt 2.
+
+BUILD SCRIPTS (build_scripts/):
+  - pe_analyzer.py: Full PE parsing and packer anomaly detection.
+    Run: python pe_analyzer.py
+
+SCRATCH (scripts/scratch/):
+  Historical agent work scripts. Not needed for normal use.
+  See individual file headers for their purpose.
+
+9.3 DATA FILE REFERENCE
+------------------------
+Binary data files in data/:
+
+  .text_unpacked_mem.bin (3.49 MB):
+    The ground-truth unpacked .text section. Obtained by loading LIBERTEA.DLL
+    with LoadLibrary() and dumping memory. This is the reference for all
+    analysis.
+
+  compressed.bin (458 KB):
+    The aPLib compressed payload at raw file offset 0x400. Feed this through
+    a decompressor to get the .text section.
+
+  payload_compressed.bin (458 KB):
+    Earlier extraction variant with 4-byte offset difference.
+
+  patterns_extracted.json (18 KB):
+    All 73 hook patterns in structured JSON format. Includes pattern name,
+    module, hook type, byte signature, and metadata.
+
+String data files in data/:
+
+  all_strings.txt: Filtered meaningful strings extracted from the binary.
+  all_strings_raw.txt: All raw strings including noise.
+  strings_utf16le.txt: UTF-16LE (wide character) strings.
+  agentE_all_strings.txt: Agent E's string extraction results.
+  agentE_full_strings_sorted.txt: Sorted version of above.
+
+================================================================================
+  SECTION 10: FREQUENTLY ASKED QUESTIONS (20 Questions)
+================================================================================
+
+Q1: IS THE CHEAT STILL WORKING?
+A: This analysis is of v414. Cheats break with game updates because the
+   memory offsets and patterns change. Helldivers 2 receives regular updates
+   from Arrowhead. We do NOT maintain or distribute working cheat software.
+   This repository is purely for analysis and education.
+
+Q2: CAN I GET BANNED?
+A: Yes, absolutely. Using ANY cheat in an online game carries risk. Even
+   cheats that "haven't been detected yet" can be flagged and banned in waves
+   — sometimes months after the cheating occurred. Helldivers 2 uses
+   GameGuard, a kernel-level anti-cheat. A ban would mean losing your Steam
+   account, all your Helldivers 2 progress, and any purchased items.
+
+Q3: IS THIS LEGAL?
+A: Complex question. In general:
+   - REVERSE ENGINEERING for interoperability and research is legally
+     protected in many jurisdictions (including the US under DMCA exemptions).
+   - USING CHEATS violates the game's Terms of Service (a contract, not law).
+   - CIRCUMVENTING anti-cheat software may violate anti-circumvention laws
+     (like the US DMCA's anti-circumvention provisions).
+   - DISTRIBUTING cheats may be illegal in some countries (South Korea has
+     specific laws against game cheating tools).
+   - This ANALYSIS is original research and commentary, likely protected
+     under fair use.
+   - CONSULT A LAWYER for your specific situation and jurisdiction.
+
+Q4: WHY DID YOU ANALYZE THIS?
+A: For educational and research purposes. Reverse engineering teaches:
+   - Binary analysis and PE file format knowledge.
+   - Anti-tamper and anti-debug techniques.
+   - Kernel vs user-mode interactions (syscalls, drivers).
+   - Network protocol analysis.
+   - Compression algorithm design.
+   - Real-world Windows internals.
+   Understanding how cheats work is the first step to building better
+   anti-cheat systems.
+
+Q5: HOW LONG DID THIS ANALYSIS TAKE?
+A: Significant effort across multiple phases:
+   - 18 specialized analysis agents (agent1-3, agentB-J).
+   - 5 hyper-analysis layers (hyper1-5).
+   - Multiple resweep validation passes.
+   - Cross-referencing between agents.
+   - Document generation from extracted data.
+   Total: substantial person-time across tooling, analysis, and documentation.
+
+Q6: WHY IS THE aPLib PACKER CUSTOM?
+A: Standard aPLib produces recognizable output. Anti-virus and anti-cheat
+   software can signature-scan for "this looks like aPLib output." By
+   modifying the algorithm (bit inversion, different gamma coding, unique
+   offset math), the output looks like random noise. No off-the-shelf tool
+   can decompress it. This is a deliberate evasion technique.
+
+Q7: HOW DOES THE OVERLAY MENU APPEAR IN-GAME?
+A: The overlay uses Dear ImGui + OpenGL:
+   1. Creates a transparent window on top of the game window.
+   2. Hooks wglSwapIntervalEXT (called every frame during buffer swap).
+   3. During the swap, injects ImGui rendering commands.
+   4. Uses window subclassing + WM_SC_DISPATCH for thread-safe rendering.
+   5. Stays invisible until you press INSERT/HOME.
+   The result looks like a native in-game settings menu.
+
+Q8: WHAT IS THE "f2s7" PROTOCOL?
+A: f2s7 is a custom protocol for encrypted communication between the cheat
+   and its backend servers. Features:
+   - Nonce-based session initialization (unique number used once).
+   - Body XOR encryption (simple but hides content from casual inspection).
+   - Key-waiting mechanism (waits for server to provide encryption key).
+   - Used for license verification, update checking, and telemetry.
+   Full spec in logs/agentG_f2s7_spec.txt.
+
+Q9: HOW MANY PEOPLE MADE THIS?
+A: Based on credits embedded in the binary, at least three:
+   - TheOGcup (primary developer).
+   - Legend (contributor).
+   - HotPocket (contributor).
+   The project appears to be a small team effort, not a solo project.
+
+Q10: HOW WAS THE .text SECTION UNPACKED?
+A: We couldn't fully implement the custom aPLib algorithm in Python (partial
+    implementation exists in _analyze.py). Instead, we loaded the DLL with
+    LoadLibrary():
+      handle = ctypes.windll.kernel32.LoadLibraryW(dll_path)
+      # DllMain runs automatically -> decompresses .text -> resolves IAT
+      ctypes.memmove(buf, handle + 0x1000, 0x354000)
+      # buf now contains the fully unpacked .text section
+    This dumped the ground-truth unpacked data to .text_unpacked_mem.bin.
+
+Q11: WHAT ARE THE DETECTION VECTORS?
+A: Nine attack surfaces documented:
+    1. GameGuard driver file modification.
+    2. wglSwapIntervalEXT hook (detectable by overlay scan).
+    3. Abnormal API call patterns (batch fire POST).
+    4. NtProtectVirtualMemory on game.dll pages.
+    5. Public Discord server (intelligence gathering).
+    6. Workers.dev DNS (Cloudflare abuse reporting).
+    7. DLL file hash signature.
+    8. Injector file hash signature.
+    9. SeDebugPrivilege + GameMon targeting memory pattern.
+    Full details in docs/01_binary_identity/libertea_tech_breakdown.txt.
+
+Q12: DOES THIS WORK ON ALL GAME VERSIONS?
+A: No. The patterns and offsets are specific to a particular game version.
+    Game updates change these values. The cheat's own pattern scanner includes
+    a warning for missing patterns: "WARNING: Game may have updated."
+
+Q13: CAN I BUILD MY OWN CHEAT FROM THIS ANALYSIS?
+A: This analysis provides enough detail to understand how everything works,
+    but building a working cheat requires:
+    - Implementing the custom aPLib packer.
+    - Writing the injection code.
+    - Recreating the hook system (73 patterns, 6 types).
+    - Implementing the ImGui overlay with OpenGL.
+    - Recreating the SC farming protocol.
+    - Handling GameGuard bypass.
+    This is a significant software engineering project, not a copy-paste job.
+
+Q14: WHAT ARE THE RISKS OF RUNNING THE CHEAT?
+A: Beyond bans:
+    - MALWARE RISK: The original software is closed-source, distributed
+      through Discord. No way to verify it doesn't contain malware,
+      keyloggers, or crypto miners.
+    - SYSTEM INSTABILITY: Kernel-level hooks and syscalls can cause BSOD
+      (Blue Screen of Death) if buggy.
+    - DATA THEFT: The cheat communicates with external servers and captures
+      your game data. It could send anything — including Steam credentials.
+    - LEGAL RISK: Depending on your jurisdiction.
+    The ANALYSIS FILES in this repo are safe to read. The Python scripts
+    only analyze data — they don't modify running games.
+
+Q15: HOW DOES THE PATTERN SCANNER WORK?
+A: The pattern scanner searches for byte sequences with wildcards in the
+    game's memory. It's a SCALAR (non-SIMD) comparison — it checks one byte
+    at a time. Patterns include:
+    - "48 89 5C 24 ??" means bytes 0x48, 0x89, 0x5C, 0x24, then ANY two
+      bytes (the "??" is a wildcard).
+    - Each pattern has a descriptive name and hook type.
+    - 404 patterns are tested; 73 are actually used across 4 DLLs.
+    - The scanner also has a "light mode" that only checks the first few
+      bytes for faster scanning.
+
+Q16: WHAT'S THE MOST VALUABLE FEATURE?
+A: The Super Credit farming loop. SC is Helldivers 2's premium currency
+    (costs real money). The cheat can automatically generate hundreds of SC
+    per night while you sleep — worth more than the cheat's subscription
+    cost. For context: generating just 1000 SC saves $9.99. Running overnight
+    for a week could generate enough SC to buy every Warbond in the game.
+
+Q17: HOW HARD WOULD THIS BE TO DETECT FOR ARROWHEAD?
+A: Arrowhead could detect LiberTea, but detection has trade-offs:
+    - They could add server-side checks for mission replay (same mission ID
+      submitted multiple times). LiberTea already counters this with hash
+      table NOP and MIDSWAP.
+    - They could check for abnormal completion rates (completing 50 missions
+      per hour, all with identical stats). LiberTea's timing is designed to
+      look natural.
+    - They could upgrade GameGuard to detect syscall patterns. This requires
+      kernel driver updates, which are risky (can cause BSOD for legitimate
+      users).
+    - They could scan for the ImGui overlay window. LiberTea's window is
+      transparent and uses the game's own OpenGL context — hard to detect.
+    Complete detection is possible but expensive in development resources
+    and may impact legitimate players' experience.
+
+Q18: WHAT TOOLS WERE USED FOR THE ANALYSIS?
+A: For the analysis in this repository:
+    - Python (ctypes, pefile, capstone) — for static analysis scripts.
+    - PowerShell — for some automated scanning.
+    - Visual Studio — for the IDE's binary viewing capabilities.
+    - IDA Pro (pattern format matches IDA style) — patterns are IDA-
+      compatible byte signatures.
+    - Windows SDK tools (dumpbin, etc.) for PE analysis.
+    - Custom Python scripts for string extraction, pattern scanning,
+      protocol analysis, and document generation.
+
+Q19: WHERE CAN I LEARN MORE ABOUT THESE TECHNIQUES?
+A: If you're interested in the techniques used by LiberTea (and our analysis):
+    - "Practical Reverse Engineering" by Dang, Gazet, Bachaalany — covers
+      x64 disassembly, PE format, and Windows internals.
+    - "Windows Internals" by Russinovich — the definitive guide to how
+      Windows works under the hood.
+    - "Game Hacking" by Nick Cano — game-specific reverse engineering.
+    - "Practical Malware Analysis" by Sikorski & Honig — covers packing,
+      anti-debug, process injection (same techniques used by both malware
+      and cheats).
+    - "The Art of Memory Forensics" — analyzing memory dumps like our
+      .text_unpacked_mem.bin.
+    - OpenSecurityTraining.info — free courses on x86/x64, RE, and malware.
+    - x64dbg, IDA Pro/Free, Ghidra — tools for binary analysis.
+
+Q20: HOW MANY PATTERNS ARE THERE IN TOTAL?
+A: 404 IDA-style patterns were tested. 73 are actually used for hook
+    installation across 4 DLLs:
+    - game.dll: 67 patterns (91% of all hooks).
+    - winhttp.dll: 2 patterns.
+    - bcrypt.dll: 2 patterns.
+    - game_current.dll: 2 patterns.
+    The remaining 331 patterns are either fallbacks, unused, or for
+    different game versions. All 73 active patterns are documented in
+    data/patterns_extracted.json.
+
+================================================================================
+  SECTION 11: WHO MADE THIS AND WHY?
+================================================================================
+
+11.1 THE ORIGINAL AUTHORS
+--------------------------
+LiberTea was created by:
+  - TheOGcup (primary developer)
+  - Legend (contributor)
+  - HotPocket (contributor)
+
+The cheat is distributed through a private Discord server and is a commercial
+product (subscription-based access). The authors clearly have:
+  - Deep Windows internals knowledge (syscalls, PE format, process injection).
+  - Reverse engineering expertise (finding game offsets, patterns, hook points).
+  - Graphics programming experience (ImGui + OpenGL overlay).
+  - Network protocol knowledge (HTTP replay, encryption, f2s7).
+  - Build system expertise (custom packer, multi-phase compilation).
+  - Anti-cheat evasion experience (GameGuard bypass, VEH, anti-debug).
+
+11.2 THE ANALYSIS TEAM
+-----------------------
+The reverse engineering in this repository was performed using an automated
+analysis pipeline with 18 specialized agents. Each agent focused on a
+specific aspect of the binary, and their findings were cross-validated.
+
+The analysis was conducted for educational and research purposes.
+
+11.3 MOTIVATION
+---------------
+This analysis was motivated by:
+  - Technical curiosity: How does a sophisticated, production-grade game
+    cheat work under the hood?
+  - Educational value: The cheat demonstrates a broad range of advanced
+    Windows programming techniques — packing, syscalls, anti-debug,
+    anti-cheat bypass, network replay, overlay rendering, and more.
+  - Security research: Understanding how cheats work informs how to detect
+    and prevent them. The same techniques are used by malware.
+  - Documentation gap: No public analysis of a modern Helldivers 2 cheat
+    existed at this level of detail.
+
+================================================================================
+  SECTION 12: SAFETY, LEGALITY, AND ETHICS
+================================================================================
+
+12.1 SAFETY
+-----------
+Running the ORIGINAL LiberTea software carries risks:
+  - MALWARE: The binary is closed-source. You cannot verify it doesn't contain
+    keyloggers, RATs (Remote Access Trojans), crypto miners, or other malware.
+  - SYSTEM CRASHES: Buggy hooks or syscalls can cause Blue Screen of Death.
+  - DATA LEAKAGE: The cheat communicates with external servers. It could
+    transmit your Steam credentials, personal files, or browsing data.
+  - BANS: Permanent account termination and loss of purchases.
+
+The ANALYSIS FILES in this repository are SAFE. They are text documents,
+Python scripts, and binary data files for study — they do NOT modify running
+games, inject code, or communicate with external servers.
+
+12.2 LEGALITY
+-------------
+This is a complex area with jurisdiction-specific nuance:
+
+  GENERALLY ACCEPTED:
+    - Reverse engineering for interoperability (DMCA 1201(f) exemption in US).
+    - Security research and education.
+    - Publishing original analysis and commentary.
+
+  GENERALLY NOT ACCEPTED:
+    - Distributing working cheat software (may violate anti-circumvention laws).
+    - Encouraging or facilitating Terms of Service violations.
+    - Using cheats to defraud (generating premium currency could be considered
+      theft of service in some jurisdictions).
+
+  The LIBERTEA.DLL file is included as the OBJECT OF STUDY — this is common
+  in security research (malware samples, exploit code, etc. are regularly
+  distributed for analysis purposes).
+
+  THIS IS NOT LEGAL ADVICE. Consult a qualified attorney for your specific
+  situation and jurisdiction.
+
+12.3 ETHICS
+-----------
+The ethics of this project involve trade-offs:
+
+  AGAINST:
+    - Publishing cheat analysis could make it easier for others to create
+      similar cheats.
+    - Cheating harms other players' experience and the game's economy.
+    - The analysis may facilitate ToS violations.
+
+  FOR:
+    - The same techniques are used by malware; understanding them improves
+      security for everyone.
+    - Transparency about how cheats work helps developers build better
+      anti-cheat systems.
+    - Knowledge is neutral — it enables both attack and defense.
+    - The genie is already out of the bottle. LiberTea exists whether or
+      not we analyze it. Analysis at least gives defenders information.
+
+  Our position: This is an educational and research project. We do not
+  encourage or condone cheating. We believe that understanding adversarial
+  techniques makes the entire ecosystem more secure.
+
+================================================================================
+  APPENDIX A: COMMON MISCONCEPTIONS
+================================================================================
+
+Misconception 1: "The cheat just modifies save files."
+Reality: Helldivers 2 is server-authoritative. Your progress is stored on
+         the GAME SERVER, not your computer. The cheat works by modifying
+         runtime behavior and replaying network communications.
+
+Misconception 2: "If it's not detected immediately, it's safe forever."
+Reality: Anti-cheat systems log suspicious behavior and ban in WAVES —
+         sometimes weeks or months later. Yesterday's clean scan doesn't
+         guarantee tomorrow's safety.
+
+Misconception 3: "The cheat only changes local values (health, ammo)."
+Reality: LiberTea modifies server-bound NETWORK PACKETS (SC farming),
+         touches kernel-level drivers (GameGuard bypass), and uses direct
+         syscalls. It operates at user, network, and kernel levels.
+
+Misconception 4: "Any programmer could build this in a weekend."
+Reality: LiberTea required deep expertise in C++, x64 assembly, PE format,
+         Windows internals, anti-cheat evasion, graphics programming, and
+         network protocols. It represents months of skilled work.
+
+Misconception 5: "The packer is just standard aPLib."
+Reality: The packer is a CUSTOM variant with three major modifications
+         (bit inversion, modified gamma coding, unique offset calculation).
+         Standard aPLib tools cannot decompress it.
+
+Misconception 6: "The anti-cheat is completely defeated."
+Reality: LiberTea can be detected through behavioral analysis, network
+         pattern monitoring, and memory integrity checks. It's an ongoing
+         arms race, not a permanent victory.
+
+Misconception 7: "This is just a simple memory editor like Cheat Engine."
+Reality: Cheat Engine is an external tool that manually scans for values.
+         LiberTea is an injected DLL with a sophisticated hook system,
+         custom GUI, network replay capability, and kernel-level bypass.
+
+Misconception 8: "The cheat doesn't need to connect to the internet."
+Reality: LiberTea communicates with external servers for: license validation,
+         update checking, the f2s7 protocol, CDN downloads, and SC farming
+         (the farming uses the GAME'S servers, but the cheat must be online).
+
+Misconception 9: "All 73 patterns are for hooking game code."
+Reality: While most are for hooking, some patterns are used for IDENTIFYING
+         game structures (finding the right DLL version, locating data tables)
+         rather than modifying them.
+
+Misconception 10: "The analysis team had access to source code."
+Reality: Everything in this repository was derived from the BINARY FILE
+         (LIBERTEA.DLL). No source code was available. All analysis is based
+         on disassembly, pattern matching, behavioral observation, and
+         educated inference.
+
+================================================================================
+  APPENDIX B: READING THE ANALYSIS DOCUMENTS
+================================================================================
+
+The analysis documents use consistent conventions:
+
+  RVA (Relative Virtual Address):
+    An address relative to the DLL's load base. For example, RVA 0x104DAD
+    means "offset 0x104DAD from wherever the DLL is loaded."
+    To get the real address: real_address = dll_base + RVA.
+
+  HEXADECIMAL NUMBERS:
+    Prefixed with "0x". 0x10 = 16 decimal, 0xFF = 255 decimal.
+    Memory addresses and offsets are almost always shown in hex.
+
+  "??" IN PATTERNS:
+    A wildcard byte that matches anything. "48 89 ?? 24" matches 48 89 00 24,
+    48 89 01 24, 48 89 FF 24, etc. Wildcards are used when a byte changes
+    between game versions or is a variable operand.
+
+  HOOK NOTATION:
+    "NOP_PATCH at game.dll+0x1A2B3C: 48 89 5C 24 -> 90 90 90 90"
+    Means: "At offset 0x1A2B3C inside game.dll, the 4 original bytes were
+    replaced with 4 NOP instructions."
+
+  SYSCALL STUB NOTATION:
+    "lea rcx, [name]; load SSN; mov eax, SSN; syscall"
+    Shows the 4 steps to make a direct system call:
+    1. Load the function name (for reference/identification).
+    2. Load the system service number.
+    3. Move SSN into eax (the register for syscall number).
+    4. Execute the syscall instruction.
+
+  FUNCTION TYPES:
+    - FUNCTION_PROLOGUE: Hook at function START.
+    - FUNCTION_RETURN: Hook at function END (epilogue).
+    - CODE_PATCH: Replace instruction bytes anywhere.
+    - NOP_PATCH: Fill bytes with NOPs (0x90).
+    - POINTER_RESOLVE: Read/write a pointer value.
+    - CONDITIONAL_INVERT: Flip a branch (JE -> JMP, JNE -> JMP).
+
+================================================================================
+  APPENDIX C: ANALOGY REFERENCE TABLE
+================================================================================
+
+Technical Concept    | Everyday Analogy
+---------------------|------------------------------------------------------
+DLL Injection        | Sneaking a document into someone else's briefcase
+Hook                 | A detour sign redirecting traffic
+Pattern Scan         | Searching for a phrase to find a page in a book
+Syscall              | A hotline bypassing the front desk, going to the manager
+Packer               | Vacuum-sealing clothes to make them smaller
+aPLib Compression    | Shrink-wrapping with a tear strip for easy unpacking
+NOP                  | Erasing a line from a recipe
+IAT                  | A phone book for functions
+VEH                  | A safety net under a trapeze act
+Memory Address       | A house number on a street
+Process              | A house (containing rooms, furniture, people)
+Thread               | A person doing work inside the house
+SEH                  | Individual room fire extinguishers
+VEH                  | Building-wide sprinkler system
+SSN                  | A phone extension number
+GameGuard            | A security guard with keys to every room
+SeDebugPrivilege     | A master key for all apartments
+HWID                 | Computer fingerprint
+Replay Attack        | Recording a phone call and playing it back
+Hash Table NOP       | Disabling the "already seen this" stamp
+MIDSWAP              | Putting a different label on each copy
+f2s7 Protocol        | Passing notes in class with a secret code
+ImGui Overlay        | A transparent sheet with notes on top of a photo
+wglSwapIntervalEXT   | The moment between flipping pages in a flipbook
+Static CRT           | Packing your own toolbox vs renting tools
+RTTI                 | Name tags on objects
+RDTSC                | A stopwatch to detect if someone's watching
+
+================================================================================
+  APPENDIX D: PROJECT METHODOLOGY & TIMELINE
+================================================================================
+
+PHASE 1: BINARY IDENTITY
+  - PE header parsing and section analysis.
+  - Import/export table enumeration.
+  - Resource extraction.
+  - Packer identification and anomaly detection.
+  - Outputs: docs/01_binary_identity/
+
+PHASE 2: DECOMPRESSION
+  - Extraction of compressed payload at raw offset 0x400.
+  - Static decompression attempts (Python aPLib implementations).
+  - Dynamic decompression via LoadLibrary + memory dump.
+  - Comparison of static vs dynamic results.
+  - Output files: data/compressed.bin, data/.text_unpacked_mem.bin
+
+PHASE 3: CODE ANALYSIS
+  - Memory region mapping (density, entropy, permissions).
+  - Function boundary detection (680+ functions via prologue scanning).
+  - String extraction and categorization.
+  - RTTI class hierarchy reconstruction.
+  - ImGui widget tree enumeration.
+  - Outputs: docs/02_code_analysis/
+
+PHASE 4: HOOK SYSTEM
+  - Pattern extraction from binary scanning.
+  - Hook type classification (6 types).
+  - Module distribution analysis (4 DLLs).
+  - Installation order reconstruction (4 phases).
+  - Syscall stub analysis.
+  - Outputs: docs/04_hook_system/, data/patterns_extracted.json
+
+PHASE 5: GAME DATA
+  - Weapon structure enumeration (130 weapons).
+  - Armor structure enumeration (68 pieces).
+  - Stratagem structure enumeration (37 stratagems).
+  - Pointer chain documentation.
+  - Outputs: docs/03_game_data/
+
+PHASE 6: NETWORK PROTOCOL
+  - SC farming state machine mapping.
+  - HTTP capture and replay mechanics.
+  - Hash table bypass analysis.
+  - VEH crash recovery documentation.
+  - Outputs: docs/05_network_protocol/
+
+PHASE 7: ARCHITECTURE RECONSTRUCTION
+  - Component mapping by RVA ranges (15 components).
+  - Data flow diagram creation.
+  - Recreation strategy development.
+  - IAT dependency analysis.
+  - Outputs: docs/06_architecture/
+
+PHASE 8: RESWEEP VALIDATION
+  - Complete re-analysis of all findings.
+  - Cross-reference validation between agents.
+  - Discrepancy identification and resolution.
+  - Supplement generation.
+  - Outputs: resweep/, logs/DISCREPANCY_FIXES.txt
+
+PHASE 9: HYPER-ANALYSIS
+  - hyper1: Byte-level differential analysis.
+  - hyper2: Semantic decompilation.
+  - hyper3: Data structure recovery.
+  - hyper4: Protocol and cryptography analysis.
+  - hyper5: Anti-analysis technique identification.
+  - Outputs: logs/hyper*.txt
+
+PHASE 10: DOCUMENTATION
+  - README.md generation.
+  - MASTER_INDEX.txt creation.
+  - ULTIMATE_GUIDE_FOR_DUMMIES.txt (this file).
+  - NON-COMMIT.txt (alternative language analysis).
+  - Cross-referencing all documents.
+  - Git history and organization.
+
+================================================================================
+  APPENDIX E: WHAT MAKES LIBERTEA SOPHISTICATED?
+================================================================================
+
+LiberTea is not a simple "memory editor." It's a sophisticated piece of
+software engineering. Here's what elevates it:
+
+  1. CUSTOM PACKING: Modified aPLib with three unique algorithmic tweaks.
+     Not just "use UPX" or "use VMProtect" — they wrote their own compressor.
+
+  2. MULTI-PHASE INITIALIZATION: The 4-phase initialization (unpack -> IAT
+     -> hooks -> overlay) is architecturally clean and fault-tolerant.
+
+  3. DIRECT SYSCALLS: Bypassing user-mode hooks by talking directly to the
+     kernel. Requires deep understanding of Windows internals.
+
+  4. GAMEGUARD BYPASS: Defeating a kernel-level anti-cheat without installing
+     a kernel driver of its own.
+
+  5. NETWORK PROTOCOL REVERSAL: Understanding the game's HTTP API well enough
+     to capture and replay mission completions convincingly.
+
+  6. DUPLICATE PREVENTION BYPASS: The hash table NOP technique shows the
+     authors understood the server's duplicate detection mechanism.
+
+  7. CRASH RECOVERY: VEH-based crash handling makes the cheat resilient to
+     game updates and unexpected conditions.
+
+  8. PRODUCTION GUI: 162+ ImGui widgets, tabbed interface, proper theming.
+     This isn't a debug console — it's a polished product.
+
+  9. LICENSE SYSTEM: Username/password auth, access keys, subscription tiers.
+     It's a commercial product with user management.
+
+  10. UPDATE INFRASTRUCTURE: CDN-based distribution via Cloudflare Workers,
+      automatic update checking, version tracking.
+
+  11. DETECTION EVASION: Anti-debug (IsDebuggerPresent, RDTSC x34), proxy
+      detection (12+ tools), HWID fingerprinting, custom encryption.
+
+  12. HYBRID HTTP STACK: Three HTTP libraries (WinHTTP, WinINet, libcurl)
+      as fallback options for network resilience.
+
+  13. PERFORMANCE: Pattern scanning with 73 signatures in a game that runs at
+      60+ FPS without noticeable frame drops.
+
+  14. SCOPE: 28+ features across 8 categories, more than most paid cheats.
+
+  This is professional-grade software that demonstrates expertise across
+  systems programming, reverse engineering, network protocols, graphics,
+  and software distribution. It's a textbook example of modern game
+  cheating at the highest level.
+
+================================================================================
+  APPENDIX F: DEEP DIVE — THE FOUR INITIALIZATION PHASES
+================================================================================
+
+Understanding the 4-phase initialization is key to understanding how LiberTea
+works. Let's walk through each phase in detail.
+
+F.1 PHASE 1 — UNPACK (.text Decompression)
+--------------------------------------------
+
+When DllMain runs, the FIRST thing that happens is decompression. The DLL's
+code section (.text) is stored in compressed form at a specific location in
+the DLL file.
+
+The unpacker stub is a small piece of assembly code (~200 bytes) located at
+RVA 0x3C4F30. This stub:
+
+  1. Sets up registers and a workspace.
+  2. Reads from the compressed data source (RVA 0x355000).
+  3. Writes decompressed output to the .text section (RVA 0x001000).
+  4. Uses a bit-reading loop: add ebx,ebx / adc ebx,ebx.
+     - The carry flag (CF) determines each "bit" from the compressed stream.
+  5. For each bit:
+     - If the next bit is 1 (CF=1): This is a LITERAL byte — copy it directly
+       to the output.
+     - If the next bit is 0 (CF=0): This is a MATCH — go back X bytes and
+       copy Y bytes from already-decompressed data.
+  6. The match offset uses a GAMMA coding scheme:
+     - First, the length code is read using Elias gamma encoding.
+     - Then, if it's a "long match," the offset is calculated as:
+       eax = (eax << 8) | next_byte
+       eax = eax XOR 0xFFFFFFFF
+       eax = sar eax, 1 (arithmetic right shift)
+     - The LSB (least significant bit) of this result determines whether
+       to use the standard copy path or an alternative path.
+  7. The copy loop uses dword (4-byte) copying for efficiency, with a
+     remainder loop for the last 1-3 bytes.
+
+Why this is complex: The authors modified the STANDARD aPLib in three ways:
+  a) Bit reader uses add/adc instead of shl/rcl (bit inversion).
+  b) Gamma decoding subtracts before reading instead of after.
+  c) Offset calculation uses XOR 0xFFFFFFFF + sar instead of the standard
+     calculation.
+
+Result: Source 458 KB -> Destination 3.49 MB. Compression ratio: ~7.6:1.
+
+F.2 PHASE 2 — RESOLVE IMPORTS (IAT Fixup)
+-------------------------------------------
+
+After the .text section is unpacked, the DLL has its code, but the code
+contains "stubs" — placeholders where calls to external Windows functions
+should go. These stubs are resolved by:
+
+  1. Parsing the Import Directory in the PE header.
+  2. For each imported DLL (kernel32.dll, user32.dll, ntdll.dll, etc.):
+     a) Load the DLL with LoadLibrary (if not already loaded).
+     b) For each imported function:
+        - Find the function in the DLL with GetProcAddress.
+        - Write the function's address into the IAT (Import Address Table).
+  3. After this phase, function calls like:
+       call [gap_where_kernel32_CreateFileW_should_be]
+     become:
+       call [0x7FFE12345678]  (real address of CreateFileW in kernel32)
+
+The IAT resolution is necessary because the packed DLL's IAT is SCRAMBLED —
+the original author intentionally broke it so that the unpacked DLL cannot
+run correctly without the custom IAT fixup code in DllMain. This is both
+an anti-reverse-engineering measure and a practical necessity (the packer
+doesn't know the final memory layout of the unpacked code).
+
+F.3 PHASE 3 — PATTERN SCAN AND HOOK INSTALL
+---------------------------------------------
+
+This is the CORE of the cheat. The DLL scans the game's modules for specific
+byte patterns and installs hooks at those locations.
+
+Step-by-step:
+
+  1. FIND THE GAME BASE:
+     - GetModuleHandle("game.dll") — finds where game.dll is loaded in memory.
+     - If not found, waits and retries (the DLL is loaded after the cheat
+       in some injection scenarios).
+
+  2. ENUMERATE PATTERNS:
+     - The cheat has a built-in database of 404 IDA-style patterns.
+     - Each pattern has:
+       * A name string (e.g., "GodMode_PlayerOnly_Hook").
+       * A module name (which DLL to search).
+       * A byte signature with wildcards.
+       * A hook type (NOP_PATCH, CODE_PATCH, etc.).
+       * The bytes to write (for CODE_PATCH) or an action (for other types).
+
+  3. SCAN FOR EACH PATTERN:
+     - For each pattern, scan the target module's memory (e.g., game.dll)
+       for the byte sequence.
+     - Wildcards (??) match any byte.
+     - The scanner is a SCALAR comparison — it checks byte by byte. No SIMD
+       (no SSE/AVX) — just a simple loop.
+     - The scanner has a "light mode" option that only checks the first
+       few non-wildcard bytes for an initial filter.
+
+  4. VERIFY AND REPORT:
+     - Count how many patterns were found.
+     - If less than expected: "WARNING: Game may have updated ... X/Y
+       patterns found."
+     - This warns the user that the cheat may not be compatible with the
+       current game version.
+
+  5. INSTALL HOOKS:
+     - For each found pattern, the cheat determines the hook type:
+       * NOP_PATCH: Change memory protection to writable (VirtualProtect or
+         NtProtectVirtualMemory via direct syscall), then write NOP bytes
+         (0x90) over the original instructions.
+       * CODE_PATCH: Write the specified replacement bytes.
+       * FUNCTION_PROLOGUE: Write a JMP instruction at the function start
+         that redirects to the cheat's handler. Save the original bytes
+         for unhooking.
+       * POINTER_RESOLVE: Read or write a pointer value at the offset.
+       * FUNCTION_RETURN: Hook at the function's epilogue (return point).
+       * CONDITIONAL_INVERT: Change a conditional jump (JE) to an
+         unconditional jump (JMP) or vice versa.
+     - Memory protection is changed via DIRECT SYSCALL to NtProtectVirtual-
+       Memory, bypassing any monitoring on the regular VirtualProtect path.
+
+  6. SYSCALL STUB CONSTRUCTION:
+     - 9 syscall stubs are constructed dynamically.
+     - For each needed syscall (like NtProtectVirtualMemory):
+       a) Read ntdll.dll's export table to find the function.
+       b) Read the first few bytes of the function — they contain the SSN
+          (System Service Number) — e.g., "mov eax, 0x50; syscall".
+       c) Parse out the SSN value.
+       d) Store it for use in the custom stub.
+     - The custom stub: lea rcx, [name]; mov eax, SSN; syscall.
+
+  7. FORMAT A WARNING IF PATTERNS MISSING:
+     - Shows a message box or ImGui warning if the expected number of
+       patterns wasn't found.
+     - This is how users know the cheat needs an update.
+
+F.4 PHASE 4 — OVERLAY RENDERING
+---------------------------------
+
+Once the hooks are installed, the cheat creates the UI overlay:
+
+  1. CREATE ImGui CONTEXT:
+     - ImGui::CreateContext() initializes the ImGui system.
+     - Sets up font, style, and rendering context.
+
+  2. FIND THE GAME WINDOW:
+     - FindWindow or EnumWindows locates the Helldivers 2 window.
+     - Gets the window's OpenGL rendering context (HGLRC).
+
+  3. INSTALL RENDERING HOOK:
+     - wglSwapIntervalEXT is the function called every frame during the
+       "buffer swap" — when the finished frame is sent to the display.
+     - The cheat hooks this function by:
+       a) Getting the function address with wglGetProcAddress.
+       b) Saving the original bytes at that address.
+       c) Writing a JMP to the cheat's rendering handler.
+
+  4. RENDERING HANDLER:
+     - Every frame, after the game draws, the cheat's handler runs:
+       a) Start a new ImGui frame.
+       b) If the menu is visible (toggle key pressed), render all ImGui
+          widgets (checkboxes, sliders, buttons, text).
+       c) End the ImGui frame and render to the OpenGL context.
+       d) Then call the ORIGINAL wglSwapIntervalEXT to finish the swap.
+
+  5. WINDOW SUBCLASSING:
+     - The game's window procedure (WndProc) is subclassed — replaced with
+       a custom WndProc that intercepts window messages.
+     - A custom message (WM_SC_DISPATCH) is registered with RegisterWindow-
+       Message.
+     - When the rendering thread needs the main thread to do something, it
+       posts WM_SC_DISPATCH.
+     - This ensures thread-safe coordination between the game's main thread
+       and the overlay's rendering thread.
+
+  6. KEYBOARD HOOK:
+     - A keyboard hook captures key presses (INSERT, HOME, etc.) to toggle
+       the menu visibility and navigate between tabs.
+     - ImGui handles the actual keyboard input processing.
+
+================================================================================
+  APPENDIX G: THE SUPER CREDIT FARMING ENGINE — COMPLETE WALKTHROUGH
+================================================================================
+
+This feature deserves its own detailed appendix because it's the most
+sophisticated and valuable part of the cheat.
+
+G.1 OVERVIEW
+-------------
+The SC farming engine generates premium currency by replaying captured
+mission API calls. It doesn't modify memory — it manipulates NETWORK TRAFFIC
+to fool the game's servers.
+
+G.2 CAPTURE PHASE — HOW IT RECORDS A MISSION
+----------------------------------------------
+While you play normally, the cheat monitors HTTP traffic:
+
+  1. Hook libcurl's write callback function.
+     - libcurl is the HTTP library the game uses for API calls.
+     - The write callback is hooked so the cheat receives a copy of every
+       HTTP response body.
+  2. Filter for the Mission/end endpoint.
+     - URL pattern: *api.live.prod.thehelldiversgame.com/api/Operation/
+       Mission/end
+     - This is the POST request sent when a mission is completed.
+  3. Capture the request body + response.
+     - The POST body contains ~12 JSON fields:
+       * missionId: "a1b2c3d4-e5f6-..."
+       * difficulty: 7
+       * objectivesCompleted: [true, true, true]
+       * enemiesKilled: 247
+       * samplesCollected: {common: 15, rare: 10, super: 3}
+       * timeElapsed: 1873 (seconds)
+       * players: [{id: ..., name: ...}, ...]
+       * etc.
+     - The response body contains the rewards:
+       * SC_awarded: 10
+       * medals_awarded: 4
+       * xp_awarded: 250
+  4. Save to disk.
+     - Path: C:\libertea_replay_cap.json
+     - Format: JSON with both request and response data.
+     - This is the "recording" that will be replayed.
+
+G.3 REPLAY PHASE — HOW IT FIRES THE CAPTURE
+---------------------------------------------
+When SC farming is enabled:
+
+  1. Load C:\libertea_replay_cap.json.
+  2. Parse the captured request fields.
+  3. Enter the farming state machine:
+     - State: IDLE -> PROBING -> CAPTURED -> FIRING_SC/FIRING_MEDAL ->
+              COOLDOWN -> IDLE (loop).
+
+  4. For each "firing" cycle:
+     - Send 9 HTTP POST requests to Mission/end.
+     - Each request uses the captured request body with modifications:
+       * missionId is REPLACED with a new random ID (MIDSWAP).
+       * Player IDs may be modified (for auto-sync to squad members).
+     - 500ms delay between each request.
+     - The server processes each request independently and awards SC/Medals.
+     - After 9 requests, enter COOLDOWN for 58 seconds.
+     - After cooldown, fire another batch.
+     - Alternate between SC batches and Medal batches.
+
+  5. HTTP implementation:
+     - Uses WinHTTP, WinINet, or libcurl (triple fallback stack).
+     - Sets proper headers (Content-Type: application/json, User-Agent,
+       Authorization tokens from the game session).
+     - Handles rate limiting by respecting the 500ms inter-request delay.
+
+G.4 DUPLICATE PREVENTION BYPASS — THE HASH TABLE NOP
+------------------------------------------------------
+The server normally prevents duplicate mission submissions by storing
+mission IDs in a hash table:
+
+  When a Mission/end POST arrives:
+    1. Check if missionId is in the hash table.
+    2. If YES: reject (duplicate).
+    3. If NO: INSERT missionId into the hash table and process the request.
+
+LiberTea defeats this by finding the CODE that does the INSERT and NOP-ing it:
+
+  Original code:
+    mov rcx, [hash_table]     ; load hash table pointer
+    lea rdx, [mission_id]     ; load mission ID
+    call HashTable_Insert     ; INSERT into table
+
+  Modified code (NOP_PATCH):
+    nop                       ; (was mov rcx, ...)
+    nop                       ; (was lea rdx, ...)
+    nop                       ; (was call HashTable_Insert)
+    (7+ bytes of NOPs)
+
+  Result: The INSERT never happens. The hash table stays empty. Every
+  replay is treated as a new mission.
+
+  There are TWO INSERT sites in the code, both NOP'd.
+
+G.5 MIDSWAP — MISSION ID ROTATION
+-----------------------------------
+Even with the hash table NOP'd, sending the SAME missionId repeatedly is
+suspicious. LiberTea rotates the missionId:
+
+  - The captured replay has missionId "A".
+  - For batch 1: Replace "A" with random "B".
+  - For batch 2: Replace "A" with random "C".
+  - For batch 3: Replace "A" with random "D".
+  - etc.
+
+  The missionId format is a UUID/GUID: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx".
+  LiberTea generates random GUIDs or uses a pool of pre-generated ones.
+
+G.6 AUTO-SYNC — DISTRIBUTING TO SQUAD MEMBERS
+-----------------------------------------------
+When you're in a multiplayer lobby with friends:
+
+  1. The cheat identifies all player IDs in the squad.
+  2. For each replay batch, it modifies the POST body to assign rewards
+     to different players.
+  3. Batch 1: Player A gets SC.
+     Batch 2: Player B gets SC.
+     Batch 3: Player C gets SC.
+  4. This distributes SC across the entire squad, so everyone benefits.
+
+  Note: This assumes the server's Mission/end endpoint allows crediting
+  arbitrary players. If permissions are checked server-side, this may
+  not work for all setups.
+
+G.7 VEH CRASH RECOVERY — KEEPING THE LOOP RUNNING
+---------------------------------------------------
+SC farming can run for HOURS unattended. If a game update or network error
+causes the cheat to crash, the VEH catches it:
+
+  1. The Vectored Exception Handler is registered with:
+     AddVectoredExceptionHandler(1, CrashHandler)
+     (The "1" means this handler runs BEFORE standard SEH handlers).
+
+  2. When a crash occurs:
+     a) CrashHandler is called with EXCEPTION_POINTERS.
+     b) The handler logs: BEFORE/AFTER crash data (exception code, address,
+        register state).
+     c) The handler RESTORES the original game code (unhooks any hooks that
+        may have been corrupted).
+     d) The handler returns EXCEPTION_CONTINUE_EXECUTION — the program
+        continues running from the crash point.
+     e) If recovery fails, returns EXCEPTION_CONTINUE_SEARCH to let the
+        normal crash handler take over (game might still crash, but at
+        least the cheat tried).
+
+  3. This makes the SC farming loop resilient to many types of crashes.
+
+G.8 TIMING AND MATH — HOW FAST DOES IT FARM?
+----------------------------------------------
+Let's calculate the farming rate:
+
+  Batch timing:
+    - 9 requests per batch.
+    - 500ms (0.5s) between requests = 4.5 seconds per batch.
+    - 58 second cooldown after each batch.
+    - Total cycle: 9 + 58 = 67 seconds per batch pair (SC + Medal).
+
+  Rewards per batch:
+    - Depends on the captured mission.
+    - Typical SC per mission: 5-15 SC.
+    - Typical Medals per mission: 2-8 Medals.
+
+  Hourly rate (conservative):
+    - 3600 seconds / 67 seconds per cycle = ~53.7 cycles per hour.
+    - At 10 SC per batch: ~537 SC per hour.
+    - At 4 medals per batch: ~214 Medals per hour.
+
+  Overnight rate (8 hours):
+    - ~4,300 SC and ~1,700 Medals.
+    - SC value: 4,300 SC at $9.99/1000 = ~$43 worth of SC.
+    - Medal value: enough to complete 2-3 Warbonds.
+
+  These are theoretical maximums. Actual rates depend on:
+    - Server rate limiting (if the server detects unusual patterns).
+    - Network latency (each request takes real time).
+    - The captured mission's reward structure.
+    - Anti-cheat interventions.
+
+================================================================================
+  APPENDIX H: THE INJECTION PROCESS — COMPLETE TECHNICAL WALKTHROUGH
+================================================================================
+
+H.1 BEFORE INJECTION — PRIVILEGE SETUP
+----------------------------------------
+The injector (LIBERTEA_Bypass.exe) first elevates its privileges:
+
+  1. OpenProcessToken(GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES, &hToken).
+     - Gets a handle to the current process's security token.
+
+  2. LookupPrivilegeValue(NULL, SE_DEBUG_NAME, &luid).
+     - Looks up the Locally Unique Identifier (LUID) for SeDebugPrivilege.
+     - SeDebugPrivilege is the "debug privilege" that allows accessing other
+       processes' memory.
+
+  3. AdjustTokenPrivileges(hToken, FALSE, &tp, 0, NULL, NULL).
+     - Enables SeDebugPrivilege for this process.
+     - Without this, OpenProcess with PROCESS_ALL_ACCESS on another process
+       would fail.
+
+H.2 GAMEGUARD DRIVER BLOCKING
+-------------------------------
+Before the game starts, the injector neutralizes GameGuard:
+
+  1. Check if GameMon.des / GameMon64.des exist on disk.
+     - Common locations: game directory, system32, drivers folder.
+
+  2. If found, delete them or rename them.
+     - DeleteFile or MoveFile to a different name/extension.
+
+  3. Create dummy files in their place.
+     - CreateFile with 0 bytes, set to read-only.
+     - This prevents GameGuard's installer from recreating them.
+
+  4. Optionally block the file paths.
+     - Set file permissions to deny write access to the GameGuard installer.
+
+  5. Check running drivers.
+     - If GameMon is already loaded (from a previous game session), the
+       injector may:
+       a) Stop the driver service (sc stop GameMon).
+       b) Delete the driver service (sc delete GameMon).
+       c) Require a reboot to fully remove.
+
+H.3 DLL INJECTION — THREE METHODS
+-----------------------------------
+The injector can use one of several injection methods:
+
+  METHOD 1: CreateRemoteThread (CLASSIC)
+    a) OpenProcess(PROCESS_ALL_ACCESS, FALSE, game_pid).
+       - Opens the game process with full access rights.
+    b) VirtualAllocEx(hGame, NULL, dll_path_size, MEM_COMMIT, PAGE_READWRITE).
+       - Allocates memory inside the game's address space.
+    c) WriteProcessMemory(hGame, remote_addr, dll_path, dll_path_size, NULL).
+       - Writes the DLL path string into the allocated memory.
+    d) GetProcAddress(GetModuleHandle("kernel32.dll"), "LoadLibraryW").
+       - Gets the address of LoadLibraryW (the function that loads DLLs).
+    e) CreateRemoteThread(hGame, NULL, 0, LoadLibraryW_addr, remote_addr, 0, NULL).
+       - Creates a new thread in the game process that calls LoadLibraryW
+         with the path to LIBERTEA.DLL.
+       - LoadLibraryW loads the DLL, which triggers DllMain -> Phase 1-4.
+    f) Wait for the thread to complete, then clean up (VirtualFreeEx to free
+       the path string memory).
+
+  METHOD 2: NtCreateThreadEx (STEALTHIER)
+    - Uses the lower-level NT API instead of CreateRemoteThread.
+    - Fewer hooks from anti-cheat on the NT path.
+    - Same basic flow: allocate memory, write DLL path, create thread to
+      call LoadLibrary.
+
+  METHOD 3: Manual Mapping (MOST STEALTHY)
+    - Instead of using LoadLibrary, the injector manually maps the DLL:
+      a) Read the DLL file into a buffer.
+      b) Parse the PE headers to determine section layout.
+      c) Allocate memory in the game process for each section.
+      d) Copy section data, apply relocations, resolve imports manually.
+      e) Call the DLL's entry point (DllMain) directly.
+    - No LoadLibrary call = nothing shows in the loaded modules list.
+    - MUCH harder to detect because the DLL is not registered with the
+      Windows loader.
+    - This is the method LiberTea likely uses for maximum stealth.
+
+H.4 POST-INJECTION — WHAT THE INJECTOR DOES AFTER
+---------------------------------------------------
+After successful injection:
+
+  1. Wait for the DLL to initialize (may use an event/semaphore for
+     synchronization).
+  2. Check that the DLL has found the game and installed hooks
+     (the DLL may communicate back via a named pipe, shared memory, or
+     by setting a flag in a known location).
+  3. If injection failed:
+     - Log the error.
+     - Clean up (free memory, close handles).
+     - Display error to user.
+  4. If injection succeeded:
+     - The injector can either exit (the DLL runs independently inside the
+       game process) or stay running as a "watchdog" to:
+       a) Monitor the game process (is it still running?).
+       b) Re-inject if the DLL is unloaded.
+       c) Provide a communication channel for updates.
+
+================================================================================
+  APPENDIX I: THE PATTERN DATABASE — HOW 73 PATTERNS WORK
+================================================================================
+
+I.1 WHAT IS A PATTERN?
+-----------------------
+A pattern (also called a "signature" or "AOB signature") is a unique byte
+sequence that identifies a specific location in compiled code.
+
+Example pattern:
+  Name: "GodMode_DamageFunction_Hook"
+  Module: game.dll
+  Signature: "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48 8B F9"
+  Hook type: FUNCTION_PROLOGUE
+  Action: Write JMP to cheat handler at pattern match location.
+
+I.2 HOW PATTERNS ARE FOUND
+----------------------------
+Patterns are created by:
+
+  1. Finding the target function in the game's code (using IDA Pro, Ghidra,
+     or a similar disassembler).
+  2. Selecting a unique byte sequence at or near the function entry.
+  3. Adding wildcards (??) for bytes that vary between game versions:
+     - Relative addresses (call 0x12345 -> bytes depend on location).
+     - RIP-relative addressing (lea rcx, [rip + offset]).
+     - Constant values that might change (hardcoded limits, multipliers).
+  4. Saving the pattern with metadata (name, module, hook type, action).
+
+I.3 THE 73 ACTIVE PATTERNS
+----------------------------
+Distribution across DLLs:
+  - game.dll: 67 patterns (91.8%).
+  - winhttp.dll: 2 patterns (2.7%).
+  - bcrypt.dll: 2 patterns (2.7%).
+  - game_current.dll: 2 patterns (2.7%).
+
+Distribution by hook type:
+  - CODE_PATCH: 30 patterns (41.1%).
+  - NOP_PATCH: 27 patterns (37.0%).
+  - FUNCTION_PROLOGUE: 5 patterns (6.8%).
+  - POINTER_RESOLVE: 5 patterns (6.8%).
+  - FUNCTION_RETURN: 4 patterns (5.5%).
+  - CONDITIONAL_INVERT: 2 patterns (2.7%).
+
+I.4 PATTERN MATCHING ALGORITHM
+-------------------------------
+The scanner works as follows:
+
+  1. Get the module's base address and size.
+     - Module base: from GetModuleHandle or PEB traversal.
+     - Size: from PE headers (SizeOfImage).
+
+  2. For each pattern in the database:
+     a) Convert the signature string to bytes with a mask:
+        - "48 89 ?? 24" -> bytes = [0x48, 0x89, 0x00, 0x24], mask = [1,1,0,1].
+     b) Scan the module memory:
+        for (i = 0; i < module_size - pattern_len; i++):
+          match = true;
+          for (j = 0; j < pattern_len; j++):
+            if (mask[j] && memory[i+j] != bytes[j]):
+              match = false;
+              break;
+          if (match):
+            found_pattern(i);
+            break;
+     c) If found, return: module_base + i (the address of the match).
+     d) If not found, log: "Pattern X not found."
+
+  3. Complexity: O(module_size * pattern_len) per pattern in worst case.
+     - With 73 patterns and a ~50 MB game.dll, this is efficient enough
+       (runs in under a second on modern CPUs).
+
+  4. Pattern validation:
+     - After finding a pattern, the cheat may verify it by checking
+       surrounding bytes (expected instructions before/after).
+     - This prevents false matches.
+
+I.5 WHY 404 PATTERNS TESTED BUT ONLY 73 USED
+-----------------------------------------------
+The cheat tests 404 patterns but only 73 produce matches in the current
+game version because:
+
+  - Some patterns are for ALTERNATIVE VERSIONS of the game.
+  - Some are FALLBACKS if the primary pattern for a feature fails.
+  - Some are for OPTIONAL features that only work on certain game builds.
+  - Some are LEGACY patterns from older versions (kept for backward
+    compatibility attempts).
+  - The "73 found" count is the SUCCESSFUL match count.
+
+I.6 THE "GAME MAY HAVE UPDATED" WARNING
+------------------------------------------
+If fewer patterns match than expected:
+
+  1. The cheat compares found count to expected count.
+  2. If significantly fewer: display warning via ImGui or MessageBox.
+  3. The warning tells the user:
+     - The cheat may not work properly on this game version.
+     - They should check for a cheat update.
+  4. The cheat may disable certain features that depend on missing patterns
+     rather than crashing.
+
+================================================================================
+  APPENDIX J: TROUBLESHOOTING — COMMON PROBLEMS AND ANSWERS
+================================================================================
+
+J.1 "THE CHEAT WON'T INJECT."
+------------------------------
+Possible causes:
+  - GameGuard driver is still active (didn't get deleted/blocked properly).
+  - The injector doesn't have administrator privileges (SeDebugPrivilege
+    requires running as admin).
+  - Anti-virus is blocking the injector (add exception or disable during use).
+  - The game process is protected by a different anti-cheat (verify it's
+    Helldivers 2).
+  - Wrong game version — the injector may check the game's version before
+    attempting injection.
+  - DLL file is missing or corrupted (check file size: should be ~732 KB).
+
+J.2 "THE MENU DOESN'T APPEAR."
+-------------------------------
+Possible causes:
+  - The overlay hook (wglSwapIntervalEXT) failed to install.
+  - ImGui failed to initialize (missing font, OpenGL context issue).
+  - The game is running in fullscreen exclusive mode, preventing overlay
+    windows. Try borderless windowed mode.
+  - Another overlay (Steam overlay, Discord overlay, GeForce Experience)
+    is conflicting. Disable other overlays.
+  - The toggle key (INSERT/HOME) is captured by another program.
+  - The overlay thread crashed silently.
+
+J.3 "HOOKS ARE NOT WORKING (GOD MODE DOESN'T WORK, ETC.)."
+-----------------------------------------------------------
+Possible causes:
+  - Game has updated and patterns no longer match. Check the pattern scanner
+    output for warnings.
+  - The cheat is running but hooks are being DETECTED and RESTORED by
+    GameGuard or the game's own integrity checks.
+  - Feature is not enabled correctly (check the checkbox toggle in the menu).
+  - Another cheat or mod is conflicting with the hooks.
+
+J.4 "SUPER CREDIT FARMING NOT GENERATING SC."
+-----------------------------------------------
+Possible causes:
+  - No capture file: C:\libertea_replay_cap.json doesn't exist. The cheat
+    needs to capture a legitimate Mission/end request first.
+  - The capture file is corrupted or empty.
+  - The HTTP library (WinHTTP/WinINet/libcurl) is blocked or not working.
+  - The server is rate-limiting or has changed its API endpoint.
+  - The hash table NOP isn't working (duplicate detection is rejecting
+    replays).
+  - MIDSWAP is generating invalid mission IDs.
+  - Network connectivity issues (firewall, VPN, proxy blocking the API
+    endpoint).
+  - Authentication tokens have expired (the game session may need to be
+    refreshed).
+
+J.5 "THE GAME CRASHES WHEN USING THE CHEAT."
+----------------------------------------------
+Possible causes:
+  - A hook is installed at the wrong location (pattern matched incorrectly
+    due to game update).
+  - A hook is corrupting the game's memory (wrong bytes written, wrong NOP
+    length, stack corruption).
+  - The overlay is causing a rendering conflict (OpenGL context issues).
+  - The cheat and another program are competing for the same resources.
+  - The VEH crash handler failed to recover from a minor exception, causing
+    a cascade failure.
+  - Memory exhaustion (too many allocations).
+  - A syscall is being blocked or returning unexpected results on this
+    Windows version.
+
+J.6 "ANTI-VIRUS FLAGS THE CHEAT."
+-----------------------------------
+Expected. The cheat exhibits behaviors strongly associated with malware:
+  - Process injection.
+  - Memory modification.
+  - DLL loading from non-standard paths.
+  - Direct syscall usage.
+  - Packed/compressed code.
+
+This is why the cheat is packed — to avoid signature detection. Even with
+packing, heuristic (behavioral) detection may still flag it.
+
+J.7 "THE CHEAT WORKED YESTERDAY BUT NOT TODAY."
+------------------------------------------------
+Most likely cause: Helldivers 2 received an automatic update (via Steam).
+Game updates can:
+  - Change memory offsets and patterns.
+  - Modify the code that hooks target.
+  - Update GameGuard.
+  - Change API endpoints or request formats.
+
+The cheat must be updated by its authors to match the new game version.
+
+J.8 "MY FRIEND'S CHEAT WORKS BUT MINE DOESN'T — SAME VERSION."
+----------------------------------------------------------------
+Possible causes:
+  - Different Windows versions (SSN table is different — syscall numbers
+    vary between Windows 10, Windows 11, and different builds).
+  - Different hardware (GameGuard may behave differently on different CPUs,
+    especially with virtualization-based security).
+  - Different game launch options (Steam launch parameters, graphics settings).
+  - Different network configuration (proxy, VPN, firewall rules).
+
+================================================================================
+  END OF ULTIMATE BEGINNER'S GUIDE
+================================================================================
+
+If you read this entire guide: congratulations! You now understand more about
+game cheating, Windows internals, and reverse engineering than 99% of gamers.
+
+Whether you're here as:
+  - A curious player who wanted to understand how cheats work.
+  - A budding security researcher looking for educational material.
+  - A game developer seeking to protect your own games.
+  - A student studying software engineering techniques.
+  ...we hope this guide was helpful.
+
+Remember: knowledge is a tool. Use it wisely.
+
+For next steps:
+  - Read NON-COMMIT.txt for language comparison analysis.
+  - Read README.md for a quick project overview.
+  - Browse docs/ for the full technical deep-dive.
+  - Run scripts/ to explore the data yourself.
+
+================================================================================

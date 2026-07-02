@@ -1,0 +1,499 @@
+================================================================================
+LIBERTEA HELLDIVERS 2 CHEAT DLL - HOOK & PATTERN SCANNING SYSTEM ANALYSIS
+================================================================================
+Analysis Date: June 2026
+Binary: .text_unpacked_mem.bin (3,489,792 bytes)
+================================================================================
+
+================================================================================
+1. ARCHITECTURE OVERVIEW
+================================================================================
+
+The LIBERTEA cheat DLL ("made by TheOGcup for LIBERTEA Discord") uses a
+multi-stage hook installation system:
+
+  Phase 1: RESOLVE BASES
+    - Locates game modules (game.dll, game_current.dll, game_live.dll, etc.)
+    - Resolves internal cheat pointers using PTR_* signature patterns
+    - Loads/stores ntdll.dll for syscall stub generation
+
+  Phase 2: PATTERN SCAN
+    - Scans target modules using IDA-style byte signatures with ?? wildcards
+    - Tracks found/missing count: "WARNING: Game may have updated ... %d/%d
+      patterns found"
+    - Missing patterns generate per-pattern warnings: "Missing: %s,"
+
+  Phase 3: HOOK INSTALLATION
+    - Applies code patches at matched addresses
+    - Uses NtProtectVirtualMemory to change page permissions
+    - Verifies hooks with bit-level comparison
+    - Reports: "Hook verified" or "WARNING: Hook mismatch ... update may be
+      needed" or "Handler install failed!"
+
+  Phase 4: OVERLAY RENDERING (ScPresent)
+    - Subclasses the game window (ScPresent::Install)
+    - Installs a custom WndProc for rendering the cheat overlay
+    - Uses WM_SC_DISPATCH custom message for thread-safe UI updates
+
+================================================================================
+2. PATTERN STORAGE STRUCTURE
+================================================================================
+
+Patterns are stored in the .rdata/.data section as sequential null-terminated
+string records. Each record follows this approximate layout:
+
+  OFFSET  SIZE    DESCRIPTION
+  ------  ----    -----------
+  -N       var    Module name (e.g., "game.dll\0")
+  -4       4      [Optional] uint32 length prefix (observed on first entry)
+  0        var    IDA-style signature string ("48 8B 0D ?? ?? ...\0")
+  +0       8-12   Pattern name (null-padded, e.g., "prologue\0\0\0\0")
+  +12      8-12   Type tag (null-padded, e.g., "FN_C\0\0\0\0", "PTR_A")
+
+  Type Tags:
+    FN_*  = Function prologue match (used for detour target detection)
+    PTR_* = Pointer resolution pattern (used to resolve internal addresses)
+
+Pattern names found in the binary:
+  - "prologue"        : Function prologue (push, sub rsp pattern)
+  - "constant"        : Constant value embedded in code
+  - "context"         : Context/state structure accessor
+  - "xref"            : Cross-reference to global data
+  - "derived"         : Derived pointer from base
+  - "wb"              : Write-back target
+  - "[Features] ntdll.dll handle: %p"  : Feature initialization code
+  - "NOP stamina read/drain"
+  - "Return TRUE to skip ragdoll check"
+  - "Return from recoil function immediately"
+  - "Force unconditional jump (bypass strategem count)"
+  - "NOP grenade count conversion"
+  - "NOP stim count decrement"
+  - "NOP landing speed multiply"
+  - "Force unconditional jump (bypass boundary)"
+  - "NOP hover time limit check"
+  - "Force highest difficulty reward tier (NOP jl at cmp esi,7)"
+  - "NOP launch code comparison jne"
+  - "Shield Cooldown"
+  - "NOP shield relay cooldown write"
+  - "NOP hellbomb arm timer write"
+  - "NOP arrow sequence check"
+  - "Skip coordinate timer check"
+  - "Skip pipe connection timer"
+  - "NOP turret heat accumulation"
+  - "NOP turret timer write"
+  - "NOP conditional jump so turrets always expire immediately"
+  - "NOP railgun charge calculation"
+  - "NOP fuse timer write"
+  - "NOP combo mismatch check"
+  - "NOP round completion check"
+  - "NOP arcade combo sequence check"
+  - "NOP killstreak score write"
+  - "NOP killstreak timer write"
+  - "NOP both hash table INSERT calls that mark SC entities as collected"
+  - "NOP resource value read (freezes resources)"
+  - "Freeze sample values (prevents loss)"
+  - "Return from weather function immediately"
+  - "Return 0 from aggro function"
+  - "NOP perception multiply"
+  - "NOP unlock check jump"
+  - "Mass Strat Drop"
+  - "No Laser Overheat"
+  - "Map Hack"
+  - "Hoverpack Control"
+  - "Takeoff Force"
+  - "Inf Ammo"
+  - "No Reload"
+  - "FOV Editor"
+  - "Inf Grenades"
+  - "Inf Stims"
+  - "Instant Charge"
+  - "[SC-LIMIT] Code cave at %p"
+  - "Function prologue mismatch"
+
+================================================================================
+3. HOOK TYPES CLASSIFICATION
+================================================================================
+
+Based on pattern names and signatures, hooks fall into these categories:
+
+3.1 NOP PATCHES (~35 patterns)
+    Replace target instruction(s) with 0x90 (NOP) to disable functionality.
+    Examples:
+    - NOP grenade count conversion (freezes grenade count)
+    - NOP stim count decrement (infinite stims)
+    - NOP turret heat accumulation (no overheat)
+    - NOP unlock check jump (unlocks armory)
+    - NOP landing speed multiply (removes fall damage)
+    - NOP perception multiply (stealth/map hack)
+    - NOP both hash table INSERT calls (unlimited stratagems)
+
+3.2 CONDITIONAL JUMP INVERSIONS (~5 patterns)
+    Change conditional jump (JE/JNE/JL/JG) to unconditional (JMP) or force
+    specific branch.
+    Examples:
+    - Force unconditional jump (bypass boundary check) -> No Boundary
+    - Force unconditional jump (bypass strategem count) -> Infinite Stratagems
+    - Force highest difficulty reward tier (NOP jl at cmp esi,7)
+
+3.3 FUNCTION RETURNS (~5 patterns)
+    Replace function prologue with RET to disable entire function.
+    Examples:
+    - Return TRUE to skip ragdoll check -> No Ragdoll
+    - Return from recoil function immediately -> No Recoil
+    - Return from weather function immediately -> Weather control
+    - Return 0 from aggro function -> Enemy aggro disable
+
+3.4 FUNCTION PROLOGUE MATCHING (~8 patterns)
+    FN_* type patterns match function entry points. Used to:
+    - Verify correct game version
+    - Locate functions for detour hooking
+    - Detect game updates (mismatch = update needed)
+
+3.5 POINTER RESOLUTION (~6 patterns)
+    PTR_* patterns resolve internal pointers and offsets:
+    - PTR_A: Session pointer resolver (48 8B 05 ?? ?? ?? ?? 33 D2 48 8B 35)
+    - PTR_C: Unlock check pointer (48 8B 0D ?? ?? ?? ?? 44 89 80 60 0C)
+    - PTR_D: Session pointer v2
+    - PTR_PM: Game manager pointer (48 8B 05 ?? ?? ?? ?? 8B 90 90 63 01 00...)
+    - PTR_GT: Xref resolver
+
+================================================================================
+4. MODULE BREAKDOWN
+================================================================================
+
+Target modules and their patterns:
+
+  MODULE              COUNT   PURPOSE
+  ------              -----   -------
+  game.dll            62      Main game logic hooks (player, combat, stratagems,
+                              turrets, weapons, missions, enemies)
+  winhttp.dll          3      Cheat's own HTTP communication function prologues
+  game_current.dll      2      Game state pointer resolution
+  bcrypt.dll            2      Code cave + encryption bypass
+  ntdll.dll             4      Syscall stubs and feature init
+
+================================================================================
+5. KEY PATTERN SIGNATURES (FULL LIST)
+================================================================================
+
+Complete list of all 73 extracted IDA-style patterns:
+
+  [game.dll - Function Prologues]
+  1.  48 89 5C 24 08 57 48 83 EC 30 C7 02 FF FF FF FF
+  2.  8B 46 ?? 83 E8 ?? 83 F8 ?? 41
+  3.  40 53 57 48 81 EC 18 0D 00 00
+  4.  C7 44 24 24 1B 94 E7 01
+  5.  74 ?? 49 8D 83 ?? ?? ?? ?? 39 50 04 74 ?? FF C1 48 83 C0 18 41 3B ?? 72 F0 EB ?? 8B
+
+  [game.dll - Pointer Resolution]
+  6.  48 8B 05 ?? ?? ?? ?? 33 D2 48 8B 35
+  7.  48 8B 35 ?? ?? ?? ?? 49 8B E9 41 8B D8 48 8B 88 28 01
+  8.  48 8B 35 ?? ?? ?? ?? 33 C9 49 8B E9 41 8B D8 4C 8B 90 28 01
+
+  [game.dll - Player/Combat Hooks]
+  9.  41 8B 47 ?? 4C 8B 7C 24 ?? 4C            | NOP stamina read/drain
+  10. 40 57 48 83 EC ?? 3B 15 ?? ?? ?? ?? 41 8B F8 4C 89 7C 24  | Return TRUE skip ragdoll
+  11. 48 83 EC 18 48 8B 01                        | Return from recoil func
+  12. 0F 86 ?? ?? ?? ?? 0F 29 ?? ?? F3 0F 10 3D ?? ?? ?? ?? 44 0F  | Force unconditional JMP (strat count)
+  13. 0F 5B DB F3 41 0F 59 4E ?? F3              | NOP grenade count
+  14. 42 FF ?? E0 49 8B 46 ?? 4E                 | NOP stim count decrement
+  15. F3 0F 59 4B ?? F3 0F 59 4B ?? 0F 28 D9 F3 0F 5C DC  | NOP landing speed
+  16. 0F 84 ?? ?? ?? ?? 80 7F ?? ?? 0F 85 ?? ?? ?? ?? F3 0F  | No Boundary (invert)
+  17. 41 0F 2F 45 ?? 77 ?? 48                    | NOP hover time limit
+  18. 83 FE 07 7C 07 BA ?? ?? ?? ?? EB 16 83 FE 05  | Force highest difficulty
+  19. 39 46 ?? 75 ?? FF C5                         | Kill counter NOP (NOP jne)
+  20. F3 0F 5C C7 F3 41 0F 59 E3                  | Shield cooldown NOP
+  21. F3 45 0F 11 5E ?? E9                        | NOP shield relay cooldown write
+  22. F3 0F 11 56 ?? ?? ?? ?? ?? ?? ?? 0F 2F       | NOP hellbomb arm timer
+  23. 75 ?? F3 0F 10 46 ?? 0F 2F C6 72 ?? F3        | NOP arrow sequence check
+  24. 0F 2F 76 ?? C6 46 18 ?? 76                  | Skip coordinate timer
+  25. 0F 2F C1 48 89 44 24 ?? 76                  | Skip pipe connection timer
+  26. 48 89 5C 24 ?? 48 8B D9 85 D2 75 ?? 4C       | NOP unlock check jump
+  27. F3 0F 11 04 06 48 8B 47                     | NOP killstreak score write
+  28. F3 0F 11 97 ?? ?? ?? ?? 76 ?? 45 33 F6        | NOP killstreak timer write
+
+  [game.dll - Turret/Weapon Hooks]
+  29. F3 0F 58 49 F4 ?? 8B D3                     | NOP turret heat
+  30. F3 0F 11 44 C8 ?? 0F                         | NOP turret timer write
+  31. 0F 82 ?? ?? ?? ?? 8B 5A ?? 8B 3D            | NOP turret expire jump
+  32. 41 0F 28 C1 F3 41 0F 58 C6                   | NOP railgun charge
+  33. F3 0F 11 44 3B ?? F3 0F 59 C7 F3 0F 5A C0    | NOP fuse timer (landing speed)
+
+  [game.dll - Mission/Objective Hooks]
+  34. 75 ?? 41 8D 45 ?? 89 06 EB ?? C7 06           | NOP combo mismatch
+  35. 74 ?? 32 C0 EB ?? B0 ?? 45 32 ED              | NOP round completion
+  36. 75 ?? 8D 42 ?? BA                             | NOP arcade combo seq
+  37. 83 F8 10 0F 82 ?? ?? ?? ?? 41 8B 4E 08 41 B9 FF FF FF FF 41 B8 70 00 00 00  | NOP hash table INSERT
+  38. F3 41 0F 10 94 F4 ?? ?? ?? ?? 4C 8B 81         | NOP resource value read
+  39. 01 41 04 49 8B 46 30                          | Freeze sample values
+
+  [game.dll - Enemy/World Hooks]
+  40. 48 89 5C 24 ?? 48 89 7C 24 ?? 4C 89 44        | Return from weather
+  41. 48 89 5C 24 ?? 48 89 6C 24 ?? 48 89 74 24 ?? 48 89 7C 24 ?? 41 56 3B 15 ?? ??  | Return 0 from aggro
+  42. F3 0F 59 00 F3 0F 11 44 DF ?? F3              | NOP perception multiply
+
+  [game.dll - Strategy/Resource Hooks]
+  43. 2B 5D ?? 89 1C ?? 48                          | No Laser Overheat
+  44. 42 83 2C 81 ?? 49                            | Map Hack (strat count 49)
+  45. 42 83 2C 81 ?? 48                             | Hoverpack Control / Map Hack v2
+  46. 2B C8 BA ?? ?? ?? ?? 49 8B                     | Mass Strat Drop - write
+  47. 49 8B 45 ?? 48 89 45 E0 49                    | Mass Strat Drop - resolve
+  48. 48 8D 04 52 48 8D 0C 85 ?? ?? ?? ?? 49 8B 42 ?? 44 89 74 01  | Mass Strat Drop - array
+  49. FF 0F 83 FE ?? 0F 84                           | Stratagem count check
+  50. F3 0F 5E 80 ?? ?? ?? ?? F3 0F 59 D8            | Resource multiplier
+  51. 42 FF 0C E0 49 8B 46 ?? 4E                    | Resource decrement
+
+  [game.dll - Additional Hooks]
+  52. 45 8B 74 D7 04 41 FF CE 3B F9                  | Array index calc
+  53. 45 0F B6 6D 3B                                 | Movement/state check
+  54. F3 43 0F 11 44 F7 ?? 0F 28                     | Vector write
+  55. F3 0F 10 4C ?? ?? F3 41 0F 10 ?? ?? ?? ?? ?? 0F 2F D1  | Float compare
+  56. F3 0F 11 44 AF ?? 72                           | Timer write
+  57. F3 0F 11 4C A8 ?? 49                           | Turret overheat write
+  58. 41 80 BC 24 AB 02 00 00 00                     | Player state flag check
+  59. 0F 84 ?? ?? ?? ?? 83 7C 24 ?? ?? 0F 83         | Conditional bypass
+  60. 75 ?? 41 80 BF ?? ?? ?? ?? ?? 0F 85             | Player alive check
+  61. 0F 85 ?? ?? ?? ?? 48 8B 44 24 ?? 80 78 29        | State validation
+
+  [game.dll - Hoverpack / Physics]
+  62. 0F 85 ?? ?? ?? ?? 48 8D BE ?? ?? ?? ?? 41 0F 28 CE  | Takeoff force check
+  63. 76 ?? ?? ?? ?? ?? ?? ?? ?? 48 8B 44 ?? ?? 48 8B 4C ?? ?? 44 38  | Force ceiling
+  64. F3 0F 11 54 01 ?? 48 83 C1 ?? 49               | Force apply
+  65. 4C 8D 85 ?? ?? ?? ?? 0F 29 85                   | Vector store
+  66. E8 ?? ?? ?? ?? 8B D7 48 8B CB 4C               | Function call pattern
+
+  [winhttp.dll - Cheat HTTP Comms]
+  67. 48 89 5C 24 08 57 48 83 EC 30 C7 02 FF FF FF FF  | WinHttpSendRequest prologue
+  68. 8B 46 ?? 83 E8 ?? 83 F8 ?? 41                  | WinHttpReceiveResponse
+  69. 40 53 57 48 81 EC 18 0D 00 00                   | WinHttpQueryDataAvailable
+
+  [game_current.dll - Game State]
+  70. 48 8B 0D ?? ?? ?? ?? 44 89 80 60 0C             | Unlock armory pointer
+  71. 48 8B 05 ?? ?? ?? ?? 8B 90 90 63 01 00 4C 8D 88 C8 62 01 00  | Game manager
+
+  [bcrypt.dll - Encryption]
+  72. 4C 8B F0 4C 8B 89 ?? ?? ?? ?? 48 8B C8 41 FF 91 ?? ?? ?? ??  | SC-LIMIT code cave
+  73. F3 41 0F 10 94 F4 CC 14 00 00                   | bcrypt data access
+
+================================================================================
+6. HOOK INSTALLATION FLOW
+================================================================================
+
+Based on code analysis and string references:
+
+6.1 PATTERN SCANNING ENGINE
+
+  The pattern scanner iterates through the pattern array, scanning each
+  target module's .text section for the byte signature. The scanning
+  algorithm is a standard byte-by-byte comparison that:
+
+  1. Reads each pattern signature string
+  2. For each byte in the target module:
+     a. Compares pattern bytes against module bytes
+     b. Skips comparison for ?? (wildcard) positions
+  3. On match: stores the matched address
+  4. On failure: logs to "WARNING: Game may have updated ... %d/%d patterns
+     found. Some features may not work."
+  5. Missing patterns are enumerated: "Missing: %s,"
+
+  The function at ~0x11D70 contains the "%d/%d patterns found" log call.
+
+6.2 MEMORY PROTECTION
+
+  Before patching, the cheat calls NtProtectVirtualMemory to make the
+  target code pages writable:
+
+  Reference found at code offset 0x02E9DB:
+    LEA RDX, [NtProtectVirtualMemory_string]
+    ...
+    CALL [__imp_GetProcAddress]
+
+  The cheat resolves NtProtectVirtualMemory from ntdll.dll dynamically.
+  VirtualProtect is also available as a fallback (string at 0x102AAB).
+
+6.3 PATCH APPLICATION
+
+  Each pattern match results in a specific patch operation:
+
+  A) NOP PATCH
+     - Calculates target address = match_address + offset
+     - Calls NtProtectVirtualMemory(PAGE_EXECUTE_READWRITE)
+     - Writes NOP bytes (0x90) over the target instruction(s)
+     - Restores original page protection
+     - Verifies: reads back bytes and compares ("Hook verified")
+
+  B) CONDITIONAL JUMP INVERSION
+     - Locates the conditional jump byte (0x74=JE, 0x75=JNE, 0x0F84=JZ, etc.)
+     - Changes to unconditional JMP (0xEB for short, 0xE9 for near)
+     - OR changes the condition to always take desired branch
+
+  C) FUNCTION RETURN
+     - Writes 0xC3 (RET) at function prologue
+     - OR writes mov eax, <value>; ret (B8 XX XX XX XX C3)
+
+  D) MEMORY WRITE
+     - Writes specific byte values to modify game logic
+     - E.g., changing comparison constants, disabling checks
+
+6.4 HOOK VERIFICATION
+
+  After each patch:
+  - Bytes are read back from target address
+  - Compared against expected patch bytes
+  - "Hook verified" on success
+  - "WARNING: Hook mismatch ... update may be needed" on failure
+  - "Handler install failed!" if not writable or invalid address
+
+================================================================================
+7. ScPresent::Install - OVERLAY RENDERING HOOK
+================================================================================
+
+The ScPresent system provides the cheat's visual overlay on the game window.
+
+7.1 INSTALLATION
+
+  Function: ScPresent::Install
+  String: "ScPresent::Install: hwnd=%p origWndProc=%p"
+
+  Flow:
+  1. Finds the game window by class name "HELLDIVERS" / "helldivers2"
+  2. Retrieves current window procedure via GetWindowLongPtr (GWL_WNDPROC)
+  3. Installs a custom window procedure via SetWindowLongPtr
+  4. Stores original WndProc pointer for message forwarding
+  5. Sets a global flag indicating installation state
+
+  The LEA reference to the install debug string is at code offset ~0x3B31.
+
+7.2 CUSTOM WndProc
+
+  The custom window procedure handles:
+  - WM_SC_DISPATCH: Custom message for thread-safe UI updates
+    Uses PostMessage to queue render operations:
+    "QueueSC: PostMessage(hwnd=%p, actObj=%p) = %d, LastErr=%u"
+  
+  - All other messages: forwarded to origWndProc
+
+  On failure:
+    "QueueSC: FAILED ... installed=%d hwnd=%p"
+
+7.3 OVERLAY FEATURES
+
+  The overlay renders cheat UI elements including:
+  - Inf Ammo
+  - No Reload
+  - FOV Editor
+  - Inf Grenades
+  - Inf Stims
+  - Instant Charge
+  - No Laser Overheat
+  - Map Hack
+  - Hoverpack Control
+  - Eradication Editor
+  - Armor Passive
+  - Mass Strat Drop
+
+7.4 WINDOW DETECTION
+
+  Window class names searched:
+  - "HELLDIVERS"
+  - "helldivers2"
+  - "HELLDIVERS 2"
+
+================================================================================
+8. SYSCALL STUB SYSTEM
+================================================================================
+
+8.1 OVERVIEW
+
+  The cheat uses direct syscall stubs instead of calling Win32 API functions
+  to evade user-mode API hooks. The stubs invoke kernel system calls directly
+  via the `syscall` instruction (0F 05).
+
+8.2 SSN RESOLUTION
+
+  System Service Numbers (SSNs) are dynamically resolved from ntdll.dll:
+
+  1. ntdll.dll is loaded: LEA references at 0x17495, 0x2E9B6, 0x36DD4, 0x36E2D
+  2. The cheat scans ntdll.dll exports to find known functions
+  3. Extracts the SSN from the function's syscall stub bytecode:
+     - NT API functions in ntdll.dll start with: mov r10, rcx; mov eax, <SSN>
+     - The SSN is the dword operand of `mov eax, <SSN>`
+  
+  Debug strings:
+    "stub built at %p (syscall# 0x%X)"
+    "syscall# 0x%X)"
+
+8.3 STUB CONSTRUCTION
+
+  For each required syscall, the cheat:
+  1. Allocates executable memory (NtAllocateVirtualMemory)
+  2. Writes the stub code:
+     mov r10, rcx       ; 4C 8B D1
+     mov eax, <SSN>     ; B8 XX XX XX XX
+     syscall             ; 0F 05
+     ret                 ; C3
+  3. Stores the stub address (printf: "stub built at %p")
+
+8.4 SUSPECTED SYSCALL FUNCTIONS USED
+
+  Based on common cheat patterns and detected SSN resolution:
+  - NtAllocateVirtualMemory (0x18)  - Memory allocation
+  - NtProtectVirtualMemory (0x2D)   - Page protection change
+  - NtReadVirtualMemory (0x1B)      - Memory reading
+  - NtWriteVirtualMemory (0x1C)     - Memory writing
+  - NtQuerySystemInformation (0x36) - Anti-debug
+  - NtQueryInformationProcess (0x37) - Process info
+  - NtDelayExecution (0xE0)         - Sleep
+  - NtCreateThreadEx (0x62)         - Thread creation
+
+================================================================================
+9. HOOK TABLE SUMMARY
+================================================================================
+
+  #  FEATURE                HOOK TYPE         PATTERN OFFSET
+  -- ---------------------- ----------------- ------------
+  1  God Mode (Player)      3 hooks           0x102D98 + 2 more
+  2  Infinite Grenades      NOP write         0x102C90
+  3  Infinite Stims         NOP decrement     0x102CE0
+  4  No Recoil              Function return   0x102BB8
+  5  No Ragdoll             Function return   0x102B50
+  6  No Boundary            Conditional invert 0x102D98
+  7  Instant Charge         NOP timer         0x103230
+  8  No Laser Overheat      NOP decrement     0x1040D0
+  9  Map Hack               NOP count         0x1040E8
+  10 Hoverpack Control      NOP count         0x104100
+  11 Infinite Stratagems    Conditional invert 0x102C08
+  12 Mass Strat Drop        Mem write         0x104118
+  13 No Turret Overheat     NOP heat          0x103150
+  14 Inf Turret Duration    NOP timer         0x103188
+  15 Instant Strat Callin   NOP timer check   0x1030C0
+  16 Unlock Armory          NOP check         0x103708
+  17 Mission Timer          NOP various       0x103018+
+  18 Kill Counter           NOP jne           0x102EE8
+  19 FOV Editor             Runtime write     (UI-based)
+  20 Armor Passive          Mem freeze        0x103590
+  21 Inf Ammo               NOP various       (ammo hooks)
+  22 Eradication Editor     NOP hash table    0x103480
+  23 Enemy Aggro            Function return   0x103640
+  24 Weather Control        Function return   0x1035E0
+  25 Shield Relay           NOP write         0x102FC8
+  26 Railgun Charge         NOP calc          0x103230
+  27 Landing/Fall Speed     NOP multiply      0x102D30
+  28 Takeoff Force          NOP write         0x104350
+
+================================================================================
+10. ANTI-DETECTION & SECURITY NOTES
+================================================================================
+
+  - Uses syscall stubs to bypass user-mode API hooks (no ntdll.dll calls)
+  - Dynamic SSN resolution prevents hardcoded syscall numbers (thwarts
+    simple signature-based detection)
+  - Pattern scanning with ?? wildcards tolerates minor game updates
+  - "Hook mismatch" detection alerts users to game version incompatibility
+  - WinHTTP-based network communication for license/auth checks
+  - bcrypt.dll hooks for encryption/serial validation bypass
+  - Direct kernel syscalls make EDR/usermode hooking ineffective
+
+================================================================================
+END OF ANALYSIS
+================================================================================

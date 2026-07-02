@@ -1,0 +1,911 @@
+
+################################################################################
+#  SUPPLEMENT A: COMPLETE GAME DATA STRING CATALOG
+################################################################################
+
+--- WEAPON NAMES (130 found) ---
+  0FE2B0: "AC-1 Dutiful"
+  0FE2C0: "AC-2 Obedient"
+  0FDF28: "AD-11 Livewire"
+  0FE160: "AD-26 Bleeding Edge"
+  0FE178: "AD-49 Apollonian"
+  0FE078: "AF-02 Haz-Master"
+  0FE060: "AF-50 Noxious Ranger"
+  0FDE80: "AF-52 Lockdown"
+  0FDE90: "AF-91 Field Chemist"
+  0FD650: "AR-2 Coyote"
+  0FD5E8: "AR-23 Liberator"
+  0FED10: "AR-23A Liberator Carbine"
+  0FECF0: "AR-23C Liberator Concussive"
+  0FECD0: "AR-23P Liberator Penetrator"
+  0FD640: "AR-32 Pacifier"
+  0FED30: "AR-48 Truth Whisperer"
+  0FEDD8: "AR-59 Suppressor"
+  0FD5F8: "AR-61 Tenderizer"
+  0FD7D0: "ARC-12 Blitzer"
+  0FE190: "BP-20 Correct Officer"
+  0FE1A8: "BP-32 Jackboot"
+  0FDF38: "BP-77 Grand Juror"
+  0FD610: "BR-14 Adjudicator"
+  0FD770: "CB-9 Exploding Crossbow"
+  0FDC08: "CE-07 Demolition Specialist"
+  0FDF98: "CE-101 Guerilla Gorilla"
+  0FDB70: "CE-27 Ground Breaker"
+  0FDB48: "CE-35 Trench Engineer"
+  0FDF78: "CE-64 Grenadier"
+  0FDB60: "CE-67 Titan"
+  0FDB28: "CE-74 Breaker"
+  0FDD58: "CE-81 Juggernaut"
+  0FDB88: "CM-09 Bonesnapper"
+  0FDBC8: "CM-10 Clinician"
+  0FDD00: "CM-14 Physician"
+  0FDBB8: "CM-17 Butcher"
+  0FDBA0: "CM-21 Trench Paramedic"
+  0FE328: "CPG-48 Sapper"
+  0FE338: "CPH-26 Commandant"
+  0FE038: "CPR-80 Bulwark"
+  0FDAD8: "CW-22 Kodiak"
+  0FE378: "CW-36 Winter Warrior"
+  0FDAC0: "CW-4 Arctic Ranger"
+  0FDF68: "CW-9 White Wolf"
+  0FEE10: "DBS-2 Double Freedom"
+  0FDB38: "DP-00 Tactical"
+  0FDCE0: "DP-11 Champion of the People"
+  0FDCA0: "DP-40 Hero of the Federation"
+  0FDDD8: "DP-53 Saviour of the Free"
+  0FDD70: "DP-8 Mountain-Scaled"
+  0FDF50: "DS-10 Big Game Hunter"
+  0FE1D8: "DS-191 Scorpion"
+  0FE1B8: "DS-42 Federation's Blade"
+  0FDD40: "EX-00 Prototype X"
+  0FDC58: "EX-03 Prototype 3"
+  0FDC70: "EX-16 Prototype 16"
+  104198: "FF 0F 83 FE ?? 0F 84"
+  0FD848: "FLAM-66 Torcher"
+  0FDE20: "FS-05 Marksman"
+  0FDE30: "FS-11 Executioner"
+  0FE350: "FS-23 Battle Master"
+  0FDC88: "FS-34 Exterminator"
+  0FDA98: "FS-37 Ravager"
+  0FDC40: "FS-38 Eradicator"
+  0FDAA8: "FS-55 Devastator"
+  0FDBF0: "FS-61 Dreadnought"
+  0FDEE8: "GS-11 Democracy's Deputy"
+  0FE100: "GS-17 Frontier Marshall"
+  0FE118: "GS-66 Lawmaker"
+  0FE0F0: "IE-12 Righteous"
+  0FE0E0: "IE-3 Martyr"
+  0FDED8: "IE-57 Hell-Bent"
+  0FD858: "JAR-5 Dominator"
+  0FDFD8: "KDM-500 Outrider"
+  0FE2A0: "KDM-73 Dragoon"
+  0FE288: "KDM-763 Pacesetter"
+  0FD7F0: "LAS-16 Sickle"
+  0FD828: "LAS-17 Double-Edged Sickle"
+  0FD7E0: "LAS-5 Scythe"
+  0FD6A8: "MP-98 Knight"
+  0FE248: "PH-202 Twigsnapper"
+  0FDF88: "PH-56 Jaguar"
+  0FE238: "PH-9 Predator"
+  0FD800: "PLAS-1 Scorcher"
+  0FD810: "PLAS-101 Purifier"
+  0FD798: "PLAS-39 Accelerator Rifle"
+  0FE140: "RE-1861 Parade Commander"
+  0FE128: "RE-2310 Honorary Guard"
+  0FDF08: "RE-824 Bearer of the Standard"
+  0FE020: "RS-100 Sanctioner"
+  0FE1E8: "RS-20 Constrictor"
+  0FE200: "RS-40 Beast of Prey"
+  0FDFF0: "RS-6 Fiend Destroyer"
+  0FE310: "RS-67 Null Cipher"
+  0FE2F8: "RS-89 Shadow Paragon"
+  0FE048: "SA-04 Combat Technician"
+  0FDB00: "SA-12 Servo Assisted"
+  0FDAE8: "SA-25 Steel Trooper"
+  0FDB18: "SA-32 Dynamo"
+  0FE218: "SA-7 Headfirst"
+  0FE228: "SA-8 Ram"
+  0FDC28: "SC-15 Drone Master"
+  0FDDF8: "SC-30 Trailblazer Scout"
+  0FDE48: "SC-34 Infiltrator"
+  0FDD88: "SC-37 Legionnaire"
+  0FD760: "SG-20 Halt"
+  0FD730: "SG-225 Breaker"
+  0FD740: "SG-225IE Breaker Incendiary"
+  0FEDA8: "SG-225SP Breaker Spray&Pray"
+  0FD720: "SG-451 Cookout"
+  0FD700: "SG-8 Punisher"
+  0FED88: "SG-8F Punisher Fire of Liberty"
+  0FD7B8: "SG-8P Punisher Plasma"
+  0FD710: "SG-8S Slugger"
+  0FEE40: "SG-97 Sweeper"
+  0FEE68: "SMG-203 Gallant"
+  0FD6D8: "SMG-32 Reprimand"
+  0FD6B8: "SMG-37 Defender"
+  0FD6C8: "SMG-72 Pummeler"
+  0FE0D0: "SR-18 Roadblock"
+  0FE0B8: "SR-24 Street Scout"
+  0FDEC0: "SR-64 Cinderblock"
+  0FDD10: "TR-117 Alpha Commander"
+  0FE368: "TR-62 Knight"
+  0FDE60: "TR-7 Ambassador of the Brand"
+  0FDCC0: "TR-9 Cavalier of Democracy"
+  0FE0A8: "UF-16 Inspector"
+  0FE090: "UF-50 Bloodhound"
+  0FDEA8: "UF-84 Doubt Killer"
+  0FD868: "VG-70 Variable"
+
+--- ARMOR NAMES (0 found) ---
+
+--- STRATAGEM NAMES (37 found) ---
+  104818: "Autocannon Sentry"
+  1047D0: "Backpack"
+  1046E8: "Backpacks"
+  1048D0: "Bug Plug"
+  104908: "Bug Thumper"
+  0FDA28: "Concussive Reinforced"
+  1048B8: "Drilling Charge"
+  1046C8: "Eagle Strikes"
+  104688: "Emancipator Exosuit"
+  0FFCD8: "Expire All Turrets"
+  104898: "Extraction"
+  104950: "Extraction Beacon"
+  0FF948: "Freezes all countdown timers (mission, extraction, etc.)"
+  104800: "Gatling Sentry"
+  1047C0: "Guard Dog (Lib)"
+  1047E0: "Guard Dog Rover"
+  1048A8: "Hellbomb"
+  0FFCC0: "Inf Turret Duration"
+  103000: "Instant Hellbomb"
+  104840: "Mortar Sentry"
+  1031E0: "NOP conditional jump so turrets always expire immediately"
+  103040: "NOP hellbomb arm timer write"
+  103168: "NOP turret heat accumulation"
+  1031A0: "NOP turret timer write"
+  0FFCA8: "No Turret Overheat"
+  104708: "Orbitals"
+  104850: "Patriot Exosuit"
+  104918: "Prospecting Drill"
+  0FD8F8: "Reinforced Epaulettes"
+  104878: "Reinforcement"
+  104728: "Resupply"
+  104830: "Rocket Sentry"
+  104930: "Seismic Probe"
+  104810: "Sentry"
+  1047F0: "Shield Backpack"
+  1048E0: "Spire Sterilizer"
+  0FFCA0: "TURRETS"
+
+--- ENEMY NAMES (28 found) ---
+  104868: "Bastion Tank"
+  103AA0: "Berserker"
+  103998: "Bile Spewer"
+  1039F0: "Bile Titan"
+  103960: "Brood Commander"
+  103A00: "Charger"
+  103A08: "Charger Behemoth"
+  103A60: "Devastator"
+  103A20: "Factory Strider"
+  103AC8: "Gunship"
+  103AD0: "Harvester"
+  103A70: "Heavy Devastator"
+  1039B8: "Hive Guard"
+  103A38: "Hulk Bruiser"
+  103A48: "Hulk Scorcher"
+  103980: "Hunter"
+  103950: "Impaler"
+  1039A8: "Nursing Spewer"
+  103B20: "Overseer"
+  103A88: "Rocket Devastator"
+  1039D8: "Scavenger"
+  103AB0: "Scout Strider"
+  1039C8: "Shrieker"
+  103970: "Stalker"
+  103A58: "Tank"
+  103AC0: "Trooper"
+  103978: "Warrior"
+  100A10: "[R] Guard reset"
+
+--- OTHER GAME DATA (35 found) ---
+  0FD958: "Acclimated"
+  1047A8: "Anti-Materiel Rifle"
+  104780: "Arc Thrower"
+  104740: "Autocannon"
+  0FDD28: "B-27 Fortified Commando"
+  0FD9B0: "Ballistic Padding"
+  0FD8D0: "Combat Medic"
+  0FDA40: "Concussive Grenadier"
+  0FDA58: "Concussive Hazmat"
+  0FD978: "Explosive Finale"
+  0FD910: "Fire Resistant"
+  104770: "Flamethrower"
+  0FD930: "Gas Resistance"
+  0FE3A0: "Hover Pack"
+  102B08: "Inf Stamina"
+  103220: "Instant Railgun"
+  0FE390: "Jump Pack"
+  104750: "Laser Cannon"
+  104790: "Machine Gun"
+  103250: "NOP railgun charge calculation"
+  102FE0: "NOP shield relay cooldown write"
+  102B38: "NOP stamina read/drain"
+  104058: "No Laser Overheat"
+  0FD920: "Peak Physique"
+  104760: "Quasar Cannon"
+  0FD788: "R-36 Eruptor"
+  0FD698: "R-6 Deadeye"
+  0FD670: "R-63 Diligence"
+  0FED60: "R-63CS Diligence Counter-Sniper"
+  104738: "Railgun"
+  104670: "Recoilless Rifle"
+  102FB8: "Shield Cooldown"
+  0FD968: "Siege Breaker"
+  10479C: "Spear"
+  0FDA10: "Supplemental Stamina"
+
+################################################################################
+#  SUPPLEMENT B: BYTE-LEVEL RIP-RELATIVE REFERENCE SCAN
+################################################################################
+
+Total unique RIP-relative targets: 1684
+Total RIP-relative instructions: 4154
+
+--- Most Referenced RIP Targets ---
+  Target=0x11E578 x870  data=00000000000000000000000000000000  from=0x005DF8, 0x00608C, 0x0062BE, 0x00630E
+  Target=0x11A080 x190  data=5474a1bd14a100000000000000000000  from=0x0007FF, 0x0009BF, 0x000DD1, 0x0010D7
+  Target=0x-01000 x100  [EXTERNAL - game.dll?]  from=0x0021E6, 0x00BB2E, 0x00BEB5, 0x00D2C0
+  Target=0x373120 x 58  [EXTERNAL - game.dll?]  from=0x00049D, 0x0032CC, 0x0032F8, 0x003308
+  Target=0x11DAC0 x 58  data=905fb266da0100000000000000000000  from=0x090D20, 0x090E14, 0x090EEF, 0x091CCD
+  Target=0x371880 x 32  [EXTERNAL - game.dll?]  from=0x02B1EE, 0x02B2A7, 0x02B2D0, 0x02B32E
+  Target=0x371C90 x 31  [EXTERNAL - game.dll?]  from=0x02EC3E, 0x02EEE5, 0x02F01A, 0x02F27E
+  Target=0x371DE0 x 31  [EXTERNAL - game.dll?]  from=0x02ECA3, 0x02EF44, 0x02F071, 0x02F2F3
+  Target=0x102AC8 x 31  data=5b46656174757265735d20414c4c204c  from=0x02ED54, 0x02F100, 0x02F1B7, 0x02F3B2
+  Target=0x0FE3AF x 28  data=00435241534800000025730000252e31  from=0x006628, 0x008698, 0x00CE56, 0x00CE8E
+  Target=0x0FE3B8 x 24  data=25730000252e31667800000000000000  from=0x008925, 0x00924B, 0x00929B, 0x00932B
+  Target=0x101800 x 20  data=0d0a00000000000077696e687474702e  from=0x0399CC, 0x039A98, 0x039CBC, 0x039D88
+  Target=0x0F7EB0 x 18  data=00000000963007772c610eeeba510999  from=0x038589, 0x0385DA, 0x03C815, 0x03D847
+  Target=0x1201A0 x 17  data=00000000000000000000000000000000  from=0x028834, 0x028A2C, 0x028B52, 0x028C45
+  Target=0x0B9BD0 x 16  data=9012e2cdfc7f00007012e2cdfc7f0000  from=0x00023C, 0x00029A, 0x0002E0, 0x00035C
+  Target=0x0C5DB8 x 15  data=67616d652e646c6c0000000000000000  from=0x0028B9, 0x002F07, 0x003148, 0x0031AA
+  Target=0x373128 x 15  [EXTERNAL - game.dll?]  from=0x003490, 0x0034EF, 0x0061FA, 0x00BE57
+  Target=0x373178 x 14  [EXTERNAL - game.dll?]  from=0x00070D, 0x000782, 0x0007BA, 0x006901
+  Target=0x120170 x 14  data=00000000000000000000000000000000  from=0x027573, 0x0275C4, 0x02760E, 0x027655
+  Target=0x1202F0 x 13  data=00000000000000000000000000000000  from=0x02B915, 0x02BB99, 0x02BC1E, 0x02BC53
+  Target=0x0C5FDC x 12  data=4f4e00004f4646004143544956450000  from=0x004081, 0x011F41, 0x011FF6, 0x0122D2
+  Target=0x11ADE0 x 12  data=02000000000000000000000000000000  from=0x00861E, 0x00868C, 0x0157D1, 0x015835
+  Target=0x11AF70 x 12  data=02000000000000000000000000000000  from=0x01F1B8, 0x01FBE2, 0x0200CA, 0x020E7B
+  Target=0x11D6C0 x 12  data=7007f866da0100000000000000000000  from=0x09D034, 0x09D41A, 0x09D4AE, 0x09D4BE
+  Target=0x11AFE0 x 11  data=00000000000000000000000000000000  from=0x01EB96, 0x01EFB4, 0x01F372, 0x01F4BF
+  Target=0x371E28 x 10  [EXTERNAL - game.dll?]  from=0x003B66, 0x033233, 0x03336D, 0x0334E1
+  Target=0x0FD5D0 x 10  data=30313233343536373839414243444546  from=0x018829, 0x018944, 0x018AF9, 0x018C14
+  Target=0x11E620 x 10  data=00000000000000000000000000000000  from=0x027533, 0x027551, 0x02797D, 0x027D62
+  Target=0x1063A8 x 10  data=252a73252e2a73007774000023232300  from=0x039A80, 0x039D70, 0x03A31F, 0x03A911
+  Target=0x373180 x  9  [EXTERNAL - game.dll?]  from=0x000749, 0x000778, 0x0034B5, 0x006227
+  Target=0x104D18 x  9  data=43616c6c696e6720506f705374796c65  from=0x00875B, 0x00886E, 0x008C4C, 0x009581
+  Target=0x11E668 x  9  data=00000000000000000000000000000000  from=0x00B3D9, 0x00B3E6, 0x00BAE8, 0x00BBDE
+  Target=0x11AE40 x  9  data=02000000000000000000000000000000  from=0x01EB5C, 0x01EF5D, 0x01F6B3, 0x01F988
+  Target=0x11AF20 x  9  data=02000000000000000000000000000000  from=0x0227D5, 0x02282D, 0x022976, 0x022C41
+  Target=0x371D70 x  9  [EXTERNAL - game.dll?]  from=0x02F66A, 0x02F9F0, 0x02FB05, 0x02FC2D
+  Target=0x371E50 x  9  [EXTERNAL - game.dll?]  from=0x033243, 0x03337D, 0x0334F1, 0x033592
+  Target=0x372F40 x  9  [EXTERNAL - game.dll?]  from=0x0683BE, 0x06846C, 0x06850B, 0x068576
+  Target=0x372F30 x  9  [EXTERNAL - game.dll?]  from=0x0683D1, 0x06848A, 0x06851C, 0x06859B
+  Target=0x0FEEE8 x  8  data=25640000000000002323726570706572  from=0x006DC6, 0x0097CF, 0x009DFB, 0x00FB1A
+  Target=0x11C4B8 x  8  data=00000000000000000000000000000000  from=0x009FFC, 0x016B94, 0x016C40, 0x016CDB
+  Target=0x11C3B0 x  8  data=4e6f74207363616e6e65640000000000  from=0x012540, 0x034393, 0x0343A8, 0x0343C2
+  Target=0x11E628 x  8  data=00000000000000000000000000000000  from=0x027470, 0x02752C, 0x027984, 0x027D6F
+  Target=0x371D88 x  8  [EXTERNAL - game.dll?]  from=0x02F5C6, 0x02F8B1, 0x02F9CA, 0x02FC61
+  Target=0x11A770 x  8  data=01000000000000000000000000000000  from=0x0A0FF4, 0x0A1667, 0x0A16F0, 0x0A9955
+  Target=0x11E120 x  8  data=0000a766da0100005474a1bd14a10000  from=0x0A34DF, 0x0A3520, 0x0A3856, 0x0A4142
+  Target=0x371B40 x  7  [EXTERNAL - game.dll?]  from=0x00323B, 0x02D4DE, 0x02D50D, 0x02D56C
+  Target=0x0C5FE0 x  7  data=4f464600414354495645000069646c65  from=0x004088, 0x029519, 0x029A6C, 0x02EDE8
+  Target=0x1051E8 x  7  data=43616c6c696e6720456e644469736162  from=0x006D1C, 0x0078C3, 0x007E61, 0x048473
+  Target=0x1016A0 x  7  data=227d000000000000602076616c696461  from=0x01E56A, 0x01ED87, 0x01F84A, 0x0204E4
+  Target=0x11AF00 x  7  data=00000000000000000000000000000000  from=0x01F20D, 0x0201EC, 0x0224B0, 0x022B48
+  Target=0x128600 x  7  data=00000000000000000000000000000000  from=0x02B1FE, 0x02B2DD, 0x02B594, 0x02B80A
+  Target=0x371C78 x  7  [EXTERNAL - game.dll?]  from=0x030346, 0x030519, 0x030622, 0x030641
+  Target=0x371C98 x  7  [EXTERNAL - game.dll?]  from=0x030A9E, 0x030C86, 0x030D8F, 0x030DAE
+  Target=0x371CB0 x  7  [EXTERNAL - game.dll?]  from=0x031236, 0x031418, 0x031527, 0x031546
+  Target=0x106828 x  7  data=235343524f4c4c59000000005b7e5d00  from=0x070C2F, 0x079081, 0x0790A8, 0x0790DD
+  Target=0x11CFA8 x  7  data=00000000000000000200000000000000  from=0x08AA09, 0x08AA16, 0x08AA45, 0x08AA58
+  Target=0x0BFD80 x  7  data=4010eecdfc7f00004410eecdfc7f0000  from=0x09E888, 0x09ED91, 0x0A1070, 0x0A10C6
+  Target=0x11DA60 x  7  data=00000000000000000000000000000000  from=0x0A0ABC, 0x0A0AE7, 0x0A0B0E, 0x0AA5D6
+  Target=0x371DF0 x  6  [EXTERNAL - game.dll?]  from=0x003AF4, 0x003B2A, 0x015DA1, 0x015DE0
+  Target=0x1200B0 x  6  data=00000000000000000000000000000000  from=0x003BB0, 0x003BC7, 0x017827, 0x017861
+  Target=0x1201A8 x  6  data=00000000000000000000000000000000  from=0x0067AC, 0x0285E4, 0x028658, 0x02A2C4
+  Target=0x11E6B8 x  6  data=00000000000000000000000000000000  from=0x008659, 0x015809, 0x016264, 0x017BBC
+  Target=0x11B020 x  6  data=02000000000000000000000000000000  from=0x01F15C, 0x01FB86, 0x0200D1, 0x020B58
+  Target=0x11AEE0 x  6  data=00000000000000000000000000000000  from=0x01F1A3, 0x01FBCD, 0x020165, 0x020B95
+  Target=0x11E5C0 x  6  data=00000000000000000000000000000000  from=0x02462B, 0x02484D, 0x0248BB, 0x024917
+  Target=0x101BD8 x  6  data=52656376643a00005365742058502062  from=0x029161, 0x029194, 0x0291FA, 0x02922B
+  Target=0x101C24 x  6  data=47756e733a0000000000000025732028  from=0x0296BE, 0x0296F1, 0x02987E, 0x0298AF
+  Target=0x371C08 x  6  [EXTERNAL - game.dll?]  from=0x02D916, 0x02D933, 0x02D951, 0x02D960
+  Target=0x11E0E0 x  6  data=4002f166da0100000000000001000000  from=0x0A0FDA, 0x0A0FED, 0x0A41E2, 0x0A4216
+  Target=0x0C5330 x  6  data=000000000000004020e01fe01fe0ff3f  from=0x0AF315, 0x0AF5F3, 0x0B1382, 0x0B1633
+  Target=0x11B340 x  5  data=083bf2cdfc7f00000000000000000000  from=0x00341C, 0x01404F, 0x02EDBA, 0x02F232
+  Target=0x1201C0 x  5  data=00000000000000000000000000000000  from=0x00524D, 0x0071D4, 0x007215, 0x0290C1
+  Target=0x1201E0 x  5  data=00000000000000000000000000000000  from=0x00526A, 0x007431, 0x02A4AB, 0x02A5E1
+  Target=0x11E4C0 x  5  data=00000000000000000000000000000000  from=0x005EB6, 0x0162A6, 0x0182A7, 0x01B338
+  Target=0x0FE490 x  5  data=730000000000000050726f62653a204f  from=0x00662F, 0x00869F, 0x00CE3F, 0x00CE4B
+  Target=0x11E658 x  5  data=00000000000000000000000000000000  from=0x00B38C, 0x00B399, 0x00B3B0, 0x013BA7
+  Target=0x372F50 x  5  [EXTERNAL - game.dll?]  from=0x00C3AB, 0x00C3C1, 0x00C907, 0x00CC12
+  Target=0x1200E8 x  5  data=00000000000000000000000000000000  from=0x014CC7, 0x014D0F, 0x015E21, 0x015E74
+  Target=0x11E4C8 x  5  data=00000000000000000000000000000000  from=0x014F4D, 0x015CF6, 0x017144, 0x01B34A
+  Target=0x100728 x  5  data=4d6564616c2042617463682046697269  from=0x015689, 0x01611B, 0x016137, 0x016151
+
+################################################################################
+#  SUPPLEMENT C: BYTE-LEVEL VTABLE CALL SCAN
+################################################################################
+
+Total virtual calls found: 6
+
+--- VTable Slot Distribution ---
+  vfunc[  1] (offset +0x008):    1 calls
+  vfunc[  2] (offset +0x010):    1 calls
+  vfunc[  4] (offset +0x020):    4 calls
+
+--- Detailed VTable Call Sites (most called slots first) ---
+  Slot   4 (+0x020) x4:
+    0x0039FB: this_reg=r1, call [rax+0x20] vfunc[4]                   ctx=488b01ff502048897dc8488b
+    0x003A23: this_reg=r1, call [rax+0x20] vfunc[4]                   ctx=488b01ff502048897c2460e8
+    0x01C012: this_reg=r1, call [rax+0x20] vfunc[4]                   ctx=488b01ff502090488bcfe87f
+  Slot   2 (+0x010) x1:
+    0x01C02E: this_reg=r1, call [rax+0x10] vfunc[2]                   ctx=488b01ff5010488b8c24a800
+  Slot   1 (+0x008) x1:
+    0x026444: this_reg=r3, call [rax+0x08] vfunc[1]                   ctx=488bd3ff500848894338488b
+
+################################################################################
+#  SUPPLEMENT D: ALL 32-BIT IMMEDIATES IN CMP INSTRUCTIONS
+################################################################################
+
+Total cmp immediate values: 1801
+
+--- Values 0-200 (potential enum IDs) ---
+    0 (0x00): 156 refs
+    1 (0x01): 333 refs
+    2 (0x02): 117 refs
+    3 (0x03): 62 refs
+    4 (0x04): 64 refs
+    5 (0x05): 43 refs
+    6 (0x06): 23 refs
+    7 (0x07): 29 refs
+    8 (0x08): 35 refs
+    9 (0x09): 32 refs
+   10 (0x0A): 30 refs
+   11 (0x0B): 21 refs
+   12 (0x0C): 9 refs
+   13 (0x0D): 13 refs
+   14 (0x0E): 7 refs
+   15 (0x0F): 261 refs
+   16 (0x10): 22 refs
+   17 (0x11): 2 refs
+   18 (0x12): 1 refs
+   20 (0x14): 5 refs
+   21 (0x15): 1 refs
+   22 (0x16): 11 refs
+   23 (0x17): 4 refs
+   24 (0x18): 1 refs
+   25 (0x19): 11 refs
+   26 (0x1A): 2 refs
+   28 (0x1C): 24 refs
+   29 (0x1D): 1 refs
+   30 (0x1E): 13 refs
+   31 (0x1F): 219 refs
+   32 (0x20): 28 refs
+   34 (0x22): 7 refs
+   35 (0x23): 4 refs
+   36 (0x24): 2 refs
+   37 (0x25): 1 refs
+   40 (0x28): 1 refs
+   45 (0x2D): 5 refs
+   47 (0x2F): 2 refs
+   48 (0x30): 9 refs
+   49 (0x31): 1 refs
+   50 (0x32): 3 refs
+   51 (0x33): 4 refs
+   52 (0x34): 3 refs
+   54 (0x36): 2 refs
+   56 (0x38): 2 refs
+   57 (0x39): 3 refs
+   58 (0x3A): 3 refs
+   59 (0x3B): 3 refs
+   60 (0x3C): 34 refs
+   61 (0x3D): 3 refs
+   62 (0x3E): 2 refs
+   63 (0x3F): 6 refs
+   64 (0x40): 31 refs
+   65 (0x41): 2 refs
+   69 (0x45): 1 refs
+   71 (0x47): 4 refs
+   73 (0x49): 1 refs
+   79 (0x4F): 1 refs
+   80 (0x50): 1 refs
+   83 (0x53): 5 refs
+   87 (0x57): 3 refs
+   88 (0x58): 3 refs
+   90 (0x5A): 4 refs
+   91 (0x5B): 1 refs
+   93 (0x5D): 1 refs
+   96 (0x60): 1 refs
+   97 (0x61): 4 refs
+   98 (0x62): 2 refs
+   99 (0x63): 8 refs
+  100 (0x64): 10 refs
+  101 (0x65): 2 refs
+  104 (0x68): 2 refs
+  105 (0x69): 1 refs
+  107 (0x6B): 3 refs
+  109 (0x6D): 1 refs
+  110 (0x6E): 1 refs
+  111 (0x6F): 3 refs
+  112 (0x70): 6 refs
+  114 (0x72): 1 refs
+  115 (0x73): 35 refs
+  116 (0x74): 1 refs
+  117 (0x75): 4 refs
+  118 (0x76): 3 refs
+  119 (0x77): 2 refs
+  120 (0x78): 2 refs
+  122 (0x7A): 2 refs
+  125 (0x7D): 1 refs
+  126 (0x7E): 2 refs
+  127 (0x7F): 364 refs
+  128 (0x80): 48 refs
+  130 (0x82): 1 refs
+  153 (0x99): 2 refs
+  160 (0xA0): 3 refs
+  162 (0xA2): 1 refs
+  200 (0xC8): 3 refs
+
+--- Values 201-10000 (potential struct offsets, sizes, flags) ---
+    208 (0x00D0): 2 refs
+    214 (0x00D6): 3 refs
+    228 (0x00E4): 2 refs
+    256 (0x0100): 29 refs
+    257 (0x0101): 2 refs
+    365 (0x016D): 2 refs
+    512 (0x0200): 16 refs
+    520 (0x0208): 2 refs
+    666 (0x029A): 7 refs
+    768 (0x0300): 3 refs
+    958 (0x03BE): 2 refs
+    990 (0x03DE): 2 refs
+    999 (0x03E7): 4 refs
+   1010 (0x03F2): 2 refs
+   1023 (0x03FF): 3 refs
+   1024 (0x0400): 7 refs
+   1033 (0x0409): 2 refs
+   1280 (0x0500): 2 refs
+   2000 (0x07D0): 2 refs
+   2046 (0x07FE): 5 refs
+   2047 (0x07FF): 4 refs
+   2048 (0x0800): 10 refs
+   2609 (0x0A31): 2 refs
+   3000 (0x0BB8): 3 refs
+   3073 (0x0C01): 4 refs
+   3208 (0x0C88): 2 refs
+   4080 (0x0FF0): 2 refs
+   4088 (0x0FF8): 2 refs
+   4096 (0x1000): 251 refs
+   5000 (0x1388): 2 refs
+   8192 (0x2000): 27 refs
+   9999 (0x270F): 7 refs
+  10000 (0x2710): 2 refs
+
+--- High Values 0x1000-0xFFFFFFFF (potential hashes, magic numbers) ---
+  0x00001000 (      4096): 251 refs
+  0x00004000 (     16384): 30 refs
+  0x7FFE4CE6 (2147372262): 30 refs
+  0x7F800000 (2139095040): 29 refs
+  0x00002000 (      8192): 27 refs
+  0x7FFFFFFF (2147483647): 21 refs
+  0x00008000 (     32768): 21 refs
+  0x3D3D3D3D (1027423549): 21 refs
+  0x3F800000 (1065353216): 15 refs
+  0xC73F170A (3342800650): 14 refs
+  0x6C257830 (1814394928): 11 refs
+  0x01000000 (  16777216): 10 refs
+  0x3F6F7FAE (1064271790): 10 refs
+  0xBF5334EA (3209901290): 10 refs
+  0xED834D7C (3984805244): 10 refs
+  0x3D0D6935 (1024289077): 10 refs
+  0x3F7F581C (1065310236): 10 refs
+  0x19930520 ( 429065504): 9 refs
+  0x58257830 (1478850608): 9 refs
+  0x00003000 (     12288): 8 refs
+  0x00006425 (     25637): 8 refs
+  0x0000270F (      9999): 7 refs
+  0x4B000000 (1258291200): 7 refs
+  0x00007325 (     29477): 7 refs
+  0x73207025 (1931505701): 7 refs
+  0x7FFCCDF2 (2147274226): 7 refs
+  0xC0000005 (3221225477): 6 refs
+  0x00006000 (     24576): 6 refs
+  0x30257830 ( 807761968): 6 refs
+  0x00007025 (     28709): 6 refs
+  0x8B48FFFF (2336817151): 5 refs
+  0x0000FFFF (     65535): 5 refs
+  0x4800001E (1207959582): 5 refs
+  0x00007530 (     30000): 4 refs
+  0x48D78B48 (1222085448): 4 refs
+  0x04000000 (  67108864): 4 refs
+  0x20000000 ( 536870912): 4 refs
+  0x03000000 (  50331648): 4 refs
+  0x00200000 (   2097152): 4 refs
+  0x0000FDE9 (     65001): 4 refs
+  0x3F490FDB (1061752795): 4 refs
+  0xFF800000 (4286578688): 4 refs
+  0x7FC00000 (2143289344): 4 refs
+  0x41200000 (1092616192): 4 refs
+
+################################################################################
+#  SUPPLEMENT E: ALLOCATION SIZE PATTERNS
+################################################################################
+
+Top alloc sizes (size -> call pattern):
+     64 (0x0040): 53 occurrences
+     22 (0x0016): 25 occurrences
+     32 (0x0020): 19 occurrences
+    128 (0x0080): 19 occurrences
+   4096 (0x1000): 17 occurrences
+     21 (0x0015): 16 occurrences
+    460 (0x01CC): 16 occurrences
+     23 (0x0017): 13 occurrences
+     40 (0x0028): 13 occurrences
+     24 (0x0018): 12 occurrences
+   2048 (0x0800): 12 occurrences
+    100 (0x0064): 10 occurrences
+     20 (0x0014): 10 occurrences
+   2049 (0x0801): 10 occurrences
+   2081 (0x0821): 10 occurrences
+     48 (0x0030): 8 occurrences
+   8192 (0x2000): 8 occurrences
+   3553 (0x0DE1): 8 occurrences
+     72 (0x0048): 7 occurrences
+     16 (0x0010): 6 occurrences
+    256 (0x0100): 6 occurrences
+    512 (0x0200): 6 occurrences
+   4000 (0x0FA0): 6 occurrences
+    500 (0x01F4): 5 occurrences
+     80 (0x0050): 5 occurrences
+     92 (0x005C): 4 occurrences
+   1000 (0x03E8): 4 occurrences
+     26 (0x001A): 4 occurrences
+     88 (0x0058): 4 occurrences
+    202 (0x00CA): 4 occurrences
+   4644 (0x1224): 4 occurrences
+    665 (0x0299): 4 occurrences
+     54 (0x0036): 4 occurrences
+   5000 (0x1388): 3 occurrences
+     18 (0x0012): 3 occurrences
+   2000 (0x07D0): 3 occurrences
+     90 (0x005A): 3 occurrences
+    259 (0x0103): 3 occurrences
+    161 (0x00A1): 3 occurrences
+     31 (0x001F): 3 occurrences
+    526 (0x020E): 3 occurrences
+    515 (0x0203): 3 occurrences
+    516 (0x0204): 3 occurrences
+    517 (0x0205): 3 occurrences
+    518 (0x0206): 3 occurrences
+     91 (0x005B): 3 occurrences
+     57 (0x0039): 3 occurrences
+    255 (0x00FF): 3 occurrences
+     38 (0x0026): 3 occurrences
+   2047 (0x07FF): 3 occurrences
+    260 (0x0104): 2 occurrences
+   3000 (0x0BB8): 2 occurrences
+     45 (0x002D): 2 occurrences
+     50 (0x0032): 2 occurrences
+     33 (0x0021): 2 occurrences
+     36 (0x0024): 2 occurrences
+    344 (0x0158): 2 occurrences
+    250 (0x00FA): 2 occurrences
+    200 (0x00C8): 2 occurrences
+     51 (0x0033): 2 occurrences
+
+################################################################################
+#  SUPPLEMENT F: DIFFICULTY SYSTEM ANALYSIS
+################################################################################
+
+--- Difficulty Tier Display Strings ---
+  0FF5C8: "1 - Trivial (0%)"
+  0FF5E0: "2 - Easy (0%)"
+  0FF5F0: "3 - Medium (25%)"
+  0FF608: "4 - Challenging (50%)"
+  0FF620: "5 - Hard (75%)"
+  0FF630: "6 - Extreme (100%)"
+  0FF648: "7 - Super Helldive (150%)"
+  0FF668: "8 - (200%)"
+  0FF678: "9 - (250%)"
+  0FF688: "10 - (300%)"
+
+--- Difficulty Reward Multipliers (from cheat UI) ---
+  1 - Trivial (0%)          -> No extra reward
+  2 - Easy (0%)             -> No extra reward
+  3 - Medium (25%)          -> 1.25x
+  4 - Challenging (50%)     -> 1.50x
+  5 - Hard (75%)            -> 1.75x
+  6 - Extreme (100%)        -> 2.00x
+  7 - Super Helldive (150%) -> 2.50x
+  8 - (200%)                -> 3.00x
+  9 - (250%)                -> 3.50x
+  10 - (300%)               -> 4.00x
+
+  NOTE: Tiers 8-10 exist in cheat but may not be available in-game.
+  The "cmp esi,7" NOP forces max tier rewards by bypassing the
+  difficulty comparison that gates higher reward multipliers.
+  "cmp esi,5" bypasses stratagem count limit check.
+
+
+################################################################################
+#  SUPPLEMENT G: ARMOR PASSIVE ABILITY ENUM
+################################################################################
+
+--- Armor Passive Names Found ---
+  "Acclimated"
+  "B-27 Fortified Commando"
+  "Ballistic Padding"
+  "Battle Hardened"
+  "CM-21 Trench Paramedic"
+  "Combat Medic"
+  "Concussive Grenadier"
+  "Concussive Hazmat"
+  "Concussive Reinforced"
+  "Desert Stormer"
+  "Explosive Finale"
+  "Fire Resistant"
+  "Fire Support"
+  "Gas Resistance"
+  "Peak Physique"
+  "Reinforced Epaulettes"
+  "SC-30 Trailblazer Scout"
+  "SR-24 Street Scout"
+  "Scout Strider"
+  "Siege Breaker"
+  "Supplemental Stamina"
+
+  NOTE: These are likely the internal armor passive ability names,
+  mapped to enum values in the game. The cheat scans current armor
+  and lets the user select a different passive from the combo box.
+
+
+################################################################################
+#  SUPPLEMENT H: KNOWN GAME.DLL OFFSET REFERENCES
+################################################################################
+
+--- Documented Pattern Offsets (from existing analysis) ---
+  These patterns are searched for in game.dll at runtime:
+
+  [God Mode]
+    - 3 hooks for player god mode
+    - Patches damage receive, death flag, health check
+
+  [Grenade Count]
+    - 0F 5B DB F3 41 0F 59 4E ?? F3
+    - CVTSS2SD + MULSS (conversion + multiply)
+    - NOPed to prevent grenade consumption
+
+  [No Boundary]
+    - "Force unconditional jump (bypass boundary)"
+    - Patches mission boundary kill trigger
+
+  [Landing Speed]
+    - F3 0F 11 44 3B ?? F3 0F 59 C7 F3 0F 5A C0
+    - MOVSS write + MULSS + CVTSS2SD
+
+  [Stratagem Unlock]
+    - 48 8B 0D ?? ?? ?? ?? 44 89 80 60 0C
+    - Global reference with write to offset +0xC60
+    - "Unlock All Armory" patches this
+
+  [Turret Overheat]
+    - F3 0F 11 4C A8 ?? 49
+    - "NOP turret heat accumulation"
+
+  [Turret Duration]
+    - F3 45 0F 11 5E ?? E9
+    - "Inf Turret Duration" -> sets timer to infinite
+
+  [Active Session]
+    - 48 8B 35 ?? ?? ?? ?? 49 8B E9 41 8B D8 48 8B 88 28 01
+    - GetActiveSession() entry point
+    - Session+0x28 -> activity container
+    - Session+0x128 -> alternate reference
+
+  [Reward Multiplier]
+    - 41 8B 47 ?? 4C 8B 7C 24 ?? 4C
+    - XP/Medals/Slips multiplier hooks
+
+  [Stratagem Count]
+    - 42 83 2C 81 ?? 48
+    - SUB [rcx+r8*4+imm8], imm8 -> NOPed for infinite uses
+
+  [Kill Counter]
+    - 39 46 ?? 75 ?? FF C5
+    - Increment counter hook for stats display
+
+  [Stim Use]
+    - NOP stim count decrement -> infinite stims
+
+  [Laser Overheat]
+    - "NOP turret heat accumulation" (applies to laser weapons)
+
+  [Instant Charge]
+    - "NOP railgun charge calculation"
+    - 0x103250: "NOP railgun charge calculation"
+
+  [Grenade Fuse]
+    - F3 0F 11 44 C8 ?? 0F
+    - "NOP fuse timer write"
+
+  [SC Hash Table]
+    - "NOP both hash table INSERT calls"
+    - Prevents server from marking SC as collected
+
+  [Instant Strat Call-in]
+    - Patches call-in time to zero
+
+  [Instant Shuttle]
+    - "Instant Shuttle: ON ##shut5"
+    - Skips shuttle timer
+
+  [No Recoil]
+    - Patches recoil pattern
+
+  [Inf Ammo]
+    - Patches ammo consumption
+
+  [Inf Stamina]
+    - "NOP stamina read/drain" at 0x102B38
+
+  [Longer Hover]
+    - "NOP hover time limit check"
+
+  [Shield Cooldown]
+    - "NOP shield relay cooldown write"
+
+  [Instant Hellbomb]
+    - "NOP hellbomb arm timer write"
+
+
+################################################################################
+#  SUPPLEMENT I: API ENDPOINTS & NETWORK PROTOCOL
+################################################################################
+
+--- Discovered API Endpoint ---
+  https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end
+
+--- HTTP Headers Used ---
+  X-Signature:     (cryptographic signature for auth)
+  X-Session:       (session identifier)
+  Authorization:   (standard auth header)
+  Cookie:          (session cookies)
+  Content-Type:    (likely application/json)
+
+--- Signature Capture Protocol ---
+  The cheat intercepts HTTP traffic (MITM) to capture:
+    1. "f2s7" - First signature chunk
+    2. "f2s7+nonce" - Signature + cryptographic nonce
+    3. "f2s7+partial" - Partial signature data
+  These are used to reconstruct the X-Signature header for replay.
+
+--- JSON Payload Fields (Mission/end POST) ---
+  "capturedWarTime" - Current war time value (uint)
+  "missionId"       - UUID mission identifier
+  "serObj"          - Server object data
+  "serObjOrigAddr"  - Original server object address (uint64)
+  "slotData"        - Player slot data
+  "entityDeep"      - Entity hierarchy (JSON)
+  "entityDataDeep"  - Entity data payload (JSON)
+  "ac"              - Activity count (int)
+  "oi"              - Object ID (uint)
+  "gs"              - Game state (string)
+
+
+################################################################################
+#  SUPPLEMENT J: SC/MEDAL FARMING - INTERNAL PROTOCOL
+################################################################################
+
+--- ScActivityAPC Structure (from code analysis) ---
+  struct ScActivityAPC {
+      // +0x00: vtable pointer
+      // +0x08: actId32   (activity identifier)
+      // +0x0C: objId     (object identifier)
+      // +0x10: ctr       (control/state counter)
+      // +0x14: flag      (flags)
+      // +0x18: ring      (ring buffer index)
+      // +0x20: url[0x40] (API endpoint URL)
+      // +0x60: qDelta    (queue delta)
+      // +0x64: retry     (retry counter)
+      // +0x68: missionData (pointer)
+      // +0x70: missionId[0x40] (UUID string)
+  };
+
+--- SC Loop Algorithm ---
+  1. Wait for game session (GetActiveSession() != NULL)
+  2. Capture Mission/end POST body via HTTP hook
+  3. Store: missionId, warTime, entityDeep, entityDataDeep, slotData
+  4. On loop trigger:
+     a. Read ring buffer state (ctr, flag, ring)
+     b. Modify missionId to new UUID
+     c. POST captured body with new missionId
+     d. 9 calls per batch, 500ms apart
+     e. 58 second cooldown between batches
+  5. If crash: VEH recovers state, increments crash counter
+  6. If no capture: waits for next mission
+
+--- Medal Farming ---
+  - Alternates between SC and Medal batches
+  - "Medals Only" mode skips SC, only sends medals
+  - Same batch pattern: 9 calls x 500ms
+
+--- Anti-Duplicate Bypass ---
+  - "NOP both hash table INSERT calls"
+  - Prevents game.dll from marking SC entities as already collected
+  - Allows repeated claims from the same mission data
+
+--- SC Goal / Tracker ---
+  - User sets SC goal count
+  - Auto-stops when goal reached
+  - Tracks: calls sent, SC earned, x100 bonuses, crashes
+  - Auto Sync: distributes SC across all lobby players
+
+--- Burst Replay System ---
+  - Queues N replays instantly (with 5s stagger)
+  - Server may rate-limit bursts
+  - Burst Loop: auto-fires every N minutes
+  - Max replays configurable
+
+
+################################################################################
+#  SUPPLEMENT K: WEAPON XP FARMING SYSTEM
+################################################################################
+
+--- Weapon XP System ---
+  51 total weapons tracked
+  IDs: 0-50 or 1-51 (index into weapon array)
+
+  Modes:
+    - All Guns: cycles through all 51 weapons
+    - Selected Guns: user picks specific weapons
+    - Primary Override: sets one weapon for all lobby members
+
+  "Replays/gun" counter: configurable number of replays per weapon
+  "Patching %d weapon slot(s) -> ID %u (%s)"
+
+
+################################################################################
+#  SUPPLEMENT L: VEH CRASH RECOVERY SYSTEM
+################################################################################
+
+--- Vectored Exception Handler ---
+  Registered via AddVectoredExceptionHandler(1, handler)
+  Handles: ACCESS_VIOLATION (0xC0000005)
+           STACK_OVERFLOW (0xC00000FD)
+           ILLEGAL_INSTRUCTION (0xC000001D)
+           (and others)
+
+  On crash:
+    1. Save SC loop state (ring index, batch progress)
+    2. Save replay data
+    3. Increment crash counter
+    4. Write crash log: "=== LIBERTEA CRASH LOG ==="
+    5. Restore state on next loop iteration
+
+  Replay watchdog: resets stuck replayInProgress flag
+
+
+################################################################################
+#  SUPPLEMENT M: DATA REGION STRING MAP
+################################################################################
+
+--- Game Data String Regions ---
+  0x0FD000-0x0FE400: Weapon and armor name strings
+  0x0FE400-0x0FF000: SC/Replay/Probe UI strings
+  0x0FF000-0x100000: Weapon selection, farming UI strings
+  0x100000-0x101000: Feature descriptions, tooltips
+  0x101000-0x102000: HTTP/replay/capture strings
+  0x102000-0x103000: Network/signature/crypto strings
+  0x103000-0x104000: NOP descriptions, feature details
+  0x104000-0x105000: Stratagem/enemy/weapon list strings
+  0x105000-0x106000: ImGui key names, error strings

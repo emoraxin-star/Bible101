@@ -1,0 +1,436 @@
+w==============================================================================
+  LIBERTEA.DLL - TECHNICAL BREAKDOWN & BUILD STRATEGY
+  Helldivers 2 Internal Cheat - Reverse Engineering Report
+==============================================================================
+
+SECTION 1: BUILD ARCHITECTURE & TOOLCHAIN
+------------------------------------------------------------------------------
+
+  Language:     C++ (MSVC - Microsoft Visual C++)
+  Standard:     C++17 or later (std::bad_array_new_length, lambdas)
+  GUI Library:  Dear ImGui (ocornut/imgui) - in-tree compilation
+  Graphics:     OpenGL hook via wglSwapIntervalEXT
+  Packer:       Custom aPLib variant (see Section 3)
+  Packer Tools: aPLib compression library + custom PE packer stub
+  Linker:       MSVC LINK.EXE with /DYNAMICBASE /NXCOMPAT /GUARD:CF
+  Optimization: /O2 (size-focused, heavy inlining)
+  CRT:          Static-linked (no msvcp140.dll dependency)
+  Auth:         HTTPS to Cloudflare Workers backend with key/subscription check
+
+SECTION 2: BUILD STRATEGY - HOW TO REPLICATE
+------------------------------------------------------------------------------
+
+  Phase 1 - Development:
+    1. Write cheat core in C++ using Dear ImGui for overlay
+    2. Implement pattern scanner (byte signature matching) for game offsets
+    3. Use direct syscalls for NtProtectVirtualMemory (bypass user-mode hooks)
+    4. Hook wglSwapIntervalEXT or IDXGISwapChain::Present for overlay rendering
+    5. Implement feature modules:
+       - Reward multiplier (patch game.dll mission end rewards)
+       - SC/Medal farming (replay captured API calls via HTTPS)
+       - Weapon XP override (patch lobby weapon slots)
+       - Player cheats (god mode, speed, no recoil, infinite stratagems)
+       - Turret/combat mods (overheat bypass, duration, stratagem count)
+
+  Phase 2 - Packing:
+    1. Compile DLL normally with MSVC
+    2. Extract .text section
+    3. Compress .text with aPLib (custom variant with sar/xor NOT encoding)
+    4. Replace .text with zero-size section, store compressed data in .rsrc
+    5. Write unpacking stub in assembly, place at entry point
+    6. Stub decompresses .text into memory at DllMain(DLL_PROCESS_ATTACH)
+    7. Stub then resolves imports (Phase 2 of unpacking)
+
+  Phase 3 - Injector (LIBERTEA_Bypass.exe):
+    1. Enable SeDebugPrivilege via ntdll.dll
+    2. Target process: helldivers2.exe
+    3. Block GameMon.des / GameMon64.des (GameGuard kernel drivers)
+       - Methods: rename/delete driver files, suspend GameGuard threads,
+         or inject before GameGuard initializes
+    4. Allocate memory in target process (VirtualAllocEx)
+    5. Write DLL path and call LoadLibraryW via CreateRemoteThread
+    6. Self-update: check Workers endpoint for new DLL version
+
+SECTION 3: CUSTOM aPLib DECOMPRESSION ALGORITHM
+------------------------------------------------------------------------------
+
+  Entry point: RVA 0x3C4F30 (in .rsrc section #1)
+  Source data: RVA 0x355000 (beginning of .rsrc section = raw offset 0x400)
+  Destination: RVA 0x001000 (start of .text section, 0x354000 bytes)
+
+  Bit Reader (GETBIT):
+    Uses add ebx, ebx / adc ebx, ebx for carry-flag-based bit extraction.
+    ebx holds 31 bits; when exhausted, refills 4 bytes from source.
+    Key: adc propagates carry from previous zero-detection through refill.
+
+  Main Loop:
+    1. Preload byte from source (mov dl, [rsi])
+    2. GETBIT -> CF
+    3. jb (CF=1): LITERAL  - inc rsi, store dl, preload next
+    4. jae (CF=0): MATCH
+
+  Offset Gamma Decode (custom, differs from standard aPLib):
+    eax = prev_len + 1  (carried over from previous match)
+    First pass (jmp to LENGTH_LOOP_ENTRY):
+      read 1 bit -> eax = eax*2 + bit
+      read 1 stop bit -> if 0: continue loop
+    Subsequent passes (jae -> LENGTH_DEC):
+      dec eax
+      read 2 bits -> eax = eax*2 + bit (each)
+      read 1 stop bit -> if 0: continue loop
+    After loop: eax -= 3
+
+  Offset Classification:
+    eax < 0 (unsigned): SHORT MATCH - reuses ebp (last_offset)
+    eax >= 0: LONG MATCH - explicit offset:
+      eax = (eax << 8) | dl     (merge next byte)
+      src++
+      eax = eax XOR 0xFFFFFFFF (NOT)
+      if eax == 0: END OF PHASE 1 (import resolution phase)
+      sar eax, 1 -> last_offset (signed, movsxd to rbp)
+      LSB shifted out determines COPY_SETUP_A vs alternate path
+
+  Length Decode (ecx manipulation):
+    COPY_SETUP_A: getbit -> ecx = ecx*2 + bit
+    Alt path (0x3C5024):
+      inc ecx, getbit; if 1 -> COPY_SETUP_A
+      else: gamma-decode bits into ecx, then ecx += 2
+    COPY_SETUP_B:
+      if last_offset < -0x500: ecx += 3
+      else: ecx += 2
+    Final length = ecx (copy_len)
+
+  Match Copy:
+    copy_src = dst + last_offset
+    if copy_len <= 5 or last_offset > -4: byte-by-byte copy
+    else: dword copy loop (sub ecx,4; jae loop; add ecx,4; byte remainder)
+
+SECTION 4: SYSCALL STUBS
+------------------------------------------------------------------------------
+
+  Direct syscall stubs found at RVAs:
+    0x00F304 - NtProtectVirtualMemory (syscall stub)
+    0x02EB95 - NtQueryInformationProcess or similar
+    0x02FCC6 - (syscall stub)
+    0x030591 - (syscall stub)
+    0x030852 - (syscall stub)
+    0x030CFE - (syscall stub)
+    0x030FF2 - (syscall stub)
+    0x03458D - (syscall stub)
+
+  Syscall pattern:
+    48 8D 0D ?? ?? ?? ??   lea rcx, [ntdll_function_name]
+    48 8B 1D ?? ?? ?? ??   mov rbx, [ssn_table]
+    B8 ?? ?? ?? ??         mov eax, SSN  (syscall number)
+    48 89 ??              mov [stack], rbx (setup params)
+    0F 05                 syscall
+
+  SSN values are resolved dynamically from ntdll.dll at runtime
+  by parsing the function prologue for the mov eax, imm pattern.
+
+SECTION 5: CONCRETE OFFSETS & POINTERS
+------------------------------------------------------------------------------
+
+  Top .text internal functions by call frequency:
+    RVA 0x0B5D80  -  258 calls
+    RVA 0x08BED0  -  236 calls
+    RVA 0x0927C8  -  184 calls
+    RVA 0x08B9E0  -  175 calls
+    RVA 0x0A44D0  -  173 calls
+    RVA 0x09F558  -  172 calls
+    RVA 0x006D70  -  164 calls
+    RVA 0x005E30  -  147 calls
+    RVA 0x0B65A0  -  144 calls
+    RVA 0x098040  -  130 calls
+    RVA 0x006D90  -  129 calls
+    RVA 0x08AB94  -  120 calls
+    RVA 0x0927A8  -  113 calls
+    RVA 0x08E424  -  109 calls
+    RVA 0x0157B0  -  101 calls
+    RVA 0x03A360  -   98 calls
+    RVA 0x03A2F0  -   98 calls
+    RVA 0x073A30  -   86 calls
+    RVA 0x057060  -   81 calls
+    RVA 0x006CE0  -   80 calls
+    RVA 0x070390  -   76 calls
+    RVA 0x039BD0  -   67 calls
+    RVA 0x0011D0  -   64 calls
+    RVA 0x006010  -   62 calls
+    RVA 0x04DB30  -   61 calls
+
+  VTable virtual function indices (offset / slot):
+    vtable+0x000 = slot #0
+    vtable+0x008 = slot #1
+    vtable+0x010 = slot #2
+    vtable+0x018 = slot #3
+    vtable+0x020 = slot #4
+    vtable+0x028 = slot #5
+    vtable+0x030 = slot #6
+    vtable+0x038 = slot #7
+    vtable+0x040 = slot #8
+    vtable+0x048 = slot #9
+    vtable+0x050 = slot #10
+    vtable+0x058 = slot #11
+    vtable+0x060 = slot #12
+    vtable+0x068 = slot #13
+    vtable+0x070 = slot #14
+    vtable+0x080 = slot #16
+    vtable+0x090 = slot #18
+    vtable+0x0A0 = slot #20
+    vtable+0x0A8 = slot #21
+    vtable+0x0B0 = slot #22
+    vtable+0x0B8 = slot #23
+    vtable+0x0C0 = slot #24
+    vtable+0x0C8 = slot #25
+    vtable+0x0D0 = slot #26
+    vtable+0x0D8 = slot #27
+    vtable+0x0E0 = slot #28
+    vtable+0x0E8 = slot #29
+    vtable+0x0F0 = slot #30
+    vtable+0x0F8 = slot #31
+    vtable+0x100 = slot #32
+    vtable+0x108 = slot #33
+    vtable+0x110 = slot #34
+    vtable+0x118 = slot #35
+    vtable+0x120 = slot #36
+    vtable+0x128 = slot #37
+    vtable+0x3BB = slot #119
+    vtable+0x5B9 = slot #183
+
+  Game structure member offsets (extracted from immediate values):
+    +0x0008 (8)
+    +0x0010 (16)
+    +0x0018 (24)
+    +0x0020 (32)
+    +0x0028 (40)
+    +0x0030 (48)
+    +0x0038 (56)
+    +0x0040 (64)
+    +0x0048 (72)
+    +0x0050 (80)
+    +0x0058 (88)
+    +0x0060 (96)
+    +0x0068 (104)
+    +0x0070 (112)
+    +0x0078 (120)
+    +0x0080 (128)
+    +0x00A0 (160)
+    +0x00B0 (176)
+    +0x00C8 (200)
+    +0x0100 (256)
+    +0x0110 (272)
+    +0x0150 (336)
+    +0x0158 (344)
+    +0x0170 (368)
+    +0x01B0 (432)
+    +0x01C0 (448)
+    +0x01D8 (472)
+    +0x0200 (512)
+    +0x0208 (520)
+    +0x0238 (568)
+    +0x0268 (616)
+    +0x0340 (832)
+    +0x03C0 (960)
+    +0x03E8 (1000)
+    +0x0440 (1088)
+    +0x04D0 (1232)
+    +0x05B0 (1456)
+    +0x0610 (1552)
+    +0x07E0 (2016)
+    +0x0800 (2048)
+    +0x0BA0 (2976)
+    +0x0BB8 (3000)
+    +0x0BE0 (3040)
+    +0x0C88 (3208)
+    +0x0CD0 (3280)
+    +0x0CE0 (3296)
+    +0x0D00 (3328)
+    +0x0D08 (3336)
+    +0x0D10 (3344)
+    +0x0E60 (3680)
+    +0x0E68 (3688)
+    +0x0E88 (3720)
+    +0x0EA0 (3744)
+    +0x0EA8 (3752)
+    +0x0EC0 (3776)
+    +0x0EE0 (3808)
+    +0x0EE8 (3816)
+    +0x0F20 (3872)
+    +0x0F80 (3968)
+    +0x1000 (4096)
+    +0x1060 (4192)
+    +0x1078 (4216)
+    +0x1120 (4384)
+    +0x12F0 (4848)
+    +0x1388 (5000)
+    +0x19E8 (6632)
+    +0x1DC0 (7616)
+    +0x1E00 (7680)
+
+  C++ RTTI type names (recovered class hierarchy):
+    std::exception
+    std::bad_exception
+    std::bad_alloc
+    std::bad_array_new_length
+    std::logic_error
+    std::length_error
+    std::out_of_range
+    std::runtime_error
+    std::system_error
+    std::_System_error
+    std::error_category
+    std::_Generic_error_category
+    std::type_info
+
+  ScActivityAPC (SC farming object):
+    actObj=%p          - pointer to activity object
+    TID=%u             - thread ID
+    actId32=0x%08X     - 32-bit activity identifier
+    objId=0x%08X       - object identifier
+    ctr=0x%X           - control counter
+    flag=0x%X          - flags
+    ring=%u            - ring buffer index
+    url="%.40s"        - API endpoint URL
+    qDelta=%d          - delta queue count
+    retry=%d           - retry counter
+
+  Mission capture data:
+    missionId=%s        - mission ID string
+    capturedWarTime     - war time at capture moment
+    serObjOrigAddr      - original server object address
+    entityDeep          - entity hierarchy JSON
+    entityDataDeep      - entity data payload JSON
+    file: C:\libertea_replay_cap.json
+
+  Hook target pattern types (game.dll):
+    GetActiveSession() -> Session*
+    Session+0x28 -> sub-object pointer
+    Session+0x128 -> activity list
+    Unlock check -> 48 8B 0D ?? ?? ?? ?? 44 89 80 60 0C
+    Grenade count -> 0F 5B DB F3 41 0F 59 4E ?? F3
+    Turret overheat -> F3 0F 11 4C A8 ?? 49
+    Turret duration -> F3 45 0F 11 5E ?? E9
+    Boundary check -> 0F 84 ?? ?? ?? ?? 80 7F ?? ??
+    Stratagem count -> 42 83 2C 81 ?? 48
+    Kill counter -> 39 46 ?? 75 ?? FF C5
+    Hash table INSERT (x2) -> NOP both for SC bypass
+    Laser overheat -> [pattern in .text]
+    Stim use -> [pattern in .text]
+
+SECTION 6: PROTOCOL & NETWORK ANALYSIS
+------------------------------------------------------------------------------
+
+  Update Check:
+    GET https://libertea.libertea4.workers.dev/menu/version
+    Returns: version number (integer, e.g. "15")
+    Compared against LIBERTEA.version file
+
+  DLL Download:
+    GET https://libertea.libertea4.workers.dev/menu/download
+    Returns: new LIBERTEA.DLL binary
+    Saved as LIBERTEA.DLL.tmp then atomically renamed
+    Retry: --retry %d flag passed to injector
+
+  Game API (SC/Medal farming):
+    POST https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end
+    Content-Type: application/json
+    Body includes: missionId, entityDataDeep, warTime, reward data
+    Batch: 9 requests spaced 500ms, 58s cooldown between batches
+    Alternates: SC batches <-> Medal batches
+
+  Authentication:
+    Login with username + password OR access key
+    Cloudflare Workers backend validates subscription
+    States: Active, Lifetime, Expired
+    Stores: subscription expiry, key hash
+
+  Discord:
+    https://discord.gg/exCgdvYPxd
+    Community/distribution hub
+
+SECTION 7: GAME FUNCTION HOOK CHAIN
+------------------------------------------------------------------------------
+
+  Hook installation sequence at DllMain:
+    1. Decompress .text section
+    2. Resolve imports (IAT)
+    3. Read ntdll.dll from disk, parse syscall stubs (SSN extraction)
+    4. Find game.dll base via GetModuleHandle/module enumeration
+    5. For each pattern: scan game.dll .text for byte signature
+    6. Install hooks via NtProtectVirtualMemory + write
+    7. Hooks verified: GodMode, UnlockArmory, WeaponEditor, etc.
+    8. If pattern count < expected: WARNING - Game may have updated
+    9. Create ImGui window (LIBERTEAWnd class, LIBERTEA title)
+    10. Hook wglSwapIntervalEXT for overlay render loop
+    11. Enter message loop / overlay render loop
+
+  Hook types used:
+    - Mid-function hooks (detour at pattern match address)
+    - NOP patches (disable specific code paths)
+    - Conditional jump inversion (JE->JMP or JNE->JMP)
+    - Memory value write (direct struct member write)
+    - Hash table NOP (prevent SC entity tracking)
+
+SECTION 8: IMPLEMENTATION NOTES
+------------------------------------------------------------------------------
+
+  Pattern Scanner:
+    - IDA-style byte signatures with ?? wildcards
+    - References: "Patterns: %d/%d found"
+    - Missing patterns: features disabled but UI shown
+    - Update resilience: works across minor game patches
+
+  Crash Recovery:
+    - Vectored Exception Handler (VEH): "[SC] VEH recovered crash"
+    - Captures exceptions, saves state, resumes operation
+    - "Crashes absorbed: %d" counter in UI
+    - Replay watchdog: resets stuck replayInProgress flag
+
+  Overlay Render Loop:
+    - Dear ImGui rendered via OpenGL (wglSwapIntervalEXT hook)
+    - Window class: LIBERTEAWnd
+    - Font: Segoe UI
+    - Custom styling with LiberTea branding
+    - Tab interface: Farming, Weapon XP, Super Credits, Replay, Logs, Credits, Misc, Updates
+    - Login screen overlay before main UI
+
+  Memory Management:
+    - Custom allocator at RVA 0x8BB24 (called 236 times)
+    - Object lifetime managed via C++ RAII patterns
+    - Fiber Local Storage (FlsAlloc/FlsGetValue/FlsSetValue)
+    - std::vector usage (vector constructor/destructor iterators in RTTI)
+
+  Threading:
+    - Main thread: overlay render loop
+    - Worker threads: API calls, replay injection
+    - Thread ID tracking: TID=%u in activity objects
+    - Synchronization likely via CriticalSections (InitializeCriticalSectionEx)
+
+SECTION 9: DETECTION VECTORS & COUNTERMEASURES
+------------------------------------------------------------------------------
+
+  Evasion techniques employed:
+    1. Packed DLL (no static signatures for AV/anti-cheat)
+    2. GameGuard bypass (GameMon.des / GameMon64.des disabled)
+    3. Direct syscalls (bypasses ntdll.dll user-mode hooks)
+    4. Pattern-based offsets (survives minor game updates)
+    5. VEH crash recovery (survives game crashes during farming)
+    6. Hash table NOP (prevents server-side SC duplicate detection)
+    7. Cloudflare Workers backend (obfuscated C2 infrastructure)
+
+  Attack surfaces for detection:
+    1. GameGuard driver file modification (detectable by anti-cheat)
+    2. wglSwapIntervalEXT hook (detectable by anti-cheat overlays)
+    3. HTTP traffic to thehelldiversgame.com (non-standard request patterns)
+    4. NtProtectVirtualMemory calls on game.dll pages
+    5. Discord server (intelligence gathering)
+    6. Workers.dev DNS (Cloudflare abuse reporting)
+    7. LIBERTEA.DLL signatures (hash: 95C0E0A655906BDE...)
+    8. LIBERTEA_Bypass.exe signatures (hash: 3DE503976D6E5EB6...)
+    9. Memory pattern: SeDebugPrivilege elevation + GameMon targeting
+
+==============================================================================
+  END OF TECHNICAL BREAKDOWN
+  Extracted from LIBERTEA.DLL v15, unpacked via LoadLibrary + memory dump
+  File: .text_unpacked_mem.bin  (3,489,792 bytes)
+==============================================================================

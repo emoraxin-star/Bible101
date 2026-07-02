@@ -1,0 +1,994 @@
+================================================================================
+  LIBERTEA.DLL - ABSOLUTE DEEP DIVE
+  Every pointer, offset, constant, string, and structure
+================================================================================
+
+=== SECTION 1: BINARY FINGERPRINT ===
+
+  Total .text size:    3,489,792 bytes (3.33 MB)
+  Non-zero bytes:      848,375
+  Zero bytes:          2,641,417
+  Density:             24.3%
+  MD5 (1st MB):        e7df8e32815252163064c9a243643584
+  SHA256 (1st MB):     544b861e1001e2f820039cc0a7a6daf1544387acf790c37236c3e60b5cf2eba0
+
+=== SECTION 2: MEMORY REGION MAP ===
+
+  Region          Range              Size       Density  Description
+  ------          -----              ----       -------  -----------
+  CODE   0x000000-0x0B8000  753,664   88.1%  Executable code (.text functions)
+  CODE   0x0B8000-0x0BC000   16,384   67.6%  Code/data transition zone
+  CODE   0x0BC000-0x0C8000   49,152   49.5%  Read-only data (rdata/strings/tables)
+  CODE   0x0C8000-0x0F9000  200,704   25.4%  Read-only data (encoded structures, IAT)
+  CODE   0x0F9000-0x0FC000   12,288   98.8%  Dense packed data (ImGui config/strings)
+  CODE   0x0FC000-0x100000   16,384   60.9%  Widget strings, menu labels
+  CODE   0x100000-0x10A000   40,960   78.0%  Dear ImGui compiled source + feature strings
+  CODE   0x10A000-0x112000   32,768   69.7%  Hook handlers, cheat logic strings
+  CODE   0x112000-0x11D000   45,056   45.7%  RTTI, unwind info, exception tables
+  CODE   0x11D000-0x11F000    8,192    6.7%  Import/export metadata tail
+
+  Major zero-byte runs (padding/alignment gaps):
+    0x0B80BC: 3,908 zero bytes (until 0x0B9000)
+    0x0BF128: 264 zero bytes (until 0x0BF230)
+    0x0BF32F: 257 zero bytes (until 0x0BF430)
+    0x0C6291: 3,008 zero bytes (until 0x0C6E51)
+    0x0C7081: 479 zero bytes (until 0x0C7260)
+    0x0C726C: 4,588 zero bytes (until 0x0C8458)
+    0x0C9D8F: 367 zero bytes (until 0x0C9EFE)
+    0x0CA077: 405 zero bytes (until 0x0CA20C)
+    0x0CAB42: 766 zero bytes (until 0x0CAE40)
+    0x0CB001: 3,008 zero bytes (until 0x0CBBC1)
+    0x0CCAF1: 479 zero bytes (until 0x0CCCD0)
+    0x0CCCDC: 4,588 zero bytes (until 0x0CDEC8)
+    0x0CF7FF: 367 zero bytes (until 0x0CF96E)
+    0x0CFAE7: 405 zero bytes (until 0x0CFC7C)
+    0x0D05B2: 782 zero bytes (until 0x0D08C0)
+    0x0D0981: 3,008 zero bytes (until 0x0D1541)
+    0x0D1701: 479 zero bytes (until 0x0D18E0)
+    0x0D18EC: 4,588 zero bytes (until 0x0D2AD8)
+    0x0D440F: 367 zero bytes (until 0x0D457E)
+    0x0D46F7: 405 zero bytes (until 0x0D488C)
+    0x0D51C2: 766 zero bytes (until 0x0D54C0)
+    0x0D5521: 3,008 zero bytes (until 0x0D60E1)
+    0x0D62A1: 479 zero bytes (until 0x0D6480)
+    0x0D648C: 4,588 zero bytes (until 0x0D7678)
+    0x0D8FAF: 367 zero bytes (until 0x0D911E)
+    0x0D9297: 405 zero bytes (until 0x0D942C)
+    0x0D9D62: 766 zero bytes (until 0x0DA060)
+    0x0DA0C1: 3,008 zero bytes (until 0x0DAC81)
+    0x0DAF01: 479 zero bytes (until 0x0DB0E0)
+    0x0DB0EC: 4,588 zero bytes (until 0x0DC2D8)
+
+=== SECTION 3: FUNCTION BOUNDARY MAP (first 0x10000 bytes) ===
+
+  Function prologue patterns found (sub rsp, XX / push rbx / mov [rsp+8]):
+  Found 680 function starts in first 64KB
+
+  Key function addresses:
+    0x000000: (unnamed function)
+    0x00001C: (unnamed function)
+    0x00001D: (unnamed function)
+    0x00001E: (unnamed function)
+    0x00001F: (unnamed function)
+    0x000020: (unnamed function)
+    0x00002F: (unnamed function)
+    0x000030: (unnamed function)
+    0x00003F: (unnamed function)
+    0x000040: (unnamed function)
+    0x00004F: (unnamed function)
+    0x000050: (unnamed function)
+    0x00005F: (unnamed function)
+    0x000060: (unnamed function)
+    0x00006F: (unnamed function)
+    0x000070: (unnamed function)
+    0x00007F: (unnamed function)
+    0x000080: (unnamed function)
+    0x00008F: (unnamed function)
+    0x000090: (unnamed function)
+    0x00009F: (unnamed function)
+    0x0000A0: (unnamed function)
+    0x0000AF: (unnamed function)
+    0x0000B0: (unnamed function)
+    0x0000E9: (unnamed function)
+    0x0000EA: (unnamed function)
+    0x0000EB: (unnamed function)
+    0x0000EC: (unnamed function)
+    0x0000ED: (unnamed function)
+    0x0000EE: (unnamed function)
+    0x0000EF: (unnamed function)
+    0x0000F0: (unnamed function)
+    0x000129: (unnamed function)
+    0x00012A: (unnamed function)
+    0x00012B: (unnamed function)
+    0x00012C: (unnamed function)
+    0x00012D: (unnamed function)
+    0x00012E: (unnamed function)
+    0x00012F: (unnamed function)
+    0x000130: (unnamed function)
+    0x00013F: (unnamed function)
+    0x000140: (unnamed function)
+    0x00014F: (unnamed function)
+    0x000150: (unnamed function)
+    0x00015C: (unnamed function)
+    0x0001A0: (unnamed function)
+    0x0001CB: (unnamed function)
+    0x0001CC: (unnamed function)
+    0x0001CD: (unnamed function)
+    0x0001CE: (unnamed function)
+    0x0001CF: (unnamed function)
+    0x0001D0: (unnamed function)
+    0x0001DE: (unnamed function)
+    0x00022E: (unnamed function)
+    0x00022F: (unnamed function)
+    0x000230: (unnamed function)
+    0x000231: (unnamed function)
+    0x000232: (unnamed function)
+    0x000265: (unnamed function)
+    0x000266: (unnamed function)
+    0x000267: (unnamed function)
+    0x000268: (unnamed function)
+    0x000269: (unnamed function)
+    0x00026A: (unnamed function)
+    0x00026B: (unnamed function)
+    0x00026C: (unnamed function)
+    0x00026D: (unnamed function)
+    0x00026E: (unnamed function)
+    0x00026F: (unnamed function)
+    0x000270: (unnamed function)
+    0x000286: (unnamed function)
+    0x000287: (unnamed function)
+    0x000288: (unnamed function)
+    0x000289: (unnamed function)
+    0x00028A: (unnamed function)
+    0x00028B: (unnamed function)
+    0x00028C: (unnamed function)
+    0x00028D: (unnamed function)
+    0x00028E: (unnamed function)
+    0x00028F: (unnamed function)
+
+=== SECTION 4: IMPORT STUB MAP ===
+
+  Import resolution stubs (pattern: lea rcx, [rip+X]; jmp resolver):
+
+=== SECTION 5: ALL MEANINGFUL STRINGS (non-ImGui, non-STL) ===
+
+  '"capturedWarTime": %u,'
+  '"missionId"'
+  '"missionId" : "'
+  '"missionId":"'
+  '##Tooltip_Error'
+  '##farming_scroll'
+  '##libertea_main'
+  '##maxreplays'
+  '##replay_scroll'
+  '##replay_subtabs'
+  '%d SC earned'
+  '%d XP (%d sent)'
+  '%d calls sent  |  %d SC earned'
+  '%d calls sent  |  %d SC earned  |  %d x100 bonus'
+  '%d features active  |  Mults: %.0fx XP / %.0fx Medals / %.0fx Slips'
+  '%d replays'
+  '%d replays dispatched'
+  '%d/%d patterns found. Some features may not work.'
+  '%s\\ntdll.dll'
+  '(Debug Log: Auto-disabled some ImGuiDebugLogFlags after 2 frames)'
+  '(and more errors)'
+  '- BIG SHOUT OUT -'
+  '-- Select Primary Weapon --'
+  '--- Replay ---'
+  '--- SC ---'
+  '.?AV_Generic_error_category@std@@'
+  '.?AV_System_error@std@@'
+  '.?AVbad_alloc@std@@'
+  '.?AVerror_category@std@@'
+  '.?AVlength_error@std@@'
+  '.?AVlogic_error@std@@'
+  '.?AVruntime_error@std@@'
+  '.?AVsystem_error@std@@'
+  "7])#######hV0qs'/###[),##/l:$#Q6>##5[n42>c-TH`->>#/e>11NNV=Bv(*:.F?uu#(gRU.o0XGH`$vhLG1hxt9?W`#,5LsCp#-i>.r$<$6pD>Lb';9Crc6tgXmKVeU2cD4Eo3R/2*>]b(MC;$jPfY.;h^`IWM9<Lh2TlS+f-s$o6Q<BWH`YiU.xfLq$N;$0iR/GX:U(jcW2p/W*q?-qmnUCI;jHSAiFWM.R*kU@C=GH?a9wp8f$e.-4^Qg1)Q-GL(lf(r/7GrRgwV%MS=C#`8ND>Qo#t'X#(v#Y9w0#1D$CIf;W'#pWUPXOuxXuU(H9M(1<q-UE31#^-V'8IRUo7Qf./L>=Ke$$'5F%)]0^#0X@U.a<r:QLtFsLcL6##lOj)#.Y5<-R&KgLwqJfLgN&;Q?gI^#DY2uLi@^rMl9t=cWq6##weg>$FBjVQTSDgEKnIS7EM9>ZY9w0#L;>>#Mx&4Mvt//L[MkA#W@lK.N'[0#7RL_&#w+F%HtG9M#XL`N&.,GM4Pg;-<nLENhvx>-VsM.M0rJfLH2eTM`*oJMHRC`NkfimM2J,W-jXS:)r0wK#@Fge$U>`w'N7G#$#fB#$E^$#:9:hk+eOe--6x)F7*E%?76%^GMHePW-Z5l'&GiF#$956:rS?dA#fiK:)Yr+`&#0j@'DbG&#^$PG.Ll+DNa<XCMKEV*N)LN/N*b=%Q6pia-Xg8I$<MR&,VdJe$<(7G;Ckl'&hF;;$<_=X(b.RS%%)###MPBuuE1V:v&cX&#2m#(&cV]`k9OhLMbn%s$G2,B$BfD3X*sp5#l,$R#]x_X1xKX%b5U*[r5iMfUo9U`N99hG)tm+/Us9pG)XPu`<0s-)WTt(gCRxIg(%6sfh=ktMKn3j)<6<b5Sk_/0(^]AaN#(p/L>&VZ>1i%h1S9u5o@YaaW$e+b<TWFn/Z:Oh(Cx2$lNEoN^e)#CFY@@I;BOQ*sRwZtZxRcU7uW6CXow0i(?$Q[cjOd[P4d)]>ROPOpxTO7Stwi1::iB1q)C_=dV26J;2,]7op$]uQr@_V7$q^%lQwtuHY]=DX,n3L#0PHDO4f9>dC@O>HBuKPpP*E,N+b3L#lpR/MrTEH.IAQk.a>D[.e;mc.x]Ip.PH^'/aqUO/$1WxLoW0[iLA<QT;5HKD+@qQ'NQ(3_PLhE48R.qAPSwQ0/WK?Z,[x?-J;jQTWA0X@KJ(_Y8N-:/M74:/-ZpKrUss?d#dZq]DAbkU*JqkL+nwX@@47`5>w=4h(9.`GCRUxHPeR`5Mjol(dUWxZa(>STrPkrJiWx`5U7F#.g*jrohGg`cg:lSTvEY/EV_7H4Q9[Z%cnv;JQYZ5q.l7Zeas:HOIZOB?G<Nald$qs]@]L<J7bR*>gv:[7MI2k).'2($5FNP&EQ(,)U]W]+fh18.vsai00);D3@4ku5P?DP8aJt+;qUM]=+b'8@;mViBKx0DE[-auGl8:PJ&Dj+M6OC]O^((##]`0i)drT;-7X`=-H3[igUnPG-NZlo.#k@h#=Ork$m>a>$-?Tm$UV(?#P6YY#'/###xe7q.73rI3*pP/$1>s9)W,JrM7SN]'/4C#v$U`0#V.[0>xQsH$fEmPMgY2u7Kh(G%siIfLSoS+MK2eTM$=5,M8p`A.;_R%#u[K#$x4AG8.kK/HSB==-'Ie/QTtG?-.*^N-4B/ZM_3YlQC7(p7q)&](`6_c)$/*JL(L-^(]$wIM`dPtOdGA,U3:w2M-0<q-]L_?^)1vw'.,MRsqVr.L;aN&#/EgJ)PBc[-f>+WomX2u7lqM2iEumMTcsF?-aT=Z-97UEnXglEn1K-bnEO`guFt(c%=;Am_Qs@jLooI&NX;]0#j4#F14;gl8-GQpgwhrq8'=l_f-b49'UOqkLu7-##oDY2L(te+Mch&gLYtJ,MEtJfLh'x'M=$CS-ZZ%P]8bZ>#S?YY#%Q&q'3^Fw&?D)UDNrocM3A76//oL?#h7gl85[qW/NDOk%16ij;+:1a'iNIdb-ou8.P*w,v5#EI$TWS>Pot-R*H'-SEpA:g)f+O$%%`kA#G=8RMmG1&O`>to8bC]T&$,n.LoO>29sp3dt-52U%VM#q7'DHpg+#Z9%H[K<L%a2E-grWVM3@2=-k22tL]4$##6We'8UJCKE[d_=%wI;'6X-GsLX4j^SgJ$##R*w,vP3wK#iiW&#*h^D&R?jp7+/u&#(AP##XU8c$fSYW-J95_-Dp[g9wcO&#M-h1OcJlc-*vpw0xUX&#OQFKNX@QI'IoPp7nb,QU//MQ&ZDkKP)X<WSVL(68uVl&#c'[0#(s1X&xm$Y%B7*K:eDA323j998GXbA#pwMs-jgD$9QISB-A_(aN4xoFM^@C58D0+Q+q3n0#3U1InDjF682-SjMXJK)(h$hxua_K]ul92%'BOU&#BRRh-slg8KDlr:%L71Ka:.A;%YULjDPmL<LYs8i#XwJOYaKPKc1h:'9Ke,g)b),78=I39B;xiY$bgGw-&.Zi9InXDuYa%G*f2Bq7mn9^#p1vv%#(Wi-;/Z5ho;#2:;%d&#x9v68C5g?ntX0X)pT`;%pB3q7mgGN)3%(P8nTd5L7GeA-GL@+%J3u2:(Yf>et`e;)f#Km8&+DC$I46>#Kr]]u-[=99tts1.qb#q72g1WJO81q+eN'03'eM>&1XxY-caEnOj%2n8)),?ILR5^.Ibn<-X-Mq7[a82Lq:F&#ce+S9wsCK*x`569E8ew'He]h:sI[2LM$[guka3ZRd6:t%IG:;$%YiJ:Nq=?eAw;/:nnDq0(CYcMpG)qLN4$##&J<j$UpK<Q4a1]MupW^-sj_$%[HK%'F####QRZJ::Y3EGl4'@%FkiAOg#p[##O`gukTfBHagL<LHw%q&OV0##F=6/:chIm0@eCP8X]:kFI%hl8hgO@RcBhS-@Qb$%+m=hPDLg*%K8ln(wcf3/'DW-$.lR?n[nCH-eXOONTJlh:.RYF%3'p6sq:UIMA945&^HFS87@$EP2iG<-lCO$%c`uKGD3rC$x0BL8aFn--`ke%#HMP'vh1/R&O_J9'um,.<tx[@%wsJk&bUT2`0uMv7gg#qp/ij.L56'hl;.s5CUrxjOM7-##.l+Au'A&O:-T72L]P`&=;ctp'XScX*rU.>-XTt,%OVU4)S1+R-#dg0/Nn?Ku1^0f$B*P:Rowwm-`0PKjYDDM'3]d39VZHEl4,.j']Pk-M.h^&:0FACm$maq-&sgw0t7/6(^xtk%LuH88Fj-ekm>GA#_>568x6(OFRl-IZp`&b,_P'$M<Jnq79VsJW/mWS*PUiq76;]/NM_>hLbxfc$mj`,O;&%W2m`Zh:/)Uetw:aJ%]K9h:TcF]u_-Sj9,VK3M.*'&0D[Ca]J9gp8,kAW]%(?A%R$f<->Zts'^kn=-^@c4%-pY6qI%J%1IGxfLU9CP8cbPlXv);C=b),<2mOvP8up,UVf3839acAWAW-W?#ao/^#%KYo8fRULNd2.>%m]UK:n%r$'sw]J;5pAoO_#2mO3n,'=H5(etHg*`+RLgv>=4U8guD$I%D:W>-r5V*%j*W:Kvej.Lp$<M-SGZ':+Q_k+uvOSLiEo(<aD/K<CCc`'Lx>'?;++O'>()jLR-^u68PHm8ZFWe+ej8h:9r6L*0//c&iH&R8pRbA#Kjm%upV1g:a_#Ur7FuA#(tRh#.Y5K+@?3<-8m0$PEn;J:rh6?I6uG<-`wMU'ircp0LaE_OtlMb&1#6T.#FDKu#1Lw%u%+GM+X'e?YLfjM[VO0MbuFp7;>Q&#WIo)0@F%q7c#4XAXN-U&VB<HFF*qL($/V,;(kXZejWO`<[5??ewY(*9=%wDc;,u<'9t3W-(H1th3+G]ucQ]kLs7df($/*JL]@*t7Bu_G3_7mp7<iaQjO@.kLg;x3B0lqp7Hf,^Ze7-##@/c58Mo(3;knp0%)A7?-W+eI'o8)b<nKnw'Ho8C=Y>pqB>0ie&jhZ[?iLR@@_AvA-iQC(=ksRZRVp7`.=+NpBC%rh&3]R:8XDmE5^V8O(x<<aG/1N$#FX$0V5Y6x'aErI3I$7x%E`v<-BY,)%-?Psf*l?%C3.mM(=/M0:JxG'?7WhH%o'a<-80g0NBxoO(GH<dM]n.+%q@jH?f.UsJ2Ggs&4<-e47&Kl+f//9@`b+?.TeN_&B8Ss?v;^Trk;f#YvJkl&w$]>-+k?'(<S:68tq*WoDfZu';mM?8X[ma8W%*`-=;D.(nc7/;)g:T1=^J$&BRV(-lTmNB6xqB[@0*o.erM*<SWF]u2=st-*(6v>^](H.aREZSi,#1:[IXaZFOm<-ui#qUq2$##Ri;u75OK#(RtaW-K-F`S+cF]uN`-KMQ%rP/Xri.LRcB##=YL3BgM/3MD?@f&1'BW-)Ju<L25gl8uhVm1hL$##*8###'A3/LkKW+(^rWX?5W_8g)a(m&K8P>#bmmWCMkk&#TR`C,5d>g)F;t,4:@_l8G/5h4vUd%&%950:VXD'QdWoY-F$BtUwmfe$YqL'8(PWX(P?^@Po3$##`MSs?DWBZ/S>+4%>fX,VWv/w'KD`LP5IbH;rTV>n3cEK8U#bX]l-/V+^lj3;vlMb&[5YQ8#pekX9JP3XUC72L,,?+Ni&co7ApnO*5NK,((W-i:$,kp'UDAO(G0Sq7MVjJsbIu)'Z,*[>br5fX^:FPAWr-m2KgL<LUN098kTF&#lvo58=/vjDo;.;)Ka*hLR#/k=rKbxuV`>Q_nN6'8uTG&#1T5g)uLv:873UpTLgH+#FgpH'_o1780Ph8KmxQJ8#H72L4@768@Tm&Qh4CB/5OvmA&,Q&QbUoi$a_%3M01H)4x7I^&KQVgtFnV+;[Pc>[m4k//,]1?#`VY[Jr*3&&slRfLiVZJ:]?=K3Sw=[$=uRB?3xk48@aeg<Z'<$#4H)6,>e0jT6'N#(q%.O=?2S]u*(m<-V8J'(1)G][68hW$5'q[GC&5j`TE?m'esFGNRM)j,ffZ?-qx8;->g4t*:CIP/[Qap7/9'#(1sao7w-.qNUdkJ)tCF&#B^;xGvn2r9FEPFFFcL@.iFNkTve$m%#QvQS8U@)2Z+3K:AKM5isZ88+dKQ)W6>J%CL<KE>`.d*(B`-n8D9oK<Up]c$X$(,)M8Zt7/[rdkqTgl-0cuGMv'?>-XV1q['-5k'cAZ69e;D_?$ZPP&s^+7])$*$#@QYi9,5P&#9r+$%CE=68>K8r0=dSC%%(@p7.m7jilQ02'0-VWAg<a/''3u.=4L$Y)6k/K:_[3=&jvL<L0C/2'v:^;-DIBW,B4E68:kZ;%?8(Q8BH=kO65BW?xSG&#@uU,DS*,?.+(o(#1vCS8#CHF>TlGW'b)Tq7VT9q^*^$$.:&N@@$&)WHtPm*5_rO0&e%K&#-30j(E4#'Zb.o/(Tpm$>K'f@[PvFl,hfINTNU6u'0pao7%XUp9]5.>%h`8_=VYbxuel.NTSsJfLacFu3B'lQSu/m6-Oqem8T+oE--$0a/k]uj9EwsG>%veR*hv^BFpQj:K'#SJ,sB-'#](j.Lg92rTw-*n%@/;39rrJF,l#qV%OrtBeC6/,;qB3ebNW[?,Hqj2L.1NP&GjUR=1D8QaS3Up&@*9wP?+lo7b?@%'k4`p0Z$22%K3+iCZj?XJN4Nm&+YF]u@-W$U%VEQ/,,>>#)D<h#`)h0:<Q6909ua+&VU%n2:cG3FJ-%@Bj-DgLr`Hw&HAKjKjseK</xKT*)B,N9X3]krc12t'pgTV(Lv-tL[xg_%=M_q7a^x?7Ubd>#%8cY#YZ?=,`Wdxu/ae&#w6)R89tI#6@s'(6Bf7a&?S=^ZI_kS&ai`&=tE72L_D,;^R)7[$s<Eh#c&)q.MXI%#v9ROa5FZO%sF7q7Nwb&#ptUJ:aqJe$Sl68%.D###EC><?-aF&#RNQv>o8lKN%5/$(vdfq7+ebA#u1p]ovUKW&Y%q]'>$1@-[xfn$7ZTp7mM,G,Ko7a&Gu%G[RMxJs[0MM%wci.LFDK)(<c`Q8N)jEIF*+?P2a8g%)$q]o2aH8C&<SibC/q,(e:v;-b#6[$NtDZ84Je2KNvB#$P5?tQ3nt(0d=j.LQf./Ll33+(;q3L-w=8dX$#WF&uIJ@-bfI>%:_i2B5CsR8&9Z&#=mPEnm0f`<&c)QL5uJ#%u%lJj+D-r;BoF&#4DoS97h5g)E#o:&S4weDF,9^Hoe`h*L+_a*NrLW-1pG_&2UdB86e%B/:=>)N4xeW.*wft-;$'58-ESqr<b?UI(_%@[P46>#U`'6AQ]m&6/`Z>#S?YY#Vc;r7U2&326d=w&H####?TZ`*4?&.MK?LP8Vxg>$[QXc%QJv92.(Db*B)gb*BM9dM*hJMAo*c&#b0v=Pjer]$gG&JXDf->'StvU7505l9$AFvgYRI^&<^b68?j#q9QX4SM'RO#&sL1IM.rJfLUAj221]d##DW=m83u5;'bYx,*Sl0hL(W;;$doB&O/TQ:(Z^xBdLjL<Lni;''X.`$#8+1GD:k$YUWsbn8ogh6rxZ2Z9]%nd+>V#*8U_72Lh+2Q8Cj0i:6hp&$C/:p(HK>T8Y[gHQ4`4)'$Ab(Nof%V'8hL&#<NEdtg(n'=S1A(Q1/I&4([%dM`,Iu'1:_hL>SfD07&6D<fp8dHM7/g+tlPN9J*rKaPct&?'uBCem^jn%9_K)<,C5K3s=5g&GmJb*[SYq7K;TRLGCsM-$$;S%:Y@r7AK0pprpL<Lrh,q7e/%KWK:50I^+m'vi`3?%Zp+<-d+$L-Sv:@.o19n$s0&39;kn;S%BSq*$3WoJSCLweV[aZ'MQIjO<7;X-X;&+dMLvu#^UsGEC9WEc[X(wI7#2.(F0jV*eZf<-Qv3J-c+J5AlrB#$p(H68LvEA'q3n0#m,[`*8Ft)FcYgEud]CWfm68,(aLA$@EFTgLXoBq/UPlp7:d[/;r_ix=:TF`S5H-b<LI&HY(K=h#)]Lk$K14lVfm:x$H<3^Ql<M`$OhapBnkup'D#L$Pb_`N*g]2e;X/Dtg,bsj&K#2[-:iYr'_wgH)NUIR8a1n#S?Yej'h8^58UbZd+^FKD*T@;6A7aQC[K8d-(v6GI$x:T<&'Gp5Uf>@M.*J:;$-rv29'M]8qMv-tLp,'886iaC=Hb*YJoKJ,(j%K=H`K.v9HggqBIiZu'QvBT.#=)0ukruV&.)3=(^1`o*Pj4<-<aN((^7('#Z0wK#5GX@7u][`*S^43933A4rl][`*O4CgLEl]v$1Q3AeF37dbXk,.)vj#x'd`;qgbQR%FW,2(?LO=s%Sc68%NP'##Aotl8x=BE#j1UD([3$M(]UI2LX3RpKN@;/#f'f/&_mt&F)XdF<9t4)Qa.*kTLwQ'(TTB9.xH'>#MJ+gLq9-##@HuZPN0]u:h7.T..G:;$/Usj(T7`Q8tT72LnYl<-qx8;-HV7Q-&Xdx%1a,hC=0u+HlsV>nuIQL-5<N?)NBS)QN*_I,?&)2'IM%L3I)X((e/dl2&8'<M:^#M*Q+[T.Xri.LYS3v%fF`68h;b-X[/En'CR.q7E)p'/kle2HM,u;^%OKC-N+Ll%F9CF<Nf'^#t2L,;27W:0O@6##U6W7:$rJfLWHj$#)woqBefIZ.PK<b*t7ed;p*_m;4ExK#h@&]>_>@kXQtMacfD.m-VAb8;IReM3$wf0''hra*so568'Ip&vRs849'MRYSp%:t:h5qSgwpEr$B>Q,;s(C#$)`svQuF$##-D,##,g68@2[T;.XSdN9Qe)rpt._K-#5wF)sP'##p#C0c%-Gb%hd+<-j'Ai*x&&HMkT]C'OSl##5RG[JXaHN;d'uA#x._U;.`PU@(Z3dt4r152@:v,'R.Sj'w#0<-;kPI)FfJ&#AYJ&#//)>-k=m=*XnK$>=)72L]0I%>.G690a:$##<,);?;72#?x9+d;^V'9;jY@;)br#q^YQpx:X#Te$Z^'=-=bGhLf:D6&bNwZ9-ZD#n^9HhLMr5G;']d&6'wYmTFmL<LD)F^%[tC'8;+9E#C$g%#5Y>q9wI>P(9mI[>kC-ekLC/R&CH+s'B;K-M6$EB%is00:+A4[7xks.LrNk0&E)wILYF@2L'0Nb$+pv<(2.768/FrY&h$^3i&@+G%JT'<-,v`3;_)I9M^AE]CN?Cl2AZg+%4iTpT3<n-&%H%b<FDj2M<hH=&Eh<2Len$b*aTX=-8QxN)k11IM1c^j%9s<L<NFSo)B?+<-(GxsF,^-Eh@$4dXhN$+#rxK8'je'D7k`e;)2pYwPA'_p9&@^18ml1^[@g4t*[JOa*[=Qp7(qJ_oOL^('7fB&Hq-:sf,sNj8xq^>$U4O]GKx'm9)b@p7YsvK3w^YR-CdQ*:Ir<($u&)#(&?L9Rg3H)4fiEp^iI9O8KnTj,]H?D*r7'M;PwZ9K0E^k&-cpI;.p/6_vwoFMV<->#%Xi.LxVnrU(4&8/P+:hLSKj$#U%]49t'I:rgMi'FL@a:0Y-uA[39',(vbma*hU%<-SRF`Tt:542R_VV$p@[p8DV[A,?1839FWdF<TddF<9Ah-6&9tWoDlh]&1SpGMq>Ti1O*H&#(AL8[_P%.M>v^-))qOT*F5Cq0`Ye%+$B6i:7@0IX<N+T+0MlMBPQ*Vj>SsD<U4JHY8kD2)2fU/M#$e.)T4,_=8hLim[&);?UkK'-x?'(:siIfL<$pFM`i<?%W(mGDHM%>iWP,##P`%/L<eXi:@Z9C.7o=@(pXdAO/NLQ8lPl+HPOQa8wD8=^GlPa8TKI1CjhsCTSLJM'/Wl>-S(qw%sf/@%#B6;/U7K]uZbi^Oc^2n<bhPmUkMw>%t<)'mEVE''n`WnJra$^TKvX5B>;_aSEK',(hwa0:i4G?.Bci.(X[?b*($,=-n<.Q%`(X=?+@Am*Js0&=3bh8K]mL<LoNs'6,'85`0?t/'_U59@]ddF<#LdF<eWdF<OuN/45rY<-L@&#+fm>69=Lb,OcZV/);TTm8VI;?%OtJ<(b4mq7M6:u?KRdF<gR@2L=FNU-<b[(9c/ML3m;Z[$oF3g)GAWqpARc=<ROu7cL5l;-[A]%/+fsd;l#SafT/f*W]0=O'$(Tb<[)*@e775R-:Yob%g*>l*:xP?Yb.5)%w_I?7uk5JC+FS(m#i'k.'a0i)9<7b'fs'59hq$*5Uhv##pi^8+hIEBF`nvo`;'l0.^S1<-wUK2/Coh58KKhLjM=SO*rfO`+qC`W-On.=AJ56>>i2@2LH6A:&5q`?9I3@@'04&p2/LVa*T-4<-i3;M9UvZd+N7>b*eIwg:CC)c<>nO&#<IGe;__.thjZl<%w(Wk2xmp4Q@I#I9,DF]u7-P=.-_:YJ]aS@V?6*C()dOp7:WL,b&3Rg/.cmM9&r^>$(>.Z-I&J(Q0Hd5Q%7Co-b`-c<N(6r@ip+AurK<m86QIth*#v;-OBqi+L7wDE-Ir8K['m+DDSLwK&/.?-V%U_%3:qKNu$_b*B-kp7NaD'QdWQPKYq[@>P)hI;*_F]u`Rb[.j8_Q/<&>uu+VsH$sM9TA%?)(vmJ80),P7E>)tjD%2L=-t#fK[%`v=Q8<FfNkgg^oIbah*#8/Qt$F&:K*-(N/'+1vMB,u()-a.VUU*#[e%gAAO(S>WlA2);Sa>gXm8YB`1d@K#n]76-a$U,mF<fX]idqd)<3,]J7JmW4`6]uks=4-72L(jEk+:bJ0M^q-8Dm_Z?0olP1C9Sa&H[d&c$ooQUj]Exd*3ZM@-WGW2%s',B-_M%>%Ul:#/'xoFM9QX-$.QN'>[%$Z$uF6pA6Ki2O5:8w*vP1<-1`[G,)-m#>0`P&#eb#.3i)rtB61(o'$?X3B</R90;eZ]%Ncq;-Tl]#F>2Qft^ae_5tKL9MUe9b*sLEQ95C&`=G?@Mj=wh*'3E>=-<)Gt*Iw)'QG:`@IwOf7&]1i'S01B+Ev/Nac#9S;=;YQpg_6U`*kVY39xK,[/6Aj7:'1Bm-_1EYfa1+o&o4hp7KN_Q(OlIo@S%;jVdn0'1<Vc52=u`3^o-n1'g4v58Hj&6_t7$##?M)c<$bgQ_'SY((-xkA#Y(,p'H9rIVY-b,'%bCPF7.J<Up^,(dU1VY*5#WkTU>h19w,WQhLI)3S#f$2(eb,jr*b;3Vw]*7NH%$c4Vs,eD9>XW8?N]o+(*pgC%/72LV-u<Hp,3@e^9UB1J+ak9-TN/mhKPg+AJYd$MlvAF_jCK*.O-^(63adMT->W%iewS8W6m2rtCpo'RS1R84=@paTKt)>=%&1[)*vp'u+x,VrwN;&]kuO9JDbg=pO$J*.jVe;u'm0dr9l,<*wMK*Oe=g8lV_KEBFkO'oU]^=[-792#ok,)i]lR8qQ2oA8wcRCZ^7w/Njh;?.stX?Q1>S1q4Bn$)K1<-rGdO'$Wr.Lc.CG)$/*JL4tNR/,SVO3,aUw'DJN:)Ss;wGn9A32ijw%FL+Z0Fn.U9;reSq)bmI32U==5ALuG&#Vf1398/pVo1*c-(aY168o<`JsSbk-,1N;$>0:OUas(3:8Z972LSfF8eb=c-;>SPw7.6hn3m`9^Xkn(r.qS[0;T%&Qc=+STRxX'q1BNk3&*eu2;&8q$&x>Q#Q7^Tf+6<(d%ZVmj2bDi%.3L2n+4W'$PiDDG)g,r%+?,$@?uou5tSe2aN_AQU*<h`e-GI7)?OK2A.d7_c)?wQ5AS@DL3r#7fSkgl6-++D:'A,uq7SvlB$pcpH'q3n0#_%dY#xCpr-l<F0NR@-##FEV6NTF6##$l84N1w?AO>'IAOURQ##V^Fv-XFbGM7Fl(N<3DhLGF%q.1rC$#:T__&Pi68%0xi_&[qFJ(77j_&JWoF.V735&T,[R*:xFR*K5>>#`bW-?4Ne_&6Ne_&6Ne_&n`kr-#GJcM6X;uM6X;uM(.a..^2TkL%oR(#;u.T%fAr%4tJ8&><1=GHZ_+m9/#H1F^R#SC#*N=BA9(D?v[UiFY>>^8p,KKF.W]L29uLkLlu/+4T<XoIB&hx=T1PcDaB&;HH+-AFr?(m9HZV)FKS8JCw;SD=6[^/DZUL`EUDf]GGlG&>w$)F./^n3+rlo+DB;5sIYGNk+i1t-69Jg--0pao7Sm#K)pdHW&;LuDNH@H>#/X-TI(;P>#,Gc>#0Su>#4`1?#8lC?#<xU?#@.i?#D:%@#HF7@#LRI@#P_[@#Tkn@#Xw*A#]-=A#a9OA#d<F&#*;G##.GY##2Sl##6`($#:l:$#>xL$#B.`$#F:r$#JF.%#NR@%#R_R%#Vke%#Zww%#_-4&#3^Rh%Sflr-k'MS.o?.5/sWel/wpEM0%3'/1)K^f1-d>G21&v(35>V`39V7A4=onx4A1OY5EI0;6Ibgr6M$HS7Q<)58C5w,;WoA*#[%T*#`1g*#d=#+#hI5+#lUG+#pbY+#tnl+#x$),#&1;,#*=M,#.I`,#2Ur,#6b.-#;w[H#iQtA#m^0B#qjBB#uvTB##-hB#'9$C#+E6C#/QHC#3^ZC#7jmC#;v)D#?,<D#C8ND#GDaD#KPsD#O]/E#g1A5#KA*1#gC17#MGd;#8(02#L-d3#rWM4#Hga1#,<w0#T.j<#O#'2#CYN1#qa^:#_4m3#o@/=#eG8=#t8J5#`+78#4uI-#m3B2#SB[8#Q0@8#i[*9#iOn8#1Nm;#^sN9#qh<9#:=x-#P;K2#$%X9#bC+.#Rg;<#mN=.#MTF.#RZO.#2?)4#Y#(/#[)1/#b;L/#dAU/#0Sv;#lY$0#n`-0#sf60#(F24#wrH0#%/e0#TmD<#%JSMFove:CTBEXI:<eh2g)B,3h2^G3i;#d3jD>)4kMYD4lVu`4m`:&5niUA5@(A5BA1]PBB:xlBCC=2CDLXMCEUtiCf&0g2'tN?PGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CP-qekC`.9kEg^+F$kwViFJTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5o,^<-28ZI'O?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xp;7q-#lLYI:xvD=#"
+  '=== LIBERTEA CRASH LOG ==='
+  '>> Next Weapon'
+  'AFTER(0s): ctr=0x%X flag=0x%X ring=%u rax=0x%llX url="%.40s" qDelta=%d'
+  'ARMORY'
+  'Add Samples'
+  'Add Samples: OFF##samp'
+  'Add Samples: ON ##samp'
+  'All replays dispatched.'
+  'Alternates SC / Medal batches'
+  'AppPolicyGetProcessTerminationMethod'
+  'AppPolicyGetThreadInitializationType'
+  'Auto Replay: %s  Interval: %.0fs  Count: %d'
+  'Auto-Replay STARTED (2 min interval)'
+  'Auto-Replay STOPPED'
+  'Auto-Replay STOPPED by user'
+  'Auto-fires burst every N minutes when ON'
+  'Autocannon'
+  'Autocannon Sentry'
+  'BAIL: ring index unreadable'
+  'BEFORE: ctr=0x%X flag=0x%X ring=%u url="%.40s"'
+  'Boost Mode:  %s'
+  'Boost:'
+  'Boosted Duration'
+  'Burst Loop fired -- next in %d min'
+  'Burst Replay'
+  'Burst Send (%d replays)'
+  'CAPTURED missionId=%s'
+  'CRASH in BuildPayload'
+  'Calls fire in batches of 9, spaced 500ms apart, followed by a 58s cooldown.'
+  'Captured Mission/end POST body: %d bytes'
+  'Cave alloc failed'
+  'Charger'
+  'Charger Behemoth'
+  'Cheat Engine'
+  'Click %s Button to break in debugger! (remap w/ Ctrl+Shift)'
+  'Click any weapon on the ship to populate.'
+  'CompareStringEx'
+  'Cooldown: %ds remaining...'
+  'CorExitProcess'
+  'Crashes absorbed: %d'
+  'Damage##we'
+  'Dark Fluid Pack'
+  'Debug##Default'
+  'Difficulty Mult'
+  'Difficulty tier (1-10)'
+  'Drilling Charge'
+  'ERROR = failed / crashed'
+  'Eagle Strikes'
+  'Enemy Spawner - Coming Soon'
+  'Enter your access key to continue'
+  'Every batch fires medals'
+  'Expire All Turrets'
+  'Extraction'
+  'Extraction Beacon'
+  'FARMING'
+  'FOV Editor'
+  'FOV##fov'
+  'Farming'
+  'Fast Landing'
+  'Fire Resistant'
+  'Fire Support'
+  'Fire any weapon to populate stats.'
+  'FireRate (Trident)##we'
+  'Firing MEDAL batch (9 calls x 500ms)...'
+  'Firing SC batch (9 calls x 500ms)...'
+  'Flamethrower'
+  'FlsAlloc'
+  'Fly Speed'
+  'Force Difficulty: OFF##diff'
+  'Force Difficulty: ON ##diff'
+  'Force highest difficulty reward tier (NOP jl at cmp esi,7)'
+  'Force unconditional jump (bypass boundary)'
+  'Force unconditional jump (bypass strategem count)'
+  'Freeze Mission Timer'
+  'Freeze sample values (prevents loss)'
+  'Freezes all countdown timers (mission, extraction, etc.)'
+  'Gatling Sentry'
+  'Give all lobby members the selected primary weapon XP.'
+  'God Mode (Player Only)'
+  'Grenade Fuse Time'
+  'Grenades'
+  'HELLDIVERS'
+  'HELLDIVERS 2'
+  'Helldivers2'
+  'Hook captured data but type unrecognized'
+  'Hook installed'
+  'Hook verified'
+  'Hook1=0x%llX Hook2=0x%llX Cave=%p'
+  'HotPocket'
+  'Hover Pack'
+  'HoveredId: 0x%08X'
+  'Hoverpack Control'
+  'I-09 Heatseeker'
+  'I-92 Fire Fighter'
+  'Include Medals'
+  'Inf Ammo'
+  'Inf Grenades'
+  'Inf Stims'
+  'Inf Turret Duration'
+  'Infinite Horde Mode##erad_ih'
+  'Infinite Stratagems'
+  'Instant Charge'
+  'Instant Railgun'
+  'Instant Shuttle: OFF##shut5'
+  'Instant Shuttle: ON ##shut5'
+  'Invalid flags for IsItemHovered()!'
+  'Join our Discord'
+  'Kill Count: %.0f'
+  'LCMapStringEx'
+  'LIBERTEA'
+  'LIBERTEA HUD'
+  'LIBERTEAOverlay'
+  'LIBERTEAWnd'
+  'Landing Duration'
+  'Landing Thrust'
+  'Laser Cannon'
+  'Last replay: %d slot(s) patched'
+  'Last replay: 0 matches in capture'
+  'Legend'
+  "Let's Start Boosting"
+  'Login with your account'
+  'Longer Hover'
+  'MISSION'
+  'Made for LIBERTEA Discord'
+  'Max Mission Rewards'
+  'Medal Batch Firing'
+  'Medals'
+  'Medals Multiplier##fmed'
+  'Medals Only'
+  'Mission'
+  'Mission Replay Log'
+  'Mission/end'
+  'Mortar Sentry'
+  'Movement Speed##spd'
+  'NOP both hash table INSERT calls that mark SC entities as collected'
+  'NOP conditional jump so turrets always expire immediately'
+  'NOP difficulty value read'
+  'NOP fuse timer write'
+  'NOP grenade count conversion'
+  'NOP hover time limit check'
+  'NOP landing speed multiply'
+  'NOP railgun charge calculation'
+  'NOP shield relay cooldown write'
+  'NOP stim count decrement'
+  'NOP turret heat accumulation'
+  'NOP turret timer write'
+  'NOP unlock check jump'
+  'Network error. Check connection and try again.'
+  'No Boundary'
+  'No Laser Overheat'
+  'No Ragdoll'
+  'No Recoil'
+  'No Turret Overheat'
+  'NtProtectVirtualMemory'
+  'NtQueryInformationProcess'
+  'Orbitals'
+  'Override sample amounts awarded at end of mission (-1 = default)'
+  'Patches stratagem/weapon/armor unlock checks.'
+  'Patterns: %d/%d found'
+  'Press ESC to abort picking.'
+  'Primary Weapon Override'
+  'Probe ON - will overwrite on next mission'
+  'Probe: ON - waiting for mission'
+  'Processed'
+  'Programmer error: %d visible items with conflicting ID!'
+  'Prologue read crashed'
+  ... (349 total interesting strings)
+
+=== SECTION 6: CONSTANT VALUES WITH 8-BYTE CONTEXT ===
+
+  Most frequently referenced constants:
+    0x007FFDB9 ( 8388025) x 30  context: 00 00 00 30 B8 B9 FD 7F 00 00 00 30 B8 B9 FD 7F
+    0x00008000 (   32768) x 23  context: 15 33 D2 41 B8 00 80 00 00 FF 15 38 58 0B 00 48
+    0x00003000 (   12288) x 21  context: 00 00 00 41 B8 00 30 00 00 FF 15 72 7E 0B 00 48
+    0x00000100 (     256) x 19  context: 0C 00 00 41 B8 00 01 00 00 48 89 BB F0 0C 00 00
+    0x00000200 (     512) x 19  context: 4E 33 D2 41 B8 00 02 00 00 48 8D 8C 24 10 0F 00
+    0x000004D0 (    1232) x 13  context: 43 33 D2 41 B8 D0 04 00 00 48 8D 4D B0 E8 36 1F
+    0x0000FFFF (   65535) x 12  context: 66 41 D1 EC B8 FF FF 00 00 66 03 FA 66 D1 EF 44
+    0x00001CEC (    7404) x 11  context: 0D 00 41 80 B8 EC 1C 00 00 00 74 18 41 3B 90 DC
+    0x000013DC (    5084) x 11  context: 00 74 09 83 B8 DC 13 00 00 FF 75 09 83 B8 B8 19
+    0x00000208 (     520) x  9  context: 00 33 D2 41 B8 08 02 00 00 48 8D 8D A0 00 00 00
+    0x00001000 (    4096) x  9  context: 08 00 00 41 B8 00 10 00 00 48 0F 44 D0 4C 8D 4C
+    0x000001C0 (     448) x  8  context: 00 00 48 83 B8 C0 01 00 00 00 75 11 48 83 B9 88
+    0x00000296 (     662) x  8  context: 00 00 75 07 B8 96 02 00 00 EB 2E 81 FB 00 20 00
+    0x00000297 (     663) x  8  context: 00 00 75 07 B8 97 02 00 00 EB 1F 81 FB 00 40 00
+    0x00000298 (     664) x  8  context: 00 00 75 07 B8 98 02 00 00 EB 10 81 FB 00 80 00
+    0x00000104 (     260) x  7  context: 47 0B 00 41 B8 04 01 00 00 48 8D 95 A0 00 00 00
+    0x00000299 (     665) x  7  context: 80 00 00 41 B8 99 02 00 00 41 0F 44 C8 4C 63 C1
+    0x00000C88 (    3208) x  6  context: 11 EB 06 41 B8 88 0C 00 00 48 8D 4D B8 E8 53 38
+    0x00AAA0A0 (11182240) x  6  context: 00 33 C9 41 B8 A0 A0 AA 00 48 89 45 80 C7 05 01
+    0x00000281 (     641) x  6  context: 00 10 00 00 B8 81 02 00 00 41 83 FA 03 0F 44 C8
+    0x00000282 (     642) x  6  context: 00 20 00 00 B8 82 02 00 00 41 83 FA 03 0F 44 C8
+    0x000001CC (     460) x  6  context: 85 C0 74 40 B8 CC 01 00 00 48 8D 8D F4 04 00 00
+    0x00000800 (    2048) x  5  context: 03 41 B5 01 B8 00 08 00 00 48 8D 8C 24 B0 00 00
+    0x00000250 (     592) x  5  context: 80 7D 6F 00 B8 50 02 00 00 48 8B 0D 2E DB 0A 00
+    0x00000660 (    1632) x  5  context: 0B 00 00 41 B8 60 06 00 00 C7 44 24 3C 70 0B 00
+    0x00010000 (   65536) x  4  context: 4B 48 2B D8 B8 00 00 01 00 48 3B D8 48 0F 47 D8
+    0x00004000 (   16384) x  4  context: 48 0F 46 DF B8 00 40 00 00 48 3B D8 48 0F 47 D8
+    0x000003A0 (     928) x  4  context: 00 00 48 39 B8 A0 03 00 00 0F 85 FF 01 00 00 41
+    0x00000101 (     257) x  4  context: 27 33 D2 41 B8 01 01 00 00 E8 19 BD 00 00 E8 CC
+    0x00000110 (     272) x  3  context: 00 33 D2 41 B8 10 01 00 00 48 8D 4C 24 30 E8 4A
+    0x0000011C (     284) x  3  context: 00 F3 0F 10 B8 1C 01 00 00 48 83 B8 C0 01 00 00
+    0x00640010 ( 6553616) x  3  context: 1E C7 05 BC B8 10 00 64 00 00 00 C7 05 B6 B8 10
+    0x00002000 (    8192) x  3  context: 00 33 D2 41 B8 00 20 00 00 48 8B C8 E8 39 FA 09
+    0x00005A4D (   23117) x  3  context: 84 00 00 00 B8 4D 5A 00 00 66 39 03 75 7A 48 63
+    0x000001FF (     511) x  3  context: 8D 4D 50 41 B8 FF 01 00 00 B3 01 E8 12 A6 08 00
+    0x000003FF (    1023) x  3  context: C1 E1 0A 41 B8 FF 03 00 00 48 81 C1 31 52 00 00
+    0x00000220 (     544) x  3  context: 00 00 40 88 B8 20 02 00 00 40 88 B8 24 12 00 00
+    0x00000268 (     616) x  3  context: 21 00 00 00 B8 68 02 00 00 74 05 B8 38 02 00 00
+    0x00000238 (     568) x  3  context: 00 00 74 05 B8 38 02 00 00 F3 0F 10 04 10 F3 0F
+    0x00000254 (     596) x  3  context: F3 41 0F 10 B8 54 02 00 00 0F 28 D0 0F C6 D0 FF
+    0x0000027C (     636) x  3  context: 7A 02 00 00 B8 7C 02 00 00 41 B8 FF FF FF FF 0F
+    0x0000FDE9 (   65001) x  3  context: 14 01 00 00 B8 E9 FD 00 00 3B F8 75 26 48 89 46
+    0x0000020B (     523) x  3  context: 02 00 00 C3 B8 0B 02 00 00 C3 B8 0C 02 00 00 C3
+    0x0000F4DB (   62683) x  3  context: 7F 00 00 B9 B8 DB F4 00 00 00 00 58 E8 F1 CD FC
+    0x000007FF (    2047) x  2  context: C0 0F 49 C8 B8 FF 07 00 00 81 F9 00 08 00 00 0F
+    0x00002400 (    9216) x  2  context: 49 03 D4 49 B8 00 24 00 00 01 00 00 00 90 48 0F
+    0x00000127 (     295) x  2  context: 00 33 D2 41 B8 27 01 00 00 48 8D 0D A6 2D 0F 00
+    0x00001078 (    4216) x  2  context: 10 00 48 8B B8 78 10 00 00 F3 0F 10 77 14 F3 0F
+    0x000001BB (     443) x  2  context: 47 55 F8 41 B8 BB 01 00 00 45 33 C9 48 8B C8 FF
+    0x00006469 (   25705) x  2  context: 7F 44 24 48 B8 69 64 00 00 66 89 44 24 38 40 88
+    0x0078501E ( 7884830) x  2  context: 00 33 C9 41 B8 1E 50 78 00 FF 15 59 09 09 00 48
+    0x00000121 (     289) x  2  context: 01 00 00 41 B8 21 01 00 00 48 8B CB FF 15 09 09
+    0x00000209 (     521) x  2  context: 75 16 40 38 B8 09 02 00 00 75 0D 40 38 B8 0A 02
+    0x0000020A (     522) x  2  context: 75 0D 40 38 B8 0A 02 00 00 0F 84 56 FF FF FF 0F
+    0x00000234 (     564) x  2  context: 4C 24 24 41 B8 34 02 00 00 E8 B4 E5 07 00 48 8D
+    0x00000216 (     534) x  2  context: 00 00 EB 28 B8 16 02 00 00 3B D0 75 07 BA 13 02
+    0x00002618 (    9752) x  2  context: 00 00 00 80 B8 18 26 00 00 00 44 0F 28 84 24 B0
+    0x00001EA0 (    7840) x  2  context: 03 00 00 80 B8 A0 1E 00 00 00 75 0A 41 F6 C0 04
+    0x00000218 (     536) x  2  context: F3 33 D2 41 B8 18 02 00 00 49 8B CE E8 63 9D 07
+    0x00001F39 (    7993) x  2  context: 00 74 2E 80 B8 39 1F 00 00 00 74 25 83 B8 88 1F
+
+=== SECTION 7: COMPLETE BYTE PATTERN SIGNATURES ===
+
+  0F 2F C1 48 89 44 24 ?? 76
+  0F 5B DB F3 41 0F 59 4E ?? F3
+  39 50 04 74 ?? FF C1 48 83 C0 18 41 3B ?? 72 F0 EB ?? 8B
+  40 57 48 83 EC ?? 3B 15 ?? ?? ?? ?? 41 8B F8 4C 89 7C 24
+  41 0F 2F 45 ?? 77 ?? 48
+  42 83 2C 81 ?? 48
+  42 83 2C 81 ?? 49
+  42 FF 0C E0 49 8B 46 ?? 4E
+  44 8B C5 4C 8B 89 ?? ?? ?? ?? 48 8B CB 41 FF 91 ?? ?? ?? ?? 41 FF C7
+  48 89 5C 24 ?? 48 89 6C 24 ?? 48 89 74 24 ?? 48 89 7C 24 ?? 41 56 3B 15 ?? ?? ?? ?? 4D 8B F0
+  48 89 5C 24 ?? 48 89 7C 24 ?? 4C 89 44
+  48 89 5C 24 ?? 48 8B D9 85 D2 75 ?? 4C
+  48 8B 44 24 ?? 80 78 29
+  48 8D 04 52 48 8D 0C 85 ?? ?? ?? ?? 49 8B 42 ?? 44 89 74 01
+  4C 8B 7C 24 ?? 4C
+  4C 8B F0 4C 8B 89 ?? ?? ?? ?? 48 8B C8 41 FF 91 ?? ?? ?? ?? 48 8B 0D ?? ?? ?? ?? 48 8D 15 ?? ?? ?? ?? 44 8B C3
+  4D 8B E0 4C 89 44 24 ?? 48 8B DA
+  83 F8 10 0F 82 ?? ?? ?? ?? 41 8B 4E 08 41 B9 FF FF FF FF 41 B8 70 00 00 00
+  83 FE 07 7C 07 BA ?? ?? ?? ?? EB 16 83 FE 05
+  E0 49 8B 46 ?? 4E
+  F3 0F 10 3D ?? ?? ?? ?? 44 0F
+  F3 0F 10 46 ?? 0F 2F C6 72 ?? F3
+  F3 0F 10 4C ?? ?? F3 41 0F 10 ?? ?? ?? ?? ?? 0F 2F D1
+  F3 0F 11 44 3B ?? F3 0F 59 C7 F3 0F 5A C0
+  F3 0F 11 44 AF ?? 72
+  F3 0F 11 44 C8 ?? 0F
+  F3 0F 11 4C A8 ?? 49
+  F3 0F 11 54 01 ?? 48 83 C1 ?? 49
+  F3 0F 11 56 ?? ?? ?? ?? ?? ?? ?? 0F 2F
+  F3 0F 11 97 ?? ?? ?? ?? 76 ?? 45 33 F6
+  F3 0F 58 49 F4 ?? 8B D3
+  F3 0F 59 00 F3 0F 11 44 DF ?? F3
+  F3 0F 59 4B ?? F3 0F 59 4B ?? 0F 28 D9 F3 0F 5C DC
+  F3 0F 5E 80 ?? ?? ?? ?? F3 0F 59 D8
+  F3 41 0F 10 94 F4 ?? ?? ?? ?? 4C 8B 81
+  F3 41 0F 5C ?? BA ?? ?? ?? ?? F3 0F 11 04 01
+  F3 43 0F 11 44 F7 ?? 0F 28
+  F3 45 0F 11 5E ?? E9
+  FF 0F 83 FE ?? 0F 84
+
+=== SECTION 8: DEAR IMGUI FULL WIDGET MAP ===
+
+  ##2Sl
+  ##5RG
+  ##6We
+  ##Aotl8x
+  ##Background
+  ##BurstCount
+  ##Child
+  ##ComboPopup
+  ##Combo_
+  ##ContextMenu
+  ##CopyLink
+  ##DW
+  ##Default
+  ##EC
+  ##FEV6NTF6
+  ##Foreground
+  ##MPBuuE1V
+  ##MainMenuBar
+  ##NavUpdateWindowing
+  ##NavWindowingList
+  ##Popup_
+  ##QRZJ
+  ##ResetOrder
+  ##Ri
+  ##SCTimer
+  ##SizeAll
+  ##SizeOne
+  ##Tooltip_
+  ##Tooltip_DragDrop_
+  ##Tooltip_Error
+  ##U6W7
+  ##XU8c
+  ##afk
+  ##ag
+  ##ap_armor
+  ##ap_go
+  ##ap_pass
+  ##ap_rst
+  ##ap_scan
+  ##bl
+  ##blmin
+  ##bmf
+  ##bmo
+  ##content_area
+  ##diff
+  ##difflvl
+  ##erad_ih
+  ##farming_scroll
+  ##fmed
+  ##fov
+  ##fsamp_c
+  ##fsamp_r
+  ##fsamp_s
+  ##fslips
+  ##fxp
+  ##goal
+  ##hV0qs
+  ##ic5
+  ##inbox_scroll
+  ##isc
+  ##keyinput
+  ##lOj
+  ##libertea_main
+  ##limit
+  ##lock_screen
+  ##log_scroll
+  ##logs
+  ##maxreplays
+  ##maxrew
+  ##misc_scroll
+  ##msc
+  ##msd
+  ##msg
+  ##mult
+  ##oDY2L
+  ##passinput
+  ##pi
+  ##pk
+  ##pk_rst
+  ##pwcombo
+  ##replay_scroll
+  ##replay_subtabs
+  ##repperwep
+  ##rsub
+  ##samp
+  ##sc_scroll
+  ##sct
+  ##session
+  ##sessionmins
+  ##sg
+  ##sgall
+  ##sgcb
+  ##sglist
+  ##sgnone
+  ##sgsearch
+  ##shut5
+  ##smax
+  ##smult
+  ##spd
+  ##sr
+  ##src
+  ##srmax
+  ##srr
+  ##srs
+  ##sub_info
+  ##ua
+  ##userinput
+  ##we
+  ##weg
+  ##wxpovr
+  ##xe7q
+  ##xpbase
+  ##xpr
+  ##xpset
+  ##xx
+  Total unique ImGui IDs: 115
+
+=== SECTION 9: SC/MEDAL FARMING PROTOCOL (FULL) ===
+
+  '"capturedWarTime": %u,'
+  '"entityDataDeep": "%s",'
+  '"entityDeep": "%s",'
+  '"missionId"'
+  '"missionId" : "'
+  '"missionId":"'
+  '"serObj": "%s",'
+  '"serObjOrigAddr": %llu,'
+  '##maxreplays'
+  '##replay_scroll'
+  '##replay_subtabs'
+  '%d replays'
+  '%d replays dispatched'
+  '--- Replay ---'
+  '=== ScActivityAPC === actObj=%p TID=%u'
+  'AFTER(0s): ctr=0x%X flag=0x%X ring=%u rax=0x%llX url="%.40s" qDelta=%d'
+  'Activity'
+  'All replays dispatched.'
+  'Alternates SC / Medal batches'
+  'Auto Replay: %s  Interval: %.0fs  Count: %d'
+  'Auto-Replay STARTED (2 min interval)'
+  'Auto-Replay STOPPED'
+  'Auto-Replay STOPPED by user'
+  'BAIL: no serverInfo'
+  'BAIL: ring index unreadable'
+  'BEFORE: ctr=0x%X flag=0x%X ring=%u url="%.40s"'
+  'Burst Replay'
+  'Burst Send (%d replays)'
+  'CAPTURED missionId=%s'
+  'Calls fire in batches of 9, spaced 500ms apart, followed by a 58s cooldown.'
+  'Captured Mission/end POST body: %d bytes'
+  'CompareStringEx'
+  'Cooldown: %ds remaining...'
+  'Crashes absorbed: %d'
+  'Empty label e.g. Button("") == same ID as parent widget/node. Use Button("##xx") instead!'
+  'Empty: %d'
+  'Every batch fires medals'
+  'Firing MEDAL batch (9 calls x 500ms)...'
+  'Firing SC batch (9 calls x 500ms)...'
+  'Hook captured data but type unrecognized'
+  'LCMapStringEx'
+  'Last replay: %d slot(s) patched'
+  'Last replay: 0 matches in capture'
+  'Medal Batch Firing'
+  'Mission Replay Log'
+  'NOP shield relay cooldown write'
+  'Probe ON - will overwrite on next mission'
+  'Probe aborted: BP address out of valid range'
+  'Probe aborted: module not found'
+  'Probe data saved'
+  'Probe:'
+  'Probe:       %s'
+  'Probe: OFF'
+  'Probe: OFF - %d player%s saved'
+  'Probe: ON - waiting for mission'
+  'QueueSC: PostMessage(hwnd=%p, actObj=%p) = %d, LastErr=%u'
+  'Queues all replays instantly -- server may rate-limit'
+  'Recovered: %d'
+  'Replay'
+  'Replay Queued'
+  'Replay Sent'
+  'Replay##rsub'
+  'Replays/gun:'
+  'SC Batch Firing'
+  'SC Goal'
+  'SC cooldown 58s'
+  'SC goal reached'
+  'SCLoop[%d]: %s'
+  'SCLoop[%d]: actObj=%p missionId=%s actId32=0x%08X objId=0x%08X pids=%d (retry=%d)'
+  'Seismic Probe'
+  'Session captured'
+  'Shield Cooldown'
+  'TIMEOUT'
+  'Waiting for mission to capture...'
+  'WndProc: WM_SC_DISPATCH received, actObj=%p, TID=%u'
+  '[+] Baked capture loaded'
+  '[Auto] No capture data'
+  '[B] No data'
+  '[Burst] Starting %d staggered replays (5s apart)...'
+  '[HTTP-RESP] Golden capture: hi2=%p rawPostLen=%d'
+
+=== SECTION 10: GAME FUNCTION HOOK TARGETS (DETAILED) ===
+
+  [God Mode]:
+    Hook1=0x%llX Hook2=0x%llX Hook3=0x%llX
+    3 hooks installed for player god mode
+    Likely targets: damage receive, death flag, health check
+
+  [Grenade Count]:
+    Signature: 0F 5B DB F3 41 0F 59 4E ?? F3 ...
+    NOP grenade count conversion (CVTSS2SD + MULSS patched)
+    Conditional jump bypass for strategem count decrement
+    Pattern at: 42 83 2C 81 ?? 48
+
+  [No Boundary]:
+    Signature: 0F 84 ?? ?? ?? ?? 80 7F ?? ?? 0F 85 ?? ?? ?? ?? F3 0F
+    Bypasses mission boundary kill trigger
+    Patches conditional jump to always bypass
+
+  [Landing Speed]:
+    Signature: F3 0F 11 44 3B ?? F3 0F 59 C7 F3 0F 5A C0
+    Modifies landing speed multiplier
+
+  [Stratagem Unlock]:
+    Signature: 48 8B 0D ?? ?? ?? ?? 44 89 80 60 0C
+    Patches stratagem/weapon/armor unlock checks
+    Unlock All Armory: bypasses all gating
+
+  [Turret Overheat]:
+    Signature: F3 0F 11 4C A8 ?? 49
+    NOPs turret overheat accumulation
+
+  [Turret Duration]:
+    Signature: F3 45 0F 11 5E ?? E9
+    Sets turret duration to infinite
+
+  [Active Session]:
+    Signature: 48 8B 35 ?? ?? ?? ?? 49 8B E9 41 8B D8 48 8B 88 28 01
+    Alternate: 48 8B 35 ?? ?? ?? ?? 33 C9 49 8B E9 41 8B D8 4C 8B 90 28 01
+    GetActiveSession() returns session pointer
+    Session+0x28 and +0x128 are key offsets
+
+  [Reward Multiplier]:
+    Signature: 41 8B 47 ?? 4C 8B 7C 24 ?? 4C
+    Multiplies XP, Medals, Requisition Slips
+    Sliders: fxp, fmed, fslips
+
+  [Stratagem Count]:
+    Signature: 42 83 2C 81 ?? 48
+    Decrements stratagem use count -> patch to NOP
+
+  [Kill Counter]:
+    Signature: 39 46 ?? 75 ?? FF C5
+    Increments kill counter -> hook for stats
+    Display: Kill Count: %.0f
+
+  [Stim Use]:
+    Stims (No Use) - prevents stim consumption
+
+  [Laser Overheat]:
+    No Laser Overheat - patches heat accumulation for laser weapons
+
+  [Instant Charge]:
+    Instant Charge - patches charge time for Quasar/Railgun/etc.
+
+  [Grenade Fuse]:
+    Signature: F3 0F 11 44 C8 ?? 0F
+    Modifies grenade fuse time
+
+  [SC Hash Table]:
+    NOP both hash table INSERT calls
+    Prevents server from detecting duplicate SC reward claims
+    Critical for SC farming loop
+
+  [Stratagem Call-in]:
+    Instant Strat Callin - patches call-in time to zero
+
+  [Mass Strat Drop]:
+    Signature: N/A (marked [N/A] in UI - not currently hooked)
+
+  [Weapon Stats Editor]:
+    Hook: [WeaponEditor] Hook log message
+    Populates when clicking weapon on ship
+    Edits: FireRate, damage, penetration, etc.
+
+  [Armor Passive]:
+    Scan Armor -> reads current armor stats
+    Apply -> writes modified passive values
+
+  [Dark Fluid Pack]:
+    Pack editor accessed in-mission
+    Edits jetpack parameters: fly speed, gravity, fuel, impulse
+
+  [Present/Overlay]:
+    ScPresent::Install: hwnd=%p origWndProc=%p
+    Hooks wglSwapIntervalEXT for ImGui rendering
+    Overlay class: LIBERTEAOverlay, font: Segoe UI
+
+=== SECTION 11: CRASH RECOVERY SYSTEM (VEH) ===
+
+  Vectored Exception Handler registered at init
+  Handles: ACCESS_VIOLATION, ILLEGAL_INSTRUCTION, STACK_OVERFLOW
+  State saved: SC loop position, batch progress, replay data
+  Recovery:
+    [SC] VEH recovered crash - restores SC loop state
+    [Replay] Watchdog: reset stuck replayInProgress flag
+    Crashes absorbed counter increments
+  Crash log written to:
+    === LIBERTEA CRASH LOG ===
+    Time: %04u-%02u-%02u %02u:%02u:%02u
+    (format implies local file logging)
+
+=== SECTION 12: ANTI-ANALYSIS & OBFUSCATION TECHNIQUES ===
+
+  1. DLL Packing:
+     - Custom aPLib variant (not standard; inverted bit semantics)
+     - Entry point in .rsrc section (unusual, trips analysis tools)
+     - .text section: zero bytes on disk, decompressed at runtime
+     - Timestamp zeroed to epoch (1970-01-01) in PE header
+
+  2. String Obfuscation:
+     - Game-related strings stored in .rdata only
+     - Feature names use ImGui ## IDs (opaque to string search)
+     - Debug strings embedded but only visible under runtime conditions
+
+  3. Import Obfuscation:
+     - Direct syscall stubs (bypass IAT for critical APIs)
+     - SSN resolved dynamically from ntdll.dll on disk
+     - Late-bound imports via GetProcAddress
+
+  4. Control Flow:
+     - Many small functions with int3 padding (complicates linear disassembly)
+     - Tail-call optimization (jmp instead of call/ret pairs)
+     - Import stubs use jmp to common resolver
+
+  5. Runtime Checks:
+     - Subscription validation against Cloudflare Workers
+     - Pattern count check: if < expected, warns of game update
+     - Version check on injector startup
+
+=== SECTION 13: RECONSTRUCTED STRUCTURE LAYOUTS ===
+
+  // ScActivityAPC (SC farming activity object)
+  struct ScActivityAPC {
+      void*    vtable;         // +0x00
+      uint32_t actId32;        // +0x08
+      uint32_t objId;          // +0x0C
+      uint32_t ctr;            // +0x10  (control counter)
+      uint32_t flag;           // +0x14  (flags)
+      uint32_t ring;           // +0x18  (ring buffer index)
+      char     url[0x40];      // +0x20  (API endpoint URL)
+      uint32_t qDelta;         // +0x60  (queue delta)
+      uint32_t retry;          // +0x64  (retry count)
+      void*    missionData;    // +0x68
+      char     missionId[0x40];// +0x70
+      // ... more fields ...
+  };
+
+  // MissionCapture (replay data)
+  struct MissionCapture {
+      char     missionId[64];      // mission identifier
+      uint64_t capturedWarTime;    // war time at capture
+      void*    serObjOrigAddr;     // server object original addr
+      char*    entityDeep;         // JSON: entity hierarchy
+      char*    entityDataDeep;     // JSON: entity data payload
+      uint32_t replayCount;        // number of replays available
+      // ... stored in C:\libertea_replay_cap.json ...
+  };
+
+  // Session (from game.dll)
+  struct GameSession {
+      void*    vtable;         // +0x00
+      // ... unknown fields ...
+      void*    subObj28;       // +0x28  (activity container?)
+      // ... unknown fields ...
+      void*    subObj128;      // +0x128 (alternate reference)
+      // ...
+  };
+
+=== SECTION 14: COMPLETE FEATURE MATRIX ===
+
+  [FARMING]
+    Max Mission Reward           Multiplier       XP/Medals/Slips multipliers with MAX ALL button
+    Force Difficulty             Toggle+Combo     Override mission difficulty 1-10 for reward scaling
+    Add Samples Instantly        Toggle+Sliders   Inject Common/Rare/Super samples (auto-clamped to 34/33/33)
+    Samples Over Limit           Toggle+Sliders   Override end-of-mission sample rewards
+    Instant Shuttle              Toggle           Skip extraction shuttle timer
+    Instant Complete             Toggle           Skip mission complete sequence
+    Freeze Mission Timer         Toggle           Freeze all countdown timers (marked [N/A])
+
+  [SUPER CREDITS]
+    SC Loop                      Toggle+Timer     Auto-fire batches of 9 API calls, configurable timer
+    SC Goal                      Input+Button     Auto-stop when goal reached
+    SC Tracker                   Display          Tracks calls sent, SC earned, x100 bonuses
+    Medal Batch                  Toggle           Alternates SC/Medal farming per batch
+    Medals Only                  Toggle           Every batch fires medals (no SC)
+    Auto Sync                    Toggle           Distributes SC across all lobby players
+
+  [WEAPON XP]
+    Primary Override             Toggle+Combo     Select weapon to give XP to all lobby members
+    All Guns                     Toggle           Cycle through all 51 weapons automatically
+    Selected Guns                Toggle+List      Custom weapon selection with search/filter
+    Replays/Gun                  Counter          Configurable replays per weapon
+
+  [PLAYER]
+    God Mode                     Toggle           Player only - patches damage/death
+    Movement Speed               Slider           Multiplier with .1f precision
+    No Ragdoll                   Toggle           Disable ragdoll physics
+    No Recoil                    Toggle           Disable weapon recoil
+
+  [COMBAT]
+    Infinite Stratagems          Toggle           Unlimited strategem uses
+    Instant Strat Call-in        Toggle           Zero call-in time
+    Mass Strat Drop              Toggle+N         Drop N stratagems at once (marked [N/A])
+    No Turret Overheat           Toggle           Prevent turret weapon overheating
+    Inf Turret Duration          Toggle           Infinite turret lifetime
+    Expire All Turrets           Button           Destroy all placed turrets
+    Kill Count                   Display          Shows kill counter (%.0f)
+    Infinite Horde Mode          Toggle           Endless enemy spawns
+
+  [VISUAL/EXPLORATION]
+    FOV Editor                   Slider           Custom field of view
+    Map Hack                     Toggle           Reveal full map
+    No Laser Overheat            Toggle           Infinite laser weapon fire
+    Instant Charge               Toggle           Instant Quasar/Railgun charge
+    Dark Fluid Pack              Editor           Jetpack parameters (fly speed, gravity, fuel, impulse)
+    Instant Arrows               Toggle           Unlimited mission arrows
+    No Boundary                  Toggle           Bypass mission boundary kill
+    Longer Hover                 Toggle           Extended hover time
+
+  [ARMORY]
+    Unlock All                   Toggle           Patches stratagem/weapon/armor unlock gating
+    Weapon Stats Editor          Dynamic          Click weapon on ship to populate; edit damage/fire rate/etc.
+    Armor Passive Editor         Dynamic          Scan armor -> select passive -> apply
+
+  [INF AMMO/STIMS]
+    Inf Ammo                     Toggle           Unlimited ammunition
+    No Reload                    Toggle           Skip reload animation/sequence
+    Inf Grenades                 Toggle           Unlimited grenades
+    Inf Stims                    Toggle           Unlimited stims
+
+=== SECTION 15: BUILD ARTIFACTS & COMPILER FINGERPRINTS ===
+
+  Compiler:    Microsoft Visual C++ (MSVC)
+  Evidence:
+    - __CxxFrameHandler exception handling
+    - RTTI format: .?AV (MSVC mangled names)
+    - std::_Generic_error_category (MSVC STL)
+    - std::_System_error (MSVC-specific)
+    - __clrcall, __vectorcall, __preserve_none (MSVC extensions)
+    - Guard CF (Control Flow Guard) check function references
+    - /GS (Buffer Security Check) cookie references
+
+  Linker version: Probably VS2022 (v143 toolset)
+  CRT:          Statically linked (/MT or /MTd)
+  Evidence:      No msvcp140.dll or vcruntime140.dll references
+
+  Third-party code:
+    - Dear ImGui (ocornut/imgui) - in-tree, compiled directly
+      Version: appears to be v1.89+ (based on widget API)
+    - aPLib compression library (customized)
+    - Cloudflare Workers for backend
+
+  Discord:       https://discord.gg/exCgdvYPxd
+  Author:        TheOGcup
+  Contributors:  Legend, HotPocket
+  Version:       v414 (from UI: "TOOL  v414")
+  Brand:         LIBERTEA / LiberTea
+
+=== SECTION 16: DLL DEPENDENCIES (IAT) ===
+
+  bcrypt.dll
+  curl.dll
+  game.dll
+  game_current.dll
+  game_live.dll
+  libcurl.dll
+  ntdll.dll
+  winhttp.dll
+  wininet.dll
+  x64.dll
+  xinput1_1.dll
+  xinput1_2.dll
+  xinput1_3.dll
+  xinput1_4.dll
+  xinput9_1_0.dll
+
+  (api-ms-win-* / ext-ms-win-* are API set schemas, resolved to real DLLs)
+
+=== SECTION 17: GAME DATA & FILE REFERENCES ===
+
+  AppData\Local
+  C:\Program Files
+  C:\Users\emora\AppData\Local\Programs\Python\Python312\python.exe
+  Programs\Python
+  Python312\python.exe
+  SOFTWARE\Microsoft
+  Steam\steamapps
+  Users\emora
+  common\Helldivers
+  ud83d\udd11
+
+=== SECTION 18: SECURITY IMPLICATIONS & RISK ASSESSMENT ===
+
+  For Users:
+    - Injects DLL into game process (full memory access)
+    - Phones home to Cloudflare Workers (data exfiltration possible)
+    - Reads Steam game directory from disk
+    - Modifies ntdll.dll syscall stubs (could be used for persistence)
+    - Captures and replays HTTPS API calls (session hijacking)
+    - Stores credentials (username/password/access key)
+
+  For Game Developer (Arrowhead):
+    - SC/Medal farming bypasses economy via API replay
+    - Hash table NOP prevents duplicate detection
+    - GameGuard bypass renders anti-cheat ineffective
+    - Pattern-based hooks survive minor patches
+    - VEH crash recovery masks instability from hooks
+    - Workers.dev C2 is hard to disrupt
+
+  Mitigations available:
+    1. Server-side: rate-limit Mission/end API, validate entityData hash,
+       require nonce/timestamp that prevents replay
+    2. Anti-cheat: monitor GameMon.des file integrity, detect syscall stubs,
+       scan for wglSwapIntervalEXT hooks, verify .text section hash
+    3. Legal: Cloudflare abuse report for Workers endpoints, Discord TOS report
+
+================================================================================
+  END OF ABSOLUTE DEEP DIVE
+  Total lines: 992
+================================================================================

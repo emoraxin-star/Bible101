@@ -1,0 +1,3553 @@
+================================================================================
+1. BINARY HASH FINGERPRINTS
+================================================================================
+
+Full file MD5:    aaa4cae7c651b8d82f39f2fff407185b
+Full file SHA256: ab362bf85256d681a1cf61072d36409ef9acafc9229f0389f0b74728bf0cf429
+
+First 1MB MD5:    e7df8e32815252163064c9a243643584
+First 1MB SHA256: 544b861e1001e2f820039cc0a7a6daf1544387acf790c37236c3e60b5cf2eba0
+
+Chunk 0000 [0x00000000-0x00040000] MD5: 94999219fbe9b8aac4ca87b706b22608  SHA256: 9fdd5741cc1caaf2dbbfc5017248188ba41fcf2f1d3de2d8cb73b5e7bbc85279
+Chunk 0001 [0x00040000-0x00080000] MD5: 19fca32416570ee7062dfd8db1064b8d  SHA256: 33ae5b94b3c4f2bb03d031ff0d8c3d0df80f4b8a37be341770ebad7eee3a3f15
+Chunk 0002 [0x00080000-0x000C0000] MD5: 304a9f31abb4ab2b5605f40950578c9f  SHA256: 6e86870567a3f0a66b1d4cb20805ec804c5906e2fbb8629441d6a2b7fa361082
+Chunk 0003 [0x000C0000-0x00100000] MD5: f1fdc5abe25652c76cb4b5f34b46ec0a  SHA256: ce0e46716a6e9ff51eb18a29cb3c1dfbfff7eecffa7ad1c7406c62bff470f335
+Chunk 0004 [0x00100000-0x00140000] MD5: 98b6932b1585b6e6bb56cca91351c8f8  SHA256: b49ee3b0c4032a043a2a3c77a0015ce72a2874458a4f931f27887eea87c40152
+Chunk 0005 [0x00140000-0x00180000] MD5: ec87a838931d4d5d2e94a04644788a55  SHA256: 8a39d2abd3999ab73c34db2476849cddf303ce389b35826850f9a700589b4a90
+Chunk 0006 [0x00180000-0x001C0000] MD5: ec87a838931d4d5d2e94a04644788a55  SHA256: 8a39d2abd3999ab73c34db2476849cddf303ce389b35826850f9a700589b4a90
+Chunk 0007 [0x001C0000-0x00200000] MD5: ec87a838931d4d5d2e94a04644788a55  SHA256: 8a39d2abd3999ab73c34db2476849cddf303ce389b35826850f9a700589b4a90
+Chunk 0008 [0x00200000-0x00240000] MD5: ec87a838931d4d5d2e94a04644788a55  SHA256: 8a39d2abd3999ab73c34db2476849cddf303ce389b35826850f9a700589b4a90
+Chunk 0009 [0x00240000-0x00280000] MD5: ec87a838931d4d5d2e94a04644788a55  SHA256: 8a39d2abd3999ab73c34db2476849cddf303ce389b35826850f9a700589b4a90
+Chunk 0010 [0x00280000-0x002C0000] MD5: ec87a838931d4d5d2e94a04644788a55  SHA256: 8a39d2abd3999ab73c34db2476849cddf303ce389b35826850f9a700589b4a90
+Chunk 0011 [0x002C0000-0x00300000] MD5: ec87a838931d4d5d2e94a04644788a55  SHA256: 8a39d2abd3999ab73c34db2476849cddf303ce389b35826850f9a700589b4a90
+Chunk 0012 [0x00300000-0x00340000] MD5: ec87a838931d4d5d2e94a04644788a55  SHA256: 8a39d2abd3999ab73c34db2476849cddf303ce389b35826850f9a700589b4a90
+Chunk 0013 [0x00340000-0x00354000] MD5: 030a4f48dc8db0956add25994004e5ca  SHA256: fa569e2360c540e6280e34a4627516770f1a5f34d81d35689334a99cc1013357
+
+================================================================================
+2. BYTE FREQUENCY HISTOGRAM (Top 50)
+================================================================================
+
+   1.  0x00    0  '.'  count= 2641417  (75.69%)
+   2.  0x48   72  'H'  count=   44424  ( 1.27%)
+   3.  0x0F   15  '.'  count=   39156  ( 1.12%)
+   4.  0x8B  139  '.'  count=   29501  ( 0.85%)
+   5.  0xFF  255  '.'  count=   22161  ( 0.64%)
+   6.  0x24   36  '$'  count=   17287  ( 0.50%)
+   7.  0x41   65  'A'  count=   15073  ( 0.43%)
+   8.  0x44   68  'D'  count=   13593  ( 0.39%)
+   9.  0x89  137  '.'  count=   12928  ( 0.37%)
+  10.  0x8D  141  '.'  count=   12757  ( 0.37%)
+  11.  0x01    1  '.'  count=   12437  ( 0.36%)
+  12.  0xF3  243  '.'  count=   12373  ( 0.35%)
+  13.  0x20   32  ' '  count=   12332  ( 0.35%)
+  14.  0x74  116  't'  count=   11393  ( 0.33%)
+  15.  0xCC  204  '.'  count=   11211  ( 0.32%)
+  16.  0x83  131  '.'  count=   11151  ( 0.32%)
+  17.  0xE8  232  '.'  count=   11129  ( 0.32%)
+  18.  0x10   16  '.'  count=   11081  ( 0.32%)
+  19.  0x4C   76  'L'  count=   10910  ( 0.31%)
+  20.  0xC0  192  '.'  count=    9845  ( 0.28%)
+  21.  0x08    8  '.'  count=    9483  ( 0.27%)
+  22.  0x02    2  '.'  count=    9097  ( 0.26%)
+  23.  0x05    5  '.'  count=    8169  ( 0.23%)
+  24.  0x49   73  'I'  count=    8068  ( 0.23%)
+  25.  0x45   69  'E'  count=    8007  ( 0.23%)
+  26.  0x11   17  '.'  count=    7672  ( 0.22%)
+  27.  0x04    4  '.'  count=    7200  ( 0.21%)
+  28.  0x28   40  '('  count=    7065  ( 0.20%)
+  29.  0x03    3  '.'  count=    7011  ( 0.20%)
+  30.  0x85  133  '.'  count=    6523  ( 0.19%)
+  31.  0x75  117  'u'  count=    6445  ( 0.18%)
+  32.  0x40   64  '@'  count=    6113  ( 0.18%)
+  33.  0x7F  127  '.'  count=    5994  ( 0.17%)
+  34.  0xC1  193  '.'  count=    5674  ( 0.16%)
+  35.  0x06    6  '.'  count=    5474  ( 0.16%)
+  36.  0x33   51  '3'  count=    5434  ( 0.16%)
+  37.  0x80  128  '.'  count=    5228  ( 0.15%)
+  38.  0x84  132  '.'  count=    5086  ( 0.15%)
+  39.  0x30   48  '0'  count=    4974  ( 0.14%)
+  40.  0x66  102  'f'  count=    4881  ( 0.14%)
+  41.  0x58   88  'X'  count=    4708  ( 0.13%)
+  42.  0xC7  199  '.'  count=    4602  ( 0.13%)
+  43.  0x0D   13  '.'  count=    4595  ( 0.13%)
+  44.  0x0B   11  '.'  count=    4546  ( 0.13%)
+  45.  0x07    7  '.'  count=    4534  ( 0.13%)
+  46.  0xC8  200  '.'  count=    4468  ( 0.13%)
+  47.  0x4D   77  'M'  count=    4449  ( 0.13%)
+  48.  0x5C   92  '\'  count=    4376  ( 0.13%)
+  49.  0x0C   12  '.'  count=    4305  ( 0.12%)
+  50.  0xC3  195  '.'  count=    4292  ( 0.12%)
+
+================================================================================
+3. ENTROPY PER 4KB PAGE
+================================================================================
+
+    Offset   Entropy    Size  Classification
+------------------------------------------------------------
+0x00109000    7.3537    4096  HIGH ENTROPY (possible packed)
+0x000C5000    7.2293    4096  HIGH ENTROPY (possible packed)
+0x0010A000    7.1371    4096  HIGH ENTROPY (possible packed)
+0x000F8000    6.7698    4096  HIGH ENTROPY (possible packed)
+0x00076000    6.5927    4096  HIGH ENTROPY (possible packed)
+0x000BE000    6.5898    4096  HIGH ENTROPY (possible packed)
+0x0006D000    6.5758    4096  HIGH ENTROPY (possible packed)
+0x00064000    6.5639    4096  HIGH ENTROPY (possible packed)
+0x00066000    6.5544    4096  HIGH ENTROPY (possible packed)
+0x000A2000    6.5047    4096  HIGH ENTROPY (possible packed)
+0x00058000    6.4991    4096  MEDIUM ENTROPY (code/data)
+0x000A6000    6.4985    4096  MEDIUM ENTROPY (code/data)
+0x000A5000    6.4974    4096  MEDIUM ENTROPY (code/data)
+0x000A8000    6.4864    4096  MEDIUM ENTROPY (code/data)
+0x000AC000    6.4845    4096  MEDIUM ENTROPY (code/data)
+0x00065000    6.4811    4096  MEDIUM ENTROPY (code/data)
+0x0009E000    6.4801    4096  MEDIUM ENTROPY (code/data)
+0x000AF000    6.4686    4096  MEDIUM ENTROPY (code/data)
+0x00057000    6.4639    4096  MEDIUM ENTROPY (code/data)
+0x0009D000    6.4628    4096  MEDIUM ENTROPY (code/data)
+0x00078000    6.4626    4096  MEDIUM ENTROPY (code/data)
+0x000B0000    6.4603    4096  MEDIUM ENTROPY (code/data)
+0x000AE000    6.4574    4096  MEDIUM ENTROPY (code/data)
+0x00095000    6.4529    4096  MEDIUM ENTROPY (code/data)
+0x00027000    6.4458    4096  MEDIUM ENTROPY (code/data)
+0x0005A000    6.4449    4096  MEDIUM ENTROPY (code/data)
+0x00063000    6.4387    4096  MEDIUM ENTROPY (code/data)
+0x00038000    6.4372    4096  MEDIUM ENTROPY (code/data)
+0x0009B000    6.4357    4096  MEDIUM ENTROPY (code/data)
+0x0009C000    6.4258    4096  MEDIUM ENTROPY (code/data)
+
+
+Entropy distribution: High(>7.0): 3  Medium: 208  Low(<5.0): 641  Total pages: 852
+
+================================================================================
+4. FULL FUNCTION DISASSEMBLY (first 0x2000 bytes)
+================================================================================
+
+Disassembling first 8192 bytes...
+
+Estimated function starts within first 0x2000 bytes: 30
+
+--- Function at offset 0x017F ---
+  0x017F: push         rbp
+  0x0180: jle          0x18d
+  0x0182: add          cl, ch
+  0x0184: xor          byte ptr [rbp - 0x72b7fff8], ch
+  0x018A: or           eax, 0xb7ea1
+  0x018F: jmp          0x8aeb8
+
+--- Function at offset 0x01DB ---
+  0x01DB: push         rbp
+  0x01DC: push         rsi
+  0x01DD: push         rdi
+  0x01DE: sub          rsp, 0x38
+  0x01E2: mov          rsi, r8
+  0x01E5: lea          rbp, [rsp + 0x78]
+  0x01EA: mov          rbx, rdx
+  0x01ED: mov          rdi, rcx
+  0x01F0: call         0x1c0
+  0x01F5: mov          qword ptr [rsp + 0x28], rbp
+  0x01FA: mov          r9, rsi
+  0x01FD: mov          r8, rbx
+  0x0200: mov          qword ptr [rsp + 0x20], 0
+  0x0209: mov          rdx, rdi
+  0x020C: mov          rcx, qword ptr [rax]
+  0x020F: or           rcx, 2
+  0x0213: call         0x94f7c
+  0x0218: test         eax, eax
+  0x021A: mov          ecx, 0xffffffff
+  0x021F: cmovs        eax, ecx
+  0x0222: add          rsp, 0x38
+  0x0226: pop          rdi
+  0x0227: pop          rsi
+  0x0228: pop          rbp
+  0x0229: pop          rbx
+  0x022A: ret          
+
+--- Function at offset 0x0290 ---
+  0x0290: mov          qword ptr [rsp + 8], rbx
+  0x0295: push         rdi
+  0x0296: sub          rsp, 0x20
+  0x029A: lea          rax, [rip + 0xb992f]
+  0x02A1: mov          rdi, rcx
+  0x02A4: mov          qword ptr [rcx], rax
+  0x02A7: mov          ebx, edx
+  0x02A9: add          rcx, 8
+  0x02AD: call         0x8c9a0
+  0x02B2: test         bl, 1
+  0x02B5: je           0x2c4
+  0x02B7: mov          edx, 0x18
+  0x02BC: mov          rcx, rdi
+  0x02BF: call         0x8aed0
+  0x02C4: mov          rbx, qword ptr [rsp + 0x30]
+  0x02C9: mov          rax, rdi
+  0x02CC: add          rsp, 0x20
+  0x02D0: pop          rdi
+  0x02D1: ret          
+
+--- Function at offset 0x0480 ---
+  0x0480: mov          qword ptr [rsp + 0x10], rbx
+  0x0485: mov          qword ptr [rsp + 0x18], rbp
+  0x048A: mov          qword ptr [rsp + 0x20], rsi
+  0x048F: mov          qword ptr [rsp + 8], rcx
+  0x0494: push         rdi
+  0x0495: push         r14
+  0x0497: push         r15
+  0x0499: sub          rsp, 0x20
+  0x049D: lea          r15, [rip + 0x372c7c]
+  0x04A4: mov          qword ptr [rsp + 0x40], r15
+  0x04A9: mov          word ptr [rip + 0x372c6e], 0
+  0x04B2: mov          byte ptr [rip + 0x372c69], 0
+  0x04B9: xorps        xmm0, xmm0
+  0x04BC: movups       xmmword ptr [rip + 0x372c7d], xmm0
+  0x04C3: movups       xmmword ptr [rip + 0x372c86], xmm0
+  0x04CA: movups       xmmword ptr [rip + 0x372c8f], xmm0
+  0x04D1: movdqa       xmmword ptr [rip + 0x372c57], xmm0
+  0x04D9: mov          dword ptr [rip + 0x372c8d], 0xffffffff
+  0x04E3: mov          dword ptr [rip + 0x372c3b], 2
+  0x04ED: xor          eax, eax
+  0x04EF: mov          dword ptr [rip + 0x372c7f], eax
+  0x04F5: mov          qword ptr [rip + 0x372c7c], rax
+  0x04FC: movdqa       xmmword ptr [rip + 0x372c7c], xmm0
+  0x0504: mov          dword ptr [rip + 0x372c86], eax
+  0x050A: mov          byte ptr [rip + 0x372c84], al
+  0x0510: mov          dword ptr [rip + 0x372c82], eax
+  0x0516: mov          dword ptr [rip + 0x372c7c], 0x43960000
+  0x0520: mov          qword ptr [rip + 0x372c79], rax
+  0x0527: mov          byte ptr [rip + 0x372c7b], al
+  0x052D: mov          dword ptr [rip + 0x372c75], 0x42340000
+  0x0537: mov          byte ptr [rip + 0x372c73], al
+  0x053D: mov          dword ptr [rip + 0x372c6d], 0x1e
+  0x0547: mov          qword ptr [rip + 0x372c6a], rax
+  0x054E: mov          qword ptr [rip + 0x372c6b], rax
+  0x0555: mov          byte ptr [rip + 0x372c6d], al
+  0x055B: mov          dword ptr [rip + 0x372c67], 0xa
+  0x0565: mov          byte ptr [rip + 0x372c65], al
+  0x056B: mov          qword ptr [rip + 0x372c66], rax
+  0x0572: mov          byte ptr [rip + 0x372c68], al
+  0x0578: mov          dword ptr [rip + 0x372c66], eax
+  0x057E: mov          qword ptr [rip + 0x372c63], rax
+  0x0585: mov          dword ptr [rip + 0x372c65], eax
+  0x058B: mov          qword ptr [rip + 0x372c66], rax
+  0x0592: mov          qword ptr [rip + 0x372c67], rax
+  0x0599: mov          qword ptr [rip + 0x372c68], rax
+  0x05A0: mov          qword ptr [rip + 0x372c69], rax
+  0x05A7: mov          qword ptr [rip + 0x372c6a], rax
+  0x05AE: mov          qword ptr [rip + 0x372c6b], rax
+  0x05B5: movups       xmmword ptr [rip + 0x372c84], xmm0
+  0x05BC: movups       xmmword ptr [rip + 0x372c8d], xmm0
+  0x05C3: movups       xmmword ptr [rip + 0x372c96], xmm0
+  0x05CA: movdqa       xmmword ptr [rip + 0x372c5e], xmm0
+  0x05D2: mov          dword ptr [rip + 0x372c94], 0xffffffff
+  0x05DC: mov          dword ptr [rip + 0x372c42], 2
+  0x05E6: mov          dword ptr [rip + 0x372c88], eax
+  0x05EC: mov          qword ptr [rip + 0x372c85], rax
+  0x05F3: movdqa       xmmword ptr [rip + 0x372c85], xmm0
+  0x05FB: movups       xmmword ptr [rip + 0x372ca6], xmm0
+  0x0602: movups       xmmword ptr [rip + 0x372caf], xmm0
+  0x0609: movups       xmmword ptr [rip + 0x372cb8], xmm0
+  0x0610: mov          qword ptr [rip + 0x372c81], rax
+  0x0617: mov          qword ptr [rip + 0x372c82], rax
+  0x061E: mov          dword ptr [rip + 0x372cb0], 0xffffffff
+  0x0628: mov          dword ptr [rip + 0x372c5e], 2
+  0x0632: mov          dword ptr [rip + 0x372ca4], eax
+  0x0638: movdqa       xmmword ptr [rip + 0x372ca0], xmm0
+  0x0640: mov          qword ptr [rip + 0x372ca9], rax
+  0x0647: mov          byte ptr [rip + 0x372caa], 1
+  0x064E: lea          rcx, [r15 + 0x1d9]
+  0x0655: lea          rax, [rip + 0xc5534]
+  0x065C: movups       xmm0, xmmword ptr [rax]
+  0x065F: movups       xmmword ptr [rcx], xmm0
+  0x0662: movups       xmm1, xmmword ptr [rax + 0x10]
+  0x0666: movups       xmmword ptr [rcx + 0x10], xmm1
+  0x066A: movups       xmm0, xmmword ptr [rax + 0x20]
+  0x066E: movups       xmmword ptr [rcx + 0x20], xmm0
+  0x0672: movups       xmm1, xmmword ptr [rax + 0x30]
+  0x0676: movups       xmmword ptr [rcx + 0x30], xmm1
+  0x067A: movups       xmm0, xmmword ptr [rax + 0x40]
+  0x067E: movups       xmmword ptr [rcx + 0x40], xmm0
+  0x0682: movups       xmm1, xmmword ptr [rax + 0x50]
+  0x0686: movups       xmmword ptr [rcx + 0x50], xmm1
+  0x068A: movups       xmm0, xmmword ptr [rax + 0x60]
+  0x068E: movups       xmmword ptr [rcx + 0x60], xmm0
+  0x0692: lea          rcx, [rcx + 0x80]
+  0x0699: movups       xmm0, xmmword ptr [rax + 0x70]
+  0x069D: movups       xmmword ptr [rcx - 0x10], xmm0
+  0x06A1: lea          rax, [rax + 0x80]
+  0x06A8: movups       xmm1, xmmword ptr [rax]
+  0x06AB: movups       xmmword ptr [rcx], xmm1
+  0x06AE: movups       xmm0, xmmword ptr [rax + 0x10]
+  0x06B2: movups       xmmword ptr [rcx + 0x10], xmm0
+  0x06B6: movups       xmm1, xmmword ptr [rax + 0x20]
+  0x06BA: movups       xmmword ptr [rcx + 0x20], xmm1
+  0x06BE: movups       xmm0, xmmword ptr [rax + 0x30]
+  0x06C2: movups       xmmword ptr [rcx + 0x30], xmm0
+  0x06C6: movups       xmm1, xmmword ptr [rax + 0x40]
+  0x06CA: movups       xmmword ptr [rcx + 0x40], xmm1
+  0x06CE: movups       xmm0, xmmword ptr [rax + 0x50]
+  0x06D2: movups       xmmword ptr [rcx + 0x50], xmm0
+  0x06D6: movzx        eax, byte ptr [rax + 0x60]
+  0x06DA: mov          byte ptr [rcx + 0x60], al
+  0x06DD: xorps        xmm0, xmm0
+  0x06E0: xor          eax, eax
+  0x06E2: movups       xmmword ptr [rip + 0x372cf1], xmm0
+  0x06E9: mov          qword ptr [rip + 0x372cfa], rax
+  0x06F0: mov          dword ptr [rip + 0x372cfc], eax
+  0x06F6: mov          word ptr [rip + 0x372cf9], ax
+  0x06FD: mov          byte ptr [rip + 0x372cf5], al
+  0x0703: mov          dword ptr [rip + 0x372cef], 0x4e065bd3
+  0x070D: mov          r8, qword ptr [rip + 0x372a64]
+  0x0714: mov          rcx, qword ptr [rip + 0x372a6d]
+  0x071B: sub          rcx, r8
+  0x071E: movabs       r9, 0x89ae4089ae4089af
+  0x0728: mov          rax, r9
+  0x072B: imul         rcx
+  0x072E: add          rdx, rcx
+  0x0731: sar          rdx, 0xb
+  0x0735: mov          rcx, rdx
+  0x0738: shr          rcx, 0x3f
+  0x073C: add          rdx, rcx
+  0x073F: cmp          rdx, 2
+  0x0743: jae          0x7c7
+  0x0749: mov          rcx, qword ptr [rip + 0x372a30]
+  0x0750: sub          rcx, r8
+  0x0753: mov          rax, r9
+  0x0756: imul         rcx
+  0x0759: lea          rsi, [rcx + rdx]
+  0x075D: sar          rsi, 0xb
+  0x0761: mov          rax, rsi
+  0x0764: shr          rax, 0x3f
+  0x0768: add          rsi, rax
+  0x076B: mov          ecx, 0x1dc0
+  0x0770: call         0x5ce0
+  0x0775: mov          r14, rax
+  0x0778: mov          rbp, qword ptr [rip + 0x372a01]
+  0x077F: mov          rdi, rax
+  0x0782: mov          rbx, qword ptr [rip + 0x3729ef]
+  0x0789: cmp          rbx, rbp
+  0x078C: je           0x7ae
+  0x078E: nop          
+  0x0790: mov          rdx, rbx
+  0x0793: mov          rcx, rdi
+  0x0796: call         0x5a70
+  0x079B: add          rdi, 0xee0
+  0x07A2: add          rbx, 0xee0
+  0x07A9: cmp          rbx, rbp
+  0x07AC: jne          0x790
+  0x07AE: mov          r9d, 2
+  0x07B4: mov          r8, rsi
+  0x07B7: mov          rdx, r14
+  0x07BA: lea          rcx, [rip + 0x3729b7]
+  0x07C1: call         0x58c0
+  0x07C6: nop          
+  0x07C7: mov          rax, r15
+  0x07CA: mov          rbx, qword ptr [rsp + 0x48]
+  0x07CF: mov          rbp, qword ptr [rsp + 0x50]
+  0x07D4: mov          rsi, qword ptr [rsp + 0x58]
+  0x07D9: add          rsp, 0x20
+  0x07DD: pop          r15
+  0x07DF: pop          r14
+  0x07E1: pop          rdi
+  0x07E2: ret          
+
+--- Function at offset 0x0659 ---
+  0x0659: push         rbp
+  0x065A: or           al, 0
+  0x065C: movups       xmm0, xmmword ptr [rax]
+  0x065F: movups       xmmword ptr [rcx], xmm0
+  0x0662: movups       xmm1, xmmword ptr [rax + 0x10]
+  0x0666: movups       xmmword ptr [rcx + 0x10], xmm1
+  0x066A: movups       xmm0, xmmword ptr [rax + 0x20]
+  0x066E: movups       xmmword ptr [rcx + 0x20], xmm0
+  0x0672: movups       xmm1, xmmword ptr [rax + 0x30]
+  0x0676: movups       xmmword ptr [rcx + 0x30], xmm1
+  0x067A: movups       xmm0, xmmword ptr [rax + 0x40]
+  0x067E: movups       xmmword ptr [rcx + 0x40], xmm0
+  0x0682: movups       xmm1, xmmword ptr [rax + 0x50]
+  0x0686: movups       xmmword ptr [rcx + 0x50], xmm1
+  0x068A: movups       xmm0, xmmword ptr [rax + 0x60]
+  0x068E: movups       xmmword ptr [rcx + 0x60], xmm0
+  0x0692: lea          rcx, [rcx + 0x80]
+  0x0699: movups       xmm0, xmmword ptr [rax + 0x70]
+  0x069D: movups       xmmword ptr [rcx - 0x10], xmm0
+  0x06A1: lea          rax, [rax + 0x80]
+  0x06A8: movups       xmm1, xmmword ptr [rax]
+  0x06AB: movups       xmmword ptr [rcx], xmm1
+  0x06AE: movups       xmm0, xmmword ptr [rax + 0x10]
+  0x06B2: movups       xmmword ptr [rcx + 0x10], xmm0
+  0x06B6: movups       xmm1, xmmword ptr [rax + 0x20]
+  0x06BA: movups       xmmword ptr [rcx + 0x20], xmm1
+  0x06BE: movups       xmm0, xmmword ptr [rax + 0x30]
+  0x06C2: movups       xmmword ptr [rcx + 0x30], xmm0
+  0x06C6: movups       xmm1, xmmword ptr [rax + 0x40]
+  0x06CA: movups       xmmword ptr [rcx + 0x40], xmm1
+  0x06CE: movups       xmm0, xmmword ptr [rax + 0x50]
+  0x06D2: movups       xmmword ptr [rcx + 0x50], xmm0
+  0x06D6: movzx        eax, byte ptr [rax + 0x60]
+  0x06DA: mov          byte ptr [rcx + 0x60], al
+  0x06DD: xorps        xmm0, xmm0
+  0x06E0: xor          eax, eax
+  0x06E2: movups       xmmword ptr [rip + 0x372cf1], xmm0
+  0x06E9: mov          qword ptr [rip + 0x372cfa], rax
+  0x06F0: mov          dword ptr [rip + 0x372cfc], eax
+  0x06F6: mov          word ptr [rip + 0x372cf9], ax
+  0x06FD: mov          byte ptr [rip + 0x372cf5], al
+  0x0703: mov          dword ptr [rip + 0x372cef], 0x4e065bd3
+  0x070D: mov          r8, qword ptr [rip + 0x372a64]
+  0x0714: mov          rcx, qword ptr [rip + 0x372a6d]
+  0x071B: sub          rcx, r8
+  0x071E: movabs       r9, 0x89ae4089ae4089af
+  0x0728: mov          rax, r9
+  0x072B: imul         rcx
+  0x072E: add          rdx, rcx
+  0x0731: sar          rdx, 0xb
+  0x0735: mov          rcx, rdx
+  0x0738: shr          rcx, 0x3f
+  0x073C: add          rdx, rcx
+  0x073F: cmp          rdx, 2
+  0x0743: jae          0x7c7
+  0x0749: mov          rcx, qword ptr [rip + 0x372a30]
+  0x0750: sub          rcx, r8
+  0x0753: mov          rax, r9
+  0x0756: imul         rcx
+  0x0759: lea          rsi, [rcx + rdx]
+  0x075D: sar          rsi, 0xb
+  0x0761: mov          rax, rsi
+  0x0764: shr          rax, 0x3f
+  0x0768: add          rsi, rax
+  0x076B: mov          ecx, 0x1dc0
+  0x0770: call         0x5ce0
+  0x0775: mov          r14, rax
+  0x0778: mov          rbp, qword ptr [rip + 0x372a01]
+  0x077F: mov          rdi, rax
+  0x0782: mov          rbx, qword ptr [rip + 0x3729ef]
+  0x0789: cmp          rbx, rbp
+  0x078C: je           0x7ae
+  0x078E: nop          
+  0x0790: mov          rdx, rbx
+  0x0793: mov          rcx, rdi
+  0x0796: call         0x5a70
+  0x079B: add          rdi, 0xee0
+  0x07A2: add          rbx, 0xee0
+  0x07A9: cmp          rbx, rbp
+  0x07AC: jne          0x790
+  0x07AE: mov          r9d, 2
+  0x07B4: mov          r8, rsi
+  0x07B7: mov          rdx, r14
+  0x07BA: lea          rcx, [rip + 0x3729b7]
+  0x07C1: call         0x58c0
+  0x07C6: nop          
+  0x07C7: mov          rax, r15
+  0x07CA: mov          rbx, qword ptr [rsp + 0x48]
+  0x07CF: mov          rbp, qword ptr [rsp + 0x50]
+  0x07D4: mov          rsi, qword ptr [rsp + 0x58]
+  0x07D9: add          rsp, 0x20
+  0x07DD: pop          r15
+  0x07DF: pop          r14
+  0x07E1: pop          rdi
+  0x07E2: ret          
+
+--- Function at offset 0x0772 ---
+  0x0772: push         rbp
+  0x0773: add          byte ptr [rax], al
+  0x0775: mov          r14, rax
+  0x0778: mov          rbp, qword ptr [rip + 0x372a01]
+  0x077F: mov          rdi, rax
+  0x0782: mov          rbx, qword ptr [rip + 0x3729ef]
+  0x0789: cmp          rbx, rbp
+  0x078C: je           0x7ae
+  0x078E: nop          
+  0x0790: mov          rdx, rbx
+  0x0793: mov          rcx, rdi
+  0x0796: call         0x5a70
+  0x079B: add          rdi, 0xee0
+  0x07A2: add          rbx, 0xee0
+  0x07A9: cmp          rbx, rbp
+  0x07AC: jne          0x790
+  0x07AE: mov          r9d, 2
+  0x07B4: mov          r8, rsi
+  0x07B7: mov          rdx, r14
+  0x07BA: lea          rcx, [rip + 0x3729b7]
+  0x07C1: call         0x58c0
+  0x07C6: nop          
+  0x07C7: mov          rax, r15
+  0x07CA: mov          rbx, qword ptr [rsp + 0x48]
+  0x07CF: mov          rbp, qword ptr [rsp + 0x50]
+  0x07D4: mov          rsi, qword ptr [rsp + 0x58]
+  0x07D9: add          rsp, 0x20
+  0x07DD: pop          r15
+  0x07DF: pop          r14
+  0x07E1: pop          rdi
+  0x07E2: ret          
+
+--- Function at offset 0x07F0 ---
+  0x07F0: mov          qword ptr [rsp + 0x18], rbx
+  0x07F5: push         rbp
+  0x07F6: push         rsi
+  0x07F7: push         rdi
+  0x07F8: sub          rsp, 0x150
+  0x07FF: mov          rax, qword ptr [rip + 0x11987a]
+  0x0806: xor          rax, rsp
+  0x0809: mov          qword ptr [rsp + 0x140], rax
+  0x0811: movzx        edi, r8b
+  0x0815: mov          rbp, rdx
+  0x0818: mov          rsi, rcx
+  0x081B: lea          rbx, [rcx + 0x108]
+  0x0822: mov          qword ptr [rsp + 0x20], rbx
+  0x0827: mov          rcx, rbx
+  0x082A: call         0x8a598
+  0x082F: test         eax, eax
+  0x0831: jne          0x99a
+  0x0837: cmp          dword ptr [rbx + 0x4c], 0x7fffffff
+  0x083E: je           0x988
+  0x0844: xor          edx, edx
+  0x0846: mov          r8d, 0x110
+  0x084C: lea          rcx, [rsp + 0x30]
+  0x0851: call         0xb55a0
+  0x0856: mov          r8d, 0xff
+  0x085C: mov          rdx, rbp
+  0x085F: lea          rcx, [rsp + 0x30]
+  0x0864: call         0xb5940
+  0x0869: mov          byte ptr [rsp + 0x130], dil
+  0x0871: call         qword ptr [rip + 0xb8bf9]
+  0x0877: mov          qword ptr [rsp + 0x138], rax
+  0x087F: lea          rdi, [rsi + 0x158]
+  0x0886: mov          rdx, qword ptr [rdi + 8]
+  0x088A: cmp          rdx, qword ptr [rdi + 0x10]
+  0x088E: je           0x902
+  0x0890: lea          rax, [rsp + 0x30]
+  0x0895: mov          ecx, 2
+  0x089A: nop          word ptr [rax + rax]
+  0x08A0: movups       xmm0, xmmword ptr [rax]
+  0x08A3: movups       xmmword ptr [rdx], xmm0
+  0x08A6: movups       xmm1, xmmword ptr [rax + 0x10]
+  0x08AA: movups       xmmword ptr [rdx + 0x10], xmm1
+  0x08AE: movups       xmm0, xmmword ptr [rax + 0x20]
+  0x08B2: movups       xmmword ptr [rdx + 0x20], xmm0
+  0x08B6: movups       xmm1, xmmword ptr [rax + 0x30]
+  0x08BA: movups       xmmword ptr [rdx + 0x30], xmm1
+  0x08BE: movups       xmm0, xmmword ptr [rax + 0x40]
+  0x08C2: movups       xmmword ptr [rdx + 0x40], xmm0
+  0x08C6: movups       xmm1, xmmword ptr [rax + 0x50]
+  0x08CA: movups       xmmword ptr [rdx + 0x50], xmm1
+  0x08CE: movups       xmm0, xmmword ptr [rax + 0x60]
+  0x08D2: movups       xmmword ptr [rdx + 0x60], xmm0
+  0x08D6: lea          rdx, [rdx + 0x80]
+  0x08DD: movups       xmm1, xmmword ptr [rax + 0x70]
+  0x08E1: movups       xmmword ptr [rdx - 0x10], xmm1
+  0x08E5: lea          rax, [rax + 0x80]
+  0x08EC: sub          rcx, 1
+  0x08F0: jne          0x8a0
+  0x08F2: movups       xmm0, xmmword ptr [rax]
+  0x08F5: movups       xmmword ptr [rdx], xmm0
+  0x08F8: add          qword ptr [rdi + 8], 0x110
+  0x0900: jmp          0x90f
+
+--- Function at offset 0x09B0 ---
+  0x09B0: mov          qword ptr [rsp + 0x18], rbx
+  0x09B5: push         rbp
+  0x09B6: push         rsi
+  0x09B7: push         rdi
+  0x09B8: sub          rsp, 0x150
+  0x09BF: mov          rax, qword ptr [rip + 0x1196ba]
+  0x09C6: xor          rax, rsp
+  0x09C9: mov          qword ptr [rsp + 0x140], rax
+  0x09D1: movzx        edi, r8b
+  0x09D5: mov          rbp, rdx
+  0x09D8: mov          rsi, rcx
+  0x09DB: lea          rbx, [rcx + 0x170]
+  0x09E2: mov          qword ptr [rsp + 0x20], rbx
+  0x09E7: mov          rcx, rbx
+  0x09EA: call         0x8a598
+  0x09EF: test         eax, eax
+  0x09F1: jne          0xb57
+  0x09F7: cmp          dword ptr [rbx + 0x4c], 0x7fffffff
+  0x09FE: je           0xb45
+  0x0A04: xor          edx, edx
+  0x0A06: mov          r8d, 0x110
+  0x0A0C: lea          rcx, [rsp + 0x30]
+  0x0A11: call         0xb55a0
+  0x0A16: mov          r8d, 0xff
+  0x0A1C: mov          rdx, rbp
+  0x0A1F: lea          rcx, [rsp + 0x30]
+  0x0A24: call         0xb5940
+  0x0A29: mov          byte ptr [rsp + 0x130], dil
+  0x0A31: call         qword ptr [rip + 0xb8a39]
+  0x0A37: mov          qword ptr [rsp + 0x138], rax
+  0x0A3F: lea          rdi, [rsi + 0x1c0]
+  0x0A46: mov          rdx, qword ptr [rdi + 8]
+  0x0A4A: cmp          rdx, qword ptr [rdi + 0x10]
+  0x0A4E: je           0xac2
+  0x0A50: lea          rax, [rsp + 0x30]
+  0x0A55: mov          ecx, 2
+  0x0A5A: nop          word ptr [rax + rax]
+  0x0A60: movups       xmm0, xmmword ptr [rax]
+  0x0A63: movups       xmmword ptr [rdx], xmm0
+  0x0A66: movups       xmm1, xmmword ptr [rax + 0x10]
+  0x0A6A: movups       xmmword ptr [rdx + 0x10], xmm1
+  0x0A6E: movups       xmm0, xmmword ptr [rax + 0x20]
+  0x0A72: movups       xmmword ptr [rdx + 0x20], xmm0
+  0x0A76: movups       xmm1, xmmword ptr [rax + 0x30]
+  0x0A7A: movups       xmmword ptr [rdx + 0x30], xmm1
+  0x0A7E: movups       xmm0, xmmword ptr [rax + 0x40]
+  0x0A82: movups       xmmword ptr [rdx + 0x40], xmm0
+  0x0A86: movups       xmm1, xmmword ptr [rax + 0x50]
+  0x0A8A: movups       xmmword ptr [rdx + 0x50], xmm1
+  0x0A8E: movups       xmm0, xmmword ptr [rax + 0x60]
+  0x0A92: movups       xmmword ptr [rdx + 0x60], xmm0
+  0x0A96: lea          rdx, [rdx + 0x80]
+  0x0A9D: movups       xmm1, xmmword ptr [rax + 0x70]
+  0x0AA1: movups       xmmword ptr [rdx - 0x10], xmm1
+  0x0AA5: lea          rax, [rax + 0x80]
+  0x0AAC: sub          rcx, 1
+  0x0AB0: jne          0xa60
+  0x0AB2: movups       xmm0, xmmword ptr [rax]
+  0x0AB5: movups       xmmword ptr [rdx], xmm0
+  0x0AB8: add          qword ptr [rdi + 8], 0x110
+  0x0AC0: jmp          0xacf
+
+--- Function at offset 0x0B70 ---
+  0x0B70: mov          qword ptr [rsp + 0x10], rbx
+  0x0B75: mov          qword ptr [rsp + 0x18], rbp
+  0x0B7A: mov          qword ptr [rsp + 0x20], rsi
+  0x0B7F: mov          qword ptr [rsp + 8], rcx
+  0x0B84: push         rdi
+  0x0B85: push         r12
+  0x0B87: push         r13
+  0x0B89: push         r14
+  0x0B8B: push         r15
+  0x0B8D: sub          rsp, 0x40
+  0x0B91: mov          rdi, rdx
+  0x0B94: mov          rbx, rcx
+  0x0B97: xor          ebp, ebp
+  0x0B99: mov          dword ptr [rsp + 0x30], ebp
+  0x0B9D: mov          qword ptr [rcx], rbp
+  0x0BA0: mov          qword ptr [rcx + 8], rbp
+  0x0BA4: mov          qword ptr [rcx + 0x10], rbp
+  0x0BA8: mov          dword ptr [rsp + 0x30], 1
+  0x0BB0: mov          r14, qword ptr [rdx + 0x10]
+  0x0BB4: shr          r14, 1
+  0x0BB7: je           0xc1e
+  0x0BB9: mov          rcx, r14
+  0x0BBC: call         0x5ce0
+  0x0BC1: mov          rsi, rax
+  0x0BC4: mov          rdx, qword ptr [rbx]
+  0x0BC7: mov          r8, qword ptr [rbx + 8]
+  0x0BCB: sub          r8, rdx
+  0x0BCE: mov          rcx, rax
+  0x0BD1: call         0xb4d80
+  0x0BD6: mov          rcx, qword ptr [rbx]
+  0x0BD9: test         rcx, rcx
+  0x0BDC: je           0xc0f
+  0x0BDE: mov          rdx, qword ptr [rbx + 0x10]
+  0x0BE2: sub          rdx, rcx
+  0x0BE5: cmp          rdx, 0x1000
+  0x0BEC: jb           0xc0a
+  0x0BEE: add          rdx, 0x27
+  0x0BF2: mov          rax, qword ptr [rcx - 8]
+  0x0BF6: sub          rcx, rax
+  0x0BF9: sub          rcx, 8
+  0x0BFD: cmp          rcx, 0x1f
+  0x0C01: ja           0xd95
+  0x0C07: mov          rcx, rax
+  0x0C0A: call         0x8aed0
+  0x0C0F: mov          qword ptr [rbx], rsi
+  0x0C12: mov          qword ptr [rbx + 8], rsi
+  0x0C16: lea          rax, [rsi + r14]
+  0x0C1A: mov          qword ptr [rbx + 0x10], rax
+  0x0C1E: cmp          qword ptr [rdi + 0x10], 1
+  0x0C23: jbe          0xd74
+  0x0C29: movabs       r9, 0x7fffffffffffffff
+  0x0C33: mov          rax, rdi
+  0x0C36: mov          r8, qword ptr [rdi + 0x18]
+  0x0C3A: cmp          r8, 0xf
+  0x0C3E: jbe          0xc43
+  0x0C40: mov          rax, qword ptr [rdi]
+  0x0C43: movzx        eax, byte ptr [rax + rbp]
+  0x0C47: lea          ecx, [rax - 0x30]
+  0x0C4A: cmp          cl, 9
+  0x0C4D: ja           0xc53
+  0x0C4F: sub          al, 0x30
+  0x0C51: jmp          0xc6d
+
+--- Function at offset 0x0B88 ---
+  0x0B88: push         rbp
+  0x0B89: push         r14
+  0x0B8B: push         r15
+  0x0B8D: sub          rsp, 0x40
+  0x0B91: mov          rdi, rdx
+  0x0B94: mov          rbx, rcx
+  0x0B97: xor          ebp, ebp
+  0x0B99: mov          dword ptr [rsp + 0x30], ebp
+  0x0B9D: mov          qword ptr [rcx], rbp
+  0x0BA0: mov          qword ptr [rcx + 8], rbp
+  0x0BA4: mov          qword ptr [rcx + 0x10], rbp
+  0x0BA8: mov          dword ptr [rsp + 0x30], 1
+  0x0BB0: mov          r14, qword ptr [rdx + 0x10]
+  0x0BB4: shr          r14, 1
+  0x0BB7: je           0xc1e
+  0x0BB9: mov          rcx, r14
+  0x0BBC: call         0x5ce0
+  0x0BC1: mov          rsi, rax
+  0x0BC4: mov          rdx, qword ptr [rbx]
+  0x0BC7: mov          r8, qword ptr [rbx + 8]
+  0x0BCB: sub          r8, rdx
+  0x0BCE: mov          rcx, rax
+  0x0BD1: call         0xb4d80
+  0x0BD6: mov          rcx, qword ptr [rbx]
+  0x0BD9: test         rcx, rcx
+  0x0BDC: je           0xc0f
+  0x0BDE: mov          rdx, qword ptr [rbx + 0x10]
+  0x0BE2: sub          rdx, rcx
+  0x0BE5: cmp          rdx, 0x1000
+  0x0BEC: jb           0xc0a
+  0x0BEE: add          rdx, 0x27
+  0x0BF2: mov          rax, qword ptr [rcx - 8]
+  0x0BF6: sub          rcx, rax
+  0x0BF9: sub          rcx, 8
+  0x0BFD: cmp          rcx, 0x1f
+  0x0C01: ja           0xd95
+  0x0C07: mov          rcx, rax
+  0x0C0A: call         0x8aed0
+  0x0C0F: mov          qword ptr [rbx], rsi
+  0x0C12: mov          qword ptr [rbx + 8], rsi
+  0x0C16: lea          rax, [rsi + r14]
+  0x0C1A: mov          qword ptr [rbx + 0x10], rax
+  0x0C1E: cmp          qword ptr [rdi + 0x10], 1
+  0x0C23: jbe          0xd74
+  0x0C29: movabs       r9, 0x7fffffffffffffff
+  0x0C33: mov          rax, rdi
+  0x0C36: mov          r8, qword ptr [rdi + 0x18]
+  0x0C3A: cmp          r8, 0xf
+  0x0C3E: jbe          0xc43
+  0x0C40: mov          rax, qword ptr [rdi]
+  0x0C43: movzx        eax, byte ptr [rax + rbp]
+  0x0C47: lea          ecx, [rax - 0x30]
+  0x0C4A: cmp          cl, 9
+  0x0C4D: ja           0xc53
+  0x0C4F: sub          al, 0x30
+  0x0C51: jmp          0xc6d
+
+--- Function at offset 0x0DB0 ---
+  0x0DB0: mov          qword ptr [rsp + 0x10], rbx
+  0x0DB5: mov          qword ptr [rsp + 0x18], rsi
+  0x0DBA: push         rbp
+  0x0DBB: push         rdi
+  0x0DBC: push         r12
+  0x0DBE: push         r14
+  0x0DC0: push         r15
+  0x0DC2: lea          rbp, [rsp - 0x2c0]
+  0x0DCA: sub          rsp, 0x3c0
+  0x0DD1: mov          rax, qword ptr [rip + 0x1192a8]
+  0x0DD8: xor          rax, rsp
+  0x0DDB: mov          qword ptr [rbp + 0x2b0], rax
+  0x0DE2: mov          rsi, rcx
+  0x0DE5: mov          qword ptr [rsp + 0x48], rcx
+  0x0DEA: xor          r12d, r12d
+  0x0DED: mov          rbx, qword ptr [rip + 0x11d35c]
+  0x0DF4: test         rbx, rbx
+  0x0DF7: jne          0xe2b
+  0x0DF9: xorps        xmm0, xmm0
+  0x0DFC: movups       xmmword ptr [rcx], xmm0
+  0x0DFF: mov          qword ptr [rcx + 0x10], 3
+  0x0E07: mov          qword ptr [rcx + 0x18], 0xf
+  0x0E0F: mov          ecx, dword ptr [rip + 0xc4e5f]
+  0x0E15: mov          word ptr [rsi], cx
+  0x0E18: movzx        ecx, byte ptr [rip + 0xc4e57]
+  0x0E1F: mov          byte ptr [rsi + 2], cl
+  0x0E22: mov          byte ptr [rsi + 3], r12b
+  0x0E26: jmp          0x1058
+
+--- Function at offset 0x0DBA ---
+  0x0DBA: push         rbp
+  0x0DBB: push         rdi
+  0x0DBC: push         r12
+  0x0DBE: push         r14
+  0x0DC0: push         r15
+  0x0DC2: lea          rbp, [rsp - 0x2c0]
+  0x0DCA: sub          rsp, 0x3c0
+  0x0DD1: mov          rax, qword ptr [rip + 0x1192a8]
+  0x0DD8: xor          rax, rsp
+  0x0DDB: mov          qword ptr [rbp + 0x2b0], rax
+  0x0DE2: mov          rsi, rcx
+  0x0DE5: mov          qword ptr [rsp + 0x48], rcx
+  0x0DEA: xor          r12d, r12d
+  0x0DED: mov          rbx, qword ptr [rip + 0x11d35c]
+  0x0DF4: test         rbx, rbx
+  0x0DF7: jne          0xe2b
+  0x0DF9: xorps        xmm0, xmm0
+  0x0DFC: movups       xmmword ptr [rcx], xmm0
+  0x0DFF: mov          qword ptr [rcx + 0x10], 3
+  0x0E07: mov          qword ptr [rcx + 0x18], 0xf
+  0x0E0F: mov          ecx, dword ptr [rip + 0xc4e5f]
+  0x0E15: mov          word ptr [rsi], cx
+  0x0E18: movzx        ecx, byte ptr [rip + 0xc4e57]
+  0x0E1F: mov          byte ptr [rsi + 2], cl
+  0x0E22: mov          byte ptr [rsi + 3], r12b
+  0x0E26: jmp          0x1058
+
+--- Function at offset 0x0F47 ---
+  0x0F47: push         rbp
+  0x0F48: add          al, byte ptr [rax]
+  0x0F4A: add          byte ptr [rax], al
+  0x0F4C: mov          rcx, qword ptr [rsp + 0x50]
+  0x0F51: mov          rax, rcx
+  0x0F54: cmp          rdx, 0x1000
+  0x0F5B: jb           0xf76
+  0x0F5D: add          rdx, 0x27
+  0x0F61: mov          rcx, qword ptr [rcx - 8]
+  0x0F65: sub          rax, rcx
+  0x0F68: sub          rax, 8
+  0x0F6C: cmp          rax, 0x1f
+  0x0F70: ja           0x109b
+  0x0F76: call         0x8aed0
+  0x0F7B: movups       xmm1, xmmword ptr [rsp + 0x70]
+  0x0F80: movups       xmmword ptr [rsp + 0x50], xmm1
+  0x0F85: movups       xmm0, xmmword ptr [rbp - 0x80]
+  0x0F89: movups       xmmword ptr [rsp + 0x60], xmm0
+  0x0F8E: psrldq       xmm0, 8
+  0x0F93: movq         r15, xmm0
+  0x0F98: movq         rbx, xmm1
+  0x0F9D: jmp          0xfa9
+
+--- Function at offset 0x0F77 ---
+  0x0F77: push         rbp
+  0x0F78: lahf         
+  0x0F79: or           byte ptr [rax], al
+  0x0F7B: movups       xmm1, xmmword ptr [rsp + 0x70]
+  0x0F80: movups       xmmword ptr [rsp + 0x50], xmm1
+  0x0F85: movups       xmm0, xmmword ptr [rbp - 0x80]
+  0x0F89: movups       xmmword ptr [rsp + 0x60], xmm0
+  0x0F8E: psrldq       xmm0, 8
+  0x0F93: movq         r15, xmm0
+  0x0F98: movq         rbx, xmm1
+  0x0F9D: jmp          0xfa9
+
+--- Function at offset 0x100F ---
+  0x100F: push         rbp
+  0x1010: nop          
+  0x1011: mov          rcx, rsi
+  0x1014: call         0x4c60
+  0x1019: nop          
+  0x101A: mov          rdx, qword ptr [rsp + 0x68]
+  0x101F: cmp          rdx, 7
+  0x1023: jbe          0x1058
+  0x1025: lea          rdx, [rdx*2 + 2]
+  0x102D: mov          rcx, qword ptr [rsp + 0x50]
+  0x1032: mov          rax, rcx
+  0x1035: cmp          rdx, 0x1000
+  0x103C: jb           0x1053
+  0x103E: add          rdx, 0x27
+  0x1042: mov          rcx, qword ptr [rcx - 8]
+  0x1046: sub          rax, rcx
+  0x1049: sub          rax, 8
+  0x104D: cmp          rax, 0x1f
+  0x1051: ja           0x1086
+  0x1053: call         0x8aed0
+  0x1058: mov          rax, rsi
+  0x105B: mov          rcx, qword ptr [rbp + 0x2b0]
+  0x1062: xor          rcx, rsp
+  0x1065: call         0x8a9e0
+  0x106A: lea          r11, [rsp + 0x3c0]
+  0x1072: mov          rbx, qword ptr [r11 + 0x38]
+  0x1076: mov          rsi, qword ptr [r11 + 0x40]
+  0x107A: mov          rsp, r11
+  0x107D: pop          r15
+  0x107F: pop          r14
+  0x1081: pop          r12
+  0x1083: pop          rdi
+  0x1084: pop          rbp
+  0x1085: ret          
+
+--- Function at offset 0x1028 ---
+  0x1028: push         rbp
+  0x1029: add          al, byte ptr [rax]
+  0x102B: add          byte ptr [rax], al
+  0x102D: mov          rcx, qword ptr [rsp + 0x50]
+  0x1032: mov          rax, rcx
+  0x1035: cmp          rdx, 0x1000
+  0x103C: jb           0x1053
+  0x103E: add          rdx, 0x27
+  0x1042: mov          rcx, qword ptr [rcx - 8]
+  0x1046: sub          rax, rcx
+  0x1049: sub          rax, 8
+  0x104D: cmp          rax, 0x1f
+  0x1051: ja           0x1086
+  0x1053: call         0x8aed0
+  0x1058: mov          rax, rsi
+  0x105B: mov          rcx, qword ptr [rbp + 0x2b0]
+  0x1062: xor          rcx, rsp
+  0x1065: call         0x8a9e0
+  0x106A: lea          r11, [rsp + 0x3c0]
+  0x1072: mov          rbx, qword ptr [r11 + 0x38]
+  0x1076: mov          rsi, qword ptr [r11 + 0x40]
+  0x107A: mov          rsp, r11
+  0x107D: pop          r15
+  0x107F: pop          r14
+  0x1081: pop          r12
+  0x1083: pop          rdi
+  0x1084: pop          rbp
+  0x1085: ret          
+
+--- Function at offset 0x10B0 ---
+  0x10B0: mov          qword ptr [rsp + 0x10], rbx
+  0x10B5: mov          qword ptr [rsp + 0x18], rsi
+  0x10BA: push         rbp
+  0x10BB: push         rdi
+  0x10BC: push         r12
+  0x10BE: push         r14
+  0x10C0: push         r15
+  0x10C2: lea          rbp, [rsp - 0xf60]
+  0x10CA: mov          eax, 0x1060
+  0x10CF: call         0x8b8c0
+  0x10D4: sub          rsp, rax
+  0x10D7: mov          rax, qword ptr [rip + 0x118fa2]
+  0x10DE: xor          rax, rsp
+  0x10E1: mov          qword ptr [rbp + 0xf50], rax
+  0x10E8: mov          r14, rcx
+  0x10EB: xor          r12d, r12d
+  0x10EE: lea          rcx, [rbp + 0xef0]
+  0x10F5: call         0xdb0
+  0x10FA: nop          
+  0x10FB: mov          r8d, 0x18
+  0x1101: lea          rdx, [rip + 0xc4b70]
+  0x1108: mov          rcx, rax
+  0x110B: call         0x5010
+  0x1110: xorps        xmm0, xmm0
+  0x1113: movups       xmmword ptr [rbp + 0xe70], xmm0
+  0x111A: xorps        xmm1, xmm1
+  0x111D: movdqu       xmmword ptr [rbp + 0xe80], xmm1
+  0x1125: movups       xmm0, xmmword ptr [rax]
+  0x1128: movups       xmmword ptr [rbp + 0xe70], xmm0
+  0x112F: movups       xmm1, xmmword ptr [rax + 0x10]
+  0x1133: movups       xmmword ptr [rbp + 0xe80], xmm1
+  0x113A: mov          qword ptr [rax + 0x10], r12
+  0x113E: mov          qword ptr [rax + 0x18], 0xf
+  0x1146: mov          byte ptr [rax], r12b
+  0x1149: lea          rcx, [rbp + 0xef0]
+  0x1150: call         0x4e30
+  0x1155: lea          rcx, [rbp + 0xe70]
+  0x115C: cmp          qword ptr [rbp + 0xe88], 0xf
+  0x1164: cmova        rcx, qword ptr [rbp + 0xe70]
+  0x116C: lea          rdx, [rip + 0xc4b49]
+  0x1173: call         0x91418
+  0x1178: mov          r15, rax
+  0x117B: test         rax, rax
+  0x117E: je           0x1856
+  0x1184: xor          edx, edx
+  0x1186: mov          r8d, 2
+  0x118C: mov          rcx, rax
+  0x118F: call         0x91e6c
+  0x1194: mov          rcx, r15
+  0x1197: call         0x91194
+  0x119C: movsxd       rbx, eax
+  0x119F: xor          r8d, r8d
+  0x11A2: xor          edx, edx
+  0x11A4: mov          rcx, r15
+  0x11A7: call         0x91e6c
+  0x11AC: lea          ecx, [rbx - 1]
+  0x11AF: cmp          ecx, 0x3ffffff
+  0x11B5: ja           0x184e
+  0x11BB: mov          rdi, rbx
+  0x11BE: xorps        xmm0, xmm0
+  0x11C1: movups       xmmword ptr [rbp + 0xe50], xmm0
+  0x11C8: xorps        xmm1, xmm1
+  0x11CB: movdqu       xmmword ptr [rbp + 0xe60], xmm1
+  0x11D3: movabs       rsi, 0x7fffffffffffffff
+  0x11DD: cmp          rbx, rsi
+  0x11E0: ja           0x18d8
+  0x11E6: cmp          rbx, 0xf
+  0x11EA: ja           0x1219
+  0x11EC: mov          qword ptr [rbp + 0xe60], rbx
+  0x11F3: mov          qword ptr [rbp + 0xe68], 0xf
+  0x11FE: mov          r8, rbx
+  0x1201: xor          edx, edx
+  0x1203: lea          rcx, [rbp + 0xe50]
+  0x120A: call         0xb55a0
+  0x120F: mov          byte ptr [rbp + rbx + 0xe50], r12b
+  0x1217: jmp          0x1266
+
+--- Function at offset 0x10BA ---
+  0x10BA: push         rbp
+  0x10BB: push         rdi
+  0x10BC: push         r12
+  0x10BE: push         r14
+  0x10C0: push         r15
+  0x10C2: lea          rbp, [rsp - 0xf60]
+  0x10CA: mov          eax, 0x1060
+  0x10CF: call         0x8b8c0
+  0x10D4: sub          rsp, rax
+  0x10D7: mov          rax, qword ptr [rip + 0x118fa2]
+  0x10DE: xor          rax, rsp
+  0x10E1: mov          qword ptr [rbp + 0xf50], rax
+  0x10E8: mov          r14, rcx
+  0x10EB: xor          r12d, r12d
+  0x10EE: lea          rcx, [rbp + 0xef0]
+  0x10F5: call         0xdb0
+  0x10FA: nop          
+  0x10FB: mov          r8d, 0x18
+  0x1101: lea          rdx, [rip + 0xc4b70]
+  0x1108: mov          rcx, rax
+  0x110B: call         0x5010
+  0x1110: xorps        xmm0, xmm0
+  0x1113: movups       xmmword ptr [rbp + 0xe70], xmm0
+  0x111A: xorps        xmm1, xmm1
+  0x111D: movdqu       xmmword ptr [rbp + 0xe80], xmm1
+  0x1125: movups       xmm0, xmmword ptr [rax]
+  0x1128: movups       xmmword ptr [rbp + 0xe70], xmm0
+  0x112F: movups       xmm1, xmmword ptr [rax + 0x10]
+  0x1133: movups       xmmword ptr [rbp + 0xe80], xmm1
+  0x113A: mov          qword ptr [rax + 0x10], r12
+  0x113E: mov          qword ptr [rax + 0x18], 0xf
+  0x1146: mov          byte ptr [rax], r12b
+  0x1149: lea          rcx, [rbp + 0xef0]
+  0x1150: call         0x4e30
+  0x1155: lea          rcx, [rbp + 0xe70]
+  0x115C: cmp          qword ptr [rbp + 0xe88], 0xf
+  0x1164: cmova        rcx, qword ptr [rbp + 0xe70]
+  0x116C: lea          rdx, [rip + 0xc4b49]
+  0x1173: call         0x91418
+  0x1178: mov          r15, rax
+  0x117B: test         rax, rax
+  0x117E: je           0x1856
+  0x1184: xor          edx, edx
+  0x1186: mov          r8d, 2
+  0x118C: mov          rcx, rax
+  0x118F: call         0x91e6c
+  0x1194: mov          rcx, r15
+  0x1197: call         0x91194
+  0x119C: movsxd       rbx, eax
+  0x119F: xor          r8d, r8d
+  0x11A2: xor          edx, edx
+  0x11A4: mov          rcx, r15
+  0x11A7: call         0x91e6c
+  0x11AC: lea          ecx, [rbx - 1]
+  0x11AF: cmp          ecx, 0x3ffffff
+  0x11B5: ja           0x184e
+  0x11BB: mov          rdi, rbx
+  0x11BE: xorps        xmm0, xmm0
+  0x11C1: movups       xmmword ptr [rbp + 0xe50], xmm0
+  0x11C8: xorps        xmm1, xmm1
+  0x11CB: movdqu       xmmword ptr [rbp + 0xe60], xmm1
+  0x11D3: movabs       rsi, 0x7fffffffffffffff
+  0x11DD: cmp          rbx, rsi
+  0x11E0: ja           0x18d8
+  0x11E6: cmp          rbx, 0xf
+  0x11EA: ja           0x1219
+  0x11EC: mov          qword ptr [rbp + 0xe60], rbx
+  0x11F3: mov          qword ptr [rbp + 0xe68], 0xf
+  0x11FE: mov          r8, rbx
+  0x1201: xor          edx, edx
+  0x1203: lea          rcx, [rbp + 0xe50]
+  0x120A: call         0xb55a0
+  0x120F: mov          byte ptr [rbp + rbx + 0xe50], r12b
+  0x1217: jmp          0x1266
+
+--- Function at offset 0x1940 ---
+  0x1940: mov          qword ptr [rsp + 0x20], rbx
+  0x1945: push         rbp
+  0x1946: push         rsi
+  0x1947: push         rdi
+  0x1948: push         r14
+  0x194A: push         r15
+  0x194C: lea          rbp, [rsp - 0x37]
+  0x1951: sub          rsp, 0xb0
+  0x1958: mov          rax, qword ptr [rip + 0x118721]
+  0x195F: xor          rax, rsp
+  0x1962: mov          qword ptr [rbp + 0x27], rax
+  0x1966: mov          rax, r8
+  0x1969: mov          rdi, rdx
+  0x196C: mov          r14, rcx
+  0x196F: mov          qword ptr [rbp - 0x41], rdx
+  0x1973: xor          r15d, r15d
+  0x1976: xorps        xmm0, xmm0
+  0x1979: movups       xmmword ptr [rbp - 0x19], xmm0
+  0x197D: movdqa       xmm1, xmmword ptr [rip + 0x10556b]
+  0x1985: movdqu       xmmword ptr [rbp - 9], xmm1
+  0x198A: mov          word ptr [rbp - 0x19], 0x22
+  0x1990: mov          r8, 0xffffffffffffffff
+  0x1997: nop          word ptr [rax + rax]
+  0x19A0: inc          r8
+  0x19A3: cmp          byte ptr [rax + r8], 0
+  0x19A8: jne          0x19a0
+  0x19AA: mov          rdx, rax
+  0x19AD: lea          rcx, [rbp - 0x19]
+  0x19B1: call         0x5010
+  0x19B6: xorps        xmm0, xmm0
+  0x19B9: movups       xmmword ptr [rbp + 7], xmm0
+  0x19BD: xorps        xmm1, xmm1
+  0x19C0: movdqu       xmmword ptr [rbp + 0x17], xmm1
+  0x19C5: movups       xmm0, xmmword ptr [rax]
+  0x19C8: movups       xmmword ptr [rbp + 7], xmm0
+  0x19CC: movups       xmm1, xmmword ptr [rax + 0x10]
+  0x19D0: movups       xmmword ptr [rbp + 0x17], xmm1
+  0x19D4: mov          qword ptr [rax + 0x10], r15
+  0x19D8: mov          qword ptr [rax + 0x18], 0xf
+  0x19E0: mov          byte ptr [rax], 0
+  0x19E3: mov          r8d, 4
+  0x19E9: lea          rdx, [rip + 0xc42a4]
+  0x19F0: lea          rcx, [rbp + 7]
+  0x19F4: call         0x5010
+  0x19F9: xorps        xmm0, xmm0
+  0x19FC: movups       xmmword ptr [rbp - 0x39], xmm0
+  0x1A00: mov          qword ptr [rbp - 0x29], r15
+  0x1A04: mov          qword ptr [rbp - 0x21], r15
+  0x1A08: movups       xmm0, xmmword ptr [rax]
+  0x1A0B: movups       xmmword ptr [rbp - 0x39], xmm0
+  0x1A0F: movups       xmm1, xmmword ptr [rax + 0x10]
+  0x1A13: movups       xmmword ptr [rbp - 0x29], xmm1
+  0x1A17: mov          qword ptr [rax + 0x10], r15
+  0x1A1B: mov          qword ptr [rax + 0x18], 0xf
+  0x1A23: mov          byte ptr [rax], 0
+  0x1A26: mov          rdx, qword ptr [rbp + 0x1f]
+  0x1A2A: cmp          rdx, 0xf
+  0x1A2E: jbe          0x1a61
+  0x1A30: inc          rdx
+  0x1A33: mov          rcx, qword ptr [rbp + 7]
+  0x1A37: mov          rax, rcx
+  0x1A3A: cmp          rdx, 0x1000
+  0x1A41: jb           0x1a5c
+  0x1A43: add          rdx, 0x27
+  0x1A47: mov          rcx, qword ptr [rcx - 8]
+  0x1A4B: sub          rax, rcx
+  0x1A4E: sub          rax, 8
+  0x1A52: cmp          rax, 0x1f
+  0x1A56: ja           0x1c7f
+  0x1A5C: call         0x8aed0
+  0x1A61: movdqa       xmm1, xmmword ptr [rip + 0x105477]
+  0x1A69: movdqu       xmmword ptr [rbp + 0x17], xmm1
+  0x1A6E: mov          byte ptr [rbp + 7], 0
+  0x1A72: mov          rdx, qword ptr [rbp - 1]
+  0x1A76: cmp          rdx, 0xf
+  0x1A7A: jbe          0x1ab5
+  0x1A7C: inc          rdx
+  0x1A7F: mov          rcx, qword ptr [rbp - 0x19]
+  0x1A83: mov          rax, rcx
+  0x1A86: cmp          rdx, 0x1000
+  0x1A8D: jb           0x1aa8
+  0x1A8F: add          rdx, 0x27
+  0x1A93: mov          rcx, qword ptr [rcx - 8]
+  0x1A97: sub          rax, rcx
+  0x1A9A: sub          rax, 8
+  0x1A9E: cmp          rax, 0x1f
+  0x1AA2: ja           0x1c55
+  0x1AA8: call         0x8aed0
+  0x1AAD: movdqa       xmm1, xmmword ptr [rip + 0x10542b]
+  0x1AB5: mov          rsi, qword ptr [r14]
+  0x1AB8: mov          rdx, qword ptr [rbp - 0x29]
+  0x1ABC: lea          r8, [rbp - 0x39]
+  0x1AC0: mov          rcx, qword ptr [rbp - 0x21]
+  0x1AC4: cmp          rcx, 0xf
+  0x1AC8: cmova        r8, qword ptr [rbp - 0x39]
+  0x1ACD: mov          rax, qword ptr [rsi + 0x10]
+  0x1AD1: cmp          qword ptr [rsi + 0x18], 0xf
+  0x1AD6: jbe          0x1adb
+  0x1AD8: mov          rsi, qword ptr [rsi]
+  0x1ADB: cmp          rdx, rax
+  0x1ADE: ja           0x1c0f
+  0x1AE4: test         rdx, rdx
+  0x1AE7: jne          0x1aee
+  0x1AE9: mov          rax, r15
+  0x1AEC: jmp          0x1b26
+
+--- Function at offset 0x1971 ---
+  0x1971: push         rbp
+  0x1972: mov          edi, 0xfff3345
+  0x1977: push         rdi
+  0x1978: ror          byte ptr [rdi], 0x11
+  0x197B: out          0x66, eax
+  0x197E: movq         mm1, qword ptr [rip + 0x10556b]
+  0x1985: movdqu       xmmword ptr [rbp - 9], xmm1
+  0x198A: mov          word ptr [rbp - 0x19], 0x22
+  0x1990: mov          r8, 0xffffffffffffffff
+  0x1997: nop          word ptr [rax + rax]
+  0x19A0: inc          r8
+  0x19A3: cmp          byte ptr [rax + r8], 0
+  0x19A8: jne          0x19a0
+  0x19AA: mov          rdx, rax
+  0x19AD: lea          rcx, [rbp - 0x19]
+  0x19B1: call         0x5010
+  0x19B6: xorps        xmm0, xmm0
+  0x19B9: movups       xmmword ptr [rbp + 7], xmm0
+  0x19BD: xorps        xmm1, xmm1
+  0x19C0: movdqu       xmmword ptr [rbp + 0x17], xmm1
+  0x19C5: movups       xmm0, xmmword ptr [rax]
+  0x19C8: movups       xmmword ptr [rbp + 7], xmm0
+  0x19CC: movups       xmm1, xmmword ptr [rax + 0x10]
+  0x19D0: movups       xmmword ptr [rbp + 0x17], xmm1
+  0x19D4: mov          qword ptr [rax + 0x10], r15
+  0x19D8: mov          qword ptr [rax + 0x18], 0xf
+  0x19E0: mov          byte ptr [rax], 0
+  0x19E3: mov          r8d, 4
+  0x19E9: lea          rdx, [rip + 0xc42a4]
+  0x19F0: lea          rcx, [rbp + 7]
+  0x19F4: call         0x5010
+  0x19F9: xorps        xmm0, xmm0
+  0x19FC: movups       xmmword ptr [rbp - 0x39], xmm0
+  0x1A00: mov          qword ptr [rbp - 0x29], r15
+  0x1A04: mov          qword ptr [rbp - 0x21], r15
+  0x1A08: movups       xmm0, xmmword ptr [rax]
+  0x1A0B: movups       xmmword ptr [rbp - 0x39], xmm0
+  0x1A0F: movups       xmm1, xmmword ptr [rax + 0x10]
+  0x1A13: movups       xmmword ptr [rbp - 0x29], xmm1
+  0x1A17: mov          qword ptr [rax + 0x10], r15
+  0x1A1B: mov          qword ptr [rax + 0x18], 0xf
+  0x1A23: mov          byte ptr [rax], 0
+  0x1A26: mov          rdx, qword ptr [rbp + 0x1f]
+  0x1A2A: cmp          rdx, 0xf
+  0x1A2E: jbe          0x1a61
+  0x1A30: inc          rdx
+  0x1A33: mov          rcx, qword ptr [rbp + 7]
+  0x1A37: mov          rax, rcx
+  0x1A3A: cmp          rdx, 0x1000
+  0x1A41: jb           0x1a5c
+  0x1A43: add          rdx, 0x27
+  0x1A47: mov          rcx, qword ptr [rcx - 8]
+  0x1A4B: sub          rax, rcx
+  0x1A4E: sub          rax, 8
+  0x1A52: cmp          rax, 0x1f
+  0x1A56: ja           0x1c7f
+  0x1A5C: call         0x8aed0
+  0x1A61: movdqa       xmm1, xmmword ptr [rip + 0x105477]
+  0x1A69: movdqu       xmmword ptr [rbp + 0x17], xmm1
+  0x1A6E: mov          byte ptr [rbp + 7], 0
+  0x1A72: mov          rdx, qword ptr [rbp - 1]
+  0x1A76: cmp          rdx, 0xf
+  0x1A7A: jbe          0x1ab5
+  0x1A7C: inc          rdx
+  0x1A7F: mov          rcx, qword ptr [rbp - 0x19]
+  0x1A83: mov          rax, rcx
+  0x1A86: cmp          rdx, 0x1000
+  0x1A8D: jb           0x1aa8
+  0x1A8F: add          rdx, 0x27
+  0x1A93: mov          rcx, qword ptr [rcx - 8]
+  0x1A97: sub          rax, rcx
+  0x1A9A: sub          rax, 8
+  0x1A9E: cmp          rax, 0x1f
+  0x1AA2: ja           0x1c55
+  0x1AA8: call         0x8aed0
+  0x1AAD: movdqa       xmm1, xmmword ptr [rip + 0x10542b]
+  0x1AB5: mov          rsi, qword ptr [r14]
+  0x1AB8: mov          rdx, qword ptr [rbp - 0x29]
+  0x1ABC: lea          r8, [rbp - 0x39]
+  0x1AC0: mov          rcx, qword ptr [rbp - 0x21]
+  0x1AC4: cmp          rcx, 0xf
+  0x1AC8: cmova        r8, qword ptr [rbp - 0x39]
+  0x1ACD: mov          rax, qword ptr [rsi + 0x10]
+  0x1AD1: cmp          qword ptr [rsi + 0x18], 0xf
+  0x1AD6: jbe          0x1adb
+  0x1AD8: mov          rsi, qword ptr [rsi]
+  0x1ADB: cmp          rdx, rax
+  0x1ADE: ja           0x1c0f
+  0x1AE4: test         rdx, rdx
+  0x1AE7: jne          0x1aee
+  0x1AE9: mov          rax, r15
+  0x1AEC: jmp          0x1b26
+
+--- Function at offset 0x1982 ---
+  0x1982: push         rbp
+  0x1983: adc          byte ptr [rax], al
+  0x1985: movdqu       xmmword ptr [rbp - 9], xmm1
+  0x198A: mov          word ptr [rbp - 0x19], 0x22
+  0x1990: mov          r8, 0xffffffffffffffff
+  0x1997: nop          word ptr [rax + rax]
+  0x19A0: inc          r8
+  0x19A3: cmp          byte ptr [rax + r8], 0
+  0x19A8: jne          0x19a0
+  0x19AA: mov          rdx, rax
+  0x19AD: lea          rcx, [rbp - 0x19]
+  0x19B1: call         0x5010
+  0x19B6: xorps        xmm0, xmm0
+  0x19B9: movups       xmmword ptr [rbp + 7], xmm0
+  0x19BD: xorps        xmm1, xmm1
+  0x19C0: movdqu       xmmword ptr [rbp + 0x17], xmm1
+  0x19C5: movups       xmm0, xmmword ptr [rax]
+  0x19C8: movups       xmmword ptr [rbp + 7], xmm0
+  0x19CC: movups       xmm1, xmmword ptr [rax + 0x10]
+  0x19D0: movups       xmmword ptr [rbp + 0x17], xmm1
+  0x19D4: mov          qword ptr [rax + 0x10], r15
+  0x19D8: mov          qword ptr [rax + 0x18], 0xf
+  0x19E0: mov          byte ptr [rax], 0
+  0x19E3: mov          r8d, 4
+  0x19E9: lea          rdx, [rip + 0xc42a4]
+  0x19F0: lea          rcx, [rbp + 7]
+  0x19F4: call         0x5010
+  0x19F9: xorps        xmm0, xmm0
+  0x19FC: movups       xmmword ptr [rbp - 0x39], xmm0
+  0x1A00: mov          qword ptr [rbp - 0x29], r15
+  0x1A04: mov          qword ptr [rbp - 0x21], r15
+  0x1A08: movups       xmm0, xmmword ptr [rax]
+  0x1A0B: movups       xmmword ptr [rbp - 0x39], xmm0
+  0x1A0F: movups       xmm1, xmmword ptr [rax + 0x10]
+  0x1A13: movups       xmmword ptr [rbp - 0x29], xmm1
+  0x1A17: mov          qword ptr [rax + 0x10], r15
+  0x1A1B: mov          qword ptr [rax + 0x18], 0xf
+  0x1A23: mov          byte ptr [rax], 0
+  0x1A26: mov          rdx, qword ptr [rbp + 0x1f]
+  0x1A2A: cmp          rdx, 0xf
+  0x1A2E: jbe          0x1a61
+  0x1A30: inc          rdx
+  0x1A33: mov          rcx, qword ptr [rbp + 7]
+  0x1A37: mov          rax, rcx
+  0x1A3A: cmp          rdx, 0x1000
+  0x1A41: jb           0x1a5c
+  0x1A43: add          rdx, 0x27
+  0x1A47: mov          rcx, qword ptr [rcx - 8]
+  0x1A4B: sub          rax, rcx
+  0x1A4E: sub          rax, 8
+  0x1A52: cmp          rax, 0x1f
+  0x1A56: ja           0x1c7f
+  0x1A5C: call         0x8aed0
+  0x1A61: movdqa       xmm1, xmmword ptr [rip + 0x105477]
+  0x1A69: movdqu       xmmword ptr [rbp + 0x17], xmm1
+  0x1A6E: mov          byte ptr [rbp + 7], 0
+  0x1A72: mov          rdx, qword ptr [rbp - 1]
+  0x1A76: cmp          rdx, 0xf
+  0x1A7A: jbe          0x1ab5
+  0x1A7C: inc          rdx
+  0x1A7F: mov          rcx, qword ptr [rbp - 0x19]
+  0x1A83: mov          rax, rcx
+  0x1A86: cmp          rdx, 0x1000
+  0x1A8D: jb           0x1aa8
+  0x1A8F: add          rdx, 0x27
+  0x1A93: mov          rcx, qword ptr [rcx - 8]
+  0x1A97: sub          rax, rcx
+  0x1A9A: sub          rax, 8
+  0x1A9E: cmp          rax, 0x1f
+  0x1AA2: ja           0x1c55
+  0x1AA8: call         0x8aed0
+  0x1AAD: movdqa       xmm1, xmmword ptr [rip + 0x10542b]
+  0x1AB5: mov          rsi, qword ptr [r14]
+  0x1AB8: mov          rdx, qword ptr [rbp - 0x29]
+  0x1ABC: lea          r8, [rbp - 0x39]
+  0x1AC0: mov          rcx, qword ptr [rbp - 0x21]
+  0x1AC4: cmp          rcx, 0xf
+  0x1AC8: cmova        r8, qword ptr [rbp - 0x39]
+  0x1ACD: mov          rax, qword ptr [rsi + 0x10]
+  0x1AD1: cmp          qword ptr [rsi + 0x18], 0xf
+  0x1AD6: jbe          0x1adb
+  0x1AD8: mov          rsi, qword ptr [rsi]
+  0x1ADB: cmp          rdx, rax
+  0x1ADE: ja           0x1c0f
+  0x1AE4: test         rdx, rdx
+  0x1AE7: jne          0x1aee
+  0x1AE9: mov          rax, r15
+  0x1AEC: jmp          0x1b26
+
+--- Function at offset 0x1A28 ---
+  0x1A28: push         rbp
+
+--- Function at offset 0x1A74 ---
+  0x1A74: push         rbp
+  0x1A75: dec          dword ptr [rax - 0x7d]
+  0x1A78: cli          
+  0x1A79: pcmpeqd      mm7, qword ptr [rcx]
+  0x1A7C: inc          rdx
+  0x1A7F: mov          rcx, qword ptr [rbp - 0x19]
+  0x1A83: mov          rax, rcx
+  0x1A86: cmp          rdx, 0x1000
+  0x1A8D: jb           0x1aa8
+  0x1A8F: add          rdx, 0x27
+  0x1A93: mov          rcx, qword ptr [rcx - 8]
+  0x1A97: sub          rax, rcx
+  0x1A9A: sub          rax, 8
+  0x1A9E: cmp          rax, 0x1f
+  0x1AA2: ja           0x1c55
+  0x1AA8: call         0x8aed0
+  0x1AAD: movdqa       xmm1, xmmword ptr [rip + 0x10542b]
+  0x1AB5: mov          rsi, qword ptr [r14]
+  0x1AB8: mov          rdx, qword ptr [rbp - 0x29]
+  0x1ABC: lea          r8, [rbp - 0x39]
+  0x1AC0: mov          rcx, qword ptr [rbp - 0x21]
+  0x1AC4: cmp          rcx, 0xf
+  0x1AC8: cmova        r8, qword ptr [rbp - 0x39]
+  0x1ACD: mov          rax, qword ptr [rsi + 0x10]
+  0x1AD1: cmp          qword ptr [rsi + 0x18], 0xf
+  0x1AD6: jbe          0x1adb
+  0x1AD8: mov          rsi, qword ptr [rsi]
+  0x1ADB: cmp          rdx, rax
+  0x1ADE: ja           0x1c0f
+  0x1AE4: test         rdx, rdx
+  0x1AE7: jne          0x1aee
+  0x1AE9: mov          rax, r15
+  0x1AEC: jmp          0x1b26
+
+--- Function at offset 0x1ABA ---
+  0x1ABA: push         rbp
+  0x1ABB: xlatb        
+  0x1ABC: lea          r8, [rbp - 0x39]
+  0x1AC0: mov          rcx, qword ptr [rbp - 0x21]
+  0x1AC4: cmp          rcx, 0xf
+  0x1AC8: cmova        r8, qword ptr [rbp - 0x39]
+  0x1ACD: mov          rax, qword ptr [rsi + 0x10]
+  0x1AD1: cmp          qword ptr [rsi + 0x18], 0xf
+  0x1AD6: jbe          0x1adb
+  0x1AD8: mov          rsi, qword ptr [rsi]
+  0x1ADB: cmp          rdx, rax
+  0x1ADE: ja           0x1c0f
+  0x1AE4: test         rdx, rdx
+  0x1AE7: jne          0x1aee
+  0x1AE9: mov          rax, r15
+  0x1AEC: jmp          0x1b26
+
+--- Function at offset 0x1B1C ---
+  0x1B1C: push         rbp
+  0x1B1D: xlatb        
+  0x1B1E: movdqa       xmm1, xmmword ptr [rip + 0x1053ba]
+  0x1B26: lea          rbx, [rdx + rax]
+  0x1B2A: xorps        xmm0, xmm0
+  0x1B2D: movups       xmmword ptr [rbp - 0x19], xmm0
+  0x1B31: movdqu       xmmword ptr [rbp - 9], xmm1
+  0x1B36: mov          byte ptr [rbp - 0x19], 0
+  0x1B3A: mov          rax, qword ptr [r14]
+  0x1B3D: cmp          rbx, qword ptr [rax + 0x10]
+  0x1B41: jae          0x1ba2
+  0x1B43: mov          rcx, rax
+  0x1B46: mov          rdx, qword ptr [rax + 0x18]
+  0x1B4A: cmp          rdx, 0xf
+  0x1B4E: jbe          0x1b53
+  0x1B50: mov          rcx, qword ptr [rax]
+  0x1B53: cmp          byte ptr [rcx + rbx], 0x22
+  0x1B57: je           0x1b99
+  0x1B59: mov          rcx, rax
+  0x1B5C: cmp          rdx, 0xf
+  0x1B60: jbe          0x1b65
+  0x1B62: mov          rcx, qword ptr [rax]
+  0x1B65: cmp          byte ptr [rcx + rbx], 0x5c
+  0x1B69: jne          0x1b77
+  0x1B6B: lea          rcx, [rbx + 1]
+  0x1B6F: cmp          rcx, qword ptr [rax + 0x10]
+  0x1B73: cmovb        rbx, rcx
+  0x1B77: cmp          rdx, 0xf
+  0x1B7B: jbe          0x1b80
+  0x1B7D: mov          rax, qword ptr [rax]
+  0x1B80: movzx        edx, byte ptr [rax + rbx]
+  0x1B84: inc          rbx
+  0x1B87: lea          rcx, [rbp - 0x19]
+  0x1B8B: call         0x4eb0
+  0x1B90: mov          rax, qword ptr [r14]
+  0x1B93: cmp          rbx, qword ptr [rax + 0x10]
+  0x1B97: jb           0x1b43
+  0x1B99: mov          rcx, qword ptr [rbp - 0x21]
+  0x1B9D: movdqu       xmm1, xmmword ptr [rbp - 9]
+  0x1BA2: movups       xmm0, xmmword ptr [rbp - 0x19]
+  0x1BA6: movups       xmmword ptr [rdi], xmm0
+  0x1BA9: movups       xmmword ptr [rdi + 0x10], xmm1
+  0x1BAD: cmp          rcx, 0xf
+  0x1BB1: jbe          0x1be5
+  0x1BB3: lea          rdx, [rcx + 1]
+  0x1BB7: mov          rcx, qword ptr [rbp - 0x39]
+  0x1BBB: mov          rax, rcx
+  0x1BBE: cmp          rdx, 0x1000
+  0x1BC5: jb           0x1be0
+  0x1BC7: add          rdx, 0x27
+  0x1BCB: mov          rcx, qword ptr [rcx - 8]
+  0x1BCF: sub          rax, rcx
+  0x1BD2: sub          rax, 8
+  0x1BD6: cmp          rax, 0x1f
+  0x1BDA: ja           0x1c6a
+  0x1BE0: call         0x8aed0
+  0x1BE5: mov          rax, rdi
+  0x1BE8: mov          rcx, qword ptr [rbp + 0x27]
+  0x1BEC: xor          rcx, rsp
+  0x1BEF: call         0x8a9e0
+  0x1BF4: mov          rbx, qword ptr [rsp + 0xf8]
+  0x1BFC: add          rsp, 0xb0
+  0x1C03: pop          r15
+  0x1C05: pop          r14
+  0x1C07: pop          rdi
+  0x1C08: pop          rsi
+  0x1C09: pop          rbp
+  0x1C0A: ret          
+
+--- Function at offset 0x1CA0 ---
+  0x1CA0: mov          qword ptr [rsp + 0x18], rbx
+  0x1CA5: mov          qword ptr [rsp + 0x20], rsi
+  0x1CAA: push         rbp
+  0x1CAB: push         rdi
+  0x1CAC: push         r14
+  0x1CAE: lea          rbp, [rsp - 0x47]
+  0x1CB3: sub          rsp, 0xa0
+  0x1CBA: mov          rax, qword ptr [rip + 0x1183bf]
+  0x1CC1: xor          rax, rsp
+  0x1CC4: mov          qword ptr [rbp + 0x3f], rax
+  0x1CC8: mov          rsi, rcx
+  0x1CCB: xor          r14d, r14d
+  0x1CCE: xorps        xmm0, xmm0
+  0x1CD1: movups       xmmword ptr [rbp + 0x1f], xmm0
+  0x1CD5: movdqa       xmm1, xmmword ptr [rip + 0x105213]
+  0x1CDD: movdqu       xmmword ptr [rbp + 0x2f], xmm1
+  0x1CE2: mov          word ptr [rbp + 0x1f], 0x22
+  0x1CE8: mov          r8, 0xffffffffffffffff
+  0x1CEF: nop          
+  0x1CF0: inc          r8
+  0x1CF3: cmp          byte ptr [rdx + r8], 0
+  0x1CF8: jne          0x1cf0
+  0x1CFA: lea          rcx, [rbp + 0x1f]
+  0x1CFE: call         0x5010
+  0x1D03: xorps        xmm0, xmm0
+  0x1D06: movups       xmmword ptr [rbp - 1], xmm0
+  0x1D0A: xorps        xmm1, xmm1
+  0x1D0D: movdqu       xmmword ptr [rbp + 0xf], xmm1
+  0x1D12: movups       xmm0, xmmword ptr [rax]
+  0x1D15: movups       xmmword ptr [rbp - 1], xmm0
+  0x1D19: movups       xmm1, xmmword ptr [rax + 0x10]
+  0x1D1D: movups       xmmword ptr [rbp + 0xf], xmm1
+  0x1D21: mov          qword ptr [rax + 0x10], r14
+  0x1D25: mov          qword ptr [rax + 0x18], 0xf
+  0x1D2D: mov          byte ptr [rax], 0
+  0x1D30: mov          r8d, 3
+  0x1D36: lea          rdx, [rip + 0xc3f63]
+  0x1D3D: lea          rcx, [rbp - 1]
+  0x1D41: call         0x5010
+  0x1D46: xorps        xmm0, xmm0
+  0x1D49: movups       xmmword ptr [rbp - 0x21], xmm0
+  0x1D4D: mov          qword ptr [rbp - 0x11], r14
+  0x1D51: mov          qword ptr [rbp - 9], r14
+  0x1D55: movups       xmm0, xmmword ptr [rax]
+  0x1D58: movups       xmmword ptr [rbp - 0x21], xmm0
+  0x1D5C: movups       xmm1, xmmword ptr [rax + 0x10]
+  0x1D60: movups       xmmword ptr [rbp - 0x11], xmm1
+  0x1D64: mov          qword ptr [rax + 0x10], r14
+  0x1D68: mov          qword ptr [rax + 0x18], 0xf
+  0x1D70: mov          byte ptr [rax], 0
+  0x1D73: mov          rdx, qword ptr [rbp + 0x17]
+  0x1D77: cmp          rdx, 0xf
+  0x1D7B: jbe          0x1dae
+  0x1D7D: inc          rdx
+  0x1D80: mov          rcx, qword ptr [rbp - 1]
+  0x1D84: mov          rax, rcx
+  0x1D87: cmp          rdx, 0x1000
+  0x1D8E: jb           0x1da9
+  0x1D90: add          rdx, 0x27
+  0x1D94: mov          rcx, qword ptr [rcx - 8]
+  0x1D98: sub          rax, rcx
+  0x1D9B: sub          rax, 8
+  0x1D9F: cmp          rax, 0x1f
+  0x1DA3: ja           0x1ef3
+  0x1DA9: call         0x8aed0
+  0x1DAE: movdqa       xmm0, xmmword ptr [rip + 0x10512a]
+  0x1DB6: movdqu       xmmword ptr [rbp + 0xf], xmm0
+  0x1DBB: mov          byte ptr [rbp - 1], 0
+  0x1DBF: mov          rdx, qword ptr [rbp + 0x37]
+  0x1DC3: cmp          rdx, 0xf
+  0x1DC7: jbe          0x1dfa
+  0x1DC9: inc          rdx
+  0x1DCC: mov          rcx, qword ptr [rbp + 0x1f]
+  0x1DD0: mov          rax, rcx
+  0x1DD3: cmp          rdx, 0x1000
+  0x1DDA: jb           0x1df5
+  0x1DDC: add          rdx, 0x27
+  0x1DE0: mov          rcx, qword ptr [rcx - 8]
+  0x1DE4: sub          rax, rcx
+  0x1DE7: sub          rax, 8
+  0x1DEB: cmp          rax, 0x1f
+  0x1DEF: ja           0x1f08
+  0x1DF5: call         0x8aed0
+  0x1DFA: mov          rdi, qword ptr [rsi]
+  0x1DFD: mov          rcx, qword ptr [rbp - 0x11]
+  0x1E01: lea          r8, [rbp - 0x21]
+  0x1E05: mov          rax, qword ptr [rbp - 9]
+  0x1E09: cmp          rax, 0xf
+  0x1E0D: cmova        r8, qword ptr [rbp - 0x21]
+  0x1E12: mov          rdx, qword ptr [rdi + 0x10]
+  0x1E16: cmp          qword ptr [rdi + 0x18], 0xf
+  0x1E1B: jbe          0x1e20
+  0x1E1D: mov          rdi, qword ptr [rdi]
+  0x1E20: cmp          rcx, rdx
+  0x1E23: ja           0x1e80
+  0x1E25: test         rcx, rcx
+  0x1E28: jne          0x1e2f
+  0x1E2A: mov          rax, r14
+  0x1E2D: jmp          0x1e53
+
+--- Function at offset 0x1CAA ---
+  0x1CAA: push         rbp
+  0x1CAB: push         rdi
+  0x1CAC: push         r14
+  0x1CAE: lea          rbp, [rsp - 0x47]
+  0x1CB3: sub          rsp, 0xa0
+  0x1CBA: mov          rax, qword ptr [rip + 0x1183bf]
+  0x1CC1: xor          rax, rsp
+  0x1CC4: mov          qword ptr [rbp + 0x3f], rax
+  0x1CC8: mov          rsi, rcx
+  0x1CCB: xor          r14d, r14d
+  0x1CCE: xorps        xmm0, xmm0
+  0x1CD1: movups       xmmword ptr [rbp + 0x1f], xmm0
+  0x1CD5: movdqa       xmm1, xmmword ptr [rip + 0x105213]
+  0x1CDD: movdqu       xmmword ptr [rbp + 0x2f], xmm1
+  0x1CE2: mov          word ptr [rbp + 0x1f], 0x22
+  0x1CE8: mov          r8, 0xffffffffffffffff
+  0x1CEF: nop          
+  0x1CF0: inc          r8
+  0x1CF3: cmp          byte ptr [rdx + r8], 0
+  0x1CF8: jne          0x1cf0
+  0x1CFA: lea          rcx, [rbp + 0x1f]
+  0x1CFE: call         0x5010
+  0x1D03: xorps        xmm0, xmm0
+  0x1D06: movups       xmmword ptr [rbp - 1], xmm0
+  0x1D0A: xorps        xmm1, xmm1
+  0x1D0D: movdqu       xmmword ptr [rbp + 0xf], xmm1
+  0x1D12: movups       xmm0, xmmword ptr [rax]
+  0x1D15: movups       xmmword ptr [rbp - 1], xmm0
+  0x1D19: movups       xmm1, xmmword ptr [rax + 0x10]
+  0x1D1D: movups       xmmword ptr [rbp + 0xf], xmm1
+  0x1D21: mov          qword ptr [rax + 0x10], r14
+  0x1D25: mov          qword ptr [rax + 0x18], 0xf
+  0x1D2D: mov          byte ptr [rax], 0
+  0x1D30: mov          r8d, 3
+  0x1D36: lea          rdx, [rip + 0xc3f63]
+  0x1D3D: lea          rcx, [rbp - 1]
+  0x1D41: call         0x5010
+  0x1D46: xorps        xmm0, xmm0
+  0x1D49: movups       xmmword ptr [rbp - 0x21], xmm0
+  0x1D4D: mov          qword ptr [rbp - 0x11], r14
+  0x1D51: mov          qword ptr [rbp - 9], r14
+  0x1D55: movups       xmm0, xmmword ptr [rax]
+  0x1D58: movups       xmmword ptr [rbp - 0x21], xmm0
+  0x1D5C: movups       xmm1, xmmword ptr [rax + 0x10]
+  0x1D60: movups       xmmword ptr [rbp - 0x11], xmm1
+  0x1D64: mov          qword ptr [rax + 0x10], r14
+  0x1D68: mov          qword ptr [rax + 0x18], 0xf
+  0x1D70: mov          byte ptr [rax], 0
+  0x1D73: mov          rdx, qword ptr [rbp + 0x17]
+  0x1D77: cmp          rdx, 0xf
+  0x1D7B: jbe          0x1dae
+  0x1D7D: inc          rdx
+  0x1D80: mov          rcx, qword ptr [rbp - 1]
+  0x1D84: mov          rax, rcx
+  0x1D87: cmp          rdx, 0x1000
+  0x1D8E: jb           0x1da9
+  0x1D90: add          rdx, 0x27
+  0x1D94: mov          rcx, qword ptr [rcx - 8]
+  0x1D98: sub          rax, rcx
+  0x1D9B: sub          rax, 8
+  0x1D9F: cmp          rax, 0x1f
+  0x1DA3: ja           0x1ef3
+  0x1DA9: call         0x8aed0
+  0x1DAE: movdqa       xmm0, xmmword ptr [rip + 0x10512a]
+  0x1DB6: movdqu       xmmword ptr [rbp + 0xf], xmm0
+  0x1DBB: mov          byte ptr [rbp - 1], 0
+  0x1DBF: mov          rdx, qword ptr [rbp + 0x37]
+  0x1DC3: cmp          rdx, 0xf
+  0x1DC7: jbe          0x1dfa
+  0x1DC9: inc          rdx
+  0x1DCC: mov          rcx, qword ptr [rbp + 0x1f]
+  0x1DD0: mov          rax, rcx
+  0x1DD3: cmp          rdx, 0x1000
+  0x1DDA: jb           0x1df5
+  0x1DDC: add          rdx, 0x27
+  0x1DE0: mov          rcx, qword ptr [rcx - 8]
+  0x1DE4: sub          rax, rcx
+  0x1DE7: sub          rax, 8
+  0x1DEB: cmp          rax, 0x1f
+  0x1DEF: ja           0x1f08
+  0x1DF5: call         0x8aed0
+  0x1DFA: mov          rdi, qword ptr [rsi]
+  0x1DFD: mov          rcx, qword ptr [rbp - 0x11]
+  0x1E01: lea          r8, [rbp - 0x21]
+  0x1E05: mov          rax, qword ptr [rbp - 9]
+  0x1E09: cmp          rax, 0xf
+  0x1E0D: cmova        r8, qword ptr [rbp - 0x21]
+  0x1E12: mov          rdx, qword ptr [rdi + 0x10]
+  0x1E16: cmp          qword ptr [rdi + 0x18], 0xf
+  0x1E1B: jbe          0x1e20
+  0x1E1D: mov          rdi, qword ptr [rdi]
+  0x1E20: cmp          rcx, rdx
+  0x1E23: ja           0x1e80
+  0x1E25: test         rcx, rcx
+  0x1E28: jne          0x1e2f
+  0x1E2A: mov          rax, r14
+  0x1E2D: jmp          0x1e53
+
+--- Function at offset 0x1D75 ---
+  0x1D75: push         rbp
+
+--- Function at offset 0x1DC1 ---
+  0x1DC1: push         rbp
+
+--- Function at offset 0x1F20 ---
+  0x1F20: mov          qword ptr [rsp + 8], rbx
+  0x1F25: push         rdi
+  0x1F26: sub          rsp, 0x20
+  0x1F2A: xor          edi, edi
+  0x1F2C: mov          rbx, rcx
+  0x1F2F: mov          qword ptr [rcx], rdi
+  0x1F32: xor          edx, edx
+  0x1F34: mov          qword ptr [rcx + 8], rdi
+  0x1F38: mov          r8d, 0xc88
+  0x1F3E: mov          qword ptr [rcx + 0x10], rdi
+  0x1F42: mov          qword ptr [rcx + 0x18], rdi
+  0x1F46: mov          qword ptr [rcx + 0x20], rdi
+  0x1F4A: mov          qword ptr [rcx + 0x28], rdi
+  0x1F4E: mov          qword ptr [rcx + 0x30], rdi
+  0x1F52: mov          qword ptr [rcx + 0x38], rdi
+  0x1F56: mov          qword ptr [rcx + 0x40], rdi
+  0x1F5A: add          rcx, 0x48
+  0x1F5E: call         0xb55a0
+  0x1F63: xorps        xmm0, xmm0
+  0x1F66: mov          qword ptr [rbx + 0xcd0], rdi
+  0x1F6D: mov          qword ptr [rbx + 0xcd8], rdi
+  0x1F74: lea          rcx, [rbx + 0xd58]
+  0x1F7B: mov          qword ptr [rbx + 0xce0], rdi
+  0x1F82: xor          edx, edx
+  0x1F84: mov          qword ptr [rbx + 0xce8], rdi
+  0x1F8B: mov          r8d, 0x100
+  0x1F91: mov          qword ptr [rbx + 0xcf0], rdi
+  0x1F98: mov          qword ptr [rbx + 0xcf8], rdi
+  0x1F9F: mov          qword ptr [rbx + 0xd00], rdi
+  0x1FA6: mov          byte ptr [rbx + 0xd08], dil
+  0x1FAD: mov          qword ptr [rbx + 0xd10], rdi
+  0x1FB4: movups       xmmword ptr [rbx + 0xd18], xmm0
+  0x1FBB: movups       xmmword ptr [rbx + 0xd28], xmm0
+  0x1FC2: movups       xmmword ptr [rbx + 0xd38], xmm0
+  0x1FC9: movups       xmmword ptr [rbx + 0xd48], xmm0
+  0x1FD0: call         0xb55a0
+  0x1FD5: mov          dword ptr [rbx + 0xe58], 0xffffffff
+  0x1FDF: xorps        xmm0, xmm0
+  0x1FE2: mov          dword ptr [rbx + 0xe5c], edi
+  0x1FE8: mov          byte ptr [rbx + 0xe60], dil
+  0x1FEF: movzx        eax, word ptr [rip + 0xc3cae]
+  0x1FF6: mov          word ptr [rbx + 0xe61], ax
+  0x1FFD: movzx        eax, byte ptr [rip + 0xc3ca2]
+
+================================================================================
+5. CROSS-REFERENCES (CALL/JMP graph)
+================================================================================
+
+CALL instructions found: 10489
+JMP instructions found:  31917
+
+Top 30 most-called targets:
+   1. 0x000B4D80 called 258 times
+   2. 0x0008AED0 called 236 times
+   3. 0x000917C8 called 184 times
+   4. 0x0008A9E0 called 175 times
+   5. 0x000A34D0 called 173 times
+   6. 0x0009E558 called 172 times
+   7. 0x00005D70 called 164 times
+   8. 0x00004E30 called 147 times
+   9. 0x000B55A0 called 144 times
+  10. 0x00097040 called 130 times
+  11. 0x00005D90 called 129 times
+  12. 0x00089B94 called 120 times
+  13. 0x000917A8 called 113 times
+  14. 0x0008D424 called 109 times
+  15. 0x000147B0 called 101 times
+  16. 0x00039360 called 98 times
+  17. 0x000392F0 called 98 times
+  18. 0x00072A30 called 86 times
+  19. 0x00056060 called 81 times
+  20. 0x00005CE0 called 80 times
+  21. 0x0006F390 called 76 times
+  22. 0x00038BD0 called 67 times
+  23. 0x000001D0 called 64 times
+  24. 0x00005010 called 62 times
+  25. 0x0004CB30 called 61 times
+  26. 0x0004CCA0 called 59 times
+  27. 0x00055520 called 59 times
+  28. 0x000562D0 called 58 times
+  29. 0x0008A5A0 called 54 times
+  30. 0x0004C140 called 54 times
+
+Call graph (first 30 callers):
+  0x00000004 -> [0x00000480]
+  0x000000B9 -> [0x0008AB24]
+  0x000000F9 -> [0x0008AB24]
+  0x00000167 -> [0x0008A880]
+  0x000001AB -> [0x0008A880]
+  0x000001F0 -> [0x000001C0]
+  0x00000213 -> [0x00094F7C]
+  0x00000254 -> [0x0008C920]
+  0x000002AD -> [0x0008C9A0]
+  0x000002BF -> [0x0008AED0]
+  0x00000339 -> [0x00000300]
+  0x0000034A -> [0x0008D258]
+  0x00000374 -> [0x0008C920]
+  0x000003B4 -> [0x0008C920]
+  0x000003DB -> [0x00089DB4]
+  0x000003FD -> [0x000B8EA5]
+  0x0000040C -> [0x00089C40]
+  0x0000042F -> [0x000952F0]
+  0x0000045C -> [0x0008A7F0]
+  0x00000476 -> [0x00089B94]
+  0x00000770 -> [0x00005CE0]
+  0x00000796 -> [0x00005A70]
+  0x000007C1 -> [0x000058C0]
+  0x0000082A -> [0x0008A598]
+  0x00000851 -> [0x000B55A0]
+  0x00000864 -> [0x000B5940]
+  0x00000871 -> [0x000B8BF9]
+  0x0000090A -> [0x000053B0]
+  0x0000094D -> [0x000B4D80]
+  0x00000960 -> [0x0008A5A0]
+
+================================================================================
+6. STRING REFERENCES WITH RVA AND CONTEXT
+================================================================================
+
+Total ASCII strings (>=4 chars): 11663
+Filtered real-looking strings:   9521
+
+String references with RVA and 64-byte context:
+
+  RVA 0x000001D7 [  8 chars]: "L$ SUVWH"
+    Context hex: 48 83 C4 28 E9 F8 AC 08 00 48 8D 05 91 DF 11 00 C3 CC CC CC CC CC CC CC CC 4C 89 44 24 18 4C 89 4C 24 20 53 55 56 57 48 83 EC 38 49 8B F0 48 8D 6C 24 78 48 8B D...
+
+  RVA 0x000001E7 [  4 chars]: "l$xH"
+    Context hex: C3 CC CC CC CC CC CC CC CC 4C 89 44 24 18 4C 89 4C 24 20 53 55 56 57 48 83 EC 38 49 8B F0 48 8D 6C 24 78 48 8B DA 48 8B F9 E8 CB FF FF FF 48 89 6C 24 28 4C 8B C...
+
+  RVA 0x000001F7 [  4 chars]: "l$(L"
+    Context hex: 4C 24 20 53 55 56 57 48 83 EC 38 49 8B F0 48 8D 6C 24 78 48 8B DA 48 8B F9 E8 CB FF FF FF 48 89 6C 24 28 4C 8B CE 4C 8B C3 48 C7 44 24 20 00 00 00 00 48 8B D7 4...
+
+  RVA 0x0000048C [  4 chars]: "t$ H"
+    Context hex: 83 C4 30 5B C3 B9 01 00 00 00 E8 19 97 08 00 CC CC CC CC CC 48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 48 89 4C 24 08 57 41 56 41 57 48 83 EC 20 4C 8D 3D 7C 2...
+
+  RVA 0x00000494 [  6 chars]: "WAVAWH"
+    Context hex: 00 00 E8 19 97 08 00 CC CC CC CC CC 48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 48 89 4C 24 08 57 41 56 41 57 48 83 EC 20 4C 8D 3D 7C 2C 37 00 4C 89 7C 24 40 6...
+
+  RVA 0x000007CC [  4 chars]: "\$HH"
+    Context hex: 75 E2 41 B9 02 00 00 00 4C 8B C6 49 8B D6 48 8D 0D B7 29 37 00 E8 FA 50 00 00 90 49 8B C7 48 8B 5C 24 48 48 8B 6C 24 50 48 8B 74 24 58 48 83 C4 20 41 5F 41 5E 5...
+
+  RVA 0x000007D1 [  4 chars]: "l$PH"
+    Context hex: 00 00 00 4C 8B C6 49 8B D6 48 8D 0D B7 29 37 00 E8 FA 50 00 00 90 49 8B C7 48 8B 5C 24 48 48 8B 6C 24 50 48 8B 74 24 58 48 83 C4 20 41 5F 41 5E 5F C3 CC CC CC C...
+
+  RVA 0x000007D6 [  4 chars]: "t$XH"
+    Context hex: C6 49 8B D6 48 8D 0D B7 29 37 00 E8 FA 50 00 00 90 49 8B C7 48 8B 5C 24 48 48 8B 6C 24 50 48 8B 74 24 58 48 83 C4 20 41 5F 41 5E 5F C3 CC CC CC CC CC CC CC CC C...
+
+  RVA 0x000007DC [  6 chars]: " A_A^_"
+    Context hex: 0D B7 29 37 00 E8 FA 50 00 00 90 49 8B C7 48 8B 5C 24 48 48 8B 6C 24 50 48 8B 74 24 58 48 83 C4 20 41 5F 41 5E 5F C3 CC CC CC CC CC CC CC CC CC CC CC CC CC 48 8...
+
+  RVA 0x000007F5 [  4 chars]: "UVWH"
+    Context hex: 8B 74 24 58 48 83 C4 20 41 5F 41 5E 5F C3 CC CC CC CC CC CC CC CC CC CC CC CC CC 48 89 5C 24 18 55 56 57 48 81 EC 50 01 00 00 48 8B 05 7A 98 11 00 48 33 C4 48 8...
+
+  RVA 0x00000904 [  4 chars]: "D$0H"
+    Context hex: F0 48 8D 80 80 00 00 00 48 83 E9 01 75 AE 0F 10 00 0F 11 02 48 81 47 08 10 01 00 00 EB 0D 4C 8D 44 24 30 48 8B CF E8 A1 4A 00 00 4C 8B 0F 4C 8B 47 08 49 8B C8 4...
+
+  RVA 0x000009B5 [  4 chars]: "UVWH"
+    Context hex: FB 91 08 00 CC B9 05 00 00 00 E8 F0 91 08 00 CC CC CC CC CC CC CC CC CC CC CC CC 48 89 5C 24 18 55 56 57 48 81 EC 50 01 00 00 48 8B 05 BA 96 11 00 48 33 C4 48 8...
+
+  RVA 0x00000AC4 [  4 chars]: "D$0H"
+    Context hex: F0 48 8D 80 80 00 00 00 48 83 E9 01 75 AE 0F 10 00 0F 11 02 48 81 47 08 10 01 00 00 EB 0D 4C 8D 44 24 30 48 8B CF E8 E1 48 00 00 4C 8B 0F 4C 8B 47 08 49 8B C8 4...
+
+  RVA 0x00000B7C [  4 chars]: "t$ H"
+    Context hex: E8 33 90 08 00 CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC 48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 48 89 4C 24 08 57 41 54 41 55 41 56 41 57 48 83 EC 40 4...
+
+  RVA 0x00000B84 [ 10 chars]: "WATAUAVAWH"
+    Context hex: CC CC CC CC CC CC CC CC CC CC CC CC 48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 48 89 4C 24 08 57 41 54 41 55 41 56 41 57 48 83 EC 40 48 8B FA 48 8B D9 33 ED 8...
+
+  RVA 0x00000B9A [  4 chars]: "l$0H"
+    Context hex: 48 89 74 24 20 48 89 4C 24 08 57 41 54 41 55 41 56 41 57 48 83 EC 40 48 8B FA 48 8B D9 33 ED 89 6C 24 30 48 89 29 48 89 69 08 48 89 69 10 C7 44 24 30 01 00 00 0...
+
+  RVA 0x00000D8B [  9 chars]: "A_A^A]A\_"
+    Context hex: 3B 47 10 0F 82 BF FE FF FF 48 8B C3 4C 8D 5C 24 40 49 8B 5B 38 49 8B 6B 40 49 8B 73 48 49 8B E3 41 5F 41 5E 41 5D 41 5C 5F C3 48 89 6C 24 20 45 33 C9 45 33 C0 3...
+
+  RVA 0x00000D97 [  5 chars]: "l$ E3"
+    Context hex: 4C 8D 5C 24 40 49 8B 5B 38 49 8B 6B 40 49 8B 73 48 49 8B E3 41 5F 41 5E 41 5D 41 5C 5F C3 48 89 6C 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 1F 0A 09 00 CC E8 E1 3...
+
+  RVA 0x00000DBA [  9 chars]: "UWATAVAWH"
+    Context hex: 45 33 C9 45 33 C0 33 D2 33 C9 E8 1F 0A 09 00 CC E8 E1 3F 00 00 CC 48 89 5C 24 10 48 89 74 24 18 55 57 41 54 41 56 41 57 48 8D AC 24 40 FD FF FF 48 81 EC C0 03 0...
+
+  RVA 0x00000DE7 [  5 chars]: "L$HE3"
+    Context hex: FD FF FF 48 81 EC C0 03 00 00 48 8B 05 A8 92 11 00 48 33 C4 48 89 85 B0 02 00 00 48 8B F1 48 89 4C 24 48 45 33 E4 48 8B 1D 5C D3 11 00 48 85 DB 75 32 0F 57 C0 0...
+
+  RVA 0x00000E5A [  4 chars]: "D$PL"
+    Context hex: E8 61 47 0B 00 41 B8 04 01 00 00 48 8D 95 A0 00 00 00 48 8B CB FF 15 C3 85 0B 00 0F 57 C0 0F 11 44 24 50 4C 89 64 24 60 4C 89 64 24 68 48 8D 85 A0 00 00 00 48 C...
+
+  RVA 0x00000E5F [  4 chars]: "d$`L"
+    Context hex: 41 B8 04 01 00 00 48 8D 95 A0 00 00 00 48 8B CB FF 15 C3 85 0B 00 0F 57 C0 0F 11 44 24 50 4C 89 64 24 60 4C 89 64 24 68 48 8D 85 A0 00 00 00 48 C7 C7 FF FF FF F...
+
+  RVA 0x00000E64 [  4 chars]: "d$hH"
+    Context hex: 00 48 8D 95 A0 00 00 00 48 8B CB FF 15 C3 85 0B 00 0F 57 C0 0F 11 44 24 50 4C 89 64 24 60 4C 89 64 24 68 48 8D 85 A0 00 00 00 48 C7 C7 FF FF FF FF 4C 8B C7 0F 1...
+
+  RVA 0x00000E83 [  6 chars]: "fF9$@u"
+    Context hex: 89 64 24 68 48 8D 85 A0 00 00 00 48 C7 C7 FF FF FF FF 4C 8B C7 0F 1F 84 00 00 00 00 00 49 FF C0 66 46 39 24 40 75 F6 48 8D 95 A0 00 00 00 48 8D 4C 24 50 E8 D5 3...
+
+  RVA 0x00000E9E [  4 chars]: "t$PH"
+    Context hex: 00 00 49 FF C0 66 46 39 24 40 75 F6 48 8D 95 A0 00 00 00 48 8D 4C 24 50 E8 D5 3C 00 00 90 4C 8D 74 24 50 48 8B 5C 24 50 4C 8B 7C 24 68 49 83 FF 07 4C 0F 47 F3 4...
+
+  RVA 0x00000EA3 [  4 chars]: "\$PL"
+    Context hex: 66 46 39 24 40 75 F6 48 8D 95 A0 00 00 00 48 8D 4C 24 50 E8 D5 3C 00 00 90 4C 8D 74 24 50 48 8B 5C 24 50 4C 8B 7C 24 68 49 83 FF 07 4C 0F 47 F3 48 8B 4C 24 60 4...
+
+  RVA 0x00000EA8 [  4 chars]: "|$hI"
+    Context hex: 75 F6 48 8D 95 A0 00 00 00 48 8D 4C 24 50 E8 D5 3C 00 00 90 4C 8D 74 24 50 48 8B 5C 24 50 4C 8B 7C 24 68 49 83 FF 07 4C 0F 47 F3 48 8B 4C 24 60 48 85 C9 0F 84 E...
+
+  RVA 0x00000EB5 [  4 chars]: "L$`H"
+    Context hex: 50 E8 D5 3C 00 00 90 4C 8D 74 24 50 48 8B 5C 24 50 4C 8B 7C 24 68 49 83 FF 07 4C 0F 47 F3 48 8B 4C 24 60 48 85 C9 0F 84 E8 00 00 00 48 FF C9 48 8B C7 48 3B CF 4...
+
+  RVA 0x00000F13 [  6 chars]: "L9D$`L"
+    Context hex: D1 F8 48 83 F8 FF 0F 84 A0 00 00 00 0F 57 C0 0F 11 44 24 70 0F 57 C9 F3 0F 7F 4D 80 4C 8D 40 01 4C 39 44 24 60 4C 0F 42 44 24 60 48 8D 54 24 50 48 83 7C 24 68 0...
+
+  RVA 0x00000F1A [  5 chars]: "BD$`H"
+    Context hex: 84 A0 00 00 00 0F 57 C0 0F 11 44 24 70 0F 57 C9 F3 0F 7F 4D 80 4C 8D 40 01 4C 39 44 24 60 4C 0F 42 44 24 60 48 8D 54 24 50 48 83 7C 24 68 07 48 0F 47 54 24 50 4...
+
+  RVA 0x00000F20 [  4 chars]: "T$PH"
+    Context hex: 57 C0 0F 11 44 24 70 0F 57 C9 F3 0F 7F 4D 80 4C 8D 40 01 4C 39 44 24 60 4C 0F 42 44 24 60 48 8D 54 24 50 48 83 7C 24 68 07 48 0F 47 54 24 50 48 8D 4C 24 70 E8 3...
+
+  RVA 0x00000F2B [  5 chars]: "GT$PH"
+    Context hex: 0F 7F 4D 80 4C 8D 40 01 4C 39 44 24 60 4C 0F 42 44 24 60 48 8D 54 24 50 48 83 7C 24 68 07 48 0F 47 54 24 50 48 8D 4C 24 70 E8 37 3C 00 00 48 8B 54 24 68 48 83 F...
+
+  RVA 0x00000F3B [  4 chars]: "T$hH"
+    Context hex: 44 24 60 48 8D 54 24 50 48 83 7C 24 68 07 48 0F 47 54 24 50 48 8D 4C 24 70 E8 37 3C 00 00 48 8B 54 24 68 48 83 FA 07 76 37 48 8D 14 55 02 00 00 00 48 8B 4C 24 5...
+
+  RVA 0x00000F4E [  4 chars]: "L$PH"
+    Context hex: 50 48 8D 4C 24 70 E8 37 3C 00 00 48 8B 54 24 68 48 83 FA 07 76 37 48 8D 14 55 02 00 00 00 48 8B 4C 24 50 48 8B C1 48 81 FA 00 10 00 00 72 19 48 83 C2 27 48 8B 4...
+
+  RVA 0x00000F8B [  4 chars]: "D$`f"
+    Context hex: 08 48 83 F8 1F 0F 87 25 01 00 00 E8 55 9F 08 00 0F 10 4C 24 70 0F 11 4C 24 50 0F 10 45 80 0F 11 44 24 60 66 0F 73 D8 08 66 49 0F 7E C7 66 48 0F 7E CB EB 0A 4C 8...
+
+  RVA 0x00000FA1 [  4 chars]: "|$hH"
+    Context hex: 11 4C 24 50 0F 10 45 80 0F 11 44 24 60 66 0F 73 D8 08 66 49 0F 7E C7 66 48 0F 7E CB EB 0A 4C 8B 7C 24 68 48 8B 5C 24 50 33 D2 41 B8 04 01 00 00 48 8D 4D 90 E8 E...
+
+  RVA 0x00000FBC [  4 chars]: "D$PI"
+    Context hex: CB EB 0A 4C 8B 7C 24 68 48 8B 5C 24 50 33 D2 41 B8 04 01 00 00 48 8D 4D 90 E8 E6 45 0B 00 4C 8D 44 24 50 49 83 FF 07 4C 0F 47 C3 4C 89 64 24 38 4C 89 64 24 30 C...
+
+  RVA 0x00000FC9 [  4 chars]: "d$8L"
+    Context hex: 33 D2 41 B8 04 01 00 00 48 8D 4D 90 E8 E6 45 0B 00 4C 8D 44 24 50 49 83 FF 07 4C 0F 47 C3 4C 89 64 24 38 4C 89 64 24 30 C7 44 24 28 04 01 00 00 48 8D 45 90 48 8...
+
+  RVA 0x00000FDF [  4 chars]: "D$ D"
+    Context hex: 49 83 FF 07 4C 0F 47 C3 4C 89 64 24 38 4C 89 64 24 30 C7 44 24 28 04 01 00 00 48 8D 45 90 48 89 44 24 20 44 8B CF 33 D2 33 C9 FF 15 E1 84 0B 00 0F 57 C0 0F 11 0...
+
+  RVA 0x0000101C [  4 chars]: "T$hH"
+    Context hex: 18 48 8D 45 90 48 FF C7 80 3C 38 00 75 F7 4C 8B C7 48 8D 55 90 48 8B CE E8 47 3C 00 00 90 48 8B 54 24 68 48 83 FA 07 76 33 48 8D 14 55 02 00 00 00 48 8B 4C 24 5...
+
+  RVA 0x0000102F [  4 chars]: "L$PH"
+    Context hex: 55 90 48 8B CE E8 47 3C 00 00 90 48 8B 54 24 68 48 83 FA 07 76 33 48 8D 14 55 02 00 00 00 48 8B 4C 24 50 48 8B C1 48 81 FA 00 10 00 00 72 15 48 83 C2 27 48 8B 4...
+
+  RVA 0x0000107D [  8 chars]: "A_A^A\_]"
+    Context hex: 8D B0 02 00 00 48 33 CC E8 76 99 08 00 4C 8D 9C 24 C0 03 00 00 49 8B 5B 38 49 8B 73 40 49 8B E3 41 5F 41 5E 41 5C 5F 5D C3 4C 89 64 24 20 45 33 C9 45 33 C0 33 D...
+
+  RVA 0x00001088 [  5 chars]: "d$ E3"
+    Context hex: 08 00 4C 8D 9C 24 C0 03 00 00 49 8B 5B 38 49 8B 73 40 49 8B E3 41 5F 41 5E 41 5C 5F 5D C3 4C 89 64 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 2E 07 09 00 90 4C 89 6...
+
+  RVA 0x0000109D [  5 chars]: "d$ E3"
+    Context hex: 41 5F 41 5E 41 5C 5F 5D C3 4C 89 64 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 2E 07 09 00 90 4C 89 64 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 19 07 09 00 CC 48 89 5...
+
+  RVA 0x000010BA [  9 chars]: "UWATAVAWH"
+    Context hex: 90 4C 89 64 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 19 07 09 00 CC 48 89 5C 24 10 48 89 74 24 18 55 57 41 54 41 56 41 57 48 8D AC 24 A0 F0 FF FF B8 60 10 00 00 E...
+
+  RVA 0x0000129E [  4 chars]: "D$0H"
+    Context hex: 8B CF 4C 8B C7 BA 01 00 00 00 E8 5B 52 09 00 49 8B CF E8 9F 06 09 00 48 8D 85 50 0E 00 00 48 89 44 24 30 48 8D 85 50 0E 00 00 48 89 44 24 50 48 8D 4C 24 70 E8 6...
+
+  RVA 0x000012AA [  4 chars]: "D$PH"
+    Context hex: 52 09 00 49 8B CF E8 9F 06 09 00 48 8D 85 50 0E 00 00 48 89 44 24 30 48 8D 85 50 0E 00 00 48 89 44 24 50 48 8D 4C 24 70 E8 69 0C 00 00 90 C6 85 78 0C 00 00 01 F...
+
+  RVA 0x00001503 [  4 chars]: "D$`H"
+    Context hex: 04 00 00 90 48 8B D0 48 8D 4C 24 58 E8 7C F6 FF FF 90 48 8D 8D 30 0F 00 00 E8 2F 39 00 00 4C 8B 44 24 60 48 8B 54 24 58 4C 2B C2 49 81 F8 88 0C 00 00 73 07 4D 8...
+
+  RVA 0x00001508 [  5 chars]: "T$XL+"
+    Context hex: 8B D0 48 8D 4C 24 58 E8 7C F6 FF FF 90 48 8D 8D 30 0F 00 00 E8 2F 39 00 00 4C 8B 44 24 60 48 8B 54 24 58 4C 2B C2 49 81 F8 88 0C 00 00 73 07 4D 85 C0 74 11 EB 0...
+
+  RVA 0x0000157A [  4 chars]: "D$8H"
+    Context hex: 00 00 90 48 83 BD C0 0E 00 00 00 74 70 48 8D 95 B0 0E 00 00 48 8D 4C 24 38 E8 F8 F5 FF FF 48 8B 44 24 38 48 8B 54 24 40 48 3B C2 74 46 48 2B D0 33 C9 41 B9 04 0...
+
+  RVA 0x0000157F [  5 chars]: "T$@H;"
+    Context hex: BD C0 0E 00 00 00 74 70 48 8D 95 B0 0E 00 00 48 8D 4C 24 38 E8 F8 F5 FF FF 48 8B 44 24 38 48 8B 54 24 40 48 3B C2 74 46 48 2B D0 33 C9 41 B9 04 00 00 00 41 B8 0...
+
+  RVA 0x00001585 [  4 chars]: "tFH+"
+    Context hex: 74 70 48 8D 95 B0 0E 00 00 48 8D 4C 24 38 E8 F8 F5 FF FF 48 8B 44 24 38 48 8B 54 24 40 48 3B C2 74 46 48 2B D0 33 C9 41 B9 04 00 00 00 41 B8 00 30 00 00 FF 15 7...
+
+  RVA 0x000015A8 [  4 chars]: "D$@H"
+    Context hex: 2B D0 33 C9 41 B9 04 00 00 00 41 B8 00 30 00 00 FF 15 72 7E 0B 00 48 8B D8 48 85 C0 74 27 4C 8B 44 24 40 48 8B 54 24 38 4C 2B C2 48 8B C8 E8 C5 37 0B 00 48 89 5...
+
+  RVA 0x000015AD [  5 chars]: "T$8L+"
+    Context hex: B9 04 00 00 00 41 B8 00 30 00 00 FF 15 72 7E 0B 00 48 8B D8 48 85 C0 74 27 4C 8B 44 24 40 48 8B 54 24 38 4C 2B C2 48 8B C8 E8 C5 37 0B 00 48 89 5D 98 48 8B 44 2...
+
+  RVA 0x000015C1 [  9 chars]: "D$@H+D$8H"
+    Context hex: 48 85 C0 74 27 4C 8B 44 24 40 48 8B 54 24 38 4C 2B C2 48 8B C8 E8 C5 37 0B 00 48 89 5D 98 48 8B 44 24 40 48 2B 44 24 38 48 89 45 A0 48 8D 4C 24 38 E8 49 37 00 0...
+
+  RVA 0x0000160D [  4 chars]: "D$8H"
+    Context hex: 00 00 90 48 83 BD 20 0F 00 00 00 74 71 48 8D 95 10 0F 00 00 48 8D 4C 24 38 E8 65 F5 FF FF 48 8B 44 24 38 48 8B 54 24 40 48 3B C2 74 46 48 2B D0 33 C9 41 B9 04 0...
+
+  RVA 0x00001612 [  5 chars]: "T$@H;"
+    Context hex: BD 20 0F 00 00 00 74 71 48 8D 95 10 0F 00 00 48 8D 4C 24 38 E8 65 F5 FF FF 48 8B 44 24 38 48 8B 54 24 40 48 3B C2 74 46 48 2B D0 33 C9 41 B9 04 00 00 00 41 B8 0...
+
+  RVA 0x00001618 [  4 chars]: "tFH+"
+    Context hex: 74 71 48 8D 95 10 0F 00 00 48 8D 4C 24 38 E8 65 F5 FF FF 48 8B 44 24 38 48 8B 54 24 40 48 3B C2 74 46 48 2B D0 33 C9 41 B9 04 00 00 00 41 B8 00 30 00 00 FF 15 D...
+
+  RVA 0x0000163B [  4 chars]: "D$@H"
+    Context hex: 2B D0 33 C9 41 B9 04 00 00 00 41 B8 00 30 00 00 FF 15 DF 7D 0B 00 48 8B D8 48 85 C0 74 27 4C 8B 44 24 40 48 8B 54 24 38 4C 2B C2 48 8B C8 E8 32 37 0B 00 48 89 5...
+
+  RVA 0x00001640 [  5 chars]: "T$8L+"
+    Context hex: B9 04 00 00 00 41 B8 00 30 00 00 FF 15 DF 7D 0B 00 48 8B D8 48 85 C0 74 27 4C 8B 44 24 40 48 8B 54 24 38 4C 2B C2 48 8B C8 E8 32 37 0B 00 48 89 5D A8 48 8B 44 2...
+
+  RVA 0x00001654 [  9 chars]: "D$@H+D$8H"
+    Context hex: 48 85 C0 74 27 4C 8B 44 24 40 48 8B 54 24 38 4C 2B C2 48 8B C8 E8 32 37 0B 00 48 89 5D A8 48 8B 44 24 40 48 2B 44 24 38 48 89 45 B0 48 8D 4C 24 38 E8 B6 36 00 0...
+
+  RVA 0x0000171E [  4 chars]: "\$PH"
+    Context hex: DB 74 0E 48 83 BD A0 0E 00 00 00 74 04 B0 01 EB 02 32 C0 41 88 86 D8 01 00 00 49 8D 5E 08 48 89 5C 24 50 48 8B CB E8 6F 8E 08 00 85 C0 0F 85 D7 01 00 00 81 7B 4...
+
+  RVA 0x00001740 [  7 chars]: "F`I;Fht"
+    Context hex: 50 48 8B CB E8 6F 8E 08 00 85 C0 0F 85 D7 01 00 00 81 7B 4C FF FF FF 7F 0F 84 D5 01 00 00 49 8B 46 60 49 3B 46 68 74 17 48 8D 54 24 70 48 8B C8 E8 1B 43 00 00 4...
+
+  RVA 0x0000174A [  4 chars]: "T$pH"
+    Context hex: C0 0F 85 D7 01 00 00 81 7B 4C FF FF FF 7F 0F 84 D5 01 00 00 49 8B 46 60 49 3B 46 68 74 17 48 8D 54 24 70 48 8B C8 E8 1B 43 00 00 49 81 46 60 E0 0E 00 00 EB 12 4...
+
+  RVA 0x00001761 [  4 chars]: "D$pH"
+    Context hex: 60 49 3B 46 68 74 17 48 8D 54 24 70 48 8B C8 E8 1B 43 00 00 49 81 46 60 E0 0E 00 00 EB 12 4C 8D 44 24 70 48 8B D0 49 8D 4E 58 E8 80 3E 00 00 90 48 8B CB E8 27 8...
+
+  RVA 0x000018BA [  8 chars]: "A_A^A\_]"
+    Context hex: 8D 50 0F 00 00 48 33 CC E8 39 91 08 00 4C 8D 9C 24 60 10 00 00 49 8B 5B 38 49 8B 73 40 49 8B E3 41 5F 41 5E 41 5C 5F 5D C3 4C 89 64 24 20 45 33 C9 45 33 C0 33 D...
+
+  RVA 0x000018C5 [  5 chars]: "d$ E3"
+    Context hex: 08 00 4C 8D 9C 24 60 10 00 00 49 8B 5B 38 49 8B 73 40 49 8B E3 41 5F 41 5E 41 5C 5F 5D C3 4C 89 64 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 F1 FE 08 00 90 E8 F3 E...
+
+  RVA 0x000018E0 [  5 chars]: "d$ E3"
+    Context hex: 5F 5D C3 4C 89 64 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 F1 FE 08 00 90 E8 F3 EA FF FF 90 4C 89 64 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 D6 FE 08 00 90 4C 89 6...
+
+  RVA 0x000018F5 [  5 chars]: "d$ E3"
+    Context hex: 08 00 90 E8 F3 EA FF FF 90 4C 89 64 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 D6 FE 08 00 90 4C 89 64 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 C1 FE 08 00 90 B9 05 0...
+
+  RVA 0x00001927 [  5 chars]: "d$ E3"
+    Context hex: 90 B9 05 00 00 00 E8 82 82 08 00 CC C7 43 4C FE FF FF 7F B9 06 00 00 00 E8 70 82 08 00 90 4C 89 64 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 8F FE 08 00 CC CC CC C...
+
+  RVA 0x00001942 [ 11 chars]: "\$ UVWAVAWH"
+    Context hex: 08 00 90 4C 89 64 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 8F FE 08 00 CC CC CC CC CC CC CC 48 89 5C 24 20 55 56 57 41 56 41 57 48 8D 6C 24 C9 48 81 EC B0 00 00 0...
+
+  RVA 0x00001B56 [  4 chars]: ""t@H"
+    Context hex: C6 45 E7 00 49 8B 06 48 3B 58 10 73 5F 48 8B C8 48 8B 50 18 48 83 FA 0F 76 03 48 8B 08 80 3C 19 22 74 40 48 8B C8 48 83 FA 0F 76 03 48 8B 08 80 3C 19 5C 75 0C 4...
+
+  RVA 0x00001BEA [  4 chars]: "M'H3"
+    Context hex: 27 48 8B 49 F8 48 2B C1 48 83 E8 08 48 83 F8 1F 0F 87 8A 00 00 00 E8 EB 92 08 00 48 8B C7 48 8B 4D 27 48 33 CC E8 EC 8D 08 00 48 8B 9C 24 F8 00 00 00 48 81 C4 B...
+
+  RVA 0x00001CA7 [  8 chars]: "t$ UWAVH"
+    Context hex: 45 33 C0 33 D2 33 C9 E8 35 FB 08 00 CC CC CC CC CC CC CC CC CC CC CC CC CC 48 89 5C 24 18 48 89 74 24 20 55 57 41 56 48 8D 6C 24 B9 48 81 EC A0 00 00 00 48 8B 0...
+
+  RVA 0x00001E44 [  4 chars]: "t6H+"
+    Context hex: 5B 48 85 C9 75 05 49 8B C6 EB 24 48 8D 1C 3A 4C 8B C9 48 8B D3 48 8B CF E8 3F 87 08 00 48 3B C3 74 36 48 2B C7 48 83 F8 FF 74 2D 48 8B 4D EF 48 8B 16 48 83 7A 1...
+
+  RVA 0x00001EBC [  4 chars]: "M?H3"
+    Context hex: 15 48 83 C2 27 48 8B 49 F8 48 2B C1 48 83 E8 08 48 83 F8 1F 77 2C E8 19 90 08 00 48 8B C3 48 8B 4D 3F 48 33 CC E8 1A 8B 08 00 4C 8D 9C 24 A0 00 00 00 49 8B 5B 3...
+
+  RVA 0x00001EE0 [  5 chars]: "t$ E3"
+    Context hex: CC E8 1A 8B 08 00 4C 8D 9C 24 A0 00 00 00 49 8B 5B 30 49 8B 73 38 49 8B E3 41 5E 5F 5D C3 4C 89 74 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 D6 F8 08 00 90 4C 89 7...
+
+  RVA 0x00001EF5 [  5 chars]: "t$ E3"
+    Context hex: 38 49 8B E3 41 5E 5F 5D C3 4C 89 74 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 D6 F8 08 00 90 4C 89 74 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 C1 F8 08 00 90 4C 89 7...
+
+  RVA 0x00001F0A [  5 chars]: "t$ E3"
+    Context hex: D2 33 C9 E8 D6 F8 08 00 90 4C 89 74 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 C1 F8 08 00 90 4C 89 74 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 AC F8 08 00 CC CC CC C...
+
+  RVA 0x000021B0 [  4 chars]: "L$xH"
+    Context hex: AC 37 0B 00 41 B8 B0 3E 00 00 48 8D 15 EF 4D 0C 00 48 8D 8C 24 00 0D 00 00 E8 62 28 00 00 48 8D 4C 24 78 48 8D 15 86 40 0C 00 41 B8 88 0C 00 00 E8 BB 2B 0B 00 C...
+
+  RVA 0x00002284 [  7 chars]: "F`H;Fht"
+    Context hex: 20 48 8B CB E8 2B 83 08 00 85 C0 0F 85 C0 00 00 00 81 7B 4C FF FF FF 7F 0F 84 A1 00 00 00 48 8B 46 60 48 3B 46 68 74 17 48 8D 54 24 30 48 8B C8 E8 D7 37 00 00 4...
+
+  RVA 0x0000228E [  4 chars]: "T$0H"
+    Context hex: C0 0F 85 C0 00 00 00 81 7B 4C FF FF FF 7F 0F 84 A1 00 00 00 48 8B 46 60 48 3B 46 68 74 17 48 8D 54 24 30 48 8B C8 E8 D7 37 00 00 48 81 46 60 E0 0E 00 00 EB 12 4...
+
+  RVA 0x000022A5 [  4 chars]: "D$0H"
+    Context hex: 60 48 3B 46 68 74 17 48 8D 54 24 30 48 8B C8 E8 D7 37 00 00 48 81 46 60 E0 0E 00 00 EB 12 4C 8D 44 24 30 48 8B D0 48 8D 4E 58 E8 3C 33 00 00 90 48 8B CB E8 E3 8...
+
+  RVA 0x0000234F [ 10 chars]: "UATAUAVAWH"
+    Context hex: E8 60 78 08 00 CC B9 05 00 00 00 E8 55 78 08 00 CC 48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 18 55 41 54 41 55 41 56 41 57 48 8B EC 48 81 EC 80 00 00 00 48 8B 0...
+
+  RVA 0x00002660 [  9 chars]: "A_A^A]A\]"
+    Context hex: F8 48 33 CC E8 97 83 08 00 4C 8D 9C 24 80 00 00 00 49 8B 5B 30 49 8B 73 38 49 8B 7B 40 49 8B E3 41 5F 41 5E 41 5D 41 5C 5D C3 48 C7 44 24 20 00 00 00 00 45 33 C...
+
+  RVA 0x000026A5 [ 12 chars]: "UVWATAUAVAWH"
+    Context hex: DD FF FF 90 48 89 5C 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 2B F1 08 00 CC CC CC 48 89 5C 24 18 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 70 48 8B 05 C5 79 11 0...
+
+  RVA 0x000026C0 [  4 chars]: "D$`H"
+    Context hex: 48 89 5C 24 18 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 70 48 8B 05 C5 79 11 00 48 33 C4 48 89 44 24 60 48 8B F2 48 8B F9 48 89 4C 24 38 45 33 ED 4C 8B 7A 10 4...
+
+  RVA 0x000026CB [  5 chars]: "L$8E3"
+    Context hex: 55 41 56 41 57 48 83 EC 70 48 8B 05 C5 79 11 00 48 33 C4 48 89 44 24 60 48 8B F2 48 8B F9 48 89 4C 24 38 45 33 ED 4C 8B 7A 10 49 BC FF FF FF FF FF FF FF 7F 49 8...
+
+  RVA 0x000026FE [  4 chars]: "D$@I"
+    Context hex: 7F 49 8B C4 49 2B C7 48 83 F8 05 0F 82 90 01 00 00 48 83 7A 18 0F 76 03 48 8B 32 0F 57 C0 0F 11 44 24 40 49 8D 6F 05 BB 0F 00 00 00 4C 8D 74 24 40 48 3B EB 76 2...
+
+  RVA 0x0000270C [  5 chars]: "t$@H;"
+    Context hex: 01 00 00 48 83 7A 18 0F 76 03 48 8B 32 0F 57 C0 0F 11 44 24 40 49 8D 6F 05 BB 0F 00 00 00 4C 8D 74 24 40 48 3B EB 76 2E 48 8B DD 48 83 CB 0F 49 3B DC 76 05 49 8...
+
+  RVA 0x0000273F [  4 chars]: "D$@H"
+    Context hex: 05 49 8B DC EB 0C B8 16 00 00 00 48 3B D8 48 0F 42 D8 48 8D 4B 01 E8 A6 35 00 00 4C 8B F0 48 89 44 24 40 48 89 6C 24 50 48 89 5C 24 58 8B 05 5E 36 0C 00 41 89 0...
+
+  RVA 0x00002744 [  4 chars]: "l$PH"
+    Context hex: 0C B8 16 00 00 00 48 3B D8 48 0F 42 D8 48 8D 4B 01 E8 A6 35 00 00 4C 8B F0 48 89 44 24 40 48 89 6C 24 50 48 89 5C 24 58 8B 05 5E 36 0C 00 41 89 06 0F B6 05 58 3...
+
+  RVA 0x0000277F [  4 chars]: "H+(L"
+    Context hex: 04 49 8D 4E 05 4D 8B C7 48 8B D6 E8 11 26 0B 00 45 88 2C 2E E8 C8 FB FF FF 4C 8B F0 48 8B 68 08 48 2B 28 4C 89 2F 4C 89 6F 08 4C 89 6F 10 48 8B 74 24 50 48 85 F...
+
+  RVA 0x0000278F [  4 chars]: "t$PH"
+    Context hex: 45 88 2C 2E E8 C8 FB FF FF 4C 8B F0 48 8B 68 08 48 2B 28 4C 89 2F 4C 89 6F 08 4C 89 6F 10 48 8B 74 24 50 48 85 F6 74 33 49 3B F4 0F 87 E5 00 00 00 48 8B CE E8 3...
+
+  RVA 0x00002795 [  4 chars]: "t3I;"
+    Context hex: FB FF FF 4C 8B F0 48 8B 68 08 48 2B 28 4C 89 2F 4C 89 6F 08 4C 89 6F 10 48 8B 74 24 50 48 85 F6 74 33 49 3B F4 0F 87 E5 00 00 00 48 8B CE E8 38 35 00 00 48 8B D...
+
+  RVA 0x000027CF [  4 chars]: "\$XL"
+    Context hex: 03 C6 48 89 47 10 4C 8B C6 33 D2 48 8B CB E8 DE 2D 0B 00 48 8D 04 1E 48 89 47 08 4D 8B CD 4C 8B 5C 24 58 4C 8B 54 24 40 48 85 F6 74 33 0F 1F 40 00 4C 8D 44 24 4...
+
+  RVA 0x000027D4 [  4 chars]: "T$@H"
+    Context hex: 10 4C 8B C6 33 D2 48 8B CB E8 DE 2D 0B 00 48 8D 04 1E 48 89 47 08 4D 8B CD 4C 8B 5C 24 58 4C 8B 54 24 40 48 85 F6 74 33 0F 1F 40 00 4C 8D 44 24 40 49 83 FB 0F 4...
+
+  RVA 0x000027E2 [  4 chars]: "D$@I"
+    Context hex: 48 8D 04 1E 48 89 47 08 4D 8B CD 4C 8B 5C 24 58 4C 8B 54 24 40 48 85 F6 74 33 0F 1F 40 00 4C 8D 44 24 40 49 83 FB 0F 4D 0F 47 C2 33 D2 49 8B C1 48 F7 F5 49 8B 0...
+
+  RVA 0x00002847 [  5 chars]: "L$`H3"
+    Context hex: C2 27 4D 8B 52 F8 49 2B C2 48 83 E8 08 48 83 F8 1F 77 30 49 8B CA E8 8E 86 08 00 48 8B C7 48 8B 4C 24 60 48 33 CC E8 8E 81 08 00 48 8B 9C 24 C0 00 00 00 48 83 C...
+
+  RVA 0x0000285D [ 12 chars]: "pA_A^A]A\_^]"
+    Context hex: E8 8E 86 08 00 48 8B C7 48 8B 4C 24 60 48 33 CC E8 8E 81 08 00 48 8B 9C 24 C0 00 00 00 48 83 C4 70 41 5F 41 5E 41 5D 41 5C 5F 5E 5D C3 4C 89 6C 24 20 45 33 C9 4...
+
+  RVA 0x0000286C [  5 chars]: "l$ E3"
+    Context hex: CC E8 8E 81 08 00 48 8B 9C 24 C0 00 00 00 48 83 C4 70 41 5F 41 5E 41 5D 41 5C 5F 5E 5D C3 4C 89 6C 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 4A EF 08 00 CC E8 4C D...
+
+  RVA 0x00002890 [  4 chars]: "@USH"
+    Context hex: 33 C9 45 33 C0 33 D2 33 C9 E8 4A EF 08 00 CC E8 4C DB FF FF 90 E8 06 25 00 00 90 CC CC CC CC CC 40 55 53 48 8D AC 24 18 E7 FF FF B8 E8 19 00 00 E8 1B 90 08 00 4...
+
+  RVA 0x000028ED [  4 chars]: "D$PH"
+    Context hex: 18 48 8D 15 F3 34 0C 00 48 8D 0D 04 84 11 00 E8 5F 1B 00 00 E9 B7 04 00 00 0F 57 C0 33 C0 0F 11 44 24 50 48 89 44 24 60 FF 15 05 6B 0B 00 41 B9 18 00 00 00 4C 8...
+
+  RVA 0x00002903 [  4 chars]: "D$PH"
+    Context hex: 04 00 00 0F 57 C0 33 C0 0F 11 44 24 50 48 89 44 24 60 FF 15 05 6B 0B 00 41 B9 18 00 00 00 4C 8D 44 24 50 48 8B C8 48 8B D3 FF 15 7E 6B 0B 00 85 C0 75 21 FF 15 5...
+
+  RVA 0x00002948 [  4 chars]: "d$P3"
+    Context hex: 0D B3 83 11 00 E8 0E 1B 00 00 E9 66 04 00 00 4C 89 A4 24 10 1A 00 00 48 8D 8D B0 06 00 00 4C 8B 64 24 50 33 D2 4C 89 AC 24 E0 19 00 00 41 B8 08 02 00 00 4C 89 B...
+
+  RVA 0x000029C0 [  4 chars]: "fD9i"
+    Context hex: 0B 00 45 33 ED 85 C0 0F 84 C5 01 00 00 48 8D 8D 90 02 00 00 48 83 E9 02 0F 1F 84 00 00 00 00 00 66 44 39 69 02 48 8D 49 02 75 F5 0F 10 05 36 34 0C 00 0F B7 05 4...
+
+  RVA 0x000029DE [  5 chars]: "l$0E3"
+    Context hex: 00 00 66 44 39 69 02 48 8D 49 02 75 F5 0F 10 05 36 34 0C 00 0F B7 05 47 34 0C 00 45 33 C9 4C 89 6C 24 30 45 33 C0 0F 11 01 BA 00 00 00 40 C7 44 24 28 80 00 00 0...
+
+  RVA 0x00002A72 [  4 chars]: "l$HJ"
+    Context hex: 8B F5 48 89 BC 24 08 1A 00 00 49 8B FD 4D 85 FF 0F 84 9A 00 00 00 0F 1F 84 00 00 00 00 00 4C 89 6C 24 48 4A 8D 1C 26 FF 15 81 69 0B 00 41 B9 00 10 00 00 4C 8D 8...
+
+  RVA 0x00002A94 [  4 chars]: "D$HH"
+    Context hex: 48 4A 8D 1C 26 FF 15 81 69 0B 00 41 B9 00 10 00 00 4C 8D 85 C0 08 00 00 48 8B C8 48 8B D3 48 8D 44 24 48 48 89 44 24 20 FF 15 1E 6A 0B 00 85 C0 74 10 48 81 7C 2...
+
+  RVA 0x00002ABD [  4 chars]: "l$@H"
+    Context hex: 15 1E 6A 0B 00 85 C0 74 10 48 81 7C 24 48 00 10 00 00 B8 01 00 00 00 74 03 41 8B C5 85 C0 44 89 6C 24 40 48 8D 05 F9 9A 0F 00 4C 89 6C 24 20 48 8D 95 C0 08 00 0...
+
+  RVA 0x00002AC9 [  4 chars]: "l$ H"
+    Context hex: 24 48 00 10 00 00 B8 01 00 00 00 74 03 41 8B C5 85 C0 44 89 6C 24 40 48 8D 05 F9 9A 0F 00 4C 89 6C 24 20 48 8D 95 C0 08 00 00 41 B8 00 10 00 00 48 0F 44 D0 4C 8...
+
+  RVA 0x00002ADF [  4 chars]: "L$@I"
+    Context hex: 40 48 8D 05 F9 9A 0F 00 4C 89 6C 24 20 48 8D 95 C0 08 00 00 41 B8 00 10 00 00 48 0F 44 D0 4C 8D 4C 24 40 49 8B CE FF 15 1D 69 0B 00 8B 44 24 40 48 81 C6 00 10 0...
+
+  RVA 0x00002AEC [  4 chars]: "D$@H"
+    Context hex: 48 8D 95 C0 08 00 00 41 B8 00 10 00 00 48 0F 44 D0 4C 8D 4C 24 40 49 8B CE FF 15 1D 69 0B 00 8B 44 24 40 48 81 C6 00 10 00 00 48 03 F8 49 3B F7 0F 82 6E FF FF F...
+
+  RVA 0x00002B21 [  4 chars]: "l$8H"
+    Context hex: FF 49 8B CE FF 15 7D 69 0B 00 33 D2 48 8D 8D 80 01 00 00 41 B8 04 01 00 00 E8 81 2A 0B 00 4C 89 6C 24 38 48 8D 85 80 01 00 00 4C 89 6C 24 30 4C 8D 85 B0 06 00 0...
+
+  RVA 0x00002B2D [  4 chars]: "l$0L"
+    Context hex: 48 8D 8D 80 01 00 00 41 B8 04 01 00 00 E8 81 2A 0B 00 4C 89 6C 24 38 48 8D 85 80 01 00 00 4C 89 6C 24 30 4C 8D 85 B0 06 00 00 C7 44 24 28 04 01 00 00 41 B9 FF F...
+
+  RVA 0x00002BB3 [  4 chars]: "fD9h"
+    Context hex: 48 8D 0D 8E 32 0C 00 FF 15 88 68 0B 00 85 C0 0F 84 91 00 00 00 48 8D 85 A0 04 00 00 48 83 E8 02 66 44 39 68 02 48 8D 40 02 75 F5 0F 10 05 7B 32 0C 00 4C 89 6C 2...
+
+  RVA 0x00002BC7 [  5 chars]: "l$0E3"
+    Context hex: 00 48 8D 85 A0 04 00 00 48 83 E8 02 66 44 39 68 02 48 8D 40 02 75 F5 0F 10 05 7B 32 0C 00 4C 89 6C 24 30 45 33 C9 0F 10 0D 7C 32 0C 00 C7 44 24 28 80 00 00 00 4...
+
+  RVA 0x00002C47 [  4 chars]: "L$pA"
+    Context hex: 00 66 89 84 0D B0 06 00 00 48 8D 49 02 66 85 C0 75 E7 49 83 FE FF 0F 85 06 FE FF FF 33 D2 48 8D 4C 24 70 41 B8 08 02 00 00 E8 4B 29 0B 00 48 8B 0D F4 B4 11 00 4...
+
+  RVA 0x00002C5E [  4 chars]: "T$pA"
+    Context hex: 85 06 FE FF FF 33 D2 48 8D 4C 24 70 41 B8 08 02 00 00 E8 4B 29 0B 00 48 8B 0D F4 B4 11 00 48 8D 54 24 70 41 B8 04 01 00 00 FF 15 AB 67 0B 00 85 C0 0F 84 A6 00 0...
+
+  RVA 0x00002CBD [  4 chars]: ")D$p"
+    Context hex: 0F 11 40 12 0F B7 0D 78 31 0C 00 66 89 48 1A EB 17 0F 10 05 BB 31 0C 00 0F 10 0D C4 31 0C 00 0F 29 44 24 70 0F 29 4D 80 4C 89 6C 24 30 48 8D 4C 24 70 C7 44 24 2...
+
+  RVA 0x00002CC7 [  4 chars]: "l$0H"
+    Context hex: 00 66 89 48 1A EB 17 0F 10 05 BB 31 0C 00 0F 10 0D C4 31 0C 00 0F 29 44 24 70 0F 29 4D 80 4C 89 6C 24 30 48 8D 4C 24 70 C7 44 24 28 80 00 00 00 45 33 C9 45 33 C...
+
+  RVA 0x00002DCC [ 13 chars]: "|$ UATAUAVAWH"
+    Context hex: 48 81 C4 E8 19 00 00 5B 5D C3 CC CC CC CC CC CC CC CC CC CC 48 89 5C 24 10 48 89 74 24 18 48 89 7C 24 20 55 41 54 41 55 41 56 41 57 48 8D AC 24 F0 FA FF FF 48 8...
+
+  RVA 0x00002DFA [  5 chars]: "L$xE3"
+    Context hex: AC 24 F0 FA FF FF 48 81 EC 10 06 00 00 48 8B 05 92 72 11 00 48 33 C4 48 89 85 00 05 00 00 48 89 4C 24 78 45 33 F6 33 C0 41 BD 01 00 00 00 F0 44 0F B0 2D F3 D4 1...
+
+  RVA 0x00002E1D [  4 chars]: "D$@H"
+    Context hex: 45 33 F6 33 C0 41 BD 01 00 00 00 F0 44 0F B0 2D F3 D4 11 00 75 6E 41 8B CD E8 09 7D 08 00 48 89 44 24 40 48 8D 4C 24 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4...
+
+  RVA 0x00002E22 [  4 chars]: "L$8H"
+    Context hex: 41 BD 01 00 00 00 F0 44 0F B0 2D F3 D4 11 00 75 6E 41 8B CD E8 09 7D 08 00 48 89 44 24 40 48 8D 4C 24 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4C 8D 05 C7 43 0...
+
+  RVA 0x00002E27 [  4 chars]: "L$(D"
+    Context hex: 00 F0 44 0F B0 2D F3 D4 11 00 75 6E 41 8B CD E8 09 7D 08 00 48 89 44 24 40 48 8D 4C 24 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4C 8D 05 C7 43 03 00 33 D2 33 C...
+
+  RVA 0x00002E2C [  4 chars]: "t$ L"
+    Context hex: 2D F3 D4 11 00 75 6E 41 8B CD E8 09 7D 08 00 48 89 44 24 40 48 8D 4C 24 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4C 8D 05 C7 43 03 00 33 D2 33 C9 E8 BA EC 08 0...
+
+  RVA 0x00002E44 [  4 chars]: "D$0H"
+    Context hex: 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4C 8D 05 C7 43 03 00 33 D2 33 C9 E8 BA EC 08 00 48 89 44 24 30 48 85 C0 0F 84 D7 09 00 00 44 39 74 24 38 0F 84 C3 09 0...
+
+  RVA 0x00002E50 [  5 chars]: "D9t$8"
+    Context hex: 8B C8 4C 8D 05 C7 43 03 00 33 D2 33 C9 E8 BA EC 08 00 48 89 44 24 30 48 85 C0 0F 84 D7 09 00 00 44 39 74 24 38 0F 84 C3 09 00 00 0F 28 44 24 30 66 0F 7F 44 24 4...
+
+  RVA 0x00002E5C [  5 chars]: "(D$0f"
+    Context hex: C9 E8 BA EC 08 00 48 89 44 24 30 48 85 C0 0F 84 D7 09 00 00 44 39 74 24 38 0F 84 C3 09 00 00 0F 28 44 24 30 66 0F 7F 44 24 40 48 8D 4C 24 40 E8 80 79 08 00 85 C...
+
+  RVA 0x00002E63 [  4 chars]: "D$@H"
+    Context hex: 89 44 24 30 48 85 C0 0F 84 D7 09 00 00 44 39 74 24 38 0F 84 C3 09 00 00 0F 28 44 24 30 66 0F 7F 44 24 40 48 8D 4C 24 40 E8 80 79 08 00 85 C0 0F 85 A6 09 00 00 0...
+
+  RVA 0x00002E7E [  4 chars]: "D$0I"
+    Context hex: 24 30 66 0F 7F 44 24 40 48 8D 4C 24 40 E8 80 79 08 00 85 C0 0F 85 A6 09 00 00 0F 57 C0 66 0F 7F 44 24 30 49 8B CD E8 9B 7C 08 00 48 89 44 24 40 48 8D 4C 24 38 4...
+
+  RVA 0x00002E8B [  4 chars]: "D$@H"
+    Context hex: E8 80 79 08 00 85 C0 0F 85 A6 09 00 00 0F 57 C0 66 0F 7F 44 24 30 49 8B CD E8 9B 7C 08 00 48 89 44 24 40 48 8D 4C 24 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4...
+
+  RVA 0x00002E90 [  4 chars]: "L$8H"
+    Context hex: 85 C0 0F 85 A6 09 00 00 0F 57 C0 66 0F 7F 44 24 30 49 8B CD E8 9B 7C 08 00 48 89 44 24 40 48 8D 4C 24 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4C 8D 05 E9 22 0...
+
+  RVA 0x00002E95 [  4 chars]: "L$(D"
+    Context hex: 09 00 00 0F 57 C0 66 0F 7F 44 24 30 49 8B CD E8 9B 7C 08 00 48 89 44 24 40 48 8D 4C 24 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4C 8D 05 E9 22 00 00 33 D2 33 C...
+
+  RVA 0x00002E9A [  4 chars]: "t$ L"
+    Context hex: C0 66 0F 7F 44 24 30 49 8B CD E8 9B 7C 08 00 48 89 44 24 40 48 8D 4C 24 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4C 8D 05 E9 22 00 00 33 D2 33 C9 E8 4C EC 08 0...
+
+  RVA 0x00002EB2 [  4 chars]: "D$0H"
+    Context hex: 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4C 8D 05 E9 22 00 00 33 D2 33 C9 E8 4C EC 08 00 48 89 44 24 30 48 85 C0 0F 84 50 09 00 00 83 7C 24 38 00 0F 84 3C 09 0...
+
+  RVA 0x00002ECA [  5 chars]: "(D$0f"
+    Context hex: C9 E8 4C EC 08 00 48 89 44 24 30 48 85 C0 0F 84 50 09 00 00 83 7C 24 38 00 0F 84 3C 09 00 00 0F 28 44 24 30 66 0F 7F 44 24 40 48 8D 4C 24 40 E8 12 79 08 00 85 C...
+
+  RVA 0x00002ED1 [  4 chars]: "D$@H"
+    Context hex: 89 44 24 30 48 85 C0 0F 84 50 09 00 00 83 7C 24 38 00 0F 84 3C 09 00 00 0F 28 44 24 30 66 0F 7F 44 24 40 48 8D 4C 24 40 E8 12 79 08 00 85 C0 0F 85 1F 09 00 00 0...
+
+  RVA 0x00002F27 [  4 chars]: "D$@H"
+    Context hex: 48 8D 0D AA 2E 0C 00 FF 15 44 65 0B 00 48 8B F0 48 85 C0 0F 84 59 01 00 00 0F 57 C0 33 C0 0F 11 44 24 40 48 89 44 24 50 FF 15 CB 64 0B 00 48 8B C8 41 B9 18 00 0...
+
+  RVA 0x00002F40 [  4 chars]: "D$@H"
+    Context hex: 0F 57 C0 33 C0 0F 11 44 24 40 48 89 44 24 50 FF 15 CB 64 0B 00 48 8B C8 41 B9 18 00 00 00 4C 8D 44 24 40 48 8B D6 FF 15 44 65 0B 00 44 8B 74 24 48 48 8D 1D 18 8...
+
+  RVA 0x00002F4E [  4 chars]: "t$HH"
+    Context hex: 50 FF 15 CB 64 0B 00 48 8B C8 41 B9 18 00 00 00 4C 8D 44 24 40 48 8B D6 FF 15 44 65 0B 00 44 8B 74 24 48 48 8D 1D 18 84 11 00 4C 8D 3D 79 94 11 00 90 48 8B 53 E...
+
+  RVA 0x0000315F [  4 chars]: "D$@H"
+    Context hex: F8 05 0F 9C 05 F4 B4 11 00 48 8D 0D 69 2C 0C 00 FF 15 03 63 0B 00 48 8B D8 0F 57 C0 33 C0 0F 11 44 24 40 48 89 44 24 50 48 85 DB 74 2F FF 15 8E 62 0B 00 48 8B C...
+
+  RVA 0x00003164 [  4 chars]: "D$PH"
+    Context hex: F4 B4 11 00 48 8D 0D 69 2C 0C 00 FF 15 03 63 0B 00 48 8B D8 0F 57 C0 33 C0 0F 11 44 24 40 48 89 44 24 50 48 85 DB 74 2F FF 15 8E 62 0B 00 48 8B C8 41 B9 18 00 0...
+
+  RVA 0x0000317D [  4 chars]: "D$@H"
+    Context hex: 0F 11 44 24 40 48 89 44 24 50 48 85 DB 74 2F FF 15 8E 62 0B 00 48 8B C8 41 B9 18 00 00 00 4C 8D 44 24 40 48 8B D3 FF 15 07 63 0B 00 85 C0 74 0E 8B 54 24 48 48 8...
+
+  RVA 0x0000318E [  4 chars]: "T$HH"
+    Context hex: 8E 62 0B 00 48 8B C8 41 B9 18 00 00 00 4C 8D 44 24 40 48 8B D3 FF 15 07 63 0B 00 85 C0 74 0E 8B 54 24 48 48 8B 4C 24 40 E8 55 43 02 00 0F 57 C0 33 C0 0F 11 44 2...
+
+  RVA 0x000031A2 [  4 chars]: "D$@H"
+    Context hex: D3 FF 15 07 63 0B 00 85 C0 74 0E 8B 54 24 48 48 8B 4C 24 40 E8 55 43 02 00 0F 57 C0 33 C0 0F 11 44 24 40 48 89 44 24 50 48 8D 0D 07 2C 0C 00 FF 15 A1 62 0B 00 4...
+
+  RVA 0x000031A7 [  4 chars]: "D$PH"
+    Context hex: 0B 00 85 C0 74 0E 8B 54 24 48 48 8B 4C 24 40 E8 55 43 02 00 0F 57 C0 33 C0 0F 11 44 24 40 48 89 44 24 50 48 8D 0D 07 2C 0C 00 FF 15 A1 62 0B 00 48 8B F8 48 85 C...
+
+  RVA 0x000031D4 [  4 chars]: "D$@H"
+    Context hex: 62 0B 00 48 8B F8 48 85 C0 0F 84 ED 00 00 00 FF 15 37 62 0B 00 48 8B C8 41 B9 18 00 00 00 4C 8D 44 24 40 48 8B D7 FF 15 B0 62 0B 00 85 C0 0F 84 C8 00 00 00 8B 5...
+
+  RVA 0x000031E9 [  4 chars]: "\$HH"
+    Context hex: 48 8B C8 41 B9 18 00 00 00 4C 8D 44 24 40 48 8B D7 FF 15 B0 62 0B 00 85 C0 0F 84 C8 00 00 00 8B 5C 24 48 48 8D 0D 75 E9 36 00 FF 15 EF 62 0B 00 48 89 3D C8 E9 3...
+
+  RVA 0x0000321F [  4 chars]: "HcH<"
+    Context hex: 00 48 8D 04 3B 48 89 05 A5 E8 36 00 33 C9 FF 15 45 62 0B 00 48 85 C0 74 23 48 89 05 51 E9 36 00 48 63 48 3C 8B 54 01 50 B9 00 00 00 08 85 D2 0F 45 CA 48 03 C8 4...
+
+  RVA 0x000032B2 [  4 chars]: "\$xH"
+    Context hex: B8 20 00 00 00 48 8B C8 FF 15 60 62 0B 00 48 8D 15 E9 A1 02 00 41 8B CD FF 15 F8 61 0B 00 48 8B 5C 24 78 48 8B 0B E8 03 80 01 00 E8 0E 41 01 00 45 33 C0 48 8D 1...
+
+  RVA 0x00003327 [  4 chars]: "D$@H"
+    Context hex: 0C 48 8D 0D 11 FE 36 00 E8 FC ED FF FF 41 8B C5 86 05 88 B3 11 00 49 8B CD E8 FF 77 08 00 48 89 44 24 40 48 8D 4C 24 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4...
+
+  RVA 0x0000332C [  4 chars]: "L$8H"
+    Context hex: FE 36 00 E8 FC ED FF FF 41 8B C5 86 05 88 B3 11 00 49 8B CD E8 FF 77 08 00 48 89 44 24 40 48 8D 4C 24 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4C 8D 05 7D 1E 0...
+
+  RVA 0x00003331 [  4 chars]: "L$(D"
+    Context hex: ED FF FF 41 8B C5 86 05 88 B3 11 00 49 8B CD E8 FF 77 08 00 48 89 44 24 40 48 8D 4C 24 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4C 8D 05 7D 1E 00 00 33 D2 33 C...
+
+  RVA 0x00003336 [  4 chars]: "t$ L"
+    Context hex: C5 86 05 88 B3 11 00 49 8B CD E8 FF 77 08 00 48 89 44 24 40 48 8D 4C 24 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4C 8D 05 7D 1E 00 00 33 D2 33 C9 E8 B0 E7 08 0...
+
+  RVA 0x0000334E [  4 chars]: "D$0H"
+    Context hex: 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4C 8D 05 7D 1E 00 00 33 D2 33 C9 E8 B0 E7 08 00 48 89 44 24 30 48 85 C0 0F 84 1D 05 00 00 83 7C 24 38 00 0F 84 09 05 0...
+
+  RVA 0x00003366 [  5 chars]: "(D$0f"
+    Context hex: C9 E8 B0 E7 08 00 48 89 44 24 30 48 85 C0 0F 84 1D 05 00 00 83 7C 24 38 00 0F 84 09 05 00 00 0F 28 44 24 30 66 0F 7F 44 24 40 48 8D 4C 24 40 E8 76 74 08 00 85 C...
+
+  RVA 0x0000336D [  4 chars]: "D$@H"
+    Context hex: 89 44 24 30 48 85 C0 0F 84 1D 05 00 00 83 7C 24 38 00 0F 84 09 05 00 00 0F 28 44 24 30 66 0F 7F 44 24 40 48 8D 4C 24 40 E8 76 74 08 00 85 C0 0F 85 EC 04 00 00 0...
+
+  RVA 0x0000352B [  4 chars]: "D$@H"
+    Context hex: 0D A8 28 0C 00 FF 15 42 5F 0B 00 48 8B D8 4D 8B E6 4D 8B FE 48 85 C0 74 3D 0F 57 C0 33 C0 0F 11 44 24 40 48 89 44 24 50 FF 15 C7 5E 0B 00 48 8B C8 41 B9 18 00 0...
+
+  RVA 0x00003544 [  4 chars]: "D$@H"
+    Context hex: 0F 57 C0 33 C0 0F 11 44 24 40 48 89 44 24 50 FF 15 C7 5E 0B 00 48 8B C8 41 B9 18 00 00 00 4C 8D 44 24 40 48 8B D3 FF 15 40 5F 0B 00 85 C0 74 0D 4C 8B 64 24 40 4...
+
+  RVA 0x00003556 [  4 chars]: "d$@D"
+    Context hex: 5E 0B 00 48 8B C8 41 B9 18 00 00 00 4C 8D 44 24 40 48 8B D3 FF 15 40 5F 0B 00 85 C0 74 0D 4C 8B 64 24 40 44 8B 7C 24 48 4D 03 FC FF 15 61 5F 0B 00 8B F8 89 44 2...
+
+  RVA 0x0000355B [  4 chars]: "|$HM"
+    Context hex: C8 41 B9 18 00 00 00 4C 8D 44 24 40 48 8B D3 FF 15 40 5F 0B 00 85 C0 74 0D 4C 8B 64 24 40 44 8B 7C 24 48 4D 03 FC FF 15 61 5F 0B 00 8B F8 89 44 24 68 FF 15 DD 5...
+
+  RVA 0x00003574 [  4 chars]: "D$d3"
+    Context hex: 4C 8B 64 24 40 44 8B 7C 24 48 4D 03 FC FF 15 61 5F 0B 00 8B F8 89 44 24 68 FF 15 DD 5E 0B 00 89 44 24 64 33 D2 B9 04 00 00 00 FF 15 DC 5E 0B 00 48 8B D8 48 89 4...
+
+  RVA 0x00003589 [  4 chars]: "D$@H"
+    Context hex: 89 44 24 68 FF 15 DD 5E 0B 00 89 44 24 64 33 D2 B9 04 00 00 00 FF 15 DC 5E 0B 00 48 8B D8 48 89 44 24 40 48 83 F8 FF 0F 84 CD 01 00 00 0F 57 C0 F3 0F 7F 45 94 4...
+
+  RVA 0x000035DD [  5 chars]: "D;D$d"
+    Context hex: FF 15 75 5E 0B 00 85 C0 0F 84 0E 01 00 00 0F 1F 44 00 00 39 7D 9C 0F 85 EB 00 00 00 44 8B 45 98 44 3B 44 24 64 0F 84 DC 00 00 00 33 D2 B9 FF FF 1F 00 FF 15 EB 5...
+
+  RVA 0x00003605 [  4 chars]: "D$pH"
+    Context hex: 00 00 00 33 D2 B9 FF FF 1F 00 FF 15 EB 5E 0B 00 48 8B F8 48 85 C0 0F 84 BF 00 00 00 33 C0 48 89 44 24 70 48 89 44 24 30 48 89 45 88 48 89 45 80 48 C7 C3 FF FF F...
+
+  RVA 0x0000360A [  4 chars]: "D$0H"
+    Context hex: B9 FF FF 1F 00 FF 15 EB 5E 0B 00 48 8B F8 48 85 C0 0F 84 BF 00 00 00 33 C0 48 89 44 24 70 48 89 44 24 30 48 89 45 88 48 89 45 80 48 C7 C3 FF FF FF FF 48 8D 45 8...
+
+  RVA 0x00003622 [  4 chars]: "D$ L"
+    Context hex: C0 48 89 44 24 70 48 89 44 24 30 48 89 45 88 48 89 45 80 48 C7 C3 FF FF FF FF 48 8D 45 80 48 89 44 24 20 4C 8D 4D 88 4C 8D 44 24 30 48 8D 54 24 70 48 8B CF FF 1...
+
+  RVA 0x0000362B [  4 chars]: "D$0H"
+    Context hex: 24 30 48 89 45 88 48 89 45 80 48 C7 C3 FF FF FF FF 48 8D 45 80 48 89 44 24 20 4C 8D 4D 88 4C 8D 44 24 30 48 8D 54 24 70 48 8B CF FF 15 9C 5E 0B 00 85 C0 74 0F 8...
+
+  RVA 0x00003630 [  4 chars]: "T$pH"
+    Context hex: 88 48 89 45 80 48 C7 C3 FF FF FF FF 48 8D 45 80 48 89 44 24 20 4C 8D 4D 88 4C 8D 44 24 30 48 8D 54 24 70 48 8B CF FF 15 9C 5E 0B 00 85 C0 74 0F 8B 5C 24 74 48 C...
+
+  RVA 0x00003641 [  4 chars]: "\$tH"
+    Context hex: 89 44 24 20 4C 8D 4D 88 4C 8D 44 24 30 48 8D 54 24 70 48 8B CF FF 15 9C 5E 0B 00 85 C0 74 0F 8B 5C 24 74 48 C1 E3 20 8B 44 24 70 48 0B D8 4D 85 E4 74 48 4D 85 F...
+
+  RVA 0x00003649 [  4 chars]: "D$pH"
+    Context hex: 4C 8D 44 24 30 48 8D 54 24 70 48 8B CF FF 15 9C 5E 0B 00 85 C0 74 0F 8B 5C 24 74 48 C1 E3 20 8B 44 24 70 48 0B D8 4D 85 E4 74 48 4D 85 FF 74 43 33 D2 41 B8 D0 0...
+
+  RVA 0x000036C1 [  4 chars]: "|$hH"
+    Context hex: 32 C0 49 3B DE 73 0A 44 8B 6D 98 4C 8B F3 0F B6 F0 48 8B CF FF 15 CD 5D 0B 00 48 8B 5C 24 40 8B 7C 24 68 48 8D 55 90 48 8B CB FF 15 4F 5D 0B 00 85 C0 0F 85 F7 F...
+
+  RVA 0x00003726 [  4 chars]: "D$ E"
+    Context hex: 0B 00 48 89 05 D9 FA 36 00 48 8D 15 32 28 0C 00 48 8D 05 33 28 0C 00 40 84 F6 48 0F 45 C2 48 89 44 24 20 45 8B CD 4C 8D 05 35 28 0C 00 BA 80 00 00 00 48 8D 8D 8...
+
+  RVA 0x00003765 [  4 chars]: "L$xH"
+    Context hex: 33 C0 48 8D 95 80 04 00 00 48 8D 0D CB F9 36 00 E8 96 D0 FF FF 45 33 F6 41 BD 01 00 00 00 48 8B 4C 24 78 48 8B 09 E8 60 38 02 00 49 8B CD E8 AC 73 08 00 48 89 4...
+
+  RVA 0x0000377A [  4 chars]: "D$@H"
+    Context hex: 45 33 F6 41 BD 01 00 00 00 48 8B 4C 24 78 48 8B 09 E8 60 38 02 00 49 8B CD E8 AC 73 08 00 48 89 44 24 40 48 8D 4C 24 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4...
+
+  RVA 0x0000377F [  4 chars]: "L$8H"
+    Context hex: 01 00 00 00 48 8B 4C 24 78 48 8B 09 E8 60 38 02 00 49 8B CD E8 AC 73 08 00 48 89 44 24 40 48 8D 4C 24 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4C 8D 05 5A 1A 0...
+
+  RVA 0x00003784 [  4 chars]: "L$(D"
+    Context hex: 8B 4C 24 78 48 8B 09 E8 60 38 02 00 49 8B CD E8 AC 73 08 00 48 89 44 24 40 48 8D 4C 24 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4C 8D 05 5A 1A 00 00 33 D2 33 C...
+
+  RVA 0x00003789 [  4 chars]: "t$ L"
+    Context hex: 8B 09 E8 60 38 02 00 49 8B CD E8 AC 73 08 00 48 89 44 24 40 48 8D 4C 24 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4C 8D 05 5A 1A 00 00 33 D2 33 C9 E8 5D E3 08 0...
+
+  RVA 0x000037A1 [  4 chars]: "D$0H"
+    Context hex: 38 48 89 4C 24 28 44 89 74 24 20 4C 8B C8 4C 8D 05 5A 1A 00 00 33 D2 33 C9 E8 5D E3 08 00 48 89 44 24 30 48 85 C0 0F 84 B1 00 00 00 83 7C 24 38 00 0F 84 9D 00 0...
+
+  RVA 0x000037B9 [  5 chars]: "(D$0f"
+    Context hex: C9 E8 5D E3 08 00 48 89 44 24 30 48 85 C0 0F 84 B1 00 00 00 83 7C 24 38 00 0F 84 9D 00 00 00 0F 28 44 24 30 66 0F 7F 44 24 40 48 8D 4C 24 40 E8 23 70 08 00 85 C...
+
+  RVA 0x000037C0 [  4 chars]: "D$@H"
+    Context hex: 89 44 24 30 48 85 C0 0F 84 B1 00 00 00 83 7C 24 38 00 0F 84 9D 00 00 00 0F 28 44 24 30 66 0F 7F 44 24 40 48 8D 4C 24 40 E8 23 70 08 00 85 C0 0F 85 80 00 00 00 4...
+
+  RVA 0x000037FB [  9 chars]: "A_A^A]A\]"
+    Context hex: 00 48 33 CC E8 FC 71 08 00 4C 8D 9C 24 10 06 00 00 49 8B 5B 38 49 8B 73 40 49 8B 7B 48 49 8B E3 41 5F 41 5E 41 5D 41 5C 5D C3 41 8B CD E8 87 63 08 00 90 44 89 7...
+
+  RVA 0x000038DA [  5 chars]: "UWAVH"
+    Context hex: 15 21 26 0C 00 E9 EC D0 FF FF C3 CC CC CC CC CC CC CC CC CC CC CC 48 89 5C 24 10 48 89 74 24 18 55 57 41 56 48 8D AC 24 50 FB FF FF 48 81 EC B0 05 00 00 48 8B 0...
+
+  RVA 0x00003973 [  4 chars]: "D$(H"
+    Context hex: 01 5B 0B 00 48 8B D8 48 85 C0 74 D1 B9 E8 03 00 00 FF 15 FE 5A 0B 00 48 8D 05 1F 8C 0F 00 48 89 44 24 28 48 89 5C 24 30 48 8D 44 24 28 48 89 44 24 60 48 8D 44 2...
+
+  RVA 0x0000397D [  4 chars]: "D$(H"
+    Context hex: 74 D1 B9 E8 03 00 00 FF 15 FE 5A 0B 00 48 8D 05 1F 8C 0F 00 48 89 44 24 28 48 89 5C 24 30 48 8D 44 24 28 48 89 44 24 60 48 8D 44 24 28 48 89 44 24 20 48 8D 1D F...
+
+  RVA 0x00003982 [  4 chars]: "D$`H"
+    Context hex: 00 00 FF 15 FE 5A 0B 00 48 8D 05 1F 8C 0F 00 48 89 44 24 28 48 89 5C 24 30 48 8D 44 24 28 48 89 44 24 60 48 8D 44 24 28 48 89 44 24 20 48 8D 1D FA 74 11 00 48 8...
+
+  RVA 0x00003987 [  4 chars]: "D$(H"
+    Context hex: 5A 0B 00 48 8D 05 1F 8C 0F 00 48 89 44 24 28 48 89 5C 24 30 48 8D 44 24 28 48 89 44 24 60 48 8D 44 24 28 48 89 44 24 20 48 8D 1D FA 74 11 00 48 89 5C 24 68 48 8...
+
+  RVA 0x0000398C [  4 chars]: "D$ H"
+    Context hex: 05 1F 8C 0F 00 48 89 44 24 28 48 89 5C 24 30 48 8D 44 24 28 48 89 44 24 60 48 8D 44 24 28 48 89 44 24 20 48 8D 1D FA 74 11 00 48 89 5C 24 68 48 8B CB E8 F5 6B 0...
+
+  RVA 0x00003998 [  4 chars]: "\$hH"
+    Context hex: 5C 24 30 48 8D 44 24 28 48 89 44 24 60 48 8D 44 24 28 48 89 44 24 20 48 8D 1D FA 74 11 00 48 89 5C 24 68 48 8B CB E8 F5 6B 08 00 85 C0 0F 85 71 04 00 00 81 3D 2...
+
+  RVA 0x000039C3 [  4 chars]: "L$`H"
+    Context hex: 85 C0 0F 85 71 04 00 00 81 3D 27 75 11 00 FF FF FF 7F 0F 84 4C 04 00 00 33 FF 48 89 7D C8 48 8B 4C 24 60 48 85 C9 74 0D 48 8B 01 48 8D 55 90 FF 10 48 89 45 C8 4...
+
+  RVA 0x00003A10 [  4 chars]: "L$`H"
+    Context hex: 14 48 8D 45 90 48 3B C8 0F 95 C2 48 8B 01 FF 50 20 48 89 7D C8 48 8B CB E8 93 6B 08 00 90 48 8B 4C 24 60 48 85 C9 74 16 48 8D 44 24 28 48 3B C8 0F 95 C2 48 8B 0...
+
+  RVA 0x00003A1A [  5 chars]: "D$(H;"
+    Context hex: C2 48 8B 01 FF 50 20 48 89 7D C8 48 8B CB E8 93 6B 08 00 90 48 8B 4C 24 60 48 85 C9 74 16 48 8D 44 24 28 48 3B C8 0F 95 C2 48 8B 01 FF 50 20 48 89 7C 24 60 E8 1...
+
+  RVA 0x00003AC8 [  4 chars]: "T$ H"
+    Context hex: 9C 04 10 00 FF 15 06 5D 0B 00 48 89 05 37 E3 36 00 48 8B C8 48 85 C0 75 3A 48 89 7C 24 20 48 8D 54 24 20 48 8D 0D 9E F3 02 00 FF 15 40 5D 0B 00 48 8B 44 24 20 4...
+
+  RVA 0x00003ADA [  4 chars]: "D$ H"
+    Context hex: 8B C8 48 85 C0 75 3A 48 89 7C 24 20 48 8D 54 24 20 48 8D 0D 9E F3 02 00 FF 15 40 5D 0B 00 48 8B 44 24 20 48 89 05 0C E3 36 00 48 85 C0 75 12 B9 F4 01 00 00 FF 1...
+
+  RVA 0x00003C76 [  4 chars]: "D$tH"
+    Context hex: 33 D2 B9 04 00 00 00 FF 15 FD 57 0B 00 48 8B F0 48 83 F8 FF 0F 84 2D 01 00 00 0F 57 C0 F3 0F 7F 44 24 74 48 89 7D 84 C7 44 24 70 1C 00 00 00 48 8D 54 24 70 48 8...
+
+  RVA 0x00003C87 [  4 chars]: "T$pH"
+    Context hex: 83 F8 FF 0F 84 2D 01 00 00 0F 57 C0 F3 0F 7F 44 24 74 48 89 7D 84 C7 44 24 70 1C 00 00 00 48 8D 54 24 70 48 8B C8 FF 15 A5 57 0B 00 85 C0 0F 84 F9 00 00 00 0F 1...
+
+  RVA 0x00003CA0 [  5 chars]: "D9t$|"
+    Context hex: 70 1C 00 00 00 48 8D 54 24 70 48 8B C8 FF 15 A5 57 0B 00 85 C0 0F 84 F9 00 00 00 0F 1F 44 00 00 44 39 74 24 7C 0F 85 D3 00 00 00 44 8B 44 24 78 33 D2 B9 1A 00 0...
+
+  RVA 0x00003CAD [  4 chars]: "D$x3"
+    Context hex: FF 15 A5 57 0B 00 85 C0 0F 84 F9 00 00 00 0F 1F 44 00 00 44 39 74 24 7C 0F 85 D3 00 00 00 44 8B 44 24 78 33 D2 B9 1A 00 00 00 FF 15 23 58 0B 00 48 8B D8 48 85 C...
+
+... (truncated, 9321 more strings not shown)
+
+================================================================================
+   STRINGS MATCHING KEYWORDS (game/hack related)
+================================================================================
+  [weapon]:
+    RVA 0x000FEE78: "Primary Weapon Override"
+    RVA 0x000FEE90: "Give all lobby members the selected primary weapon XP."
+    RVA 0x000FEFC0: ">> Next Weapon"
+    RVA 0x000FEFD0: "-- Select Primary Weapon --"
+    RVA 0x000FF050: "Selected Guns List  (check weapons to include):"
+    RVA 0x000FF0B0: "Search weapons..."
+    RVA 0x000FF408: "Weapon XP"
+    RVA 0x000FFE08: "  Patches stratagem/weapon/armor unlock checks."
+    RVA 0x000FFE38: "  Weapon Stats Editor"
+    RVA 0x000FFE50: "  Click any weapon on the ship to populate."
+    ... and 12 more
+  [armor]:
+    RVA 0x000FD880: "Armor Base"
+    RVA 0x000FFDE4: "ARMORY"
+    RVA 0x000FFDF0: "Unlock All Armory##ua"
+    RVA 0x000FFE08: "  Patches stratagem/weapon/armor unlock checks."
+    RVA 0x000FFEB0: "  Armor Passive Editor"
+    RVA 0x000FFEC8: "  Change any armor's passive bonus."
+    RVA 0x000FFEF0: "Scan Armor##ap_scan"
+    RVA 0x000FFF08: "Armor##ap_armor"
+    RVA 0x00103B70: "[UnlockArmory] %s"
+    RVA 0x001040B0: "Armor Passive"
+  [passive]:
+    RVA 0x000FFEB0: "  Armor Passive Editor"
+    RVA 0x000FFEC8: "  Change any armor's passive bonus."
+    RVA 0x000FFF18: "Passive##ap_pass"
+    RVA 0x001040B0: "Armor Passive"
+  [difficulty]:
+    RVA 0x000FF548: "[2] Force Apply Difficulty Multiplier"
+    RVA 0x000FF570: "Difficulty tier (1-10)"
+    RVA 0x000FF588: "Force Difficulty: ON ##diff"
+    RVA 0x000FF5A8: "Force Difficulty: OFF##diff"
+    RVA 0x00102E90: "Force highest difficulty reward tier (NOP jl at cmp esi,7)"
+    RVA 0x00102F20: "Difficulty Mult"
+    RVA 0x00102F30: "NOP difficulty value read"
+  [tier]:
+    RVA 0x000FE100: "GS-17 Frontier Marshall"
+    RVA 0x000FF570: "Difficulty tier (1-10)"
+    RVA 0x00102E90: "Force highest difficulty reward tier (NOP jl at cmp esi,7)"
+  [farm]:
+    RVA 0x000FF400: "Farming"
+    RVA 0x000FF460: "##farming_scroll"
+    RVA 0x000FF478: "FARMING"
+  [sc_]:
+    RVA 0x000FF988: "##sc_scroll"
+    RVA 0x000FFB10: "##misc_scroll"
+    RVA 0x00103EC8: "WndProc: WM_SC_DISPATCH received, actObj=%p, TID=%u"
+  [login]:
+    RVA 0x000FF200: "Login with your account"
+  [auth]:
+    RVA 0x00100888: "[R] Auth failed"
+    RVA 0x001020B0: "Authorization:"
+    RVA 0x001020D4: "X-Auth"
+    RVA 0x00102108: "[RECON-AUTH] Base URL: %s"
+  [token]:
+    RVA 0x001020E0: "X-Token"
+  [json]:
+    RVA 0x000C5C78: "libertea_replay_cap.json"
+  [http]:
+    RVA 0x000C624C: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000C6ED0: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000CAFBC: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000CBCC0: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000D093C: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000D15C0: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000D54DC: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000D6160: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000DA07C: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000DAD10: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    ... and 26 more
+  [api]:
+    RVA 0x000C0A40: "AreFileApisANSI"
+    RVA 0x000C624C: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000C6ED0: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000CAFBC: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000CBCC0: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000D093C: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000D15C0: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000D54DC: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000D6160: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000DA07C: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    ... and 13 more
+  [imgui]:
+    RVA 0x00104CC0: "imgui.ini"
+    RVA 0x00104CD0: "imgui_log.txt"
+    RVA 0x00104DA8: "Dear ImGui 1.91.5 (19150)"
+    RVA 0x00105010: "(Debug Log: Auto-disabled some ImGuiDebugLogFlags after 2 frames)"
+    RVA 0x00105C60: "[imgui-error] (current settings: Assert=%d, Log=%d, Tooltip=%d)"
+    RVA 0x00105CA8: "[imgui-error] In window '%s': %s"
+    RVA 0x00105ED0: "https://github.com/ocornut/imgui/blob/master/docs/FAQ.md#qa-usage"
+    RVA 0x00105F50: "MESSAGE FROM DEAR IMGUI"
+    RVA 0x00106AD0: "imgui_impl_win32"
+    RVA 0x00106B60: "imgui_impl_opengl2"
+  [dear]:
+    RVA 0x00104DA8: "Dear ImGui 1.91.5 (19150)"
+    RVA 0x00105F50: "MESSAGE FROM DEAR IMGUI"
+  [type_info]:
+    RVA 0x0011C888: ".?AVtype_info@@"
+  [class]:
+    RVA 0x000BE0B8: " Base Class Descriptor at ("
+    RVA 0x000BE0D8: " Base Class Array'"
+    RVA 0x000BE0F0: " Class Hierarchy Descriptor'"
+  [rtti]:
+    RVA 0x000BDE24: "`RTTI"
+  [exception]:
+    RVA 0x000BD378: "bad exception"
+    RVA 0x000C5B48: "Unknown exception"
+    RVA 0x0011C6B8: ".?AVbad_exception@std@@"
+    RVA 0x0011C750: ".?AVexception@std@@"
+  [veh]:
+    RVA 0x00100660: "[SC] VEH recovered crash"
+    RVA 0x001046A0: "Fast Recon Vehicle"
+    RVA 0x001046F8: "Vehicles"
+    RVA 0x00104860: "Vehicle"
+  [tls]:
+    RVA 0x0010CC78: ".tls"
+    RVA 0x0010CC88: ".tls$"
+    RVA 0x0010CC98: ".tls$ZZZ"
+  [debug]:
+    RVA 0x00105010: "(Debug Log: Auto-disabled some ImGuiDebugLogFlags after 2 frames)"
+    RVA 0x00105058: "Debug##Default"
+    RVA 0x00105E00: "Set io.ConfigDebugDetectIdConflicts=false to disable this warning in non-programmers builds."
+    RVA 0x00106500: "Click %s Button to break in debugger! (remap w/ Ctrl+Shift)"
+  [syscall]:
+    RVA 0x00102A30: "[Features] Syscall stub built at %p (syscall# 0x%X)"
+    RVA 0x00102A70: "[Features] Protection layers: syscall=%s, ntdll_direct=%s, VirtualProtect=fallback"
+  [ntdll]:
+    RVA 0x00100A38: "ntdll.dll"
+    RVA 0x001029C0: "[Features] ntdll.dll handle: %p"
+    RVA 0x00102A20: "%s\ntdll.dll"
+    RVA 0x00102A70: "[Features] Protection layers: syscall=%s, ntdll_direct=%s, VirtualProtect=fallback"
+  [winhttp]:
+    RVA 0x00101808: "winhttp.dll"
+  [url]:
+    RVA 0x00100628: "  BEFORE: ctr=0x%X flag=0x%X ring=%u url="%.40s""
+    RVA 0x00100680: "  AFTER(0s): ctr=0x%X flag=0x%X ring=%u rax=0x%llX url="%.40s" qDelta=%d"
+    RVA 0x00102028: "[RECON-URL] TID=%lu %s"
+    RVA 0x00102108: "[RECON-AUTH] Base URL: %s"
+    RVA 0x00102188: "[HTTP] >>> curl_easy_perform %s h=%p"
+    RVA 0x001021C8: "libcurl.dll"
+    RVA 0x001021D8: "libcurl-x64.dll"
+    RVA 0x001021E8: "curl.dll"
+    RVA 0x001026C0: "[HTTP] Found libcurl at %p"
+    RVA 0x001026E0: "curl_easy_setopt"
+    ... and 7 more
+  [request]:
+    RVA 0x00106130: "[nav] NavInitRequest: from NavInitWindow(), init_for_nav=%d, window="%s", layer=%d"
+    RVA 0x00106190: "[nav] NavInitRequest: ApplyResult: NavID 0x%08X in Layer %d Window "%s""
+    RVA 0x001061E0: "[nav] NavMoveRequestForward %d"
+    RVA 0x00106200: "[nav] NavInitRequest: from move, window "%s", layer=%d"
+    RVA 0x00106238: "[nav] NavMoveRequest: clamp NavRectRel for gamepad move"
+    RVA 0x001062B0: "[focus] NavMoveRequest: SetNavWindow("%s")"
+    RVA 0x001062E0: "[nav] NavMoveRequest: result NavID 0x%08X in Layer %d Window "%s""
+    RVA 0x00106328: "[nav] NavUpdateCancelRequest()"
+    RVA 0x00106920: "[selection] %s: Request: SetAll %d (= %s)"
+    RVA 0x00106950: "[selection] %s: Request: SetRange %I64d..%I64d (0x%I64X..0x%I64X) = %d (dir %d)"
+  [state]:
+    RVA 0x000BCEF0: "state not recoverable"
+    RVA 0x00106B50: "XInputGetState"
+  [patch]:
+    RVA 0x000FE760: "Do not close game -- dispatching..."
+    RVA 0x000FE7E0: "All replays dispatched."
+    RVA 0x000FF008: "Last replay: %d slot(s) patched"
+    RVA 0x000FFE08: "  Patches stratagem/weapon/armor unlock checks."
+    RVA 0x00100958: "[WeaponOvr] Patched %d weapon slot(s) -> ID %u (%s)"
+    RVA 0x00100A98: "[Replay] Dispatch failed"
+    RVA 0x00100AF8: " %d replays dispatched"
+    RVA 0x00101FB8: "dispatch"
+    RVA 0x00101FC8: "Dispatch"
+    RVA 0x00103748: "[Features] %-25s FOUND @ 0x%llX (patch @ +%d)"
+    ... and 1 more
+  [hook]:
+    RVA 0x000FFE80: "[N/A] Hooks not installed"
+    RVA 0x001014C0: "WARNING: Hook mismatch "
+    RVA 0x001014F0: "Hook verified"
+    RVA 0x00101528: "[P] Hook installed"
+    RVA 0x00101DD0: "[HOOK] %p: stealing %d bytes (%d insns) ripRel=%d"
+    RVA 0x001038A3: " Hook1=0x%llX Hook2=0x%llX Cave=%p"
+    RVA 0x001038D8: "[StratCave] Cave=%p hook=0x%llX disp=%d"
+    RVA 0x00103910: "[SpeedCave] Cave=%p hook=0x%llX disp=%d"
+    RVA 0x00103B30: "[SpawnSwapper] Cave=%p hook=0x%llX"
+    RVA 0x00103B88: "[WeaponEditor] Hook0(ReadWeapon) cave=%p site=0x%llX"
+    ... and 5 more
+  [pattern]:
+    RVA 0x000FFB42: " %d/%d patterns found. Some features may not work."
+    RVA 0x000FFB78: "Patterns: %d/%d found"
+    RVA 0x001025E2: " UNKNOWN pattern (last 8 bytes: %02X %02X %02X %02X %02X %02X %02X %02X)"
+  [signature]:
+    RVA 0x000FD9E8: "Reduced Signature"
+    RVA 0x001020A0: "X-Signature:"
+  [scan]:
+    RVA 0x000FE5F8: "Scanning..."
+    RVA 0x000FFEF0: "Scan Armor##ap_scan"
+    RVA 0x0011C3B0: "Not scanned"
+  [aob]:
+    RVA 0x00104548: "AOB not found in game.dll"
+
+================================================================================
+7. IMPORT STUB ENUMERATION
+================================================================================
+
+Import stubs found (FF 25 / FF 15 patterns): 1560
+
+First 50 import stubs:
+  0x000003FD call [rip+disp32]  disp=0x000B8EA5  target_va=0x000B92A8
+  0x00000871 call [rip+disp32]  disp=0x000B8BF9  target_va=0x000B9470
+  0x00000A31 call [rip+disp32]  disp=0x000B8A39  target_va=0x000B9470
+  0x00000E4F call [rip+disp32]  disp=0x000B85C3  target_va=0x000B9418
+  0x00000FE9 call [rip+disp32]  disp=0x000B84E1  target_va=0x000B94D0
+  0x000012BF call [rip+disp32]  disp=0x000B81AB  target_va=0x000B9470
+  0x00001598 call [rip+disp32]  disp=0x000B7E72  target_va=0x000B9410
+  0x0000162B call [rip+disp32]  disp=0x000B7DDF  target_va=0x000B9410
+  0x00002150 call [rip+disp32]  disp=0x000B731A  target_va=0x000B9470
+  0x00002567 call [rip+disp32]  disp=0x000B7333  target_va=0x000B98A0
+  0x0000258C call [rip+disp32]  disp=0x000B7336  target_va=0x000B98C8
+  0x000025AF call [rip+disp32]  disp=0x000B730B  target_va=0x000B98C0
+  0x000025C9 call [rip+disp32]  disp=0x000B72D9  target_va=0x000B98A8
+  0x000025D3 call [rip+disp32]  disp=0x000B72DF  target_va=0x000B98B8
+  0x000025DF call [rip+disp32]  disp=0x000B72CB  target_va=0x000B98B0
+  0x000028C0 call [rip+disp32]  disp=0x000B6B92  target_va=0x000B9458
+  0x000028F5 call [rip+disp32]  disp=0x000B6B05  target_va=0x000B9400
+  0x0000290C call [rip+disp32]  disp=0x000B6B7E  target_va=0x000B9490
+  0x00002916 call [rip+disp32]  disp=0x000B6B5C  target_va=0x000B9478
+  0x0000299C call [rip+disp32]  disp=0x000B6A8E  target_va=0x000B9430
+  0x00002A14 call [rip+disp32]  disp=0x000B6A26  target_va=0x000B9440
+  0x00002A79 call [rip+disp32]  disp=0x000B6981  target_va=0x000B9400
+  0x00002A9C call [rip+disp32]  disp=0x000B6A1E  target_va=0x000B94C0
+  0x00002AE5 call [rip+disp32]  disp=0x000B691D  target_va=0x000B9408
+  0x00002B05 call [rip+disp32]  disp=0x000B697D  target_va=0x000B9488
+  0x00002B4E call [rip+disp32]  disp=0x000B697C  target_va=0x000B94D0
+  0x00002B9A call [rip+disp32]  disp=0x000B6888  target_va=0x000B9428
+  0x00002C05 call [rip+disp32]  disp=0x000B6835  target_va=0x000B9440
+  0x00002C67 call [rip+disp32]  disp=0x000B67AB  target_va=0x000B9418
+  0x00002CEA call [rip+disp32]  disp=0x000B6750  target_va=0x000B9440
+  0x00002D1B call [rip+disp32]  disp=0x000B6757  target_va=0x000B9478
+  0x00002EFC call [rip+disp32]  disp=0x000B65B6  target_va=0x000B94B8
+  0x00002F0E call [rip+disp32]  disp=0x000B6544  target_va=0x000B9458
+  0x00002F2F call [rip+disp32]  disp=0x000B64CB  target_va=0x000B9400
+  0x00002F46 call [rip+disp32]  disp=0x000B6544  target_va=0x000B9490
+  0x00003092 call [rip+disp32]  disp=0x000B6410  target_va=0x000B94A8
+  0x0000314F call [rip+disp32]  disp=0x000B6303  target_va=0x000B9458
+  0x0000316C call [rip+disp32]  disp=0x000B628E  target_va=0x000B9400
+  0x00003183 call [rip+disp32]  disp=0x000B6307  target_va=0x000B9490
+  0x000031B1 call [rip+disp32]  disp=0x000B62A1  target_va=0x000B9458
+  0x000031C3 call [rip+disp32]  disp=0x000B6237  target_va=0x000B9400
+  0x000031DA call [rip+disp32]  disp=0x000B62B0  target_va=0x000B9490
+  0x000031F3 call [rip+disp32]  disp=0x000B62EF  target_va=0x000B94E8
+  0x0000320D call [rip+disp32]  disp=0x000B6245  target_va=0x000B9458
+  0x00003242 call [rip+disp32]  disp=0x000B62D8  target_va=0x000B9520
+  0x0000324F call [rip+disp32]  disp=0x000B61FB  target_va=0x000B9450
+  0x0000326F call [rip+disp32]  disp=0x000B619B  target_va=0x000B9410
+  0x0000329A call [rip+disp32]  disp=0x000B6260  target_va=0x000B9500
+  0x000032AA call [rip+disp32]  disp=0x000B61F8  target_va=0x000B94A8
+  0x00003510 call [rip+disp32]  disp=0x000B5F42  target_va=0x000B9458
+
+
+API name strings found in binary:
+  0x00102AAB: VirtualProtect
+  0x000BCA18: connect
+  0x000BCDD6: socket
+  0x000BE210: FlsAlloc
+  0x000BE238: FlsGetValue
+  0x00103EA8: NtQueryInformationProcess
+
+================================================================================
+8. 32-BIT AND 64-BIT IMMEDIATE CONSTANTS
+================================================================================
+
+Top 30 immediate constants (32-bit):
+Rank                   Value                 Hex  Count
+   1.                       0                 0x0  1559
+   2.                       1                 0x1  1552
+   3.                       8                 0x8  470
+   4.                       2                 0x2  448
+   5.                       4                 0x4  268
+   6.                       3                 0x3  258
+   7.                       5                 0x5  236
+   8.                       6                 0x6  188
+   9.                      64                0x40  179
+  10.                      31                0x1F  169
+  11.              4294967295          0xFFFFFFFF  143
+  12.                      -1                -0x1  137
+  13.               715827883          0x2AAAAAAB  123
+  14.                      10                 0xA  118
+  15.                      32                0x20  111
+  16.                      16                0x10  109
+  17.                       7                 0x7  104
+  18.                     255                0xFF  101
+  19.              1065353216          0x3F800000  101
+  20.                     128                0x80  97
+  21.                      15                 0xF  88
+  22.                    4096              0x1000  83
+  23.                      24                0x18  81
+  24.                      22                0x16  78
+  25.                      12                 0xC  72
+  26.                     256               0x100  71
+  27.                      48                0x30  67
+  28.              2139095039          0x7F7FFFFF  66
+  29.                      63                0x3F  61
+  30.              3212836864          0xBF800000  61
+
+Top 20 immediate constants (64-bit):
+   1.                      15                 0xF  590
+   2.                      32                0x20  464
+   3.                       8                 0x8  337
+   4.                       0                 0x0  278
+   5.                  569040             0x8AED0  235
+   6.                    4096              0x1000  230
+   7.                       1                 0x1  220
+   8.                      39                0x27  217
+   9.                      31                0x1F  216
+  10.                  740736             0xB4D80  202
+  11.                      48                0x30  179
+  12.                      -1                -0x1  165
+  13.                   23920              0x5D70  164
+  14.                  595912             0x917C8  159
+  15.                   20016              0x4E30  148
+  16.                      40                0x28  129
+  17.                   23952              0x5D90  129
+  18.                  564116             0x89B94  118
+  19.                  618560             0x97040  116
+  20.                  567776             0x8A9E0  115
+
+================================================================================
+9. PATTERN SIGNATURE EXTRACTION
+================================================================================
+
+Unique signature patterns found: 50986
+
+Sample signatures (first 30):
+  0x00000000 [ 25 bytes]: 48 83 EC 28 E8 77 04 00 00 48 8D 0D 40 7D 0B 00 48 83 C4 28 E9 9F AE 08 00
+  0x00000004 [ 21 bytes]: E8 77 04 00 00 48 8D 0D 40 7D 0B 00 48 83 C4 28 E9 9F AE 08 00
+  0x00000009 [ 16 bytes]: 48 8D 0D 40 7D 0B 00 48 83 C4 28 E9 9F AE 08 00
+  0x00000010 [  9 bytes]: 48 83 C4 28 E9 9F AE 08 00
+  0x00000014 [ 48 bytes]: E9 9F AE 08 00 CC CC CC CC CC CC CC 48 8D 0D 69 7D 0B 00 E9 8C AE 08 00 CC CC CC CC 48 8D 0D D9 7D 0B 00 E9 7C AE 08 00 CC CC CC CC 48 8D 0D E9
+  0x00000020 [ 12 bytes]: 48 8D 0D 69 7D 0B 00 E9 8C AE 08 00
+  0x00000027 [ 48 bytes]: E9 8C AE 08 00 CC CC CC CC 48 8D 0D D9 7D 0B 00 E9 7C AE 08 00 CC CC CC CC 48 8D 0D E9 7D 0B 00 E9 6C AE 08 00 CC CC CC CC 48 8D 0D E9 7D 0B 00
+  0x00000030 [ 12 bytes]: 48 8D 0D D9 7D 0B 00 E9 7C AE 08 00
+  0x00000037 [ 48 bytes]: E9 7C AE 08 00 CC CC CC CC 48 8D 0D E9 7D 0B 00 E9 6C AE 08 00 CC CC CC CC 48 8D 0D E9 7D 0B 00 E9 5C AE 08 00 CC CC CC CC 48 8D 0D E9 7D 0B 00
+  0x00000040 [ 12 bytes]: 48 8D 0D E9 7D 0B 00 E9 6C AE 08 00
+  0x00000043 [  9 bytes]: E9 7D 0B 00 E9 6C AE 08 00
+  0x00000047 [ 48 bytes]: E9 6C AE 08 00 CC CC CC CC 48 8D 0D E9 7D 0B 00 E9 5C AE 08 00 CC CC CC CC 48 8D 0D E9 7D 0B 00 E9 4C AE 08 00 CC CC CC CC 48 8D 0D E9 7D 0B 00
+  0x00000050 [ 12 bytes]: 48 8D 0D E9 7D 0B 00 E9 5C AE 08 00
+  0x00000053 [  9 bytes]: E9 7D 0B 00 E9 5C AE 08 00
+  0x00000057 [ 48 bytes]: E9 5C AE 08 00 CC CC CC CC 48 8D 0D E9 7D 0B 00 E9 4C AE 08 00 CC CC CC CC 48 8D 0D E9 7D 0B 00 E9 3C AE 08 00 CC CC CC CC 48 8D 0D E9 7D 0B 00
+  0x00000060 [ 12 bytes]: 48 8D 0D E9 7D 0B 00 E9 4C AE 08 00
+  0x00000063 [  9 bytes]: E9 7D 0B 00 E9 4C AE 08 00
+  0x00000067 [ 48 bytes]: E9 4C AE 08 00 CC CC CC CC 48 8D 0D E9 7D 0B 00 E9 3C AE 08 00 CC CC CC CC 48 8D 0D E9 7D 0B 00 E9 2C AE 08 00 CC CC CC CC 48 8D 0D E9 7D 0B 00
+  0x00000070 [ 12 bytes]: 48 8D 0D E9 7D 0B 00 E9 3C AE 08 00
+  0x00000073 [  9 bytes]: E9 7D 0B 00 E9 3C AE 08 00
+  0x00000077 [ 48 bytes]: E9 3C AE 08 00 CC CC CC CC 48 8D 0D E9 7D 0B 00 E9 2C AE 08 00 CC CC CC CC 48 8D 0D E9 7D 0B 00 E9 1C AE 08 00 CC CC CC CC 48 8D 0D 19 7E 0B 00
+  0x00000080 [ 12 bytes]: 48 8D 0D E9 7D 0B 00 E9 2C AE 08 00
+  0x00000083 [  9 bytes]: E9 7D 0B 00 E9 2C AE 08 00
+  0x00000087 [ 48 bytes]: E9 2C AE 08 00 CC CC CC CC 48 8D 0D E9 7D 0B 00 E9 1C AE 08 00 CC CC CC CC 48 8D 0D 19 7E 0B 00 E9 0C AE 08 00 CC CC CC CC 48 83 EC 28 B9 40 00
+  0x00000090 [ 12 bytes]: 48 8D 0D E9 7D 0B 00 E9 1C AE 08 00
+  0x00000093 [  9 bytes]: E9 7D 0B 00 E9 1C AE 08 00
+  0x00000097 [ 48 bytes]: E9 1C AE 08 00 CC CC CC CC 48 8D 0D 19 7E 0B 00 E9 0C AE 08 00 CC CC CC CC 48 83 EC 28 B9 40 00 00 00 E8 66 AA 08 00 48 8D 0D 0B 7E 0B 00 48 89
+  0x000000A0 [ 12 bytes]: 48 8D 0D 19 7E 0B 00 E9 0C AE 08 00
+  0x000000A7 [ 48 bytes]: E9 0C AE 08 00 CC CC CC CC 48 83 EC 28 B9 40 00 00 00 E8 66 AA 08 00 48 8D 0D 0B 7E 0B 00 48 89 00 48 89 40 08 48 89 40 10 66 C7 40 18 01 01 48
+  0x000000B0 [ 48 bytes]: 48 83 EC 28 B9 40 00 00 00 E8 66 AA 08 00 48 8D 0D 0B 7E 0B 00 48 89 00 48 89 40 08 48 89 40 10 66 C7 40 18 01 01 48 89 05 33 E5 11 00 48 83 C4
+
+================================================================================
+10. DATA POINTER RVAs (LEA reg, [rip+disp32])
+================================================================================
+
+Data pointers from LEA [rip+disp32] in first 1MB: 1954
+Total unique LEA-referenced RVAs (entire file): 2033
+
+Sample LEA-referenced data pointers (first 30):
+  0x00000009 -> data at RVA 0x000B7D50
+  0x00000020 -> data at RVA 0x000B7D90
+  0x00000030 -> data at RVA 0x000B7E10
+  0x00000040 -> data at RVA 0x000B7E30
+  0x00000050 -> data at RVA 0x000B7E40
+  0x00000060 -> data at RVA 0x000B7E50
+  0x00000070 -> data at RVA 0x000B7E60
+  0x00000080 -> data at RVA 0x000B7E70
+  0x00000090 -> data at RVA 0x000B7E80
+  0x000000A0 -> data at RVA 0x000B7EC0
+  0x000000BE -> data at RVA 0x000B7ED0
+  0x000000FE -> data at RVA 0x000B7EE0
+  0x00000130 -> data at RVA 0x000B7EF0
+  0x00000140 -> data at RVA 0x000B7FA0
+  0x00000150 -> data at RVA 0x000B7FC0
+  0x00000160 -> data at RVA 0x0011CBD0
+  0x0000016C -> data at RVA 0x000B7FCC
+  0x0000017C -> data at RVA 0x000B7FD8
+  0x00000188 -> data at RVA 0x000B8030
+  0x00000194 -> data at RVA 0x000B8070
+  0x000001A4 -> data at RVA 0x0011CE50
+  0x000001B0 -> data at RVA 0x000B80B0
+  0x000001C0 -> data at RVA 0x0011E158
+  0x0000023C -> data at RVA 0x000B9BD0
+  0x00000274 -> data at RVA 0x000C5B48
+  0x0000029A -> data at RVA 0x000B9BD0
+  0x000002E0 -> data at RVA 0x000B9BD0
+  0x00000300 -> data at RVA 0x000C5B60
+  0x00000313 -> data at RVA 0x000B9C00
+  0x0000033E -> data at RVA 0x00117E40
+
+Content at top referenced data addresses:
+  RVA 0x00000EDA: hex=00 48 8B D3 49 8B CE E8 7A 96 08 00 48 3B C3 0F 84 B0 00 00 00 49 2B C6 48 D1 F8 48 83 F8 FF 0F
+                    str='\0H��I���z�\0H;���\0\0\0I+�H��H���'
+  RVA 0x00000EEC: hex=00 00 00 49 2B C6 48 D1 F8 48 83 F8 FF 0F 84 A0 00 00 00 0F 57 C0 0F 11 44 24 70 0F 57 C9 F3 0F
+                    str='\0\0\0I+�H��H�����\0\0\0W�D$pW��'
+  RVA 0x00000F0E: hex=80 4C 8D 40 01 4C 39 44 24 60 4C 0F 42 44 24 60 48 8D 54 24 50 48 83 7C 24 68 07 48 0F 47 54 24
+                    str='�L�@L9D$`LBD$`H�T$PH�|$hHGT$'
+  RVA 0x00000F31: hex=4C 24 70 E8 37 3C 00 00 48 8B 54 24 68 48 83 FA 07 76 37 48 8D 14 55 02 00 00 00 48 8B 4C 24 50
+                    str='L$p�7<\0\0H�T$hH��v7H�U\0\0\0H�L$P'
+  RVA 0x00001FB2: hex=00 00 0F 11 83 18 0D 00 00 0F 11 83 28 0D 00 00 0F 11 83 38 0D 00 00 0F 11 83 48 0D 00 00 E8 CB
+                    str='\0\0�\0\0�(\0\0�8\0\0�H\0\0��'
+  RVA 0x00001FCC: hex=48 0D 00 00 E8 CB 35 0B 00 C7 83 58 0E 00 00 FF FF FF FF 0F 57 C0 89 BB 5C 0E 00 00 40 88 BB 60
+                    str='H\0\0��5\0��X\0\0����W���\\0\0@��`'
+  RVA 0x00001FE5: hex=0E 00 00 40 88 BB 60 0E 00 00 0F B7 05 AE 3C 0C 00 66 89 83 61 0E 00 00 0F B6 05 A2 3C 0C 00 88
+                    str='\0\0@��`\0\0��<\0f��a\0\0��<\0�'
+  RVA 0x00002001: hex=3C 0C 00 88 83 63 0E 00 00 33 C0 0F 11 83 64 0E 00 00 48 89 83 74 0E 00 00 89 83 7C 0E 00 00 88
+                    str='<\0��c\0\03��d\0\0H��t\0\0��|\0\0�'
+  RVA 0x00002040: hex=0C 00 89 83 8D 0E 00 00 0F B7 05 5D 3C 0C 00 66 89 83 91 0E 00 00 0F B6 05 51 3C 0C 00 88 83 93
+                    str='\0���\0\0�]<\0f���\0\0�Q<\0���'
+  RVA 0x0000205A: hex=3C 0C 00 88 83 93 0E 00 00 33 C0 0F 11 83 94 0E 00 00 48 89 83 A4 0E 00 00 88 83 AC 0E 00 00 88
+                    str='<\0���\0\03���\0\0H���\0\0���\0\0�'
+  RVA 0x0000208D: hex=00 00 F2 0F 10 05 19 3C 0C 00 F2 0F 11 83 B9 0E 00 00 0F 57 C0 0F B7 05 0F 3C 0C 00 66 89 83 C1
+                    str='\0\0�<\0���\0\0W��<\0f���'
+  RVA 0x000020BD: hex=00 00 66 89 83 D7 0E 00 00 48 8B C3 48 8B 5C 24 30 48 83 C4 20 5F C3 CC CC CC CC CC CC CC CC CC
+                    str='\0\0f���\0\0H��H�\$0H�� _����������'
+  RVA 0x000020EC: hex=E8 0C 00 00 E8 2B 2C 00 00 48 8D 8B D0 0C 00 00 48 83 C4 20 5B E9 1A 2C 00 00 CC CC CC CC CC CC
+                    str='�\0\0�+,\0\0H���\0\0H�� [�,\0\0������'
+  RVA 0x000020F8: hex=D0 0C 00 00 48 83 C4 20 5B E9 1A 2C 00 00 CC CC CC CC CC CC CC CC CC CC 48 89 5C 24 10 48 89 74
+                    str='�\0\0H�� [�,\0\0����������H�\$H�t'
+  RVA 0x000021DA: hex=24 10 0F 00 00 E8 BC 33 0B 00 33 D2 4C 8D 0D 13 CE FF FF 0F 1F 00 48 8D 04 55 01 00 00 00 48 3D
+                    str='$\0\0��3\03�L����\0H�U\0\0\0H='
+  RVA 0x000021EC: hex=FF 0F 1F 00 48 8D 04 55 01 00 00 00 48 3D 00 02 00 00 73 3B 42 0F B6 8C 0A 20 7F 0C 00 8B C1 48
+                    str='�\0H�U\0\0\0H=\0\0\0s;B��
+ \0��H'
+  RVA 0x0000223C: hex=8D 8E D9 01 00 00 41 B8 FF 00 00 00 48 8D 94 24 10 0F 00 00 E8 EB 36 0B 00 C6 86 D8 01 00 00 01
+                    str='���\0\0A��\0\0\0H��$\0\0��6\0���\0\0'
+  RVA 0x0000224E: hex=00 00 E8 EB 36 0B 00 C6 86 D8 01 00 00 01 48 8D 5E 08 48 89 5C 24 20 48 8B CB E8 2B 83 08 00 85
+                    str='\0\0��6\0���\0\0H�^H�\$ H���+�\0�'
+  RVA 0x000022C3: hex=91 3A 0C 00 48 8B CE E8 21 E5 FF FF 45 33 C0 48 8D 15 9F 3A 0C 00 48 8B CE E8 0F E5 FF FF 90 48
+                    str='�:\0H���!���E3�H��:\0H�������H'
+  RVA 0x00002379: hex=11 00 65 48 8B 04 25 58 00 00 00 BA 04 00 00 00 48 8B 04 C8 8B 0C 02 39 0D 7A 0D 37 00 0F 8E 9A
+                    str='\0eH�%X\0\0\0�\0\0\0H���9z7\0��'
+
+================================================================================
+11. SYSCALL STUB ANALYSIS
+================================================================================
+
+Syscall instructions found: 9
+
+  Syscall at 0x0000F304:
+    Stub bytes: F3 0F 5C C8 48 8D 4D B0 E8 7F 6A FF FF 0F 28 D7 F3 0F 58 15 7C 7A 0F 00 44 89 74 24 20 41 B9 32 0F 05
+    Nearby strings: ['L$x', 'XL$h', 't$ A']
+
+  Syscall at 0x0002EB95:
+    SSN: 0xA50D8D48 (2769128776)
+    Stub bytes: 17 31 34 00 48 85 C0 74 31 C7 00 4C 8B D1 B8 48 8D 0D A5 3E 0D 00 89 58 04 41 B1 01 66 C7 40 08 0F 05
+    Nearby strings: ['=!24']
+
+  Syscall at 0x0002FCC6:
+    Stub bytes: 00 85 C0 0F 94 05 2A 05 0F 00 33 C9 85 C0 48 8D 05 21 63 09 00 0F 94 C1 87 0D E8 1B 34 00 80 3D 0F 05
+    Nearby strings: ['UAVI', 'D85']
+
+  Syscall at 0x00030591:
+    Stub bytes: 2F 13 34 00 01 00 00 00 E9 A4 00 00 00 48 8B 1D 5B 18 34 00 48 85 DB 74 48 48 89 75 17 48 C7 45 0F 05
+    Nearby strings: ['D$ ', 'tHH', 'D$ ']
+
+  Syscall at 0x00030852:
+    Stub bytes: 42 14 34 00 89 07 0F B6 05 45 14 34 00 88 47 04 74 56 48 8B 1D 45 14 34 00 48 89 7D 17 48 C7 45 0F 05
+    Nearby strings: ['D85', 'tVH', 'D$ ']
+
+  Syscall at 0x00030CFE:
+    Stub bytes: C2 0B 34 00 01 00 00 00 E9 A4 00 00 00 48 8B 1D EE 10 34 00 48 85 DB 74 48 48 89 75 17 48 C7 45 0F 05
+    Nearby strings: ['D$ ', 'tHH', 'D$ ']
+
+  Syscall at 0x00030FF2:
+    Stub bytes: C2 0C 34 00 89 07 0F B6 05 C5 0C 34 00 88 47 04 74 56 48 8B 1D A5 0C 34 00 48 89 7D 17 48 C7 45 0F 05
+    Nearby strings: ['D85', 'tVH', 'D$ ']
+
+  Syscall at 0x0003458D:
+    Stub bytes: 00 48 8D 0D 3B 7E 0E 00 E8 26 05 00 00 B0 01 EB 58 48 8D 15 63 00 0D 00 48 8D 0D 24 7E 0E 00 E8 0F 05
+    Nearby strings: ['D$8A']
+
+  Syscall at 0x00112031:
+    Stub bytes: C4 17 00 90 15 05 00 B7 15 05 00 D0 2F 11 00 21 00 00 00 90 15 05 00 B7 15 05 00 D0 2F 11 00 01 0F 05
+
+
+================================================================================
+12. EXCEPTION HANDLER REGISTRATION
+================================================================================
+
+Exception handler references found:
+  0x00102683: RtlLookupFunctionEntry
+    Context: "RtlLookupFunctionEntry returned NULL (no unwind info)[HTTP] Found libcurl at %pc"
+
+
+RtlAddFunctionTable string references: 0
+
+================================================================================
+13. THREAD-LOCAL STORAGE REFERENCES
+================================================================================
+
+TLS/FLS references found:
+  0x000BE210: FlsAlloc
+  0x000BE228: FlsFree
+  0x000BE238: FlsGetValue
+  0x000BE250: FlsSetValue
+
+
+Potential TLS callback pointers (estimated): 5
+
+================================================================================
+14. C++ RTTI COMPLETE CLASS HIERARCHY
+================================================================================
+
+RTTI type_info names found: 13
+
+Class hierarchy:
+  class _Generic_error_category::std: 1 occurrence(s) at ['0x11C850']
+  class _System_error::std: 1 occurrence(s) at ['0x11C7F8']
+  class bad_alloc::std: 1 occurrence(s) at ['0x11C6E0']
+  class bad_array_new_length::std: 1 occurrence(s) at ['0x11C778']
+  class bad_exception::std: 1 occurrence(s) at ['0x11C6B8']
+  class error_category::std: 1 occurrence(s) at ['0x11C820']
+  class exception::std: 1 occurrence(s) at ['0x11C750']
+  class length_error::std: 1 occurrence(s) at ['0x11C668']
+  class logic_error::std: 1 occurrence(s) at ['0x11C640']
+  class out_of_range::std: 1 occurrence(s) at ['0x11C690']
+  class runtime_error::std: 1 occurrence(s) at ['0x11C7A8']
+  class system_error::std: 1 occurrence(s) at ['0x11C7D0']
+  class type_info: 1 occurrence(s) at ['0x11C888']
+
+================================================================================
+15. ARMOR PASSIVE NAMES ENUMERATION
+================================================================================
+
+Armor/passive related strings: 68
+  RVA 0x000BE0F0 [arc]: " Class Hierarchy Descriptor'"
+  RVA 0x000C00F4 [arc]: "March"
+  RVA 0x000FD7B8 [plasma]: "SG-8P Punisher Plasma"
+  RVA 0x000FD7D0 [arc]: "ARC-12 Blitzer"
+  RVA 0x000FD880 [armor]: "Armor Base"
+  RVA 0x000FD8A0 [fire]: "Fire Support"
+  RVA 0x000FD910 [resist]: "Fire Resistant"
+  RVA 0x000FD920 [physique]: "Peak Physique"
+  RVA 0x000FD930 [resist]: "Gas Resistance"
+  RVA 0x000FD978 [explosive]: "Explosive Finale"
+  RVA 0x000FD9B0 [ballistic]: "Ballistic Padding"
+  RVA 0x000FDA10 [stamina]: "Supplemental Stamina"
+  RVA 0x000FDAC0 [arc]: "CW-4 Arctic Ranger"
+  RVA 0x000FDB00 [servo]: "SA-12 Servo Assisted"
+  RVA 0x000FDCC0 [democracy]: "TR-9 Cavalier of Democracy"
+  RVA 0x000FDD28 [fortified]: "B-27 Fortified Commando"
+  RVA 0x000FDDA0 [light]: "B-08 Light Gunner"
+  RVA 0x000FDDF8 [scout]: "SC-30 Trailblazer Scout"
+  RVA 0x000FDEE8 [democracy]: "GS-11 Democracy's Deputy"
+  RVA 0x000FDFC0 [fire]: "I-92 Fire Fighter"
+  RVA 0x000FE0B8 [scout]: "SR-24 Street Scout"
+  RVA 0x000FE2E0 [heavy]: "O-2 Heavy Operator"
+  RVA 0x000FE8D0 [fire]: "Burst Loop fired -- next in %d min"
+  RVA 0x000FE910 [fire]: "Auto-fires burst every N minutes when ON"
+  RVA 0x000FEC58 [fire]: "Every batch fires medals "
+  RVA 0x000FEC80 [fire]: "Calls fire in batches of 9, spaced 500ms apart, followed by a 58s cooldown."
+  RVA 0x000FED88 [fire]: "SG-8F Punisher Fire of Liberty"
+  RVA 0x000FF0B0 [arc]: "Search weapons..."
+  RVA 0x000FF0C8 [arc]: "##sgsearch"
+  RVA 0x000FF5F0 [medium]: "3 - Medium (25%)"
+  RVA 0x000FFBC0 [speed]: "Movement Speed##spd"
+  RVA 0x000FFBE0 [speed]: "Speed##smult"
+  RVA 0x000FFC00 [recoil]: "No Recoil"
+  RVA 0x000FFDE4 [armor]: "ARMORY"
+  RVA 0x000FFDF0 [armor]: "Unlock All Armory##ua"
+  RVA 0x000FFE08 [armor]: "  Patches stratagem/weapon/armor unlock checks."
+  RVA 0x000FFEB0 [armor]: "  Armor Passive Editor"
+  RVA 0x000FFEC8 [armor]: "  Change any armor's passive bonus."
+  RVA 0x000FFEF0 [armor]: "Scan Armor##ap_scan"
+  RVA 0x000FFF08 [armor]: "Armor##ap_armor"
+  RVA 0x000FFF18 [passive]: "Passive##ap_pass"
+  RVA 0x00102A70 [protection]: "[Features] Protection layers: syscall=%s, ntdll_direct=%s, VirtualProtect=fallback"
+  RVA 0x00102B08 [stamina]: "Inf Stamina"
+  RVA 0x00102B38 [stamina]: "NOP stamina read/drain"
+  RVA 0x00102BD0 [recoil]: "Return from recoil function immediately"
+  RVA 0x00102C80 [grenade]: "Grenades"
+  RVA 0x00102CB0 [grenade]: "NOP grenade count conversion"
+  RVA 0x00102D68 [speed]: "NOP landing speed multiply"
+  RVA 0x00103270 [grenade]: "Grenade Fuse Time"
+  RVA 0x00103328 [arc]: "Instant Arcade Round"
+
+================================================================================
+16. WEAPON STATS STRUCTURE ANALYSIS
+================================================================================
+
+Weapon related strings: 97
+  RVA 0x000BC9C8 [support]: "address family not supported"
+  RVA 0x000BCBA8 [support]: "function not supported"
+  RVA 0x000BCE00 [support]: "not supported"
+  RVA 0x000BCE40 [support]: "operation not supported"
+  RVA 0x000BCEA8 [support]: "protocol not supported"
+  RVA 0x000BCED8 [range]: "result out of range"
+  RVA 0x000FD5E8 [liberator]: "AR-23 Liberator"
+  RVA 0x000FD670 [diligence]: "R-63 Diligence"
+  RVA 0x000FD6B8 [defender]: "SMG-37 Defender"
+  RVA 0x000FD700 [punisher]: "SG-8 Punisher"
+  RVA 0x000FD710 [slugger]: "SG-8S Slugger"
+  RVA 0x000FD730 [breaker]: "SG-225 Breaker"
+  RVA 0x000FD740 [breaker]: "SG-225IE Breaker Incendiary"
+  RVA 0x000FD770 [crossbow]: "CB-9 Exploding Crossbow"
+  RVA 0x000FD788 [eruptor]: "R-36 Eruptor"
+  RVA 0x000FD7B8 [punisher]: "SG-8P Punisher Plasma"
+  RVA 0x000FD7D0 [blitzer]: "ARC-12 Blitzer"
+  RVA 0x000FD7E0 [scythe]: "LAS-5 Scythe"
+  RVA 0x000FD800 [scorcher]: "PLAS-1 Scorcher"
+  RVA 0x000FD848 [torcher]: "FLAM-66 Torcher"
+  RVA 0x000FD858 [jar]: "JAR-5 Dominator"
+  RVA 0x000FD8A0 [support]: "Fire Support"
+  RVA 0x000FD968 [breaker]: "Siege Breaker"
+  RVA 0x000FD978 [explosive]: "Explosive Finale"
+  RVA 0x000FDAC0 [range]: "CW-4 Arctic Ranger"
+  RVA 0x000FDB28 [breaker]: "CE-74 Breaker"
+  RVA 0x000FDB70 [breaker]: "CE-27 Ground Breaker"
+  RVA 0x000FE060 [range]: "AF-50 Noxious Ranger"
+  RVA 0x000FECD0 [liberator]: "AR-23P Liberator Penetrator"
+  RVA 0x000FECF0 [liberator]: "AR-23C Liberator Concussive"
+  RVA 0x000FED10 [liberator]: "AR-23A Liberator Carbine"
+  RVA 0x000FED60 [diligence]: "R-63CS Diligence Counter-Sniper"
+  RVA 0x000FED88 [punisher]: "SG-8F Punisher Fire of Liberty"
+  RVA 0x000FEDA8 [breaker]: "SG-225SP Breaker Spray&Pray"
+  RVA 0x000FEE78 [weapon]: "Primary Weapon Override"
+  RVA 0x000FEE90 [weapon]: "Give all lobby members the selected primary weapon XP."
+  RVA 0x000FEFC0 [weapon]: ">> Next Weapon"
+  RVA 0x000FEFD0 [weapon]: "-- Select Primary Weapon --"
+  RVA 0x000FF050 [weapon]: "Selected Guns List  (check weapons to include):"
+  RVA 0x000FF0B0 [weapon]: "Search weapons..."
+  RVA 0x000FF408 [weapon]: "Weapon XP"
+  RVA 0x000FFC00 [recoil]: "No Recoil"
+  RVA 0x000FFC18 [stratagem]: "STRATAGEMS"
+  RVA 0x000FFC28 [stratagem]: "Infinite Stratagems"
+  RVA 0x000FFE08 [weapon]: "  Patches stratagem/weapon/armor unlock checks."
+  RVA 0x000FFE38 [weapon]: "  Weapon Stats Editor"
+  RVA 0x000FFE50 [weapon]: "  Click any weapon on the ship to populate."
+  RVA 0x001008F0 [weapon]: "[AllGuns] Weapon: %s (%d/%d), cycle %d/%d"
+  RVA 0x00100920 [weapon]: "[SelectedGuns] Weapon: %s (slot %d/%d), cycle %d/%d"
+  RVA 0x00100958 [weapon]: "[WeaponOvr] Patched %d weapon slot(s) -> ID %u (%s)"
+
+================================================================================
+17. DIFFICULTY TIER MAPPING
+================================================================================
+
+Difficulty related strings: 248
+  RVA 0x000029C0 [d9]: "fD9i"
+  RVA 0x00002BB3 [d9]: "fD9h"
+  RVA 0x00002E50 [d9]: "D9t$8"
+  RVA 0x00003574 [d3]: "D$d3"
+  RVA 0x00003CA0 [d9]: "D9t$|"
+  RVA 0x0000A1F8 [d8]: "D$ D85"
+  RVA 0x0000A7EF [d8]: "u D8"
+  RVA 0x0000AAC0 [d8]: "D85J"
+  RVA 0x0000ABAA [d8]: "D85r"
+  RVA 0x0000ABB7 [d8]: "D85f"
+  RVA 0x0000ABC4 [d8]: "D85Z"
+  RVA 0x0000ABD1 [d8]: "D85N"
+  RVA 0x0000ABDE [d8]: "D85B"
+  RVA 0x0000ACBB [d8]: "D85v"
+  RVA 0x0000ACC8 [d8]: "D85j"
+  RVA 0x0000ACE2 [d8]: "D85R"
+  RVA 0x0000ACEF [d8]: "D85F"
+  RVA 0x00010C1C [d9]: "D95E"
+  RVA 0x00010FC1 [d8]: "D8piuJ"
+  RVA 0x00028BFB [d8]: "D85'V"
+  RVA 0x00028EF6 [d8]: "|$xD8d$pt=H"
+  RVA 0x000292E1 [d8]: "D8%=O"
+  RVA 0x000293F7 [d8]: "|$xD8d$pt=H"
+  RVA 0x00029693 [d8]: "D85f."
+  RVA 0x0002F3C4 [d3]: "NcD3(I"
+  RVA 0x0002FE62 [d8]: "D85M"
+  RVA 0x000302C0 [d8]: "D8<0H"
+  RVA 0x00030A10 [d8]: "D8<1H"
+  RVA 0x000311B0 [d8]: "D8<0H"
+  RVA 0x00031B40 [d8]: "D8%o"
+  RVA 0x0003922A [d9]: "t$HD9s"
+  RVA 0x0003D3C2 [d9]: "t$`D9"
+  RVA 0x0003EF8A [d8]: "u%D8"
+  RVA 0x0003F08A [d9]: "@u)D9"
+  RVA 0x0003F0A9 [d8]: "D8[Zt"
+  RVA 0x0003FA3A [d8]: "unD8"
+  RVA 0x0003FDAC [d9]: "D9sl~#I"
+  RVA 0x0003FE7C [d8]: "(t$`D8"
+  RVA 0x0003FF5C [d8]: "t_D8"
+  RVA 0x00040022 [d9]: "3D9s"
+  RVA 0x0004151A [d8]: "t'D8"
+  RVA 0x0004154F [d8]: "t#D8"
+  RVA 0x00041577 [d8]: "t#D8"
+  RVA 0x000418B8 [d8]: "D$HD8Weu"
+  RVA 0x00045C58 [d8]: "D8D$@t@A"
+  RVA 0x000462D9 [d8]: "D8l$H~"
+  RVA 0x000463E1 [d8]: "G4D8hft"
+  RVA 0x00046483 [d8]: "W`D8l$@t'A"
+  RVA 0x00046FE5 [d8]: "D8d$@t"
+  RVA 0x000471E9 [d8]: "D8fg"
+
+================================================================================
+18. SC FARMING STATE MACHINE
+================================================================================
+
+SC/Farming/State related strings: 132
+  RVA 0x000BCE80 [mission]: "permission denied"
+  RVA 0x000BCEF0 [state]: "state not recoverable"
+  RVA 0x000BDE10 [return]: "`udt returning'"
+  RVA 0x000BE110 [complete]: " Complete Object Locator'"
+  RVA 0x000C5CA8 [medal]: "Medals"
+  RVA 0x000C5DE0 [failed]: "GetModuleInformation failed (%lu)"
+  RVA 0x000C5E90 [failed]: "All paths failed (%lu)"
+  RVA 0x000C5EC0 [mission]: "Mission/end "
+  RVA 0x000C5EE0 [mission]: "Mission/end "
+  RVA 0x000C5EEF [failed]: " Failed"
+  RVA 0x000C5FEC [idle]: "idle"
+  RVA 0x000C6138 [auto]: "Auto Replay: %s  Interval: %.0fs  Count: %d"
+  RVA 0x000C624C [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000C6ED0 [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000CAFBC [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000CBCC0 [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000D093C [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000D15C0 [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000D54DC [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000D6160 [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000DA07C [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000DAD10 [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000DECDC [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000DF960 [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000E386C [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000E44F0 [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000E83FC [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000E9080 [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000ECF8C [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000EDC10 [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000F1E9C [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000F2B20 [mission]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000FE3F0 [waiting]: "  Waiting for mission to capture..."
+  RVA 0x000FE440 [mission]: "  Probe ON - will overwrite on next mission"
+  RVA 0x000FE470 [waiting]: "Probe: ON - waiting for mission"
+  RVA 0x000FE4E0 [auto]: "Auto-Replay STOPPED by user"
+  RVA 0x000FE500 [running]: "  Running  (sent: %d)"
+  RVA 0x000FE520 [auto]: "Auto-Replay STARTED (2 min interval)"
+  RVA 0x000FE788 [complete]: "Burst complete -- %d/%d sent. Safe to exit game!"
+  RVA 0x000FE7D0 [complete]: "Burst Complete!"
+  RVA 0x000FE910 [auto]: "Auto-fires burst every N minutes when ON"
+  RVA 0x000FE940 [credit]: "SUPER CREDITS"
+  RVA 0x000FE988 [auto]: "Auto Sync: ON"
+  RVA 0x000FE998 [auto]: "Auto Sync: OFF"
+  RVA 0x000FEA10 [running]: "Running -- no timer set"
+  RVA 0x000FEA80 [medal]: "Firing MEDAL batch (9 calls x 500ms)..."
+  RVA 0x000FEB40 [failed]: "  Failed: %d"
+  RVA 0x000FEC18 [medal]: "Include Medals"
+  RVA 0x000FEC28 [medal]: "Alternates SC / Medal batches"
+  RVA 0x000FEC48 [medal]: "Medals Only"
+  RVA 0x000FEC58 [medal]: "Every batch fires medals "
+  RVA 0x000FF148 [auto]: "Auto-Replay STOPPED "
+  RVA 0x000FF1B0 [auto]: "[Auto] No capture data "
+  RVA 0x000FF1CA [mission]: " probe a mission first"
+  RVA 0x000FF400 [farming]: "Farming"
+  RVA 0x000FF418 [credit]: "Super Credits"
+  RVA 0x000FF438 [credit]: "Credits"
+  RVA 0x000FF460 [farming]: "##farming_scroll"
+  RVA 0x000FF478 [farming]: "FARMING"
+  RVA 0x000FF480 [mission]: "[1] Max Mission Reward"
+  RVA 0x000FF518 [medal]: "Medals Multiplier##fmed"
+  RVA 0x000FF6A8 [sample]: "[3] Add Samples Instantly"
+  RVA 0x000FF6C8 [sample]: "Add Samples: ON ##samp"
+  RVA 0x000FF6E0 [sample]: "Add Samples: OFF##samp"
+  RVA 0x000FF74C [auto]: " will auto-clamp to 34/33/33"
+  RVA 0x000FF770 [sample]: "[4] Samples Over Limit Reward"
+  RVA 0x000FF790 [mission]: "Override sample amounts awarded at end of mission (-1 = default)"
+  RVA 0x000FF7D8 [sample]: "Samples Reward: ON ##sr"
+  RVA 0x000FF7F0 [sample]: "Samples Reward: OFF##sr"
+  RVA 0x000FF868 [complete]: "[5] Instant Shuttle + Instant Complete"
+  RVA 0x000FF8D0 [complete]: "Instant Complete: ON ##ic5"
+  RVA 0x000FF8F0 [complete]: "Instant Complete: OFF##ic5"
+  RVA 0x000FF910 [mission]: "  [N/A] Freeze Mission Timer"
+  RVA 0x000FF930 [mission]: "Freeze Mission Timer"
+  RVA 0x000FF948 [mission]: "Freezes all countdown timers (mission, extraction, etc.)"
+  RVA 0x000FF988 [sc_]: "##sc_scroll"
+  RVA 0x000FF9A8 [mission]: "Mission Replay Log"
+  RVA 0x000FFA10 [failed]: "ERROR = failed / crashed"
+  RVA 0x000FFB10 [sc_]: "##misc_scroll"
+  RVA 0x000FFD58 [mission]: "Use pack in-mission to activate editor"
+
+================================================================================
+19. NETWORK REQUEST FORMAT
+================================================================================
+
+Network/API related strings: 149
+  RVA 0x000BCFF8 [GET]: "GetSystemTimePreciseAsFileTime"
+  RVA 0x000BD018 [GET]: "GetTempPath2W"
+  RVA 0x000BDB90 [DELETE]: " delete"
+  RVA 0x000BDE70 [DELETE]: " delete[]"
+  RVA 0x000BDE90 [DELETE]: "`placement delete closure'"
+  RVA 0x000BDEB0 [DELETE]: "`placement delete[] closure'"
+  RVA 0x000BE238 [GET]: "FlsGetValue"
+  RVA 0x000C0A40 [api]: "AreFileApisANSI"
+  RVA 0x000C0A70 [GET]: "FlsGetValue2"
+  RVA 0x000C0A88 [GET]: "GetDateFormatEx"
+  RVA 0x000C0AA0 [GET]: "GetTimeFormatEx"
+  RVA 0x000C0B18 [GET]: "AppPolicyGetProcessTerminationMethod"
+  RVA 0x000C0B48 [GET]: "AppPolicyGetThreadInitializationType"
+  RVA 0x000C5C78 [json]: "libertea_replay_cap.json"
+  RVA 0x000C5DE0 [GET]: "GetModuleInformation failed (%lu)"
+  RVA 0x000C624C [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000C6ED0 [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000CA292 [steam]: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  RVA 0x000CA2F0 [steam]: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  RVA 0x000CAFBC [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000CBCC0 [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000CFD02 [steam]: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  RVA 0x000CFD60 [steam]: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  RVA 0x000D093C [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000D15C0 [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000D4912 [steam]: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  RVA 0x000D4970 [steam]: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  RVA 0x000D54DC [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000D6160 [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000D94B2 [steam]: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  RVA 0x000D9510 [steam]: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  RVA 0x000DA07C [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000DAD10 [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000DE112 [steam]: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  RVA 0x000DE170 [steam]: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  RVA 0x000DECDC [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000DF960 [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000E2CB2 [steam]: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  RVA 0x000E2D10 [steam]: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  RVA 0x000E386C [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000E44F0 [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000E7842 [steam]: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  RVA 0x000E78A0 [steam]: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  RVA 0x000E83FC [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000E9080 [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000EC3D2 [steam]: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  RVA 0x000EC430 [steam]: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  RVA 0x000ECF8C [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000EDC10 [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000F0F62 [steam]: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  RVA 0x000F0FC0 [steam]: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  RVA 0x000F1E9C [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000F2B20 [http]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000F5E72 [steam]: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  RVA 0x000F5ED0 [steam]: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  RVA 0x000FDEE8 [PUT]: "GS-11 Democracy's Deputy"
+  RVA 0x000FDF08 [bearer]: "RE-824 Bearer of the Standard"
+  RVA 0x000FE418 [session]: "  Session captured"
+  RVA 0x000FE548 [session]: "Stop after##session"
+  RVA 0x000FE560 [session]: "##sessionmins"
+  RVA 0x000FE978 [lobby]: "No lobby found"
+  RVA 0x000FEE90 [lobby]: "Give all lobby members the selected primary weapon XP."
+  RVA 0x000FF128 [api]: "wglSwapIntervalEXT"
+  RVA 0x000FF15F [session]: " session timer expired"
+  RVA 0x000FF200 [login]: "Login with your account"
+  RVA 0x000FF278 [PUT]: "##userinput"
+  RVA 0x000FF298 [PUT]: "##passinput"
+  RVA 0x000FF2A8 [PUT]: "##keyinput"
+  RVA 0x000FF2D0 [http]: "https://discord.gg/exCgdvYPxd"
+  RVA 0x000FF498 [PUT]: "Max reward output"
+  RVA 0x000FFFE8 [DELETE]: "  Delete  "
+  RVA 0x001005C8 [session]: "HAS SESSION"
+  RVA 0x001005D8 [session]: "NULL SESSION"
+  RVA 0x001005E8 [GET]: "  GetActiveSession() = 0x%llX "
+  RVA 0x00100610 [session]: "SC skip: no session"
+  RVA 0x00100628 [url]: "  BEFORE: ctr=0x%X flag=0x%X ring=%u url="%.40s""
+  RVA 0x00100680 [url]: "  AFTER(0s): ctr=0x%X flag=0x%X ring=%u rax=0x%llX url="%.40s" qDelta=%d"
+  RVA 0x00100888 [auth]: "[R] Auth failed"
+  RVA 0x0010099A [lobby]: " %d lobby player(s)"
+  RVA 0x001017A0 [session]: "Session expired or access revoked. Contact TheOGcup."
+
+================================================================================
+20. AUTHENTICATION PROTOCOL FLOW
+================================================================================
+
+Authentication related strings: 37
+  RVA 0x000BCA10 [connect]: "already connected"
+  RVA 0x000BCAA0 [connect]: "connection aborted"
+  RVA 0x000BCAB8 [connect]: "connection already in progress"
+  RVA 0x000BCAD8 [connect]: "connection refused"
+  RVA 0x000BCAF0 [connect]: "connection reset"
+  RVA 0x000BCDF0 [connect]: "not connected"
+  RVA 0x000C5D85 [refresh]: " hit Sync or SC REFRESH"
+  RVA 0x000C5FF8 [offline]: "Offline"
+  RVA 0x000C6000 [online]: "Online"
+  RVA 0x000FE418 [session]: "  Session captured"
+  RVA 0x000FE548 [session]: "Stop after##session"
+  RVA 0x000FE560 [session]: "##sessionmins"
+  RVA 0x000FE658 [online]: "Online##bmo"
+  RVA 0x000FE668 [offline]: "Offline##bmf"
+  RVA 0x000FE950 [refresh]: "SC REFRESH"
+  RVA 0x000FF15F [session]: " session timer expired"
+  RVA 0x000FF200 [login]: "Login with your account"
+  RVA 0x000FF268 [username]: "Username"
+  RVA 0x000FF288 [password]: "Password"
+  RVA 0x000FF348 [subscription]: "Subscription Active"
+  RVA 0x000FFFA0 [refresh]: "Refresh"
+  RVA 0x001005C8 [session]: "HAS SESSION"
+  RVA 0x001005D8 [session]: "NULL SESSION"
+  RVA 0x001005E8 [session]: "  GetActiveSession() = 0x%llX "
+  RVA 0x00100610 [session]: "SC skip: no session"
+  RVA 0x001016A8 [validate]: "` validated \u2014 "
+  RVA 0x00101708 [connect]: "Network error. Check connection and try again."
+  RVA 0x00101738 [password]: "Invalid username or password."
+  RVA 0x001017A0 [session]: "Session expired or access revoked. Contact TheOGcup."
+  RVA 0x00101C80 [refresh]: "REFRESH SC"
+  RVA 0x00101FF8 [session]: "session"
+  RVA 0x00102000 [session]: "Session"
+  RVA 0x001020C8 [session]: "X-Session"
+  RVA 0x001020E0 [token]: "X-Token"
+  RVA 0x00102C48 [bypass]: "Force unconditional jump (bypass strategem count)"
+  RVA 0x00102DD0 [bypass]: "Force unconditional jump (bypass boundary)"
+  RVA 0x00103130 [connect]: "Skip pipe connection timer"
+
+================================================================================
+21. DEAR IMGUI VERSION FINGERPRINTING
+================================================================================
+
+Dear ImGui related strings: 163
+Version string detected: b'Dear ImGui 1.91.5'
+API functions detected: 0
+  RVA 0x000BCB58 [Table]: "executable format error"
+  RVA 0x000BCF18 [Text]: "text file busy"
+  RVA 0x000BDB68 [ig]: "__unaligned"
+  RVA 0x000BDC20 [Table]: "`vftable'"
+  RVA 0x000BDC30 [Table]: "`vbtable'"
+  RVA 0x000BDE30 [Table]: "`local vftable'"
+  RVA 0x000BDE40 [Table]: "`local vftable constructor closure'"
+  RVA 0x000BDE80 [ig]: "`omni callsig'"
+  RVA 0x000C5CD0 [ig]: "serObjOrigAddr"
+  RVA 0x000C5EC0 [End]: "Mission/end "
+  RVA 0x000C5EE0 [End]: "Mission/end "
+  RVA 0x000C624C [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000C6ED0 [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000CAFBC [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000CBCC0 [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000D093C [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000D15C0 [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000D54DC [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000D6160 [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000DA07C [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000DAD10 [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000DECDC [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000DF960 [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000E386C [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000E44F0 [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000E83FC [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000E9080 [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000ECF8C [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000EDC10 [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  RVA 0x000F1E9C [End]: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+
+================================================================================
+22. COMPILER OPTIMIZATION EVIDENCE
+================================================================================
+
+Compiler detection scores: MSVC=1, GCC=0, Clang=0
+  -> Likely compiled with MSVC
+Inline function candidates (repeated 16-byte sequences): 42490
+Potential tail call sites (JMP endings): 3035
+Loop unrolling evidence (repeated instruction triples): 9343
+
+================================================================================
+23. ANTI-DEBUGGING CHECKS
+================================================================================
+
+Anti-debugging evidence:
+  Found: "NtQueryInformationProcess" (1 occurrences)
+
+
+================================================================================
+24. FUNCTIONAL MAP
+================================================================================
+
+Feature map (strings per feature):
+
+  [Config/Settings] - 38 related strings:
+    RVA 0x000BDF78: "`dynamic initializer for '"
+    RVA 0x000BE268: "InitializeCriticalSectionEx"
+    RVA 0x000BF0C0: "INITY"
+    RVA 0x000BF0C8: "inity"
+    RVA 0x000BF0F8: "INITY"
+    RVA 0x000BF100: "inity"
+    RVA 0x000C0AE8: "RoInitialize"
+    RVA 0x000C0B00: "RoUninitialize"
+    RVA 0x000C0B48: "AppPolicyGetThreadInitializationType"
+    RVA 0x000C5C78: "libertea_replay_cap.json"
+    ... and 28 more
+
+  [Encryption/Protection] - 3 related strings:
+    RVA 0x00102238: "[SIG-CAPTURE] SINGLE #%d bufLen=%lu bodyXorLen=%lu nonce=%s"
+    RVA 0x00102810: "BCryptHashData"
+    RVA 0x001034D0: "NOP both hash table INSERT calls that mark SC entities as collected"
+
+  [Farming/SC] - 7 related strings:
+    RVA 0x000FF400: "Farming"
+    RVA 0x000FF460: "##farming_scroll"
+    RVA 0x000FF478: "FARMING"
+    RVA 0x000FF988: "##sc_scroll"
+    RVA 0x000FFB10: "##misc_scroll"
+    RVA 0x001034D0: "NOP both hash table INSERT calls that mark SC entities as collected"
+    RVA 0x00103EC8: "WndProc: WM_SC_DISPATCH received, actObj=%p, TID=%u"
+
+  [GUI/Rendering] - 29 related strings:
+    RVA 0x00100A68: "[R] Window not found"
+    RVA 0x00104CC0: "imgui.ini"
+    RVA 0x00104CD0: "imgui_log.txt"
+    RVA 0x00104DA8: "Dear ImGui 1.91.5 (19150)"
+    RVA 0x00104EA8: "Window"
+    RVA 0x00104ED8: "Forgot to shutdown Renderer backend?"
+    RVA 0x00104F08: "SetActiveID() cancel MovingWindow"
+    RVA 0x00104F30: "SetActiveID() old:0x%08X (window "%s") -> new:0x%08X (window "%s")"
+    RVA 0x00105010: "(Debug Log: Auto-disabled some ImGuiDebugLogFlags after 2 frames)"
+    RVA 0x00105150: "[focus] FocusWindow("%s", UnlessBelowModal): prevented by "%s"."
+    ... and 19 more
+
+  [Game Functions] - 99 related strings:
+    RVA 0x000B9B18: "device or resource busy"
+    RVA 0x000B9B88: "resource deadlock would occur"
+    RVA 0x000B9BA8: "resource unavailable try again"
+    RVA 0x000BCD58: "no stream resources"
+    RVA 0x000BCE80: "permission denied"
+    RVA 0x000C5EC0: "Mission/end "
+    RVA 0x000C5EE0: "Mission/end "
+    RVA 0x000C624C: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000C6ED0: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    RVA 0x000CAFBC: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+    ... and 89 more
+
+  [Injection/Loader] - 2 related strings:
+    RVA 0x00100B68: "[SC] SyncNow: %d player(s) synced on inject"
+    RVA 0x00101D58: "[HTTP] INJECT: missionId="%s" (%s) injected (%d "
+
+  [Input Handling] - 25 related strings:
+    RVA 0x000FF278: "##userinput"
+    RVA 0x000FF298: "##passinput"
+    RVA 0x000FF2A8: "##keyinput"
+    RVA 0x00105070: "[io] Calling Platform_SetImeDataFn(): WantVisible: %d, InputPos (%.2f,%.2f)"
+    RVA 0x001057D8: "MouseLeft"
+    RVA 0x001057E8: "MouseRight"
+    RVA 0x001057F8: "MouseMiddle"
+    RVA 0x00105808: "MouseX1"
+    RVA 0x00105810: "MouseX2"
+    RVA 0x00105818: "MouseWheelX"
+    ... and 15 more
+
+  [Logging] - 18 related strings:
+    RVA 0x000C0C50: "log10"
+    RVA 0x000C5B40: "logf"
+    RVA 0x000C6010: "=== LIBERTEA CRASH LOG ==="
+    RVA 0x000FF200: "Login with your account"
+    RVA 0x000FF430: "Logs"
+    RVA 0x000FF9A8: "Mission Replay Log"
+    RVA 0x000FF9C0: "Clear##logs"
+    RVA 0x000FFA30: "##log_scroll"
+    RVA 0x00101848: "prologue"
+    RVA 0x00104568: "Function prologue mismatch"
+    ... and 8 more
+
+  [Memory/Hooking] - 62 related strings:
+    RVA 0x000BD138: "0123456789abcdefghijklmnopqrstuvwxyz"
+    RVA 0x000BD188: "0123456789abcdefghijklmnopqrstuvwxyz"
+    RVA 0x000BF4D0: " !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
+    RVA 0x000BF650: " !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~"
+    RVA 0x000F7B20: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+    RVA 0x000FE760: "Do not close game -- dispatching..."
+    RVA 0x000FE7E0: "All replays dispatched."
+    RVA 0x000FF008: "Last replay: %d slot(s) patched"
+    RVA 0x000FFE08: "  Patches stratagem/weapon/armor unlock checks."
+    RVA 0x000FFE80: "[N/A] Hooks not installed"
+    ... and 52 more
+
+  [Network/API] - 77 related strings:
+    RVA 0x000BCFF8: "GetSystemTimePreciseAsFileTime"
+    RVA 0x000BD018: "GetTempPath2W"
+    RVA 0x000BE238: "FlsGetValue"
+    RVA 0x000C0A40: "AreFileApisANSI"
+    RVA 0x000C0A70: "FlsGetValue2"
+    RVA 0x000C0A88: "GetDateFormatEx"
+    RVA 0x000C0AA0: "GetTimeFormatEx"
+    RVA 0x000C0B18: "AppPolicyGetProcessTerminationMethod"
+    RVA 0x000C0B48: "AppPolicyGetThreadInitializationType"
+    RVA 0x000C5DE0: "GetModuleInformation failed (%lu)"
+    ... and 67 more
+
+  [Overlay] - 2 related strings:
+    RVA 0x00101C90: "LIBERTEAOverlay"
+    RVA 0x00103F58: "ScPresent::Install: hwnd=%p origWndProc=%p"
+
+  [Scanner/AOB] - 9 related strings:
+    RVA 0x000FD9E8: "Reduced Signature"
+    RVA 0x000FE5F8: "Scanning..."
+    RVA 0x000FFB42: " %d/%d patterns found. Some features may not work."
+    RVA 0x000FFB78: "Patterns: %d/%d found"
+    RVA 0x000FFEF0: "Scan Armor##ap_scan"
+    RVA 0x001020A0: "X-Signature:"
+    RVA 0x001025E2: " UNKNOWN pattern (last 8 bytes: %02X %02X %02X %02X %02X %02X %02X %02X)"
+    RVA 0x00104548: "AOB not found in game.dll"
+    RVA 0x0011C3B0: "Not scanned"
+
+  [Steam Integration] - 20 related strings:
+    RVA 0x000CA292: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+    RVA 0x000CA2F0: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+    RVA 0x000CFD02: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+    RVA 0x000CFD60: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+    RVA 0x000D4912: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+    RVA 0x000D4970: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+    RVA 0x000D94B2: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+    RVA 0x000D9510: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+    RVA 0x000DE112: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+    RVA 0x000DE170: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+    ... and 10 more
+
+  [Threading] - 4 related strings:
+    RVA 0x000BE048: "`local static thread guard'"
+    RVA 0x000C0B48: "AppPolicyGetThreadInitializationType"
+    RVA 0x000C6058: "Thread ID:   %lu"
+    RVA 0x001013F8: "[Probe] Game thread captured"
+
+================================================================================
+25. SUMMARY STATISTICS
+================================================================================
+
+File path:            C:\Users\emora\OneDrive\Desktop\2\.text_unpacked_mem.bin
+File size:            3489792 bytes (3408.0 KB, 3.33 MB)
+MD5:                  aaa4cae7c651b8d82f39f2fff407185b
+SHA256:               ab362bf85256d681a1cf61072d36409ef9acafc9229f0389f0b74728bf0cf429
+Executable format:    x86-64 PE .text section (unpacked)
+
+Total pages (4KB):    852
+Avg entropy:          1.7573
+Max entropy:          7.3537
+Min entropy:          0.0000
+High entropy (>7.0):  3 pages
+
+Total ASCII strings:  11663
+Real strings:         9521
+RTTI classes:         13
+Syscall instructions: 9
+Import stubs:         1560
+Unique data pointers: 2033
+
+Distinct byte values: 256
+Most common byte:     0x00 (2641417 occurrences, 75.69%)
+
+Zero bytes (0x00):    2641417 (75.69%)
+INT3 bytes (0xCC):    11211 (0.32%)
+OxFF bytes (0xFF):    22161 (0.64%)
+
+Compiler:             MSVC (score 1)
+
+Capstone version:     Available (x86-64)
+
+================================================================================
+END OF REPORT
+================================================================================

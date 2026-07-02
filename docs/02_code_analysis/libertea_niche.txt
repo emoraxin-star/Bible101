@@ -1,0 +1,2847 @@
+================================================================================
+  LIBERTEA.DLL - NICHE / EDGE-CASE DETAIL COMPENDIUM
+  Every last byte-level detail
+================================================================================
+
+=== 1. ALL FORMAT STRINGS (printf-style) WITH ARGUMENT TYPES ===
+
+  0x00237F | %X           | .H.E.3..].......eH..%X........H......9.z.7.......H..m.7.......=a.7.........W...E
+  0x008910 | %f           | ..n...H+...6.H=....s%f.o.7.....D$hL..;.6.H...Z..H.L$h..j..H..;\..H..h..........H
+  0x00D64F | %d           | ....A.(...Y.........%d6....d6........d6....AH...d6....B...d6.....d6.....A.(...Y.
+  0x00EE8D | %F           | .R>..D.t$ A......D..%F~..A.(.H......I...+>...........A.Y..IG..D.(..D.Y.`~..A.(..
+  0x015FF6 | %f           | ......i.....+.A....~%f...........H.....u........R4....;.|............$..........
+  0x01737B | %s           | .H....5..|.....H....%s..H...s..... ..H..E.......5.H........T.....|:.............
+  0x017629 | %X           | .H....i.....W_..eH..%X........H......9...5.~(H....5..Z4...=..5..u.H....5.H....5.
+  0x021FCF | %A           | H.M..l...H..H.E.H;.t%A.........)E...K..)M.H.{.L.s.@.;fI.~.H.M..2....H.T$PH...v2H
+  0x023899 | %g           | .A..D.}.3.A......D..%g...ukA...|r..H.E......H.M.H.L$(D.|$ L..L...9..3.3..*...H.E
+  0x030AF3 | %f           | .G.{..u.G......G..Y.%fD...D......G...F..G#H.F.H.G*...GD.G$.%..fD..(D..@+......D8
+  0x031B42 | %o           | L.5{.4.I.s........D8%o...I.>t\H..=.4.H.}.H.E.....D.eg...x..A.@...L.E.H..H.U.H.Eg
+  0x035227 | %F           | E...E...E...E...E...%F......'...H.U.L..$@...A..H.........W.H..$p.....E.H..$H...I
+  0x035787 | %A           | ].H.M...YA..3.H.M...%A..3...E......M...N.M..t0M+.I..I......r.I..'M...I+.H...H...
+  0x0400C7 | %A           | .A......E3.3....0..t%A....&...k.....t\..tXA...&..E...&...H3..L.....t.E...&..E3.3
+  0x0437BB | %A           | 8.A.X..A...$A8..$..t%A....A...$z.t.3../....3.A./....;.u...A...t.A...u..|$1.u..(.
+  0x04B106 | %E           | ...u.@....@2.E2.@.t$%E2.D.D$!@2.D.L$#E2.@.|$$3.D.T$"@2..D$8E3.E3..W.A.......D$(9
+  0x050B9D | %E           | ...........t.;.....u%E..u...t............................=3.H......H..t..@.....t
+  0x06073B | %4d          | ......E.(.D.)d$p.D..%4d...E.X..D....f..D..I.E.A;.I..I.U.H.E.L..u.D.C4..E.G....$.
+  0x060C22 | %f           | f..H.CHfD.@.H.CHE..t%fD.H.H.CHf.H.H.CHfD.H.H.CHf.P.H.CH..`A.H.f.H.H.CHf.H..J.H.C
+  0x0690C8 | %A           | .C.D..D..fA.y^.E.Aqt%A..............r.A...A...E.AqA..9....H.\$..............H..S
+  0x069EFD | %G           | .t.....C.....$h....t%G./d.$r..C..D.,A./.v.....C...H.D$ f..f..x..C..T.8....u.C..T
+  0x0753A8 | %u           | H..H.............t.<%u.8A.u.H....A.H....u..9%t.........A.H.Q.<0|.<9w...B.H..<0}.
+  0x0754F8 | %u           | .L$HH.......T$@..t.<%u.8F.u.H....F.H....u......%t.H.5.........L...B.D...<.w.A.H.
+  0x075E17 | %c           | Hc.@........H.......%c.....A...@...H..H....L........I..I...s=.....t.H.B...#u.8.t
+  0x079280 | %E           | c......H.D$h.|$d9~.u%E..u E..u.A..9^.u.H.N H..Lc........t.E2..]....~..N.;.~$..t.
+  0x07AD41 | %i           | .....@........H.~.L.%i6..Hc^.3.E3..D$S.D..3.H.O .....L..H..t*..~&3.....@.ff.....
+  0x08101F | %E           | ........E..D9O t)..t%E3.3.............u.............t.D.O$D.G.H..............H.T
+  0x084789 | %u           | .$.......A..H....t.<%u.8B.u.H....B.H....u.D...A..%......D8B.......L.T$(L...A.@.E
+  0x084E89 | %u           | .$.......A..H....t.<%u.8B.u.H....B.H....u.D...A..%......D8B.......L.T$(L...A.@.E
+  0x0855F9 | %u           | .$.......I..H....t.<%u.8B.u.H....B.H....u.D...A..%......D8B.......L.T$(L...A.@.E
+  0x085F69 | %u           | .$.......I..H....t.<%u.8B.u.H....B.H....u.D...A..%......D8B.......L.T$(L...A.@.E
+  0x086604 | %u           | .H..$.......H....t.<%u.8B.u.H....B.H....u.D...A..%......D8B.......L.T$(L..f..D..
+  0x086D84 | %u           | .H..$.......H....t.<%u.8B.u.H....B.H....u.D...A..%......D8B.......L.T$(L..f..D..
+  0x08A9AE | %E           | t........H..(.H..(H.%E....H.%-....E3......H.%...............ff........H;.....u.H
+  0x08AA73 | %X           | ...+............eH..%X...A.....L.........C.........H...%..H.. [H.%.......@SH.. H
+  0x08AAF1 | %X           | $...........;.t.eH..%X......*..A.....H.....d...A...H...$..H.. [H.%u....@SH.. H..
+  0x08AB1E | %u           | ..A...H...$..H.. [H.%u....@SH.. H....H...yR....t.H...-...H..t.H.. [.H...t.......
+  0x08AF33 | %x           | .....H.......H.. [H.%x...H.L$.H..8.......\.....t.......)H..B!.......H.D$8H..)"..
+  0x090A1D | %F           | .H.. [H.%B...H.. [H.%F.....H.\$.WH.. H..L........H...........L...........H....H.
+  0x0951B7 | %X           | }....X$..H......H3..%X..H......A_A^A\_^[]....H.\$.H.t$.H.|$.UH..H..pH.E03.H.u.H.
+  0x097236 | %f           | .M..H.....L+.L..M;.t%f..............t.........wu.H.. I;.u.K...H;.t..:.t.H..H;.u.
+  0x0974E4 | %f           | .W....H+.H..I..QL;.t%fff........f.o.fA.u.f.....u.I...L;.u.K..YL;.t.fA.8.t.I...L;
+  0x09EE7A | %A           | L.l$ .|.......L...L.%A...I9].t.A...$f..t.H..I...f..H...I.m..u.H.EX.p...D.|$0H.D$
+  0x0A2380 | %A           | $8A..D..$....+.t1;.u%A......u.......0.....................A..M...~A......t.A....
+  0x0A6E65 | %f           | HL..L.L$@E..H.\$._H.%f&....@UATAUAVAWH..`H.l$PH.]@H.uHH.}PH...1..H3.H.E.Hc}`I..E
+  0x0B1A17 | %d           | ...n...[...\%.]....T%d]..../%(^...............?..n.................?..n.L..~~...
+  0x0B2C36 | %i           | .'....\...Y....(....%iL......%.L......%.L....Y...Y.SL..H...M....X....\...Y.....?
+  0x0B2DB4 | %G           | ..X...(...Y...p.D..Y%GK....Y...X%KK....Y...Y.......Y...p....X...\...p....X......
+  0x0C573C | %G           | .R|..c.?UUUUUU.?....%G.?...H.9.?K..V.*.?.......?...."..?.P..P..?.L.b...?9./....?
+  0x0C57E3 | %f           | ?..be.F.?M..0':.?...%f-.?QY^&. .?.......?fe.....?...?...?...B...?....,..?.u.....
+  0x0C5DFD | %lu          | Information failed (%lu).......g.a.m.e.d.u.m.p...b.i.n.........U.S.E.R.P.R.O.F.I
+  0x0C5EA2 | %lu          | ..All paths failed (%lu)..Dumped %.1f MB -> %s....Mission/end ... Success!......
+  0x0C5EAF | %.1f         | ailed (%lu)..Dumped %.1f MB -> %s....Mission/end ... Success!........Mission/end
+  0x0C5EBA | %s           | ..Dumped %.1f MB -> %s....Mission/end ... Success!........Mission/end ... Failed
+  0x0C5F73 | %u           | ck.......[Init] TID=%u (%s)......l.i.b.e.r.t.e.a._.c.r.a.s.h...l.o.g.....C.:.\.l
+  0x0C5F77 | %s           | .....[Init] TID=%u (%s)......l.i.b.e.r.t.e.a._.c.r.a.s.h...l.o.g.....C.:.\.l.i.b
+  0x0C6039 | %04u         | G ===..Time:        %04u-%02u-%02u %02u:%02u:%02u..Thread ID:   %lu..ExCode:    
+  0x0C603E | %02u         | ..Time:        %04u-%02u-%02u %02u:%02u:%02u..Thread ID:   %lu..ExCode:      0x%
+  0x0C6043 | %02u         | e:        %04u-%02u-%02u %02u:%02u:%02u..Thread ID:   %lu..ExCode:      0x%08lX.
+  0x0C6048 | %02u         |      %04u-%02u-%02u %02u:%02u:%02u..Thread ID:   %lu..ExCode:      0x%08lX..ExAd
+  0x0C604D | %02u         | %04u-%02u-%02u %02u:%02u:%02u..Thread ID:   %lu..ExCode:      0x%08lX..ExAddress
+  0x0C6052 | %02u         | %02u-%02u %02u:%02u:%02u..Thread ID:   %lu..ExCode:      0x%08lX..ExAddress:   0
+  0x0C6065 | %lu          | :%02u..Thread ID:   %lu..ExCode:      0x%08lX..ExAddress:   0x%016llX..RIP:     
+  0x0C6079 | %08lX        | %lu..ExCode:      0x%08lX..ExAddress:   0x%016llX..RIP:         0x%016llX..RSP: 
+  0x0C608F | %016llX      | 8lX..ExAddress:   0x%016llX..RIP:         0x%016llX..RSP:         0x%016llX..RAX
+  0x0C60A7 | %016llX      | llX..RIP:         0x%016llX..RSP:         0x%016llX..RAX:         0x%016llX..RCX
+  0x0C60BF | %016llX      | llX..RSP:         0x%016llX..RAX:         0x%016llX..RCX:         0x%016llX..RDX
+  0x0C60D7 | %016llX      | llX..RAX:         0x%016llX..RCX:         0x%016llX..RDX:         0x%016llX..R8:
+  0x0C60EF | %016llX      | llX..RCX:         0x%016llX..RDX:         0x%016llX..R8:          0x%016llX..---
+  0x0C6107 | %016llX      | llX..RDX:         0x%016llX..R8:          0x%016llX..--- Replay ---..Auto Replay
+  0x0C611F | %016llX      | llX..R8:          0x%016llX..--- Replay ---..Auto Replay: %s  Interval: %.0fs  C
+  0x0C6145 | %s           | y ---..Auto Replay: %s  Interval: %.0fs  Count: %d..Boost Mode:  %s..Burst:     
+  0x0C6153 | %.0f         | play: %s  Interval: %.0fs  Count: %d..Boost Mode:  %s..Burst:       %s  %d/%d..P
+  0x0C6161 | %d           | rval: %.0fs  Count: %d..Boost Mode:  %s..Burst:       %s  %d/%d..Probe:       %s
+  0x0C6172 | %s           | t: %d..Boost Mode:  %s..Burst:       %s  %d/%d..Probe:       %s..--- SC ---..SC 
+  0x0C6183 | %s           | :  %s..Burst:       %s  %d/%d..Probe:       %s..--- SC ---..SC Loop:     %s  InF
+  0x0C6187 | %d           | s..Burst:       %s  %d/%d..Probe:       %s..--- SC ---..SC Loop:     %s  InFligh
+  0x0C618A | %d           | Burst:       %s  %d/%d..Probe:       %s..--- SC ---..SC Loop:     %s  InFlight: 
+  0x0C619B | %s           | %d/%d..Probe:       %s..--- SC ---..SC Loop:     %s  InFlight: %s..SC Calls:    
+  0x0C61B8 | %s           | C ---..SC Loop:     %s  InFlight: %s..SC Calls:    %d / %d  Interval: %d ms..===
+  0x0C61C6 | %s           | :     %s  InFlight: %s..SC Calls:    %d / %d  Interval: %d ms..=================
+  0x0C61D7 | %d           | t: %s..SC Calls:    %d / %d  Interval: %d ms..=========================......vec
+  0x0C61DC | %d           | ..SC Calls:    %d / %d  Interval: %d ms..=========================......vector t
+  0x0C61EA | %d           |  %d / %d  Interval: %d ms..=========================......vector too long.invali
+  0x0F8A8D | %%           | ;Ckl'&hF;;$<_=X(b.RS%%)###MPBuuE1V:v&cX&#2m#(&cV]`k9OhLMbn%s$G2,B$BfD3X*sp5#l,$R
+  0x0F8AB3 | %s           | X&#2m#(&cV]`k9OhLMbn%s$G2,B$BfD3X*sp5#l,$R#]x_X1xKX%b5U*[r5iMfUo9U`N99hG)tm+/Us9
+  0x0F8B06 | %6s          | XPu`<0s-)WTt(gCRxIg(%6sfh=ktMKn3j)<6<b5Sk_/0(^]AaN#(p/L>&VZ>1i%h1S9u5o@YaaW$e+b<
+  0x0F8CD1 | %c           | cg:lSTvEY/EV_7H4Q9[Z%cnv;JQYZ5q.l7Zeas:HOIZOB?G<Nald$qs]@]L<J7bR*>gv:[7MI2k).'2(
+  0x0F8DE9 | %s           | >xQsH$fEmPMgY2u7Kh(G%siIfLSoS+MK2eTM$=5,M8p`A.;_R%#u[K#$x4AG8.kK/HSB==-'Ie/QTtG?
+  0x0F8E06 | %#u          | +MK2eTM$=5,M8p`A.;_R%#u[K#$x4AG8.kK/HSB==-'Ie/QTtG?-.*^N-4B/ZM_3YlQC7(p7q)&](`6_
+  0x0F8F5B | %16i         | //oL?#h7gl85[qW/NDOk%16ij;+:1a'iNIdb-ou8.P*w,v5#EI$TWS>Pot-R*H'-SEpA:g)f+O$%%`kA
+  0x0F8F92 | %%           | Pot-R*H'-SEpA:g)f+O$%%`kA#G=8RMmG1&O`>to8bC]T&$,n.LoO>29sp3dt-52U%VM#q7'DHpg+#Z9
+  0x0F8FD4 | %a           | VM#q7'DHpg+#Z9%H[K<L%a2E-grWVM3@2=-k22tL]4$##6We'8UJCKE[d_=%wI;'6X-GsLX4j^SgJ$##
+  0x0F915C | %G           | iY$bgGw-&.Zi9InXDuYa%G*f2Bq7mn9^#p1vv%#(Wi-;/Z5ho;#2:;%d&#x9v68C5g?ntX0X)pT`;%pB
+  0x0F917E | %d           | 1vv%#(Wi-;/Z5ho;#2:;%d&#x9v68C5g?ntX0X)pT`;%pB3q7mgGN)3%(P8nTd5L7GeA-GL@+%J3u2:(
+  0x0F9195 | %p           | #x9v68C5g?ntX0X)pT`;%pB3q7mgGN)3%(P8nTd5L7GeA-GL@+%J3u2:(Yf>et`e;)f#Km8&+DC$I46>
+  0x0F9205 | %2n          | N'03'eM>&1XxY-caEnOj%2n8)),?ILR5^.Ibn<-X-Mq7[a82Lq:F&#ce+S9wsCK*x`569E8ew'He]h:s
+  0x0F9253 | %IG          | :sI[2LM$[guka3ZRd6:t%IG:;$%YiJ:Nq=?eAw;/:nnDq0(CYcMpG)qLN4$##&J<j$UpK<Q4a1]MupW^
+  0x0F92AD | %F           | 'F####QRZJ::Y3EGl4'@%FkiAOg#p[##O`gukTfBHagL<LHw%q&OV0##F=6/:chIm0@eCP8X]:kFI%hl
+  0x0F934D | %c           | &^HFS87@$EP2iG<-lCO$%c`uKGD3rC$x0BL8aFn--`ke%#HMP'vh1/R&O_J9'um,.<tx[@%wsJk&bUT2
+  0x0F9433 | %Lu          | m$maq-&sgw0t7/6(^xtk%LuH88Fj-ekm>GA#_>568x6(OFRl-IZp`&b,_P'$M<Jnq79VsJW/mWS*PUiq
+  0x0F94D8 | %-p          | %R$f<->Zts'^kn=-^@c4%-pY6qI%J%1IGxfLU9CP8cbPlXv);C=b),<2mOvP8up,UVf3839acAWAW-W?
+  0x0F94E1 | %1IG         | s'^kn=-^@c4%-pY6qI%J%1IGxfLU9CP8cbPlXv);C=b),<2mOvP8up,UVf3839acAWAW-W?#ao/^#%KY
+  0x0F95D1 | %u           | L*0//c&iH&R8pRbA#Kjm%upV1g:a_#Ur7FuA#(tRh#.Y5K+@?3<-8m0$PEn;J:rh6?I6uG<-`wMU'irc
+  0x0F9627 | %u           | OtlMb&1#6T.#FDKu#1Lw%u%+GM+X'e?YLfjM[VO0MbuFp7;>Q&#WIo)0@F%q7c#4XAXN-U&VB<HFF*qL
+  0x0F9629 | %+G          | lMb&1#6T.#FDKu#1Lw%u%+GM+X'e?YLfjM[VO0MbuFp7;>Q&#WIo)0@F%q7c#4XAXN-U&VB<HFF*qL($
+  0x0F9758 | %E           | #FX$0V5Y6x'aErI3I$7x%E`v<-BY,)%-?Psf*l?%C3.mM(=/M0:JxG'?7WhH%o'a<-80g0NBxoO(GH<d
+  0x0F9780 | %o           | C3.mM(=/M0:JxG'?7WhH%o'a<-80g0NBxoO(GH<dM]n.+%q@jH?f.UsJ2Ggs&4<-e47&Kl+f//9@`b+?
+  0x0F9BD6 | %%           | #9r+$%CE=68>K8r0=dSC%%(@p7.m7jilQ02'0-VWAg<a/''3u.=4L$Y)6k/K:_[3=&jvL<L0C/2'v:^;
+  0x0F9CA9 | %X           | PvFl,hfINTNU6u'0pao7%XUp9]5.>%h`8_=VYbxuel.NTSsJfLacFu3B'lQSu/m6-Oqem8T+oE--$0a/
+  0x0F9DA5 | %n           | <h#`)h0:<Q6909ua+&VU%n2:cG3FJ-%@Bj-DgLr`Hw&HAKjKjseK</xKT*)B,N9X3]krc12t'pgTV(Lv
+  0x0F9DF8 | %8c          | [xg_%=M_q7a^x?7Ubd>#%8cY#YZ?=,`Wdxu/ae&#w6)R89tI#6@s'(6Bf7a&?S=^ZI_kS&ai`&=tE72L
+  0x0F9E56 | %s           | #c&)q.MXI%#v9ROa5FZO%sF7q7Nwb&#ptUJ:aqJe$Sl68%.D###EC><?-aF&#RNQv>o8lKN%5/$(vdfq
+  0x0F9EC2 | %G           | fn$7ZTp7mM,G,Ko7a&Gu%G[RMxJs[0MM%wci.LFDK)(<c`Q8N)jEIF*+?P2a8g%)$q]o2aH8C&<SibC/
+  0x0F9F6E | %u           | #=mPEnm0f`<&c)QL5uJ#%u%lJj+D-r;BoF&#4DoS97h5g)E#o:&S4weDF,9^Hoe`h*L+_a*NrLW-1pG_
+  0x0FA0DD | %n           | k$YUWsbn8ogh6rxZ2Z9]%nd+>V#*8U_72Lh+2Q8Cj0i:6hp&$C/:p(HK>T8Y[gHQ4`4)'$Ab(Nof%V'8
+  0x0FA133 | %d           | Edtg(n'=S1A(Q1/I&4([%dM`,Iu'1:_hL>SfD07&6D<fp8dHM7/g+tlPN9J*rKaPct&?'uBCem^jn%9_
+  0x0FA3BE | %F           | dbXk,.)vj#x'd`;qgbQR%FW,2(?LO=s%Sc68%NP'##Aotl8x=BE#j1UD([3$M(]UI2LX3RpKN@;/#f'f
+  0x0FA45F | %1a          | LnYl<-qx8;-HV7Q-&Xdx%1a,hC=0u+HlsV>nuIQL-5<N?)NBS)QN*_I,?&)2'IM%L3I)X((e/dl2&8'<
+  0x0FA4AF | %f           | M:^#M*Q+[T.Xri.LYS3v%fF`68h;b-X[/En'CR.q7E)p'/kle2HM,u;^%OKC-N+Ll%F9CF<Nf'^#t2L,
+  0x0FA4DC | %F           | /kle2HM,u;^%OKC-N+Ll%F9CF<Nf'^#t2L,;27W:0O@6##U6W7:$rJfLWHj$#)woqBefIZ.PK<b*t7ed
+  0x0FA5AF | %-G          | t._K-#5wF)sP'##p#C0c%-Gb%hd+<-j'Ai*x&&HMkT]C'OSl##5RG[JXaHN;d'uA#x._U;.`PU@(Z3dt
+  0x0FA5B3 | %hd          | -#5wF)sP'##p#C0c%-Gb%hd+<-j'Ai*x&&HMkT]C'OSl##5RG[JXaHN;d'uA#x._U;.`PU@(Z3dt4r15
+  0x0FA6C6 | %i           | kLC/R&CH+s'B;K-M6$EB%is00:+A4[7xks.LrNk0&E)wILYF@2L'0Nb$+pv<(2.768/FrY&h$^3i&@+G
+  0x0FA720 | %4i          | ;_)I9M^AE]CN?Cl2AZg+%4iTpT3<n-&%H%b<FDj2M<hH=&Eh<2Len$b*aTX=-8QxN)k11IM1c^j%9s<L
+  0x0FA757 | %9s          | *aTX=-8QxN)k11IM1c^j%9s<L<NFSo)B?+<-(GxsF,^-Eh@$4dXhN$+#rxK8'je'D7k`e;)2pYwPA'_p
+  0x0FA834 | %X           | -cpI;.p/6_vwoFMV<->#%Xi.LxVnrU(4&8/P+:hLSKj$#U%]49t'I:rgMi'FL@a:0Y-uA[39',(vbma*
+  0x0FA98C | %s           | CjhsCTSLJM'/Wl>-S(qw%sf/@%#B6;/U7K]uZbi^Oc^2n<bhPmUkMw>%t<)'mEVE''n`WnJra$^TKvX5
+  0x0FAAC7 | %g           | '$(Tb<[)*@e775R-:Yob%g*>l*:xP?Yb.5)%w_I?7uk5JC+FS(m#i'k.'a0i)9<7b'fs'59hq$*5Uhv#
+  0x0FACC0 | %g           | '+1vMB,u()-a.VUU*#[e%gAAO(S>WlA2);Sa>gXm8YB`1d@K#n]76-a$U,mF<fX]idqd)<3,]J7JmW4`
+  0x0FAD3D | %s           | $ooQUj]Exd*3ZM@-WGW2%s',B-_M%>%Ul:#/'xoFM9QX-$.QN'>[%$Z$uF6pA6Ki2O5:8w*vP1<-1`[G
+  0x0FAF18 | %i           | F_jCK*.O-^(63adMT->W%iewS8W6m2rtCpo'RS1R84=@paTKt)>=%&1[)*vp'u+x,VrwN;&]kuO9JDbg
+  0x0FAFEE | %F           | w'DJN:)Ss;wGn9A32ijw%FL+Z0Fn.U9;reSq)bmI32U==5ALuG&#Vf1398/pVo1*c-(aY168o<`JsSbk
+  0x0FB104 | %d           | ,uq7SvlB$pcpH'q3n0#_%dY#xCpr-l<F0NR@-##FEV6NTF6##$l84N1w?AO>'IAOURQ##V^Fv-XFbGM7
+  0x0FB15C | %0x          | LGF%q.1rC$#:T__&Pi68%0xi_&[qFJ(77j_&JWoF.V735&T,[R*:xFR*K5>>#`bW-?4Ne_&6Ne_&6Ne_
+  0x0FB1B7 | %o           | 6X;uM6X;uM(.a..^2TkL%oR(#;u.T%fAr%4tJ8&><1=GHZ_+m9/#H1F^R#SC#*N=BA9(D?v[UiFY>>^8
+  0x0FB1C0 | %f           | M(.a..^2TkL%oR(#;u.T%fAr%4tJ8&><1=GHZ_+m9/#H1F^R#SC#*N=BA9(D?v[UiFY>>^8p,KKF.W]L
+  0x0FB4AB | %X           | sN9#qh<9#:=x-#P;K2#$%X9#bC+.#Rg;<#mN=.#MTF.#RZO.#2?)4#Y#(/#[)1/#b;L/#dAU/#0Sv;#l
+  0x0FE3B8 | %s           | r Pack..rb..CRASH...%s..%.1fx.......##replay_subtabs........Replay##rsub....  Wa
+  0x0FE3BC | %.1f         | ck..rb..CRASH...%s..%.1fx.......##replay_subtabs........Replay##rsub....  Waitin
+  0x0FE431 | %d           | sion captured......(%d/4 players)..  Probe ON - will overwrite on next mission..
+  0x0FE4A5 | %d           | .......Probe: OFF - %d player%s saved..Probe: OFF..HUD.Next in %.0fs...STOP....A
+  0x0FE4AE | %s           | obe: OFF - %d player%s saved..Probe: OFF..HUD.Next in %.0fs...STOP....Auto-Repla
+  0x0FE4D0 | %.0f         | e: OFF..HUD.Next in %.0fs...STOP....Auto-Replay STOPPED by user.....  Running  (
+  0x0FE512 | %d           | ..  Running  (sent: %d)...START...Auto-Replay STARTED (2 min interval)....Stop a
+  0x0FE578 | %.1f         | ssionmins...min.....%.1f / %d min...Stop after##limit.......##maxreplays....repl
+  0x0FE57F | %d           | ns...min.....%.1f / %d min...Stop after##limit.......##maxreplays....replays.  L
+  0x0FE5E2 | %d           | cker:.....Confirmed %d/%d  (+%llu XP).....Scanning........Set baseline to track.
+  0x0FE5E5 | %d           | r:.....Confirmed %d/%d  (+%llu XP).....Scanning........Set baseline to track...#
+  0x0FE5EB | %llu         | .Confirmed %d/%d  (+%llu XP).....Scanning........Set baseline to track...##xpbas
+  0x0FE6D8 | %d           | ....Burst Replay....%d replays......##BurstCount....Burst Send (%d replays).Queu
+  0x0FE704 | %d           | ount....Burst Send (%d replays).Queues all replays instantly -- server may rate-
+  0x0FE750 | %d           | ate-limit...Sending %d/%d...........Do not close game -- dispatching........Burs
+  0x0FE753 | %d           | -limit...Sending %d/%d...........Do not close game -- dispatching........Burst c
+  0x0FE79A | %d           | ..Burst complete -- %d/%d sent. Safe to exit game!........BurstDonePopup..Burst 
+  0x0FE79D | %d           | urst complete -- %d/%d sent. Safe to exit game!........BurstDonePopup..Burst Com
+  0x0FE8AF | %d           | started -- interval %d min...Burst Loop stopped......Burst Loop fired -- next in
+  0x0FE8EC | %d           | op fired -- next in %d min......Next burst in %dm %02ds.Auto-fires burst every N
+  0x0FE906 | %d           | ......Next burst in %dm %02ds.Auto-fires burst every N minutes when ON........SU
+  0x0FE90A | %02d         | ..Next burst in %dm %02ds.Auto-fires burst every N minutes when ON........SUPER 
+  0x0FE960 | %d           | S...SC REFRESH......%d player%s added to SC.No lobby found..Auto Sync: ON...Auto
+  0x0FE969 | %s           | FRESH......%d player%s added to SC.No lobby found..Auto Sync: ON...Auto Sync: OF
+  0x0FEA52 | %d           | paused....Stops in: %dm %02ds.....Cooldown: %ds remaining.........Firing MEDAL b
+  0x0FEA56 | %02d         | ed....Stops in: %dm %02ds.....Cooldown: %ds remaining.........Firing MEDAL batch
+  0x0FEA6A | %d           | %02ds.....Cooldown: %ds remaining.........Firing MEDAL batch (9 calls x 500ms)..
+  0x0FEADC | %d           | ).......Calls sent: %d..  |  Skipped (replay): %d.......Rewarded: %d....  Empty:
+  0x0FEAF7 | %d           |   Skipped (replay): %d.......Rewarded: %d....  Empty: %d.....  Total: %d.....Rec
+  0x0FEB0A | %d           |  %d.......Rewarded: %d....  Empty: %d.....  Total: %d.....Recovered: %d...  Fail
+  0x0FEB19 | %d           | ded: %d....  Empty: %d.....  Total: %d.....Recovered: %d...  Failed: %d....SC Tr
+  0x0FEB29 | %d           | ty: %d.....  Total: %d.....Recovered: %d...  Failed: %d....SC Tracker......%d ca
+  0x0FEB3B | %d           | : %d.....Recovered: %d...  Failed: %d....SC Tracker......%d calls sent  |  %d SC
+  0x0FEB4A | %d           | red: %d...  Failed: %d....SC Tracker......%d calls sent  |  %d SC earned  |  %d 
+  0x0FEB60 | %d           | ....SC Tracker......%d calls sent  |  %d SC earned  |  %d x100 bonus........%d c
+  0x0FEB72 | %d           | ..%d calls sent  |  %d SC earned  |  %d x100 bonus........%d calls sent  |  %d S
+  0x0FEB83 | %d           | |  %d SC earned  |  %d x100 bonus........%d calls sent  |  %d SC earned..Reset##
+  0x0FEB98 | %d           | d x100 bonus........%d calls sent  |  %d SC earned..Reset##sct......SC Goal.Set#
+  0x0FEBAA | %d           | ..%d calls sent  |  %d SC earned..Reset##sct......SC Goal.Set##goal.......Clear#
+  0x0FEBF0 | %d           | ....Clear##goal.....%d / %d SC......Crashes absorbed: %d....Include Medals..Alte
+  0x0FEBF5 | %d           | lear##goal.....%d / %d SC......Crashes absorbed: %d....Include Medals..Alternate
+  0x0FEC12 | %d           | ..Crashes absorbed: %d....Include Medals..Alternates SC / Medal batches...Medals
+  0x0FEEE8 | %d           | vr..Replays/gun:....%d......##repperwep.....All Guns  ON##ag........All Guns OFF
+  0x0FEF7A | %s           | g.........All Guns: %s  (%d/51, Rep %d/%d)........Selected: %s  (%d/%d, Rep %d/%
+  0x0FEF7F | %d           | .....All Guns: %s  (%d/51, Rep %d/%d)........Selected: %s  (%d/%d, Rep %d/%d)...
+  0x0FEF8A | %d           | ns: %s  (%d/51, Rep %d/%d)........Selected: %s  (%d/%d, Rep %d/%d)........>> Nex
+  0x0FEF8D | %d           |  %s  (%d/51, Rep %d/%d)........Selected: %s  (%d/%d, Rep %d/%d)........>> Next W
+  0x0FEFA2 | %s           | d)........Selected: %s  (%d/%d, Rep %d/%d)........>> Next Weapon..-- Select Prim
+  0x0FEFA7 | %d           | .....Selected: %s  (%d/%d, Rep %d/%d)........>> Next Weapon..-- Select Primary W
+  0x0FEFAA | %d           | ..Selected: %s  (%d/%d, Rep %d/%d)........>> Next Weapon..-- Select Primary Weap
+  0x0FEFB2 | %d           | ed: %s  (%d/%d, Rep %d/%d)........>> Next Weapon..-- Select Primary Weapon --...
+  0x0FEFB5 | %d           |  %s  (%d/%d, Rep %d/%d)........>> Next Weapon..-- Select Primary Weapon --.....#
+  0x0FF000 | %u           | ....##pwcombo...ID: %u......Last replay: %d slot(s) patched.Last replay: 0 match
+  0x0FF015 | %d           | u......Last replay: %d slot(s) patched.Last replay: 0 matches in capture.......S
+  0x0FF082 | %d           | pons to include):.  %d selected...All##sgall......None##sgnone....Search weapons
+  0x0FF0E8 | %s           | ....##sglist........%s##sgcb%d......  [N/A] %s......LIBERTEAWnd.....LIBERTEA....
+  0x0FF0F0 | %d           | list........%s##sgcb%d......  [N/A] %s......LIBERTEAWnd.....LIBERTEA........wglS
+  0x0FF100 | %s           | sgcb%d......  [N/A] %s......LIBERTEAWnd.....LIBERTEA........wglSwapIntervalEXT..
+  0x0FF378 | %d           | time Access.Expired.%d day%s, %d hour%s remaining...%d hour%s, %d minute%s remai
+  0x0FF37E | %s           | ccess.Expired.%d day%s, %d hour%s remaining...%d hour%s, %d minute%s remaining..
+  0x0FF382 | %d           | s.Expired.%d day%s, %d hour%s remaining...%d hour%s, %d minute%s remaining......
+  0x0FF389 | %s           | ed.%d day%s, %d hour%s remaining...%d hour%s, %d minute%s remaining........%d mi
+  0x0FF398 | %d           |  hour%s remaining...%d hour%s, %d minute%s remaining........%d minute%s remainin
+  0x0FF39F | %s           |  remaining...%d hour%s, %d minute%s remaining........%d minute%s remaining...Oka
+  0x0FF3A3 | %d           | aining...%d hour%s, %d minute%s remaining........%d minute%s remaining...Okay!..
+  0x0FF3AC | %s           | %d hour%s, %d minute%s remaining........%d minute%s remaining...Okay!...##libert
+  0x0FF3C0 | %d           | %s remaining........%d minute%s remaining...Okay!...##libertea_main.Liber...Tea.
+  0x0FF3C9 | %s           | ing........%d minute%s remaining...Okay!...##libertea_main.Liber...Tea.....Farmi
+  0x0FF740 | %d           | r##fsamp_s..! Total %d > 100 ... will auto-clamp to 34/33/33........[4] Samples 
+  0x0FFA40 | %02u         | ....##log_scroll....%02u:%02u:%02u..ERROR...MISS....[QUEUED]....[%s]........L I 
+  0x0FFA45 | %02u         | #log_scroll....%02u:%02u:%02u..ERROR...MISS....[QUEUED]....[%s]........L I B E R
+  0x0FFA4A | %02u         | scroll....%02u:%02u:%02u..ERROR...MISS....[QUEUED]....[%s]........L I B E R T E 
+  0x0FFA6D | %s           | ISS....[QUEUED]....[%s]........L I B E R T E A.TOOL  v414......MADE BY.TheOGcup.
+  0x0FFB43 | %d           | ay have updated ... %d/%d patterns found. Some features may not work.....Pattern
+  0x0FFB46 | %d           | have updated ... %d/%d patterns found. Some features may not work.....Patterns: 
+  0x0FFB82 | %d           |  work.....Patterns: %d/%d found...Missing:....%s,.PLAYER..God Mode (Player Only)
+  0x0FFB85 | %d           | rk.....Patterns: %d/%d found...Missing:....%s,.PLAYER..God Mode (Player Only)..M
+  0x0FFB9C | %s           | found...Missing:....%s,.PLAYER..God Mode (Player Only)..Movement Speed##spd.x%.1
+  0x0FFBD5 | %.1f         | ovement Speed##spd.x%.1f.......Speed##smult....No Ragdoll......No Recoil...COMBA
+  0x0FFD18 | %s           |  Fluid Pack.Pack....%s Editor...%s##pk..%.2f........Reset to Defaults##pk_rst...
+  0x0FFD24 | %s           | Pack....%s Editor...%s##pk..%.2f........Reset to Defaults##pk_rst.......Use pack
+  0x0FFD2C | %.2f         | %s Editor...%s##pk..%.2f........Reset to Defaults##pk_rst.......Use pack in-miss
+  0x0FFD94 | %.0f         | MISSION.Kill Count: %.0f........Infinite Horde Mode##erad_ih....STEALTH.VISUAL..
+  0x0FFDD0 | %.0f         | ....STEALTH.VISUAL..%.0f....FOV##fov....ARMORY......Unlock All Armory##ua...  Pa
+  0x0FFFB0 | %s           | ....Refresh.  FROM: %s......%B %d, %Y  %I:%M %p.  %s........  Back  ........  De
+  0x0FFFBB | %d           | .  FROM: %s......%B %d, %Y  %I:%M %p.  %s........  Back  ........  Delete  .....
+  0x0FFFC9 | %p           | ...%B %d, %Y  %I:%M %p.  %s........  Back  ........  Delete  ......    No update
+  0x0FFFCE | %s           |  %d, %Y  %I:%M %p.  %s........  Back  ........  Delete  ......    No updates..OG
+  0x10001C | %s           | OG......LETTER FROM %s..%b %d.......##msg...X...........%d features active  |  M
+  0x100023 | %d           | .LETTER FROM %s..%b %d.......##msg...X...........%d features active  |  Mults: %
+  0x100040 | %d           | ##msg...X...........%d features active  |  Mults: %.0fx XP / %.0fx Medals / %.0f
+  0x10005E | %.0f         | s active  |  Mults: %.0fx XP / %.0fx Medals / %.0fx Slips......................S
+  0x100069 | %.0f         |   Mults: %.0fx XP / %.0fx Medals / %.0fx Slips......................S...........
+  0x100078 | %.0f         | XP / %.0fx Medals / %.0fx Slips......................S...............t.c........
+  0x100568 | %08lx        | ....@.......P.......%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x.......=== 
+  0x10056E | %04x         | ......P.......%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x.......=== ScActi
+  0x100573 | %04x         | .P.......%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x.......=== ScActivityA
+  0x100578 | %02x         | ....%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x.......=== ScActivityAPC ==
+  0x10057C | %02x         | %08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x.......=== ScActivityAPC === ac
+  0x100581 | %02x         | -%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x.......=== ScActivityAPC === actObj=
+  0x100585 | %02x         | x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x.......=== ScActivityAPC === actObj=%p T
+  0x100589 | %02x         | 4x-%02x%02x-%02x%02x%02x%02x%02x%02x.......=== ScActivityAPC === actObj=%p TID=%
+  0x10058D | %02x         | 02x%02x-%02x%02x%02x%02x%02x%02x.......=== ScActivityAPC === actObj=%p TID=%u..H
+  0x100591 | %02x         | 02x-%02x%02x%02x%02x%02x%02x.......=== ScActivityAPC === actObj=%p TID=%u..HAS S
+  0x100595 | %02x         | %02x%02x%02x%02x%02x%02x.......=== ScActivityAPC === actObj=%p TID=%u..HAS SESSI
+  0x1005BD | %p           | ivityAPC === actObj=%p TID=%u..HAS SESSION.....NULL SESSION....  GetActiveSessio
+  0x1005C4 | %u           | C === actObj=%p TID=%u..HAS SESSION.....NULL SESSION....  GetActiveSession() = 0
+  0x100601 | %llX         | ActiveSession() = 0x%llX ... %s....SC skip: no session.....  BEFORE: ctr=0x%X fl
+  0x10060A | %s           | sion() = 0x%llX ... %s....SC skip: no session.....  BEFORE: ctr=0x%X flag=0x%X r
+  0x100638 | %X           | ....  BEFORE: ctr=0x%X flag=0x%X ring=%u url="%.40s"........[SC] VEH recovered c
+  0x100642 | %X           | RE: ctr=0x%X flag=0x%X ring=%u url="%.40s"........[SC] VEH recovered crash......
+  0x10064A | %u           | 0x%X flag=0x%X ring=%u url="%.40s"........[SC] VEH recovered crash........  AFTE
+  0x100652 | %.40s        | g=0x%X ring=%u url="%.40s"........[SC] VEH recovered crash........  AFTER(0s): c
+  0x100693 | %X           | .  AFTER(0s): ctr=0x%X flag=0x%X ring=%u rax=0x%llX url="%.40s" qDelta=%d.......
+  0x10069D | %X           | s): ctr=0x%X flag=0x%X ring=%u rax=0x%llX url="%.40s" qDelta=%d........[SC] actF
+  0x1006A5 | %u           | 0x%X flag=0x%X ring=%u rax=0x%llX url="%.40s" qDelta=%d........[SC] actFn called
+  0x1006AE | %llX         | =0x%X ring=%u rax=0x%llX url="%.40s" qDelta=%d........[SC] actFn called ... moni
+  0x1006B8 | %.40s        | =%u rax=0x%llX url="%.40s" qDelta=%d........[SC] actFn called ... monitoring 10s
+  0x1006C6 | %d           |  url="%.40s" qDelta=%d........[SC] actFn called ... monitoring 10s....SC goal re
+  0x100757 | %d           | Batch Firing.SCLoop[%d]: actObj=%p missionId=%s actId32=0x%08X objId=0x%08X pids
+  0x100763 | %p           | .SCLoop[%d]: actObj=%p missionId=%s actId32=0x%08X objId=0x%08X pids=%d (retry=%
+  0x100770 | %s           | actObj=%p missionId=%s actId32=0x%08X objId=0x%08X pids=%d (retry=%d).......[SC]
+  0x10077D | %08X         | sionId=%s actId32=0x%08X objId=0x%08X pids=%d (retry=%d).......[SC] MIDSWAP call
+  0x10078A | %08X         | Id32=0x%08X objId=0x%08X pids=%d (retry=%d).......[SC] MIDSWAP call %d/%d: str=%
+  0x100794 | %d           | X objId=0x%08X pids=%d (retry=%d).......[SC] MIDSWAP call %d/%d: str=%d bin=%d .
+  0x10079E | %d           | %08X pids=%d (retry=%d).......[SC] MIDSWAP call %d/%d: str=%d bin=%d ... mid=%s.
+  0x1007BA | %d           | ..[SC] MIDSWAP call %d/%d: str=%d bin=%d ... mid=%s.......TIMEOUT.EMPTY...SCLoop
+  0x1007BD | %d           | SC] MIDSWAP call %d/%d: str=%d bin=%d ... mid=%s.......TIMEOUT.EMPTY...SCLoop[%d
+  0x1007C5 | %d           | WAP call %d/%d: str=%d bin=%d ... mid=%s.......TIMEOUT.EMPTY...SCLoop[%d]: %s ..
+  0x1007CC | %d           | l %d/%d: str=%d bin=%d ... mid=%s.......TIMEOUT.EMPTY...SCLoop[%d]: %s ... retry
+  0x1007D7 | %s           | r=%d bin=%d ... mid=%s.......TIMEOUT.EMPTY...SCLoop[%d]: %s ... retry #%d/%d.MED
+  0x1007F7 | %d           | EOUT.EMPTY...SCLoop[%d]: %s ... retry #%d/%d.MEDAL...SC......[SC] %s batch done 
+  0x1007FC | %s           | EMPTY...SCLoop[%d]: %s ... retry #%d/%d.MEDAL...SC......[SC] %s batch done ... c
+  0x10080A | %d           | [%d]: %s ... retry #%d/%d.MEDAL...SC......[SC] %s batch done ... cooldown starti
+  0x10080D | %d           | ]: %s ... retry #%d/%d.MEDAL...SC......[SC] %s batch done ... cooldown starting.
+  0x100825 | %s           | EDAL...SC......[SC] %s batch done ... cooldown starting........SC cooldown 58s.[
+  0x10086E | %d           | n 58s.[SC AutoSync] %d player(s) synced.......[R] Auth failed.[R] Busy........[R
+  0x100902 | %s           | ..[AllGuns] Weapon: %s (%d/%d), cycle %d/%d.......[SelectedGuns] Weapon: %s (slo
+  0x100906 | %d           | llGuns] Weapon: %s (%d/%d), cycle %d/%d.......[SelectedGuns] Weapon: %s (slot %d
+  0x100909 | %d           | uns] Weapon: %s (%d/%d), cycle %d/%d.......[SelectedGuns] Weapon: %s (slot %d/%d
+  0x100914 | %d           | : %s (%d/%d), cycle %d/%d.......[SelectedGuns] Weapon: %s (slot %d/%d), cycle %d
+  0x100917 | %d           | s (%d/%d), cycle %d/%d.......[SelectedGuns] Weapon: %s (slot %d/%d), cycle %d/%d
+  0x100937 | %s           | lectedGuns] Weapon: %s (slot %d/%d), cycle %d/%d.....[WeaponOvr] Patched %d weap
+  0x100940 | %d           | s] Weapon: %s (slot %d/%d), cycle %d/%d.....[WeaponOvr] Patched %d weapon slot(s
+  0x100943 | %d           | Weapon: %s (slot %d/%d), cycle %d/%d.....[WeaponOvr] Patched %d weapon slot(s) -
+  0x10094E | %d           | (slot %d/%d), cycle %d/%d.....[WeaponOvr] Patched %d weapon slot(s) -> ID %u (%s
+  0x100951 | %d           | ot %d/%d), cycle %d/%d.....[WeaponOvr] Patched %d weapon slot(s) -> ID %u (%s)..
+  0x10096C | %d           | [WeaponOvr] Patched %d weapon slot(s) -> ID %u (%s).....Replay ... %d lobby play
+  0x100984 | %u           | eapon slot(s) -> ID %u (%s).....Replay ... %d lobby player(s)...CRASH in BuildPa
+  0x100988 | %s           | n slot(s) -> ID %u (%s).....Replay ... %d lobby player(s)...CRASH in BuildPayloa
+  0x10099B | %d           | (%s).....Replay ... %d lobby player(s)...CRASH in BuildPayload...WeaponStats: cr
+  0x100AC5 | %d           | .......[Burst] Sent %d/%d......[Burst] %d/%d failed....[Burst] Done ... %d repla
+  0x100AC8 | %d           | ....[Burst] Sent %d/%d......[Burst] %d/%d failed....[Burst] Done ... %d replays 
+  0x100AD8 | %d           |  %d/%d......[Burst] %d/%d failed....[Burst] Done ... %d replays dispatched..[B] 
+  0x100ADB | %d           | /%d......[Burst] %d/%d failed....[Burst] Done ... %d replays dispatched..[B] Una
+  0x100AF9 | %d           | ...[Burst] Done ... %d replays dispatched..[B] Unavailable.[B] No data.....[Burs
+  0x100B41 | %d           | ...[Burst] Starting %d staggered replays (5s apart)........[SC] SyncNow: %d play
+  0x100B76 | %d           | ......[SC] SyncNow: %d player(s) synced on inject..............S...t.co.i.J=2E.r
+  0x10130D | %u           |  "capturedWarTime": %u,....\\..  "url": "%s",..  "serObjOrigAddr": %llu,....... 
+  0x101322 | %s           | u,....\\..  "url": "%s",..  "serObjOrigAddr": %llu,.......  "md": "%s",...  "ser
+  0x10133C | %llu         |   "serObjOrigAddr": %llu,.......  "md": "%s",...  "serObj": "%s",.......  "slotD
+  0x101351 | %s           | llu,.......  "md": "%s",...  "serObj": "%s",.......  "slotData": "%s",.....  "en
+  0x101365 | %s           | %s",...  "serObj": "%s",.......  "slotData": "%s",.....  "entityDeep": "%s",... 
+  0x10137F | %s           | .....  "slotData": "%s",.....  "entityDeep": "%s",...  "entityDataDeep": "%s",..
+  0x101399 | %s           | ...  "entityDeep": "%s",...  "entityDataDeep": "%s",.......  "ac": %d,.....  "oi
+  0x1013B5 | %s           |  "entityDataDeep": "%s",.......  "ac": %d,.....  "oi": %u,.....  "gs": "%s"....}
+  0x1013C8 | %d           | "%s",.......  "ac": %d,.....  "oi": %u,.....  "gs": "%s"....}.......[Probe] Game
+  0x1013D8 | %u           | c": %d,.....  "oi": %u,.....  "gs": "%s"....}.......[Probe] Game thread captured
+  0x1013E9 | %s           | ": %u,.....  "gs": "%s"....}.......[Probe] Game thread captured....[P] Capture c
+  0x101433 | %08X         | ture complete.......%08X.Probe data saved........Probe aborted: module not found
+  0x101680 | %02d         | p...t...v...x.......%02d/%02d/%04d %02d:%02d:%02d..."}......` validated \u2014 .
+  0x101685 | %02d         | ...v...x.......%02d/%02d/%04d %02d:%02d:%02d..."}......` validated \u2014 .....{
+  0x10168A | %04d         | ..x.......%02d/%02d/%04d %02d:%02d:%02d..."}......` validated \u2014 .....{"cont
+  0x10168F | %02d         | .....%02d/%02d/%04d %02d:%02d:%02d..."}......` validated \u2014 .....{"content":
+  0x101694 | %02d         | %02d/%02d/%04d %02d:%02d:%02d..."}......` validated \u2014 .....{"content":"\ud8
+  0x101699 | %02d         | %02d/%04d %02d:%02d:%02d..."}......` validated \u2014 .....{"content":"\ud83d\ud
+  0x101B18 | %llu         | r key in menu.......%lluh %02llum %02llus...%llum %02llus...Runtime:........Star
+  0x101B1E | %02llu       | in menu.......%lluh %02llum %02llus...%llum %02llus...Runtime:........Start miss
+  0x101B26 | %02llu       | ......%lluh %02llum %02llus...%llum %02llus...Runtime:........Start mission!..Sa
+  0x101B30 | %llu         | h %02llum %02llus...%llum %02llus...Runtime:........Start mission!..Saved!..no c
+  0x101B36 | %02llu       | lum %02llus...%llum %02llus...Runtime:........Start mission!..Saved!..no capture
+  0x101B80 | %d           | apture..Probe:......%d SC earned....~%d sent....---.SC:.....%d XP (%d sent).XP:.
+  0x101B91 | %d           | ...%d SC earned....~%d sent....---.SC:.....%d XP (%d sent).XP:.....%d confirmed 
+  0x101BA8 | %d           | sent....---.SC:.....%d XP (%d sent).XP:.....%d confirmed (+%llu XP).Recvd:..Set 
+  0x101BAF | %d           | .---.SC:.....%d XP (%d sent).XP:.....%d confirmed (+%llu XP).Recvd:..Set XP base
+  0x101BC0 | %d           | P (%d sent).XP:.....%d confirmed (+%llu XP).Recvd:..Set XP baseline in menu.%s (
+  0x101BCF | %llu         | .....%d confirmed (+%llu XP).Recvd:..Set XP baseline in menu.%s (%d sent)....Boo
+  0x101BF8 | %s           | XP baseline in menu.%s (%d sent)....Boost:..AFK:....All Guns....Guns:.......%s (
+  0x101BFC | %d           | aseline in menu.%s (%d sent)....Boost:..AFK:....All Guns....Guns:.......%s (%d/5
+  0x101C30 | %s           | Guns....Guns:.......%s (%d/51) [%d/%d reps].  Now:..Selected (%d guns)......%s (
+  0x101C34 | %d           | ....Guns:.......%s (%d/51) [%d/%d reps].  Now:..Selected (%d guns)......%s (%d/%
+  0x101C3C | %d           | :.......%s (%d/51) [%d/%d reps].  Now:..Selected (%d guns)......%s (%d/%d) [%d/%
+  0x101C3F | %d           | .....%s (%d/51) [%d/%d reps].  Now:..Selected (%d guns)......%s (%d/%d) [%d/%d r
+  0x101C5A | %d           | ].  Now:..Selected (%d guns)......%s (%d/%d) [%d/%d reps].REFRESH SC......LIBERT
+  0x101C68 | %s           | cted (%d guns)......%s (%d/%d) [%d/%d reps].REFRESH SC......LIBERTEAOverlay.Sego
+  0x101C6C | %d           |  (%d guns)......%s (%d/%d) [%d/%d reps].REFRESH SC......LIBERTEAOverlay.Segoe UI
+  0x101C6F | %d           | d guns)......%s (%d/%d) [%d/%d reps].REFRESH SC......LIBERTEAOverlay.Segoe UI...
+  0x101C74 | %d           | s)......%s (%d/%d) [%d/%d reps].REFRESH SC......LIBERTEAOverlay.Segoe UI........
+  0x101C77 | %d           | .....%s (%d/%d) [%d/%d reps].REFRESH SC......LIBERTEAOverlay.Segoe UI........"mi
+  0x101CD0 | %02X         | "..."missionId" : ".%02X ...[GOLDEN-CAP] ... CAPTURED missionId=%s.."missionId".
+  0x101CFC | %s           |  CAPTURED missionId=%s.."missionId".....[HTTP] SWAP: replacing missionId (old %d
+  0x101D36 | %d           | cing missionId (old %d chars) with %s.GOLDEN..UUID....[HTTP] INJECT: missionId="
+  0x101D45 | %s           | (old %d chars) with %s.GOLDEN..UUID....[HTTP] INJECT: missionId="%s" (%s) inject
+  0x101D72 | %s           |  INJECT: missionId="%s" (%s) injected (%d ... %d bytes)...[SWAP] Activated ... n
+  0x101D77 | %s           | CT: missionId="%s" (%s) injected (%d ... %d bytes)...[SWAP] Activated ... next P
+  0x101D85 | %d           | "%s" (%s) injected (%d ... %d bytes)...[SWAP] Activated ... next POST will use m
+  0x101D8C | %d           | s) injected (%d ... %d bytes)...[SWAP] Activated ... next POST will use missionI
+  0x101DCA | %s           |  will use missionId=%s....[HOOK] %p: stealing %d bytes (%d insns) ripRel=%d.....
+  0x101DD7 | %p           | sionId=%s....[HOOK] %p: stealing %d bytes (%d insns) ripRel=%d......."amount"...
+  0x101DE4 | %d           | [HOOK] %p: stealing %d bytes (%d insns) ripRel=%d......."amount"........[RECON-B
+  0x101DEE | %d           |  stealing %d bytes (%d insns) ripRel=%d......."amount"........[RECON-BODY] %ld %
+  0x101DFF | %d           | s (%d insns) ripRel=%d......."amount"........[RECON-BODY] %ld %s ... %s......Mis
+  0x101E25 | %ld          | .......[RECON-BODY] %ld %s ... %s......Mission/end.yes.NO(game_wfn_unknown)....[
+  0x101E29 | %s           | ...[RECON-BODY] %ld %s ... %s......Mission/end.yes.NO(game_wfn_unknown)....[HTTP
+  0x101E30 | %s           | ON-BODY] %ld %s ... %s......Mission/end.yes.NO(game_wfn_unknown)....[HTTP] >>> A
+  0x101E91 | %ld          | first_chunk: status=%ld size=%zu fwd=%s....[HTTP] <<< BODY: %s.....[HTTP-RESP] P
+  0x101E9A | %zu          | nk: status=%ld size=%zu fwd=%s....[HTTP] <<< BODY: %s.....[HTTP-RESP] POST missi
+  0x101EA2 | %s           | us=%ld size=%zu fwd=%s....[HTTP] <<< BODY: %s.....[HTTP-RESP] POST missionId=%s.
+  0x101EB9 | %s           | ...[HTTP] <<< BODY: %s.....[HTTP-RESP] POST missionId=%s...[HTTP-RESP] Golden ca
+  0x101EDB | %s           | ESP] POST missionId=%s...[HTTP-RESP] Golden capture: hi2=%p rawPostLen=%d.......
+  0x101F00 | %p           | Golden capture: hi2=%p rawPostLen=%d........MiniGame........Activity....SetMax..
+  0x101F0E | %d           | : hi2=%p rawPostLen=%d........MiniGame........Activity....SetMax..war.War.....mi
+  0x102038 | %lu          | ....[RECON-URL] TID=%lu %s..[HTTP] SETOPT WRITEFUNCTION h=%p fn=%p (act=%d mg=%d
+  0x10203C | %s           | [RECON-URL] TID=%lu %s..[HTTP] SETOPT WRITEFUNCTION h=%p fn=%p (act=%d mg=%d rec
+  0x10205E | %p           | OPT WRITEFUNCTION h=%p fn=%p (act=%d mg=%d recon=%d)..[RECON-HDR] h=%p [%d] %s..
+  0x102064 | %p           | ITEFUNCTION h=%p fn=%p (act=%d mg=%d recon=%d)..[RECON-HDR] h=%p [%d] %s........
+  0x10206C | %d           | ION h=%p fn=%p (act=%d mg=%d recon=%d)..[RECON-HDR] h=%p [%d] %s........X-Signat
+  0x102072 | %d           | %p fn=%p (act=%d mg=%d recon=%d)..[RECON-HDR] h=%p [%d] %s........X-Signature:..
+  0x10207B | %d           | (act=%d mg=%d recon=%d)..[RECON-HDR] h=%p [%d] %s........X-Signature:....Authori
+  0x10208E | %p           | =%d)..[RECON-HDR] h=%p [%d] %s........X-Signature:....Authorization:..Cookie:.X-
+  0x102092 | %d           | ..[RECON-HDR] h=%p [%d] %s........X-Signature:....Authorization:..Cookie:.X-Sess
+  0x102096 | %s           | ECON-HDR] h=%p [%d] %s........X-Signature:....Authorization:..Cookie:.X-Session.
+  0x10211F | %s           | CON-AUTH] Base URL: %s.......Captured Mission/end POST body: %d bytes........[HT
+  0x102148 | %d           | sion/end POST body: %d bytes........[HTTP] SETOPT POSTFIELDS h=%p len=%d (%s)...
+  0x102173 | %p           | SETOPT POSTFIELDS h=%p len=%d (%s).......[HTTP] >>> curl_easy_perform %s h=%p...
+  0x10217A | %d           | POSTFIELDS h=%p len=%d (%s).......[HTTP] >>> curl_easy_perform %s h=%p....[RECON
+  0x10217E | %s           | FIELDS h=%p len=%d (%s).......[HTTP] >>> curl_easy_perform %s h=%p....[RECON-RES
+  0x1021A5 | %s           | > curl_easy_perform %s h=%p....[RECON-RESP] %ld %s.....libcurl.dll.....libcurl-x
+  0x1021AA | %p           | l_easy_perform %s h=%p....[RECON-RESP] %ld %s.....libcurl.dll.....libcurl-x64.dl
+  0x1021BD | %ld          | =%p....[RECON-RESP] %ld %s.....libcurl.dll.....libcurl-x64.dll.curl.dll........w
+  0x1021C1 | %s           | ...[RECON-RESP] %ld %s.....libcurl.dll.....libcurl-x64.dll.curl.dll........winin
+  0x102221 | %s           | live.dll...[HTTP]   %s ... %p..%02X........[SIG-CAPTURE] SINGLE #%d bufLen=%lu b
+  0x102228 | %p           | l...[HTTP]   %s ... %p..%02X........[SIG-CAPTURE] SINGLE #%d bufLen=%lu bodyXorL
+  0x10222C | %02X         | [HTTP]   %s ... %p..%02X........[SIG-CAPTURE] SINGLE #%d bufLen=%lu bodyXorLen=%
+  0x10224E | %d           | IG-CAPTURE] SINGLE #%d bufLen=%lu bodyXorLen=%lu nonce=%s.....[SIG-CHUNK] Tracki
+  0x102258 | %lu          | ] SINGLE #%d bufLen=%lu bodyXorLen=%lu nonce=%s.....[SIG-CHUNK] Tracking handle 
+  0x102267 | %lu          | fLen=%lu bodyXorLen=%lu nonce=%s.....[SIG-CHUNK] Tracking handle %p ... got f2s7
+  0x102271 | %s           | odyXorLen=%lu nonce=%s.....[SIG-CHUNK] Tracking handle %p ... got f2s7.....[SIG-
+  0x102294 | %p           | NK] Tracking handle %p ... got f2s7.....[SIG-CHUNK] Tracking handle %p ... got f
+  0x1022C4 | %p           | NK] Tracking handle %p ... got f2s7+nonce (%lu bytes)...........[SIG-CHUNK] Trac
+  0x1022DB | %lu          | ... got f2s7+nonce (%lu bytes)...........[SIG-CHUNK] Tracking handle %p ... got 
+  0x10230C | %p           | NK] Tracking handle %p ... got f2s7+partial (%lu bytes).[SIG-CHUNK] handle %p ..
+  0x102325 | %lu          | . got f2s7+partial (%lu bytes).[SIG-CHUNK] handle %p ... nonce captured (%lu byt
+  0x102343 | %p           | .[SIG-CHUNK] handle %p ... nonce captured (%lu bytes)............[SIG-CHUNK] han
+  0x10235A | %lu          | ... nonce captured (%lu bytes)............[SIG-CHUNK] handle %p ... body chunk %
+  0x102383 | %p           | .[SIG-CHUNK] handle %p ... body chunk %lu bytes (waiting for key)........[SIG-CH
+  0x102395 | %lu          | e %p ... body chunk %lu bytes (waiting for key)........[SIG-CHUNK] handle %p ...
+  0x1023CB | %p           | .[SIG-CHUNK] handle %p ... unexpected chunk idx=%d size=%lu......frame9_outer...
+  0x1023E7 | %d           | nexpected chunk idx=%d size=%lu......frame9_outer....frame8..frame7..frame6..fra
+  0x1023EF | %lu          | d chunk idx=%d size=%lu......frame9_outer....frame8..frame7..frame6..frame5..fra
+  0x102454 | %s           | per.....[CALL-SITE] %s RVA=0x%X NOT READABLE....[CALL-SITE] %s retRVA=0x%X bytes
+  0x10245D | %X           | CALL-SITE] %s RVA=0x%X NOT READABLE....[CALL-SITE] %s retRVA=0x%X bytes[-16..-1]
+  0x10247C | %s           | ABLE....[CALL-SITE] %s retRVA=0x%X bytes[-16..-1]: %02X %02X %02X %02X %02X %02X
+  0x102488 | %X           | L-SITE] %s retRVA=0x%X bytes[-16..-1]: %02X %02X %02X %02X %02X %02X %02X %02X  
+  0x10249B | %02X         | x%X bytes[-16..-1]: %02X %02X %02X %02X %02X %02X %02X %02X  %02X %02X %02X %02X
+  0x1024A0 | %02X         | ytes[-16..-1]: %02X %02X %02X %02X %02X %02X %02X %02X  %02X %02X %02X %02X %02X
+  0x1024A5 | %02X         | -16..-1]: %02X %02X %02X %02X %02X %02X %02X %02X  %02X %02X %02X %02X %02X %02X
+  0x1024AA | %02X         | -1]: %02X %02X %02X %02X %02X %02X %02X %02X  %02X %02X %02X %02X %02X %02X %02X
+  0x1024AF | %02X         | %02X %02X %02X %02X %02X %02X %02X %02X  %02X %02X %02X %02X %02X %02X %02X %02X
+  0x1024B4 | %02X         | %02X %02X %02X %02X %02X %02X %02X  %02X %02X %02X %02X %02X %02X %02X %02X.....
+  0x1024B9 | %02X         | %02X %02X %02X %02X %02X %02X  %02X %02X %02X %02X %02X %02X %02X %02X.....[CALL
+  0x1024BE | %02X         | %02X %02X %02X %02X %02X  %02X %02X %02X %02X %02X %02X %02X %02X.....[CALL-SITE
+  0x1024C4 | %02X         | 02X %02X %02X %02X  %02X %02X %02X %02X %02X %02X %02X %02X.....[CALL-SITE] %s .
+  0x1024C9 | %02X         | 02X %02X %02X  %02X %02X %02X %02X %02X %02X %02X %02X.....[CALL-SITE] %s ... DI
+  0x1024CE | %02X         | 02X %02X  %02X %02X %02X %02X %02X %02X %02X %02X.....[CALL-SITE] %s ... DIRECT 
+  0x1024D3 | %02X         | 02X  %02X %02X %02X %02X %02X %02X %02X %02X.....[CALL-SITE] %s ... DIRECT CALL 
+  0x1024D8 | %02X         | %02X %02X %02X %02X %02X %02X %02X %02X.....[CALL-SITE] %s ... DIRECT CALL E8 re
+  0x1024DD | %02X         | %02X %02X %02X %02X %02X %02X %02X.....[CALL-SITE] %s ... DIRECT CALL E8 rel32 .
+  0x1024E2 | %02X         | %02X %02X %02X %02X %02X %02X.....[CALL-SITE] %s ... DIRECT CALL E8 rel32 ... ta
+  0x1024E7 | %02X         | %02X %02X %02X %02X %02X.....[CALL-SITE] %s ... DIRECT CALL E8 rel32 ... targetR
+  0x1024FC | %s           | 02X.....[CALL-SITE] %s ... DIRECT CALL E8 rel32 ... targetRVA=0x%X......[CALL-SI
+  0x102528 | %X           | l32 ... targetRVA=0x%X......[CALL-SITE] %s ... INDIRECT CALL via reg (FF %02X)..
+  0x10253C | %s           | %X......[CALL-SITE] %s ... INDIRECT CALL via reg (FF %02X)......[CALL-SITE] %s .
+  0x10255D | %02X         | CT CALL via reg (FF %02X)......[CALL-SITE] %s ... INDIRECT CALL via r%d (41 FF %
+  0x102574 | %s           | X)......[CALL-SITE] %s ... INDIRECT CALL via r%d (41 FF %02X)...[CALL-SITE] %s .
+  0x10258E | %d           |  INDIRECT CALL via r%d (41 FF %02X)...[CALL-SITE] %s ... CALL [rip+rel32] IAT=0x
+  0x102598 | %02X         | CALL via r%d (41 FF %02X)...[CALL-SITE] %s ... CALL [rip+rel32] IAT=0x%llX..[CAL
+  0x1025AC | %s           | %02X)...[CALL-SITE] %s ... CALL [rip+rel32] IAT=0x%llX..[CALL-SITE] %s ... UNKNO
+  0x1025CA | %llX         | L [rip+rel32] IAT=0x%llX..[CALL-SITE] %s ... UNKNOWN pattern (last 8 bytes: %02X
+  0x1025DC | %s           | 0x%llX..[CALL-SITE] %s ... UNKNOWN pattern (last 8 bytes: %02X %02X %02X %02X %0
+  0x102602 | %02X         | tern (last 8 bytes: %02X %02X %02X %02X %02X %02X %02X %02X)......[CALL-SITE] %s
+  0x102607 | %02X         | (last 8 bytes: %02X %02X %02X %02X %02X %02X %02X %02X)......[CALL-SITE] %s ... 
+  0x10260C | %02X         |  8 bytes: %02X %02X %02X %02X %02X %02X %02X %02X)......[CALL-SITE] %s ... conta
+  0x102611 | %02X         | tes: %02X %02X %02X %02X %02X %02X %02X %02X)......[CALL-SITE] %s ... containing
+  0x102616 | %02X         | %02X %02X %02X %02X %02X %02X %02X %02X)......[CALL-SITE] %s ... containing func
+  0x10261B | %02X         | %02X %02X %02X %02X %02X %02X %02X)......[CALL-SITE] %s ... containing func: RVA
+  0x102620 | %02X         | %02X %02X %02X %02X %02X %02X)......[CALL-SITE] %s ... containing func: RVA=0x%X
+  0x102625 | %02X         | %02X %02X %02X %02X %02X)......[CALL-SITE] %s ... containing func: RVA=0x%X..0x%
+  0x10263C | %s           | X)......[CALL-SITE] %s ... containing func: RVA=0x%X..0x%X (entry=0x%X).[CALL-SI
+  0x10265A | %X           | taining func: RVA=0x%X..0x%X (entry=0x%X).[CALL-SITE] %s ... RtlLookupFunctionEn
+  0x102660 | %X           | g func: RVA=0x%X..0x%X (entry=0x%X).[CALL-SITE] %s ... RtlLookupFunctionEntry re
+  0x10266C | %X           | 0x%X..0x%X (entry=0x%X).[CALL-SITE] %s ... RtlLookupFunctionEntry returned NULL 
+  0x10267C | %s           | y=0x%X).[CALL-SITE] %s ... RtlLookupFunctionEntry returned NULL (no unwind info)
+  0x1026D8 | %p           | P] Found libcurl at %p......curl_easy_setopt........curl_easy_perform.......curl
+  0x102758 | %p           | P] Resolved: setopt=%p perform=%p getinfo=%p cleanup=%p.....curl_easy_init..curl
+  0x102763 | %p           | : setopt=%p perform=%p getinfo=%p cleanup=%p.....curl_easy_init..curl_slist_appe
+  0x10276E | %p           |  perform=%p getinfo=%p cleanup=%p.....curl_easy_init..curl_slist_append.......cu
+  0x102779 | %p           |  getinfo=%p cleanup=%p.....curl_easy_init..curl_slist_append.......curl_slist_fr
+  0x1027D8 | %p           | P] Clone curl: init=%p slist_append=%p slist_free=%p........bcrypt.dll......BCry
+  0x1027E8 | %p           | nit=%p slist_append=%p slist_free=%p........bcrypt.dll......BCryptHashData..4C 8
+  0x1027F6 | %p           | ppend=%p slist_free=%p........bcrypt.dll......BCryptHashData..4C 8B F0 4C 8B 89 
+  0x1028A8 | %p           | LIMIT] Code cave at %p......0123456789abcdef........Helldivers2.....F3 41 0F 10 
+  0x1029DD | %p           | ] ntdll.dll handle: %p.NtProtectVirtualMemory..[Features] NtProtectVirtualMemory
+  0x102A1B | %p           | otectVirtualMemory: %p...%s\ntdll.dll....[Features] Syscall stub built at %p (sy
+  0x102A20 | %s           | VirtualMemory: %p...%s\ntdll.dll....[Features] Syscall stub built at %p (syscall
+  0x102A51 | %p           | scall stub built at %p (syscall# 0x%X).............[Features] Protection layers:
+  0x102A60 | %X           | t at %p (syscall# 0x%X).............[Features] Protection layers: syscall=%s, nt
+  0x102A96 | %s           | ion layers: syscall=%s, ntdll_direct=%s, VirtualProtect=fallback......[Features]
+  0x102AA7 | %s           | ll=%s, ntdll_direct=%s, VirtualProtect=fallback......[Features] ALL LAYERS FAILE
+  0x102AEE | %p           | ERS FAILED for addr=%p size=%zu err=%lu.......Inf Stamina.....41 8B 47 ?? 4C 8B 
+  0x102AF6 | %zu          | ED for addr=%p size=%zu err=%lu.......Inf Stamina.....41 8B 47 ?? 4C 8B 7C 24 ??
+  0x102AFE | %lu          | ddr=%p size=%zu err=%lu.......Inf Stamina.....41 8B 47 ?? 4C 8B 7C 24 ?? 4C...NO
+  0x103753 | %-25s        | k jump...[Features] %-25s FOUND @ 0x%llX (patch @ +%d)...[Features] %-25s NOT FO
+  0x103763 | %llX         | es] %-25s FOUND @ 0x%llX (patch @ +%d)...[Features] %-25s NOT FOUND..READY...FAI
+  0x103772 | %d           |  @ 0x%llX (patch @ +%d)...[Features] %-25s NOT FOUND..READY...FAILED......[Featu
+  0x103783 | %-25s        | @ +%d)...[Features] %-25s NOT FOUND..READY...FAILED......[Features] GodModeCave:
+  0x1037C0 | %s           | tures] GodModeCave: %s......[Features] StratCave   : %s.....[Features] SpeedCave
+  0x1037E1 | %s           | ures] StratCave   : %s.....[Features] SpeedCave   : %s.....[Features] SpawnSwapp
+  0x103801 | %s           | ures] SpeedCave   : %s.....[Features] SpawnSwapper: %s.............[Features] To
+  0x103821 | %s           | ures] SpawnSwapper: %s.............[Features] Toggle %s @ 0x%llX (offset %d, siz
+  0x103842 | %s           | ..[Features] Toggle %s @ 0x%llX (offset %d, size %d, currently %s)........[Featu
+  0x103849 | %llX         | ures] Toggle %s @ 0x%llX (offset %d, size %d, currently %s)........[Features]   
+  0x103856 | %d           | %s @ 0x%llX (offset %d, size %d, currently %s)........[Features]   Before: %s.[G
+  0x10385F | %d           | lX (offset %d, size %d, currently %s)........[Features]   Before: %s.[GodMode] R
+  0x10386D | %s           |  size %d, currently %s)........[Features]   Before: %s.[GodMode] READY ... Hook1
+  0x10388D | %s           | Features]   Before: %s.[GodMode] READY ... Hook1=0x%llX Hook2=0x%llX Cave=%p...[
+  0x1038AC | %llX         | ] READY ... Hook1=0x%llX Hook2=0x%llX Cave=%p...[GodMode] %s....[StratCave] Cave
+  0x1038B9 | %llX         | ook1=0x%llX Hook2=0x%llX Cave=%p...[GodMode] %s....[StratCave] Cave=%p hook=0x%l
+  0x1038C3 | %p           | X Hook2=0x%llX Cave=%p...[GodMode] %s....[StratCave] Cave=%p hook=0x%llX disp=%d
+  0x1038D2 | %s           | Cave=%p...[GodMode] %s....[StratCave] Cave=%p hook=0x%llX disp=%d.[StratCave] %s
+  0x1038E9 | %p           | ...[StratCave] Cave=%p hook=0x%llX disp=%d.[StratCave] %s..[SpeedCave] Cave=%p h
+  0x1038F3 | %llX         | ave] Cave=%p hook=0x%llX disp=%d.[StratCave] %s..[SpeedCave] Cave=%p hook=0x%llX
+  0x1038FD | %d           | %p hook=0x%llX disp=%d.[StratCave] %s..[SpeedCave] Cave=%p hook=0x%llX disp=%d.[
+  0x10390C | %s           | disp=%d.[StratCave] %s..[SpeedCave] Cave=%p hook=0x%llX disp=%d.[SpeedCave] %s %
+  0x103921 | %p           | s..[SpeedCave] Cave=%p hook=0x%llX disp=%d.[SpeedCave] %s %.1fx....Impaler.BUG..
+  0x10392B | %llX         | ave] Cave=%p hook=0x%llX disp=%d.[SpeedCave] %s %.1fx....Impaler.BUG.....Brood C
+  0x103935 | %d           | %p hook=0x%llX disp=%d.[SpeedCave] %s %.1fx....Impaler.BUG.....Brood Commander.S
+  0x103944 | %s           | disp=%d.[SpeedCave] %s %.1fx....Impaler.BUG.....Brood Commander.Stalker.Warrior.
+  0x103947 | %.1f         | p=%d.[SpeedCave] %s %.1fx....Impaler.BUG.....Brood Commander.Stalker.Warrior.Hun
+  0x103B44 | %p           | [SpawnSwapper] Cave=%p hook=0x%llX......ENABLED.DISABLED........[UnlockArmory] %
+  0x103B4E | %llX         | per] Cave=%p hook=0x%llX......ENABLED.DISABLED........[UnlockArmory] %s.......[W
+  0x103B7F | %s           | .....[UnlockArmory] %s.......[WeaponEditor] Hook0(ReadWeapon) cave=%p site=0x%ll
+  0x103BAE | %p           | k0(ReadWeapon) cave=%p site=0x%llX....[WeaponEditor] Hook1(Rounds) cave=%p site=
+  0x103BB8 | %llX         | pon) cave=%p site=0x%llX....[WeaponEditor] Hook1(Rounds) cave=%p site=0x%llX....
+  0x103BE2 | %p           |  Hook1(Rounds) cave=%p site=0x%llX........[WeaponEditor] Hook2(TridentDmg) cave=
+  0x103BEC | %llX         | nds) cave=%p site=0x%llX........[WeaponEditor] Hook2(TridentDmg) cave=%p site=0x
+  0x103C1E | %p           | k2(TridentDmg) cave=%p site=0x%llX....[WeaponEditor] Hook3(TridentFR) cave=%p si
+  0x103C28 | %llX         | Dmg) cave=%p site=0x%llX....[WeaponEditor] Hook3(TridentFR) cave=%p site=0x%llX.
+  0x103C55 | %p           | ok3(TridentFR) cave=%p site=0x%llX.....[WeaponEditor] Init complete, ready=%s.. 
+  0x103C5F | %llX         | tFR) cave=%p site=0x%llX.....[WeaponEditor] Init complete, ready=%s..  Fire any 
+  0x103C8C | %s           | nit complete, ready=%s..  Fire any weapon to populate stats.....  ptr: 0x%llX...
+  0x103CC1 | %llX         |  stats.....  ptr: 0x%llX...Damage##we......Struct. Penetration##we.Pen. (No Angl
+  0x103EF1 | %p           | CH received, actObj=%p, TID=%u.....WndProc: calling s_scCallback(%p).......HELLD
+  0x103EF9 | %u           | ved, actObj=%p, TID=%u.....WndProc: calling s_scCallback(%p).......HELLDIVERS...
+  0x103F1E | %p           | alling s_scCallback(%p).......HELLDIVERS......helldivers2.....HELLDIVERS 2....Sc
+  0x103F71 | %p           | sent::Install: hwnd=%p origWndProc=%p......QueueSC: FAILED ... installed=%d hwnd
+  0x103F80 | %p           | hwnd=%p origWndProc=%p......QueueSC: FAILED ... installed=%d hwnd=%p........Queu
+  0x103FA6 | %d           | AILED ... installed=%d hwnd=%p........QueueSC: PostMessage(hwnd=%p, actObj=%p) =
+  0x103FAE | %p           | . installed=%d hwnd=%p........QueueSC: PostMessage(hwnd=%p, actObj=%p) = %d, Las
+  0x103FD2 | %p           | C: PostMessage(hwnd=%p, actObj=%p) = %d, LastErr=%u.......Inf Ammo........No Rel
+  0x103FDD | %p           | age(hwnd=%p, actObj=%p) = %d, LastErr=%u.......Inf Ammo........No Reload.......F
+  0x103FE3 | %d           | nd=%p, actObj=%p) = %d, LastErr=%u.......Inf Ammo........No Reload.......FOV Edi
+  0x103FEF | %u           | j=%p) = %d, LastErr=%u.......Inf Ammo........No Reload.......FOV Editor......Inf
+  0x104618 | %s           | unrecognized........%s detected ... %d fields editable......Validation crashed .
+  0x104628 | %d           | ....%s detected ... %d fields editable......Validation crashed ... retrying.?...
+  0x104978 | %02x         | ....fA..............%02x....SOFTWARE\Microsoft\Cryptography.MachineGuid.%08X....
+  0x1049AC | %08X         | ography.MachineGuid.%08X........%08X%08X%08X....F.i.d.d.l.e.r...f.i.d.d.l.e.r...
+  0x1049B8 | %08X         | ineGuid.%08X........%08X%08X%08X....F.i.d.d.l.e.r...f.i.d.d.l.e.r...m.i.t.m.p.r.
+  0x1049BC | %08X         | uid.%08X........%08X%08X%08X....F.i.d.d.l.e.r...f.i.d.d.l.e.r...m.i.t.m.p.r.o.x.
+  0x1049C0 | %08X         | %08X........%08X%08X%08X....F.i.d.d.l.e.r...f.i.d.d.l.e.r...m.i.t.m.p.r.o.x.y...
+  0x104E86 | %s           | ntitled)......Open '%s'.......Copy Link###CopyLink....Window..Forgot to shutdown
+  0x104F44 | %08X         | SetActiveID() old:0x%08X (window "%s") -> new:0x%08X (window "%s")......Invalid 
+  0x104F52 | %s           | old:0x%08X (window "%s") -> new:0x%08X (window "%s")......Invalid flags for IsIt
+  0x104F60 | %08X         | ndow "%s") -> new:0x%08X (window "%s")......Invalid flags for IsItemHovered()!..
+  0x104F6E | %s           | new:0x%08X (window "%s")......Invalid flags for IsItemHovered()!......##Backgrou
+  0x1050A3 | %d           | aFn(): WantVisible: %d, InputPos (%.2f,%.2f).....%s/%s_%08X......%s/%08X.##Child
+  0x1050B1 | %.2f         | ible: %d, InputPos (%.2f,%.2f).....%s/%s_%08X......%s/%08X.##Child.#RESIZE.#COLL
+  0x1050B6 | %.2f         |  %d, InputPos (%.2f,%.2f).....%s/%s_%08X......%s/%08X.##Child.#RESIZE.#COLLAPSE.
+  0x1050C0 | %s           | Pos (%.2f,%.2f).....%s/%s_%08X......%s/%08X.##Child.#RESIZE.#COLLAPSE...#CLOSE..
+  0x1050C3 | %s           |  (%.2f,%.2f).....%s/%s_%08X......%s/%08X.##Child.#RESIZE.#COLLAPSE...#CLOSE.....
+  0x1050C6 | %08X         | .2f,%.2f).....%s/%s_%08X......%s/%08X.##Child.#RESIZE.#COLLAPSE...#CLOSE......Ca
+  0x1050D0 | %s           | ....%s/%s_%08X......%s/%08X.##Child.#RESIZE.#COLLAPSE...#CLOSE......Calling End(
+  0x1050D3 | %08X         | .%s/%s_%08X......%s/%08X.##Child.#RESIZE.#COLLAPSE...#CLOSE......Calling End() t
+  0x105165 | %s           | focus] FocusWindow("%s", UnlessBelowModal): prevented by "%s"..........Calling P
+  0x10518B | %s           | dal): prevented by "%s"..........Calling PopFont() too many times!.......Calling
+  0x105888 | %s           | Shift+..Ctrl+.......%s%s%s%s%s..............SetShortcutRouting(%s, flags=%04X, o
+  0x10588A | %s           | ift+..Ctrl+.......%s%s%s%s%s..............SetShortcutRouting(%s, flags=%04X, own
+  0x10588C | %s           | t+..Ctrl+.......%s%s%s%s%s..............SetShortcutRouting(%s, flags=%04X, owner
+  0x10588E | %s           | ..Ctrl+.......%s%s%s%s%s..............SetShortcutRouting(%s, flags=%04X, owner_i
+  0x105890 | %s           | Ctrl+.......%s%s%s%s%s..............SetShortcutRouting(%s, flags=%04X, owner_id=
+  0x1058B3 | %s           | .SetShortcutRouting(%s, flags=%04X, owner_id=0x%08X) -> always, no register.....
+  0x1058BD | %04X         | utRouting(%s, flags=%04X, owner_id=0x%08X) -> always, no register......SetShortc
+  0x1058CE | %08X         | gs=%04X, owner_id=0x%08X) -> always, no register......SetShortcutRouting(%s, fla
+  0x105903 | %s           | .SetShortcutRouting(%s, flags=%04X, owner_id=0x%08X) -> filtered as potential ch
+  0x10590D | %04X         | utRouting(%s, flags=%04X, owner_id=0x%08X) -> filtered as potential char input..
+  0x10591E | %08X         | gs=%04X, owner_id=0x%08X) -> filtered as potential char input.........SetShortcu
+  0x105963 | %s           | .SetShortcutRouting(%s, flags=%04X, owner_id=0x%08X) -> score %d.........--> gra
+  0x10596D | %04X         | utRouting(%s, flags=%04X, owner_id=0x%08X) -> score %d.........--> granting curr
+  0x10597E | %08X         | gs=%04X, owner_id=0x%08X) -> score %d.........--> granting current route..NULL..
+  0x10598D | %d           | id=0x%08X) -> score %d.........--> granting current route..NULL........[io] Lock
+  0x1059DB | %s           | ckWheelingWindow() "%s"..Mouse...TouchScreen.Pen.[io] %s: MousePos (-FLT_MAX, -F
+  0x1059FD | %s           | ouchScreen.Pen.[io] %s: MousePos (-FLT_MAX, -FLT_MAX)..[io] %s: MousePos (%.1f, 
+  0x105A25 | %s           | AX, -FLT_MAX)..[io] %s: MousePos (%.1f, %.1f) (%s).....Down....Up......[io] %s: 
+  0x105A33 | %.1f         | .[io] %s: MousePos (%.1f, %.1f) (%s).....Down....Up......[io] %s: MouseButton %d
+  0x105A39 | %.1f         | %s: MousePos (%.1f, %.1f) (%s).....Down....Up......[io] %s: MouseButton %d %s (%
+  0x105A40 | %s           | sePos (%.1f, %.1f) (%s).....Down....Up......[io] %s: MouseButton %d %s (%s).....
+  0x105A5D | %s           | own....Up......[io] %s: MouseButton %d %s (%s).........[io] %s: MouseWheel (%.3f
+  0x105A6D | %d           | io] %s: MouseButton %d %s (%s).........[io] %s: MouseWheel (%.3f, %.3f) (%s)...[
+  0x105A70 | %s           |  %s: MouseButton %d %s (%s).........[io] %s: MouseWheel (%.3f, %.3f) (%s)...[io]
+  0x105A74 | %s           |  MouseButton %d %s (%s).........[io] %s: MouseWheel (%.3f, %.3f) (%s)...[io] %s:
+  0x105A85 | %s           | s (%s).........[io] %s: MouseWheel (%.3f, %.3f) (%s)...[io] %s: Key "%s" %s....[
+  0x105A95 | %.3f         | io] %s: MouseWheel (%.3f, %.3f) (%s)...[io] %s: Key "%s" %s....[io] %s: Text: %c
+  0x105A9B | %.3f         | : MouseWheel (%.3f, %.3f) (%s)...[io] %s: Key "%s" %s....[io] %s: Text: %c (U+%0
+  0x105AA2 | %s           | Wheel (%.3f, %.3f) (%s)...[io] %s: Key "%s" %s....[io] %s: Text: %c (U+%08X)....
+  0x105AAD | %s           | , %.3f) (%s)...[io] %s: Key "%s" %s....[io] %s: Text: %c (U+%08X)......[io] %s: 
+  0x105AB6 | %s           | %s)...[io] %s: Key "%s" %s....[io] %s: Text: %c (U+%08X)......[io] %s: AppFocuse
+  0x105ABA | %s           | ..[io] %s: Key "%s" %s....[io] %s: Text: %c (U+%08X)......[io] %s: AppFocused %d
+  0x105AC5 | %s           | Key "%s" %s....[io] %s: Text: %c (U+%08X)......[io] %s: AppFocused %d..Processed
+  0x105ACF | %c           | s....[io] %s: Text: %c (U+%08X)......[io] %s: AppFocused %d..Processed.......Rem
+  0x105AD5 | %08X         | io] %s: Text: %c (U+%08X)......[io] %s: AppFocused %d..Processed.......Remaining
+  0x105AE5 | %s           |  (U+%08X)......[io] %s: AppFocused %d..Processed.......Remaining.......Missing E
+  0x105AF4 | %d           | [io] %s: AppFocused %d..Processed.......Remaining.......Missing EndChild()......
+  0x105C88 | %d           | nt settings: Assert=%d, Log=%d, Tooltip=%d).........[imgui-error] In window '%s'
+  0x105C90 | %d           | ngs: Assert=%d, Log=%d, Tooltip=%d).........[imgui-error] In window '%s': %s....
+  0x105C9C | %d           | %d, Log=%d, Tooltip=%d).........[imgui-error] In window '%s': %s........In windo
+  0x105CC1 | %s           | i-error] In window '%s': %s........In window '%s': %s......(and more errors)....
+  0x105CC6 | %s           | or] In window '%s': %s........In window '%s': %s......(and more errors).......Pr
+  0x105CDB | %s           | s........In window '%s': %s......(and more errors).......Programmer error: %d vi
+  0x105CE0 | %s           | ....In window '%s': %s......(and more errors).......Programmer error: %d visible
+  0x105D12 | %d           | ..Programmer error: %d visible items with conflicting ID!.........Code should us
+  0x105FA3 | %02d         | .##Tooltip_DragDrop_%02d.##Tooltip_%02d..[popup] OpenPopup("%s" -> 0x%08X)......
+  0x105FB2 | %02d         | Drop_%02d.##Tooltip_%02d..[popup] OpenPopup("%s" -> 0x%08X).......[popup] OpenPo
+  0x105FCB | %s           | .[popup] OpenPopup("%s" -> 0x%08X).......[popup] OpenPopupEx(0x%08X).....[popup]
+  0x105FD4 | %08X         | OpenPopup("%s" -> 0x%08X).......[popup] OpenPopupEx(0x%08X).....[popup] ClosePop
+  0x105FF6 | %08X         | opup] OpenPopupEx(0x%08X).....[popup] ClosePopupsOverWindow("%s").....[popup] Cl
+  0x10601F | %s           | sePopupsOverWindow("%s").....[popup] ClosePopupToLevel(%d), restore_under=%d....
+  0x106042 | %d           | ] ClosePopupToLevel(%d), restore_under=%d.........[popup] - Closing PopupID 0x%0
+  0x106055 | %d           | (%d), restore_under=%d.........[popup] - Closing PopupID 0x%08X Window "%s"....[
+  0x10607C | %08X         | - Closing PopupID 0x%08X Window "%s"....[popup] CloseCurrentPopup %d -> %d......
+  0x106089 | %s           | upID 0x%08X Window "%s"....[popup] CloseCurrentPopup %d -> %d......##Popup_%08x.
+  0x1060AA | %d           | ] CloseCurrentPopup %d -> %d......##Popup_%08x....[focus] SetNavWindow("%s")....
+  0x1060B0 | %d           | eCurrentPopup %d -> %d......##Popup_%08x....[focus] SetNavWindow("%s")......[foc
+  0x1060C0 | %08x         |  -> %d......##Popup_%08x....[focus] SetNavWindow("%s")......[focus] NavRestoreLa
+  0x1060DE | %s           | ocus] SetNavWindow("%s")......[focus] NavRestoreLayer: from "%s" to SetNavWindow
+  0x106107 | %s           | RestoreLayer: from "%s" to SetNavWindow("%s")................[nav] NavInitReques
+  0x10611C | %s           | s" to SetNavWindow("%s")................[nav] NavInitRequest: from NavInitWindow
+  0x106169 | %d           | dow(), init_for_nav=%d, window="%s", layer=%d..............[nav] NavInitRequest:
+  0x106175 | %s           | for_nav=%d, window="%s", layer=%d..............[nav] NavInitRequest: ApplyResult
+  0x106180 | %d           |  window="%s", layer=%d..............[nav] NavInitRequest: ApplyResult: NavID 0x%
+  0x1061BB | %08X         | pplyResult: NavID 0x%08X in Layer %d Window "%s".........[nav] NavMoveRequestFor
+  0x1061C9 | %d           | vID 0x%08X in Layer %d Window "%s".........[nav] NavMoveRequestForward %d..[nav]
+  0x1061D4 | %s           | in Layer %d Window "%s".........[nav] NavMoveRequestForward %d..[nav] NavInitReq
+  0x1061FC | %d           | vMoveRequestForward %d..[nav] NavInitRequest: from move, window "%s", layer=%d..
+  0x106229 | %s           |  from move, window "%s", layer=%d..[nav] NavMoveRequest: clamp NavRectRel for ga
+  0x106234 | %d           |  window "%s", layer=%d..[nav] NavMoveRequest: clamp NavRectRel for gamepad move.
+  0x1062D6 | %s           | uest: SetNavWindow("%s")......[nav] NavMoveRequest: result NavID 0x%08X in Layer
+  0x106305 | %08X         | est: result NavID 0x%08X in Layer %d Window "%s".......[nav] NavUpdateCancelRequ
+  0x106313 | %d           | vID 0x%08X in Layer %d Window "%s".......[nav] NavUpdateCancelRequest()..###NavU
+  0x10631E | %s           | in Layer %d Window "%s".......[nav] NavUpdateCancelRequest()..###NavUpdateWindow
+  0x1063BC | %i           | %*s%.*s.wt..###.Pos=%i,%i.......Size=%i,%i......Collapsed=%d....IsChild=%d......
+  0x1063BF | %i           | %.*s.wt..###.Pos=%i,%i.......Size=%i,%i......Collapsed=%d....IsChild=%d......[%s
+  0x1063CD | %i           | os=%i,%i.......Size=%i,%i......Collapsed=%d....IsChild=%d......[%s][%s]........I
+  0x1063D0 | %i           | %i,%i.......Size=%i,%i......Collapsed=%d....IsChild=%d......[%s][%s]........IsCh
+  0x1063E2 | %d           | i,%i......Collapsed=%d....IsChild=%d......[%s][%s]........IsChild=1.......Size=%
+  0x1063F0 | %d           | apsed=%d....IsChild=%d......[%s][%s]........IsChild=1.......Size=%d,%d......Pos=
+  0x1063F9 | %s           | ...IsChild=%d......[%s][%s]........IsChild=1.......Size=%d,%d......Pos=%d,%d....
+  0x1063FD | %s           | sChild=%d......[%s][%s]........IsChild=1.......Size=%d,%d......Pos=%d,%d.......C
+  0x10641D | %d           | sChild=1.......Size=%d,%d......Pos=%d,%d.......Collapsed=1.....<...>...[%s] [%05
+  0x106420 | %d           | ild=1.......Size=%d,%d......Pos=%d,%d.......Collapsed=1.....<...>...[%s] [%05d] 
+  0x10642C | %d           | Size=%d,%d......Pos=%d,%d.......Collapsed=1.....<...>...[%s] [%05d] ....[%05d] .
+  0x10642F | %d           | e=%d,%d......Pos=%d,%d.......Collapsed=1.....<...>...[%s] [%05d] ....[%05d] .Hov
+  0x106451 | %s           | psed=1.....<...>...[%s] [%05d] ....[%05d] .HoveredId: 0x%08X.......Press ESC to 
+  0x106456 | %05d         | 1.....<...>...[%s] [%05d] ....[%05d] .HoveredId: 0x%08X.......Press ESC to abort
+  0x106461 | %05d         | ...[%s] [%05d] ....[%05d] .HoveredId: 0x%08X.......Press ESC to abort picking..L
+  0x106475 | %08X         | %05d] .HoveredId: 0x%08X.......Press ESC to abort picking..Left....Right...Middl
+  0x106506 | %s           | mouse button..Click %s Button to break in debugger! (remap w/ Ctrl+Shift).%.*s..
+  0x106551 | %p           | .*s........(void*)0x%p.....0x%08X [override].........@..........................
+  0x10655A | %08X         | ..(void*)0x%p.....0x%08X [override].........@...................................
+  0x106601 | %d           | ...ProggyClean.ttf, %dpx... .......Mismatching PushID/PopID!.......Too many PopI
+  0x106672 | %08X         | ..<Unknown>.......0x%08X,%d.......RefScale=%f.....Column %d%n.....UserID=0x%08X%
+  0x106677 | %d           | known>.......0x%08X,%d.......RefScale=%f.....Column %d%n.....UserID=0x%08X%n.Wid
+  0x106689 | %f           | X,%d.......RefScale=%f.....Column %d%n.....UserID=0x%08X%n.Width=%d%n......Weigh
+  0x106697 | %d           | Scale=%f.....Column %d%n.....UserID=0x%08X%n.Width=%d%n......Weight=%f%n.....Vis
+  0x106699 | %n           | ale=%f.....Column %d%n.....UserID=0x%08X%n.Width=%d%n......Weight=%f%n.....Visib
+  0x1066A9 | %08X         | n %d%n.....UserID=0x%08X%n.Width=%d%n......Weight=%f%n.....Visible=%d%n....Order
+  0x1066AD | %n           | %n.....UserID=0x%08X%n.Width=%d%n......Weight=%f%n.....Visible=%d%n....Order=%d%
+  0x1066B6 | %d           | erID=0x%08X%n.Width=%d%n......Weight=%f%n.....Visible=%d%n....Order=%d%n......So
+  0x1066B8 | %n           | ID=0x%08X%n.Width=%d%n......Weight=%f%n.....Visible=%d%n....Order=%d%n......Sort
+  0x1066C7 | %f           | th=%d%n......Weight=%f%n.....Visible=%d%n....Order=%d%n......Sort=%d%c%n.....[%s
+  0x1066C9 | %n           | =%d%n......Weight=%f%n.....Visible=%d%n....Order=%d%n......Sort=%d%c%n.....[%s][
+  0x1066D8 | %d           | ht=%f%n.....Visible=%d%n....Order=%d%n......Sort=%d%c%n.....[%s][0x%08X,%d].....
+  0x1066DA | %n           | =%f%n.....Visible=%d%n....Order=%d%n......Sort=%d%c%n.....[%s][0x%08X,%d].......
+  0x1066E6 | %d           | sible=%d%n....Order=%d%n......Sort=%d%c%n.....[%s][0x%08X,%d].........RefScale=%
+  0x1066E8 | %n           | ble=%d%n....Order=%d%n......Sort=%d%c%n.....[%s][0x%08X,%d].........RefScale=%g.
+  0x1066F5 | %d           | rder=%d%n......Sort=%d%c%n.....[%s][0x%08X,%d].........RefScale=%g.....Column %-
+  0x1066F7 | %c           | er=%d%n......Sort=%d%c%n.....[%s][0x%08X,%d].........RefScale=%g.....Column %-2d
+  0x1066F9 | %n           | =%d%n......Sort=%d%c%n.....[%s][0x%08X,%d].........RefScale=%g.....Column %-2d..
+  0x106701 | %s           | ...Sort=%d%c%n.....[%s][0x%08X,%d].........RefScale=%g.....Column %-2d..... User
+  0x106707 | %08X         | t=%d%c%n.....[%s][0x%08X,%d].........RefScale=%g.....Column %-2d..... UserID=%08
+  0x10670C | %d           | c%n.....[%s][0x%08X,%d].........RefScale=%g.....Column %-2d..... UserID=%08X....
+  0x106721 | %g           | d].........RefScale=%g.....Column %-2d..... UserID=%08X.... Weight=%.4f.... Widt
+  0x10672F | %-2d         | Scale=%g.....Column %-2d..... UserID=%08X.... Weight=%.4f.... Width=%d....... Vi
+  0x106740 | %08X         | mn %-2d..... UserID=%08X.... Weight=%.4f.... Width=%d....... Visible=%d..... Ord
+  0x106750 | %.4f         | rID=%08X.... Weight=%.4f.... Width=%d....... Visible=%d..... Order=%d....... Sor
+  0x10675F | %d           | ight=%.4f.... Width=%d....... Visible=%d..... Order=%d....... Sort=%d%c..Table..
+  0x106771 | %d           | h=%d....... Visible=%d..... Order=%d....... Sort=%d%c..Table...N/A.,....0.......
+  0x10677F | %d           | sible=%d..... Order=%d....... Sort=%d%c..Table...N/A.,....0.......0..;.......(..
+  0x10678E | %d           | rder=%d....... Sort=%d%c..Table...N/A.,....0.......0..;.......(.......).......{.
+  0x106790 | %c           | er=%d....... Sort=%d%c..Table...N/A.,....0.......0..;.......(.......).......{...
+  0x106848 | %.0f         | [~].[x].[ ].(x).( ).%.0f%%.. |......--------------------------------........##Co
+  0x10684C | %%           | [x].[ ].(x).( ).%.0f%%.. |......--------------------------------........##ComboP
+  0x1068A0 | %02d         | ....{.......##Combo_%02d....S8..U8..%u..S16.U16.S32.U32.S64.%I64d...U64.%I64u...
+  0x1068B0 | %u           | mbo_%02d....S8..U8..%u..S16.U16.S32.U32.S64.%I64d...U64.%I64u...float...%.3f....
+  0x1068E4 | %.3f         | U64.%I64u...float...%.3f....%f..double..%lf.bool....-...+.......SelectAll.......
+  0x1068EC | %f           | u...float...%.3f....%f..double..%lf.bool....-...+.......SelectAll.......[selecti
+  0x1068F8 | %lf          | %.3f....%f..double..%lf.bool....-...+.......SelectAll.......[selection] %s: Requ
+  0x10692C | %s           | l.......[selection] %s: Request: SetAll %d (= %s).......[selection] %s: Request:
+  0x106940 | %d           | %s: Request: SetAll %d (= %s).......[selection] %s: Request: SetRange %I64d..%I6
+  0x106946 | %s           | quest: SetAll %d (= %s).......[selection] %s: Request: SetRange %I64d..%I64d (0x
+  0x10695C | %s           | ).......[selection] %s: Request: SetRange %I64d..%I64d (0x%I64X..0x%I64X) = %d (
+  0x106994 | %d           | 0x%I64X..0x%I64X) = %d (dir %d).........EndMultiSelect() FocusScope mismatch!...
+  0x10699C | %d           | .0x%I64X) = %d (dir %d).........EndMultiSelect() FocusScope mismatch!...[selecti
+  0x10C124 | %a           | .a..ua..aa..Ma..9a..%a...c...b...b...b...b...b...b...b...b.......e...e...e...e..
+  0x10EC20 | %d           | .........3..%./.%t..%d-.%4,.%.(......P......@...2...(I......... Y..A.: Y...2.W..
+  0x10ED94 | %d           | .r.".L...3..%.#.%t".%d!.%4 .%........P..............(...........h..`: ....j Y...
+  0x113C14 | %x           | .........4.....`!%..%x...h...t......l....L..!.......l....L...=..=...3....x......
+  0x114740 | %x           | !.......R....V...%..%x...h...d...4.....p.:..:.../...'h...........`.0.P..!....t$.
+  0x11500C | %x           | .V..E.-.=./.5.0.-.1.%x3.!h4...k..........p.`.0.P........!.....2.....t...._..!...
+  0x117650 | %d           | e.......7........%..%dS.%4R.%.N....p.P...+...t...4.......P......p........4...r.p
+  Total: 677 format specifiers
+
+=== 2. HTTP/HTTPS NETWORK DETAILS ===
+
+  PATCH received, actObj=%p, TID=%u
+  POST body: %d bytes
+  POST missionId=%s
+  POST will use missionId=%s
+
+=== 3. ENUM-LIKE CONSTANTS (0-255 range, used in CMP/JE chains) ===
+
+  0x000740 | CMP imm8=  2 (0x02) | 48 C1 E9 3F 48 03 D1 48 83 FA 02 0F 83 7E 00 00 00 48 8B 0D 30 2A 37 00 49 2B C8 49 8B C1 48 F7 E9 48 8D 34 11 48
+  0x000AF8 | CMP imm8=100 (0x64) | 48 C1 E8 3F 48 03 D0 48 83 FA 64 76 1D 49 8D 91 10 01 00 00 4C 2B C2 49 8B C9 E8 71 42 0B 00 48 81 86 C8 01 00 00
+  0x000C3B | CMP imm8= 15 (0x0F) | 48 8B C7 4C 8B 47 18 49 83 F8 0F 76 03 48 8B 07 0F B6 04 28 8D 48 D0 80 F9 09 77 04 2C 30 EB 1A 8D 48 BF 80 F9 05
+  0x000C71 | CMP imm8= 15 (0x0F) | EB 02 32 C0 48 8B D7 49 83 F8 0F 76 03 48 8B 17 0F B6 54 2A 01 8D 4A D0 80 F9 09 77 05 80 EA 30 EB 1C 8D 4A BF 80
+  0x000EAC | CMP imm8=  7 (0x07) | 24 50 4C 8B 7C 24 68 49 83 FF 07 4C 0F 47 F3 48 8B 4C 24 60 48 85 C9 0F 84 E8 00 00 00 48 FF C9 48 8B C7 48 3B CF
+  0x000EF6 | CMP imm8=255 (0xFF) | 00 49 2B C6 48 D1 F8 48 83 F8 FF 0F 84 A0 00 00 00 0F 57 C0 0F 11 44 24 70 0F 57 C9 F3 0F 7F 4D 80 4C 8D 40 01 4C
+  0x000F3F | CMP imm8=  7 (0x07) | 00 00 48 8B 54 24 68 48 83 FA 07 76 37 48 8D 14 55 02 00 00 00 48 8B 4C 24 50 48 8B C1 48 81 FA 00 10 00 00 72 19
+  0x000F6D | CMP imm8= 31 (0x1F) | 48 2B C1 48 83 E8 08 48 83 F8 1F 0F 87 25 01 00 00 E8 55 9F 08 00 0F 10 4C 24 70 0F 11 4C 24 50 0F 10 45 80 0F 11
+  0x000FC0 | CMP imm8=  7 (0x07) | 0B 00 4C 8D 44 24 50 49 83 FF 07 4C 0F 47 C3 4C 89 64 24 38 4C 89 64 24 30 C7 44 24 28 04 01 00 00 48 8D 45 90 48
+  0x001020 | CMP imm8=  7 (0x07) | 00 90 48 8B 54 24 68 48 83 FA 07 76 33 48 8D 14 55 02 00 00 00 48 8B 4C 24 50 48 8B C1 48 81 FA 00 10 00 00 72 15
+  0x00104E | CMP imm8= 31 (0x1F) | 48 2B C1 48 83 E8 08 48 83 F8 1F 77 33 E8 78 9E 08 00 48 8B C6 48 8B 8D B0 02 00 00 48 33 CC E8 76 99 08 00 4C 8D
+  0x0011E7 | CMP imm8= 15 (0x0F) | DE 0F 87 F2 06 00 00 48 83 FB 0F 77 2D 48 89 9D 60 0E 00 00 48 C7 85 68 0E 00 00 0F 00 00 00 4C 8B C3 33 D2 48 8D
+  0x0013AD | CMP imm8= 31 (0x1F) | 48 2B C1 48 83 E8 08 48 83 F8 1F 0F 87 28 05 00 00 E8 15 9B 08 00 4C 89 A5 40 0C 00 00 4C 89 A5 48 0C 00 00 4C 89
+  0x00146C | CMP imm8= 31 (0x1F) | 48 2B C1 48 83 E8 08 48 83 F8 1F 0F 87 7E 04 00 00 E8 56 9A 08 00 4C 89 A5 58 0C 00 00 0F 57 C0 66 0F 7F 85 60 0C
+  0x0017FC | CMP imm8= 15 (0x0F) | 48 8B 95 68 0E 00 00 48 83 FA 0F 76 34 48 FF C2 48 8B 8D 50 0E 00 00 48 8B C1 48 81 FA 00 10 00 00 72 19 48 83 C2
+  0x001827 | CMP imm8= 31 (0x1F) | 48 2B C1 48 83 E8 08 48 83 F8 1F 0F 87 F5 00 00 00 E8 9B 96 08 00 66 0F 6F 05 A3 56 10 00 F3 0F 7F 85 60 0E 00 00
+  0x001860 | CMP imm8= 15 (0x0F) | 48 8B 95 88 0E 00 00 48 83 FA 0F 76 30 48 FF C2 48 8B 8D 70 0E 00 00 48 8B C1 48 81 FA 00 10 00 00 72 15 48 83 C2
+  0x00188B | CMP imm8= 31 (0x1F) | 48 2B C1 48 83 E8 08 48 83 F8 1F 77 33 E8 3B 96 08 00 0F B6 C3 48 8B 8D 50 0F 00 00 48 33 CC E8 39 91 08 00 4C 8D
+  0x001A2B | CMP imm8= 15 (0x0F) | C6 00 00 48 8B 55 1F 48 83 FA 0F 76 31 48 FF C2 48 8B 4D 07 48 8B C1 48 81 FA 00 10 00 00 72 19 48 83 C2 27 48 8B
+  0x001A53 | CMP imm8= 31 (0x1F) | 48 2B C1 48 83 E8 08 48 83 F8 1F 0F 87 23 02 00 00 E8 6F 94 08 00 66 0F 6F 0D 77 54 10 00 F3 0F 7F 4D 17 C6 45 07
+  0x001A77 | CMP imm8= 15 (0x0F) | 45 07 00 48 8B 55 FF 48 83 FA 0F 76 39 48 FF C2 48 8B 4D E7 48 8B C1 48 81 FA 00 10 00 00 72 19 48 83 C2 27 48 8B
+  0x001A9F | CMP imm8= 31 (0x1F) | 48 2B C1 48 83 E8 08 48 83 F8 1F 0F 87 AD 01 00 00 E8 23 94 08 00 66 0F 6F 0D 2B 54 10 00 49 8B 36 48 8B 55 D7 4C
+  0x001B0D | CMP imm8=255 (0xFF) | 02 01 00 00 48 2B C6 48 83 F8 FF 0F 84 F5 00 00 00 48 8B 4D DF 48 8B 55 D7 66 0F 6F 0D BA 53 10 00 48 8D 1C 02 0F
+  0x001B4B | CMP imm8= 15 (0x0F) | 48 8B C8 48 8B 50 18 48 83 FA 0F 76 03 48 8B 08 80 3C 19 22 74 40 48 8B C8 48 83 FA 0F 76 03 48 8B 08 80 3C 19 5C
+  0x001B5D | CMP imm8= 15 (0x0F) | 19 22 74 40 48 8B C8 48 83 FA 0F 76 03 48 8B 08 80 3C 19 5C 75 0C 48 8D 4B 01 48 3B 48 10 48 0F 42 D9 48 83 FA 0F
+  0x001B78 | CMP imm8= 15 (0x0F) | 3B 48 10 48 0F 42 D9 48 83 FA 0F 76 03 48 8B 00 0F B6 14 18 48 FF C3 48 8D 4D E7 E8 20 33 00 00 49 8B 06 48 3B 58
+  0x001BD7 | CMP imm8= 31 (0x1F) | 48 2B C1 48 83 E8 08 48 83 F8 1F 0F 87 8A 00 00 00 E8 EB 92 08 00 48 8B C7 48 8B 4D 27 48 33 CC E8 EC 8D 08 00 48
+  0x001C4E | CMP imm8= 31 (0x1F) | 48 2B C1 48 83 E8 08 48 83 F8 1F 77 17 EB 8B 4C 89 7C 24 20 45 33 C9 45 33 C0 33 D2 33 C9 E8 5F FB 08 00 90 4C 89
+  0x001D78 | CMP imm8= 15 (0x0F) | C6 00 00 48 8B 55 17 48 83 FA 0F 76 31 48 FF C2 48 8B 4D FF 48 8B C1 48 81 FA 00 10 00 00 72 19 48 83 C2 27 48 8B
+  0x001DA0 | CMP imm8= 31 (0x1F) | 48 2B C1 48 83 E8 08 48 83 F8 1F 0F 87 4A 01 00 00 E8 22 91 08 00 66 0F 6F 05 2A 51 10 00 F3 0F 7F 45 0F C6 45 FF
+  0x001DC4 | CMP imm8= 15 (0x0F) | 45 FF 00 48 8B 55 37 48 83 FA 0F 76 31 48 FF C2 48 8B 4D 1F 48 8B C1 48 81 FA 00 10 00 00 72 19 48 83 C2 27 48 8B
+  0x001DEC | CMP imm8= 31 (0x1F) | 48 2B C1 48 83 E8 08 48 83 F8 1F 0F 87 13 01 00 00 E8 D6 90 08 00 48 8B 3E 48 8B 4D EF 4C 8D 45 DF 48 8B 45 F7 48
+  0x001E0A | CMP imm8= 15 (0x0F) | 8D 45 DF 48 8B 45 F7 48 83 F8 0F 4C 0F 47 45 DF 48 8B 57 10 48 83 7F 18 0F 76 03 48 8B 3F 48 3B CA 77 5B 48 85 C9
+  0x001E4A | CMP imm8=255 (0xFF) | 3B C3 74 36 48 2B C7 48 83 F8 FF 74 2D 48 8B 4D EF 48 8B 16 48 83 7A 18 0F 76 03 48 8B 12 48 03 CA 48 03 C8 33 D2
+  0x001E84 | CMP imm8= 15 (0x0F) | 48 8B 45 F7 49 8B DE 48 83 F8 0F 76 2E 48 8D 50 01 48 8B 4D DF 48 8B C1 48 81 FA 00 10 00 00 72 15 48 83 C2 27 48
+  0x001EAD | CMP imm8= 31 (0x1F) | 48 2B C1 48 83 E8 08 48 83 F8 1F 77 2C E8 19 90 08 00 48 8B C3 48 8B 4D 3F 48 33 CC E8 1A 8B 08 00 4C 8D 9C 24 A0
+  0x002236 | CMP imm8=112 (0x70) | 11 0F 00 00 48 FF C2 48 83 FA 70 72 B5 48 8D 8E D9 01 00 00 41 B8 FF 00 00 00 48 8D 94 24 10 0F 00 00 E8 EB 36 0B
+  0x002431 | CMP imm8=  1 (0x01) | 00 48 8B C2 48 2B C7 48 83 F8 01 0F 82 49 02 00 00 4C 8D 6F 01 49 8B DD 48 83 CB 0F 48 3B DA 76 05 48 8B DA EB 21
+  0x0024C3 | CMP imm8= 31 (0x1F) | 48 2B D8 48 83 EB 08 48 83 FB 1F 0F 87 9E 01 00 00 48 8B D8 48 8B CB E8 F9 89 08 00 EB 13 48 8D 55 D8 E8 9E 28 0B
+  0x0025EB | CMP imm8= 15 (0x0F) | 0B 00 90 48 8B 55 F0 48 83 FA 0F 76 2D 48 FF C2 48 8B 4D D8 48 8B C1 48 81 FA 00 10 00 00 72 15 48 83 C2 27 48 8B
+  0x002613 | CMP imm8= 31 (0x1F) | 48 2B C1 48 83 E8 08 48 83 F8 1F 77 71 E8 B3 88 08 00 48 8D 0D 5C 57 0B 00 E8 8F 88 08 00 90 48 8D 0D DF 0A 37 00
+  0x0026E6 | CMP imm8=  5 (0x05) | 7F 49 8B C4 49 2B C7 48 83 F8 05 0F 82 90 01 00 00 48 83 7A 18 0F 76 03 48 8B 32 0F 57 C0 0F 11 44 24 40 49 8D 6F
+  0x0027E6 | CMP imm8= 15 (0x0F) | 40 00 4C 8D 44 24 40 49 83 FB 0F 4D 0F 47 C2 33 D2 49 8B C1 48 F7 F5 49 8B 06 0F B6 0C 02 43 32 0C 08 48 8B 07 41
+  0x002810 | CMP imm8= 15 (0x0F) | FF C1 4C 3B CE 72 D1 49 83 FB 0F 76 2D 49 8D 53 01 49 8B C2 48 81 FA 00 10 00 00 72 15 48 83 C2 27 4D 8B 52 F8 49
+  0x002835 | CMP imm8= 31 (0x1F) | 49 2B C2 48 83 E8 08 48 83 F8 1F 77 30 49 8B CA E8 8E 86 08 00 48 8B C7 48 8B 4C 24 60 48 33 CC E8 8E 81 08 00 48
+  0x002A1E | CMP imm8=255 (0xFF) | 26 6A 0B 00 4C 8B F0 48 83 F8 FF 0F 84 4B 01 00 00 49 8B D5 66 0F 1F 44 00 00 0F B7 8C 15 90 02 00 00 66 89 8C 15
+  0x002C0F | CMP imm8=255 (0xFF) | 35 68 0B 00 4C 8B F0 48 83 F8 FF 74 2F 49 8B CD 66 0F 1F 84 00 00 00 00 00 0F B7 84 0D A0 04 00 00 66 89 84 0D B0
+  0x002CF4 | CMP imm8=255 (0xFF) | 50 67 0B 00 4C 8B F0 48 83 F8 FF 74 22 49 8B CD 0F 1F 40 00 0F B7 44 0C 70 66 89 84 0D B0 06 00 00 48 8D 49 02 66
+  0x00313E | CMP imm8=  5 (0x05) | 00 00 89 05 0A B5 11 00 83 F8 05 0F 9C 05 F4 B4 11 00 48 8D 0D 69 2C 0C 00 FF 15 03 63 0B 00 48 8B D8 0F 57 C0 33
+  0x0034E1 | CMP imm8=  2 (0x02) | C2 48 C1 E8 3F 48 03 D0 83 FA 02 7D 09 41 8B C5 86 05 31 FC 36 00 48 8D 0D 32 FC 36 00 E8 A5 70 08 00 48 83 3D E5
+  0x00358D | CMP imm8=255 (0xFF) | 8B D8 48 89 44 24 40 48 83 F8 FF 0F 84 CD 01 00 00 0F 57 C0 F3 0F 7F 45 94 4C 89 75 A4 C7 45 90 1C 00 00 00 45 8B
+  0x0038A1 | CMP imm8= 99 (0x63) | FF 48 8D 0D 7F F8 36 00 83 F8 63 77 0F 45 33 C0 48 8D 15 10 26 0C 00 E9 FB D0 FF FF 41 B0 01 48 8D 15 21 26 0C 00
+  0x003AFD | CMP imm8= 50 (0x32) | 8B 05 F5 E2 36 00 FF C3 83 FB 32 0F 8C 5A FF FF FF 48 85 C0 74 3E 4C 8D 05 AE F2 02 00 BA FC FF FF FF 48 8B C8 FF
+  0x003B61 | CMP imm8= 12 (0x0C) | CB E8 41 03 03 00 FF C3 83 FB 0C 7C F2 48 8B 0D BB E2 36 00 48 85 C9 74 15 33 D2 41 B8 00 80 00 00 FF 15 38 58 0B
+  0x003C67 | CMP imm8=255 (0xFF) | FD 57 0B 00 48 8B F0 48 83 F8 FF 0F 84 2D 01 00 00 0F 57 C0 F3 0F 7F 44 24 74 48 89 7D 84 C7 44 24 70 1C 00 00 00
+  0x004267 | CMP imm8=255 (0xFF) | DD 51 0B 00 48 8B D8 48 83 F8 FF 74 2A 44 89 75 84 44 8B 45 E8 48 8B 55 E0 44 2B C2 4C 89 74 24 20 4C 8D 4D 84 48
+  0x0042A5 | CMP imm8= 15 (0x0F) | 00 00 90 48 8B 55 20 48 83 FA 0F 76 2D 48 FF C2 48 8B 4D 08 48 8B C1 48 81 FA 00 10 00 00 72 15 48 83 C2 27 48 8B
+  0x0042CD | CMP imm8= 31 (0x1F) | 48 2B C1 48 83 E8 08 48 83 F8 1F 77 3C E8 F9 6B 08 00 33 C0 48 8B 8D 40 0A 00 00 48 33 CC E8 F8 66 08 00 4C 8D 9C
+  0x004339 | CMP imm8=  1 (0x01) | 53 48 83 EC 30 48 8B D9 83 FA 01 75 68 48 8D 15 1B FB FF FF 48 89 7C 24 40 B9 01 00 00 00 FF 15 53 51 0B 00 48 8B
+  0x0045E1 | CMP imm8= 31 (0x1F) | 4C 2B C0 49 83 E8 08 49 83 F8 1F 77 23 4C 8B C0 49 8B C8 E8 DF 68 08 00 33 C0 48 89 07 48 89 47 08 48 89 47 10 48
+  0x004850 | CMP imm8= 31 (0x1F) | 48 2B D8 48 83 EB 08 48 83 FB 1F 0F 87 95 00 00 00 48 8B D8 48 8B CB E8 6C 66 08 00 4C 89 3F 48 89 6F 10 EB 64 48
+  0x0048B9 | CMP imm8= 31 (0x1F) | 48 2B D8 48 83 EB 08 48 83 FB 1F 77 30 48 8B D8 48 8B CB E8 07 66 08 00 48 C7 47 18 0F 00 00 00 48 8B 5C 24 50 4C
+  0x004973 | CMP imm8= 15 (0x0F) | D5 0F 87 8A 00 00 00 48 83 FA 0F 77 1D 48 89 51 10 4C 8B C6 41 8B D6 48 C7 41 18 0F 00 00 00 E8 11 0C 0B 00 C6 04
+  0x004A8B | CMP imm8= 31 (0x1F) | 48 2B D8 48 83 EB 08 48 83 FB 1F 0F 87 B6 00 00 00 48 8B D8 48 8B CB E8 31 64 08 00 33 C0 48 89 06 48 89 46 08 48
+  0x004BA2 | CMP imm8=  7 (0x07) | C6 0F 87 AD 00 00 00 48 83 FB 07 77 20 48 89 59 10 48 03 DB 4C 8B C3 48 C7 41 18 07 00 00 00 E8 C2 01 0B 00 33 C0
+  0x004C92 | CMP imm8= 15 (0x0F) | C5 0F 87 81 00 00 00 49 83 F8 0F 77 17 4C 89 41 10 48 C7 41 18 0F 00 00 00 E8 D8 00 0B 00 C6 04 37 00 EB 4E 48 8B
+  0x004DBE | CMP imm8=  7 (0x07) | 48 8B 51 18 48 8B D9 48 83 FA 07 76 31 48 8B 09 48 8D 14 55 02 00 00 00 48 81 FA 00 10 00 00 72 18 48 8B 41 F8 48
+  0x004E3E | CMP imm8= 15 (0x0F) | 48 8B 51 18 48 8B D9 48 83 FA 0F 76 2C 48 8B 09 48 FF C2 48 81 FA 00 10 00 00 72 18 48 8B 41 F8 48 83 C2 27 48 2B
+  0x004F11 | CMP imm8=  1 (0x01) | 7F 48 8B C7 48 2B C6 48 83 F8 01 0F 82 E7 00 00 00 48 89 6C 24 50 4C 89 64 24 60 4C 8D 66 01 49 8B CC 48 83 C9 0F
+  0x004FA9 | CMP imm8= 31 (0x1F) | 48 2B F8 48 83 EF 08 48 83 FF 1F 77 3A 48 8B F8 48 8B CF E8 17 5F 08 00 EB 11 48 8B D3 E8 BD FD 0A 00 44 88 3C 2E
+  0x005049 | CMP imm8= 15 (0x0F) | 48 89 41 10 48 8B C1 49 83 FF 0F 76 03 48 8B 01 49 8D 1C 06 48 8B CB E8 23 FD 0A 00 C6 04 33 00 E9 EB 00 00 00 48
+  0x0050D7 | CMP imm8= 15 (0x0F) | 48 8B C8 4D 8D 24 06 49 83 FF 0F 76 4D 48 8B 1F 48 8B D3 E8 99 FC 0A 00 4C 8B C6 49 8B D5 49 8B CC E8 8B FC 0A 00
+  0x005117 | CMP imm8= 31 (0x1F) | 48 2B D8 48 83 EB 08 48 83 FB 1F 77 4A 48 8B D8 48 8B CB E8 A9 5D 08 00 EB 1B 48 8B D7 E8 4F FC 0A 00 4C 8B C6 49
+  0x005348 | CMP imm8= 30 (0x1E) | FF 15 22 41 0B 00 FF C3 83 FB 1E 7C E3 0F B6 05 7C 59 11 00 84 C0 0F 85 D4 FE FF FF 4C 8B 7C 24 30 4C 8B 74 24 38
+  0x00557D | CMP imm8= 31 (0x1F) | 4C 2B C0 49 83 E8 08 49 83 F8 1F 77 4E 4C 8B C0 49 8B C8 E8 43 59 08 00 48 89 37 48 8B C5 49 69 CF 10 01 00 00 4C
+  0x005971 | CMP imm8= 31 (0x1F) | 4C 2B C0 49 83 E8 08 49 83 F8 1F 77 3E 4C 8B C0 49 8B C8 E8 4F 55 08 00 48 8B 5C 24 58 48 89 2F 49 69 C7 E0 0E 00
+  0x005E1E | CMP imm8=  2 (0x02) | 07 B8 01 00 00 00 EB 38 83 FB 02 74 29 48 8B CF 83 FB 10 74 10 4C 8B CE 4C 8B C5 8B D3 FF 15 3F 38 0B 00 EB 1B 33
+  0x005E26 | CMP imm8= 16 (0x10) | 83 FB 02 74 29 48 8B CF 83 FB 10 74 10 4C 8B CE 4C 8B C5 8B D3 FF 15 3F 38 0B 00 EB 1B 33 D2 C6 05 94 4E 11 00 00
+  0x006377 | CMP imm8=  4 (0x04) | 0F 57 C0 E8 29 69 04 00 83 FF 04 7C 0A 66 0F 6F 05 7C 0F 10 00 EB 17 83 FF 02 7C 0A 66 0F 6F 05 4D 0D 10 00 EB 08
+  0x006386 | CMP imm8=  2 (0x02) | 6F 05 7C 0F 10 00 EB 17 83 FF 02 7C 0A 66 0F 6F 05 4D 0D 10 00 EB 08 66 0F 6F 05 53 0E 10 00 0F 11 44 24 70 48 8D
+  ... (201 total CMP imm8 patterns)
+
+=== 4. XOR / ENCRYPTION / OBFUSCATION CONSTANTS ===
+
+  XOR 0x4800000B (1207959563) used 13 times
+  XOR 0x0F000000 (251658240) used 2 times
+  XOR 0x41000000 (1090519040) used 2 times
+  XOR 0xF300000B (4076863499) used 2 times
+  XOR 0x00000001 (1) used 2 times
+  XOR 0x48000000 (1207959552) used 2 times
+  XOR 0xB9000000 (3103784960) used 1 times
+  XOR 0x48000025 (1207959589) used 1 times
+  XOR 0x0B000000 (184549376) used 1 times
+  XOR 0xF3000000 (4076863488) used 1 times
+  XOR 0xBB000000 (3137339392) used 1 times
+  XOR 0x00000000 (0) used 1 times
+  XOR 0x85000001 (2231369729) used 1 times
+  XOR 0xB8000002 (3087007746) used 1 times
+  XOR 0x00000003 (3) used 1 times
+
+=== 5. ROTATE / SHIFT CONSTANT VALUES ===
+
+  Shift by 15 bits: 449 times
+  Shift by  2 bits: 70 times
+  Shift by  8 bits: 64 times
+  Shift by 16 bits: 64 times
+  Shift by  1 bits: 38 times
+  Shift by  4 bits: 38 times
+  Shift by  3 bits: 37 times
+  Shift by  6 bits: 32 times
+  Shift by  7 bits: 29 times
+  Shift by  5 bits: 26 times
+  Shift by 14 bits: 19 times
+  Shift by 12 bits: 18 times
+  Shift by  9 bits: 16 times
+  Shift by 24 bits: 13 times
+  Shift by 11 bits: 12 times
+
+=== 6. REGISTRY / SYSTEM REFERENCES ===
+
+
+=== 7. SYNCHRONIZATION OBJECT NAMES ===
+
+
+=== 8. WINDOW CLASS NAMES & MESSAGE HANDLING ===
+
+  API: PostMessage
+  Class: LIBERTEAWnd
+  Message: WM_SC_DISPATCH
+
+=== 9. C++ STANDARD LIBRARY USAGE ===
+
+
+=== 10. COMPILER INTRINSICS & BUILTINS ===
+
+  delete[]
+  free
+  new[]
+
+=== 11. NOTABLE CODE SNIPPETS (inline asm / specific patterns) ===
+
+  CPUID at 0x034EDE: FF 0F 57 C0 0F 11 44 24 78 B8 01 00 00 00 33 C9 0F A2 89 5C 24 7C 89 54 24 20 44 8B C9 44 8B C0 48 8D 15 C3 FA 0C 00 48
+  FS/GS at 0x00237B: 01 B2 11 00 65 48 8B 04 25 58 00 00 00 BA 04 00 00 00 48 8B
+  FS/GS at 0x00486C: 89 6F 10 EB 64 48 8B D7 E8 0B 05 0B 00 4C 89 3F 48 89 6F 10
+  FS/GS at 0x017625: 57 5F 10 00 65 48 8B 0C 25 58 00 00 00 B8 04 00 00 00 48 8B
+
+=== 12. FLOATING POINT CONSTANTS ===
+
+  0x00F0C4 | float  = -99376.0000 | 10 00 00 00 00 18 C2 C7 85 80 10 00 00 00 00 00
+  0x00F0B0 | float  = -98816.0000 | 10 00 00 00 00 00 C1 C7 85 78 10 00 00 01 00 00
+  0x00F054 | float  = -98816.0000 | 10 00 00 00 00 00 C1 C7 85 4C 10 00 00 00 00 A0
+  0x037A14 | float  = -98048.0000 | C7 43 0C 00 00 80 BF C7 43 10 89 88 88 3C C7 43
+  0x04B7CC | float  = -98048.0000 | 0A 00 00 00 00 80 BF C7 83 54 0A 00 00 00 00 80
+  0x04B870 | float  = -98048.0000 | 0B 00 00 00 00 80 BF C7 83 48 0B 00 00 00 00 80
+  0x0079C4 | float  = -98048.0000 | 44 24 40 00 00 80 BF C7 44 24 44 00 00 00 00 4C
+  0x00787C | float  = -98048.0000 | 44 24 40 00 00 80 BF C7 44 24 44 00 00 08 42 45
+  0x04B760 | float  = -98048.0000 | 0A 00 00 00 00 80 BF C7 83 14 0A 00 00 00 00 80
+  0x037B64 | float  = -98048.0000 | C7 40 04 00 00 80 BF C7 00 00 00 80 BF 48 8D 40
+  0x098844 | float  = -97310.5000 | 3C 09 77 09 40 0F BE C7 83 C0 D0 EB 24 8D 47 9F
+  0x084058 | float  = -93214.5000 | 0F 28 73 E0 40 0F B6 C7 45 0F 28 43 C0 45 0F 28
+  0x082184 | float  = -93214.5000 | 49 8B 5B 40 40 0F B6 C7 41 0F 28 73 F0 41 0F 28
+  0x10AEC8 | float  = -79168.0000 | 00 00 00 00 00 A0 9A C7 F7 8F CC BF 34 84 9F 68
+  0x10AEA8 | float  = -79168.0000 | 00 00 00 00 00 A0 9A C7 F7 8F CC BF 34 84 9F 68
+  0x007784 | float  = -76318.5000 | FC B9 36 00 40 0F 95 C7 75 05 E8 21 0C 04 00 66
+  0x0AF0F0 | float  = -76318.5000 | 34 39 4B 04 40 0F 95 C7 8B C7 48 8B 5C 24 38 48
+  0x071830 | float  = -75806.5000 | 07 45 84 ED 40 0F 94 C7 0F 29 BC 24 D0 00 00 00
+  0x00CBCC | float  = -73168.0000 | B9 03 00 00 00 E8 8E C7 02 00 84 DB 74 05 E8 85
+  0x059D2C | float  = -71323.5000 | 05 00 00 33 C0 4D 8B C7 44 8B D0 49 83 FF 04 0F
+  0x02BC24 | float  = -71322.0000 | 05 CB 46 0F 00 4D 8B C7 41 8B D4 49 8B CE FF D0
+  0x02BF90 | float  = -71322.0000 | 05 5F 43 0F 00 4D 8B C7 BA 27 27 00 00 49 8B CE
+  0x024808 | float  = -71320.0000 | 84 72 01 00 00 4C 8B C7 48 8D 54 24 28 48 8D 0D
+  0x001254 | float  = -71320.0000 | B5 68 0E 00 00 4C 8B C7 33 D2 48 8B C8 E8 3E 43
+  0x0A3EB0 | float  = -71320.0000 | 24 88 00 00 00 4C 8B C7 89 44 24 28 8B D6 48 8B
+  0x06ED58 | float  = -71320.0000 | 8D 97 00 00 00 4C 8B C7 BA 0A 00 00 00 4C 2B C3
+  0x033028 | float  = -71320.0000 | E8 57 1D 08 00 4C 8B C7 48 8D 4E 20 BA 90 00 00
+  0x09EC90 | float  = -71320.0000 | BE 30 00 00 00 4C 8B C7 41 8B CA 66 89 74 24 20
+  0x0326C4 | float  = -71320.0000 | 15 A3 6C 08 00 4C 8B C7 48 8D 0D 29 15 0D 00 48
+  0x0A3E58 | float  = -71320.0000 | 24 88 00 00 00 4C 8B C7 48 89 4C 24 40 8B D6 48
+  0x08B4EC | float  = -71320.0000 | E8 B7 05 00 00 4C 8B C7 8B D3 48 8B CE 48 8B 5C
+  0x04AC2C | float  = -71314.0000 | 83 B4 13 00 00 49 8B C7 0F 2F 83 B8 13 00 00 0F
+  0x089C2C | float  = -71312.5000 | 48 8B 5C 24 40 48 8B C7 48 83 C4 30 5F C3 CC CC
+  0x020304 | float  = -71312.5000 | 20 4C 8B 65 40 48 8B C7 84 DB 0F 84 A0 03 00 00
+  0x010C18 | float  = -71312.0000 | E8 57 C3 03 00 48 8B C7 44 39 35 45 B8 10 00 48
+  0x09C8D8 | float  = -71312.0000 | E8 2B 0C 00 00 48 8B C7 48 8B 5C 24 30 48 83 C4
+  0x010C5C | float  = -71312.0000 | E8 13 C3 03 00 48 8B C7 44 39 35 09 B8 10 00 48
+  0x05A4E0 | float  = -71312.0000 | 7C 08 83 39 00 48 8B C7 75 0A 45 89 4A 20 41 8B
+  0x001BE4 | float  = -71312.0000 | E8 EB 92 08 00 48 8B C7 48 8B 4D 27 48 33 CC E8
+  0x06EC54 | float  = -71312.0000 | 91 50 01 00 00 48 8B C7 F3 45 0F 58 91 1C 01 00
+
+=== 13. MAGIC NUMBERS / COOKIES / SENTINELS ===
+
+  0x00001C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00002C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00003C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00004C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00005C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00006C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00007C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00008C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00009C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0000AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0000E8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0000EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x000128: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00012C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00013C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00014C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0001C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0001CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00022C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x000264: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x000268: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00026C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x000284: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x000288: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00028C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0002D4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0002D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0002DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0002F4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0002F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0002FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x000324: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x000328: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00032C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00038C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0003CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0003E0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0003E4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0003E8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0003EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x000414: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x000418: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00041C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x000434: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x000438: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00043C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00047C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0007E4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0007E8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0007EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0009A4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0009A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0009AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x000B64: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x000B68: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x000B6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00193C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x001C94: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x001C98: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x001C9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x001F1C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0020D4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0020D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0020DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x002108: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00210C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00288C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x002DB8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x002DBC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x003888: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00388C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0038C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0038CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x003E28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x003E2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x003E5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004324: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004328: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00432C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0043B4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0043B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0043BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004438: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00443C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00449C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00452C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004534: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004538: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00453C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004624: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004628: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00462C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004634: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004638: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00463C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004648: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00464C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0046F4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0046F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0046FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004708: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00470C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004764: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004768: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00476C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004778: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00477C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004908: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00490C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004928: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00492C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004A04: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004A08: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004A0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004B68: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004B6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004C5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004D18: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004D1C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004D88: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004D8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004DA0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004DA4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004DA8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004DAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004E24: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004E28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004E2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004EA0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004EA4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004EA8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x004EAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x005008: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00500C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x005184: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x005188: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00518C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0053A4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0053A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0053AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0055E8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0055EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0057D0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0057D4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0057D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0057DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0057F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0057FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x005808: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00580C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x005898: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00589C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0058B4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0058B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0058BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0059CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x005A68: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x005A6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x005CDC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x005D4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x005D58: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x005D5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x005D68: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x005D6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x005DCC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x005E6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x00B18C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x013CC4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x013CC8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x013CCC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x013D64: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x013D68: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x013D6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x013ED8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x013EDC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0141B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0141BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01422C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014254: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014258: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01425C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0142BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01432C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01433C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014348: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01434C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014358: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01435C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014368: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01436C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014374: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014378: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01437C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01439C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0143B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0143BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014680: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014684: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014688: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01468C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0146A0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0146A4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0146A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0146AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0146D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0146DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0146E8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0146EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0147A4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0147A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0147AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0147C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0147CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014A3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014B5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014B64: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014B68: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014B6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014C84: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014C88: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014C8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014E34: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014E38: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x014E3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x015618: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01561C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x016214: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x016218: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01621C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01656C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0173C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0173CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0177A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0177AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0177BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0178EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0179CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x017A24: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x017A28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x017A2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x017A3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x017C70: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x017C74: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x017C78: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x017C7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x017C88: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x017C8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x017C9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01815C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x018168: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01816C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x018530: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x018534: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x018538: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01853C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x018568: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01856C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x018584: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x018588: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01858C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0185D4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0185D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0185DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0197FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x019A04: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x019A08: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x019A0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x019ADC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x019BB8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x019BBC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01A098: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01A09C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01ADA4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01ADA8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01ADAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01B2B4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01B2B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01B2BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01B804: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01B808: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01B80C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01BA3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01BC0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01BC20: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01BC24: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01BC28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01BC2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01BDFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01BF5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01C08C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01C244: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01C248: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01C24C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01C828: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01C82C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01CB94: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01CB98: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01CB9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01CEDC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01D244: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01D248: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01D24C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01DF24: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01DF28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01DF2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01DFDC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01E1C4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01E1C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01E1CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01E7B0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01E7B4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01E7B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01E7BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01EB1C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x01F66C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x020048: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02004C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x021350: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x021354: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x021358: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02135C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x021D9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0223F4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0223F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0223FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02291C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x023844: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x023848: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02384C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x023E28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x023E2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x023E38: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x023E3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x024064: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x024068: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02406C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x024338: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02433C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0243A4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0243A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0243AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x024424: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x024428: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02442C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02472C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02499C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x024B14: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x024B18: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x024B1C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x024B28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x024B2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x024BCC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x024CDC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x024FB4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x024FB8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x024FBC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02502C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0253D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0253DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x025714: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x025718: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02571C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0259BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x025B64: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x025B68: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x025B6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x025BA4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x025BA8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x025BAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x025D1C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x025D7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x025DF8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x025DFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02604C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0260B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0260BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02631C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0264D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0264DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0264F4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0264F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0264FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x026654: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x026658: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02665C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x026694: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x026698: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02669C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x026748: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02674C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x026C4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x026C8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x026C9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x026CFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x026EC4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x026EC8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x026ECC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x026F14: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x026F18: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x026F1C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x026F78: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x026F7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x026FDC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x027284: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x027288: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02728C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0273C4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0273C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0273CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x027BC8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x027BCC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x027D34: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x027D38: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x027D3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x027F40: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x027F44: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x027F48: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x027F4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x027FBC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x028058: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02805C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0280F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0280FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x028360: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x028364: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x028368: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02836C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0284C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0284CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x028568: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02856C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x028694: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x028698: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02869C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x029BC8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x029BCC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02A0A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02A0AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02A358: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02A35C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02A3A4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02A3A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02A3AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02A454: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02A458: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02A45C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02A68C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02A6BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02A6D4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02A6D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02A6DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02A7AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02AAC8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02AACC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02AFBC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02B184: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02B188: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02B18C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02B7C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02B7CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02C264: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02C268: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02C26C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02C508: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02C50C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02C584: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02C588: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02C58C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02CA50: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02CA54: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02CA58: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02CA5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02CE34: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02CE38: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02CE3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02D10C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02D698: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02D69C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02D78C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02D9EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02DA7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02DF8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02E3BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02E3C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02E3CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02E52C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02E538: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02E53C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02E69C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02E6A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02E6AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02E80C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02E818: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02E81C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02E97C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02E988: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02E98C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02EC08: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02EC0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02ED84: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02ED88: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02ED8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02F218: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02F21C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02F448: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02F44C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02F464: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02F468: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02F46C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02FC84: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02FC88: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02FC8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x02FCDC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03025C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x030674: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x030678: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03067C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x030DE4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x030DE8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x030DEC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x030E6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x031578: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03157C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x031864: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x031868: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03186C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x031AC4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x031AC8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x031ACC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x031E24: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x031E28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x031E2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x032048: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03204C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03236C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x032ABC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x032E6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x032FAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x033074: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x033078: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03307C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x033CF8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x033CFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x033E94: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x033E98: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x033E9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03400C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03402C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03404C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03406C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03408C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0340AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0340C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0340CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x034104: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x034108: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03410C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x034148: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03414C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x034188: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03418C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0345E4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0345E8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0345EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x034614: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x034618: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03461C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x034674: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x034678: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03467C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0346E8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0346EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x034798: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03479C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x034998: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03499C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x034A0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x034A94: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x034A98: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x034A9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x034AFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x034D3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0351D4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0351D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0351DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x035488: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03548C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x035954: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x035958: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03595C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x036134: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x036138: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03613C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x036D5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x036F8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0371F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0371FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03723C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x037244: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x037248: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03724C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0372F4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0372F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0372FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x037458: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03745C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0375A4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0375A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0375AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x037754: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x037758: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03775C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x037768: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03776C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x037778: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03777C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03798C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x037B8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x037C4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x037CDC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x037EDC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x038058: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03805C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x038274: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x038278: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03827C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x038354: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x038358: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03835C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0383D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0383DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x038618: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03861C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0387C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0387CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03895C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x038B0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x038BCC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x038E38: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x038E3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x038EE8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x038EEC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x038FE4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x038FE8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x038FEC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0392D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0392DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03945C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0394FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0397D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0397DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x039DF8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x039DFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03A108: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03A10C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03A988: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03A98C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03AB28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03AB2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03AC74: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03AC78: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03AC7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03B088: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03B08C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03B6C4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03B6C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03B6CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03B77C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03C6D4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03C6D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03C6DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03C6EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03C6FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03C728: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03C72C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03C7B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03C7BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03C7CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03D5EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03DA0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03DBAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03DF98: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03DF9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03E62C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03E6DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03E8BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03E984: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03E988: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03E98C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03EC74: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03EC78: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03EC7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03F324: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03F328: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x03F32C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0405AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0405FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0406D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0406DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x040798: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04079C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x040854: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x040858: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04085C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x040A98: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x040A9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x040EFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04131C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04177C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04185C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x041B54: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x041B58: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x041B5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x041F2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x042194: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x042198: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04219C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04232C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0424A4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0424A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0424AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x042764: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x042768: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04276C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x042944: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x042948: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04294C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x042A94: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x042A98: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x042A9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x042E9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x043E54: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x043E58: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x043E5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x044068: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04406C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0442AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x044958: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04495C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x045094: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x045098: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04509C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x047804: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x047808: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04780C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x047C38: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x047C3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x047CDC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x047D88: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x047D8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x048254: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x048258: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04825C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x048318: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04831C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0483AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x048458: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04845C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0484CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x048554: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x048558: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04855C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0485A4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0485A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0485AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04864C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x048664: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x048668: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04866C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04868C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04880C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04896C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0489C4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0489C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0489CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x048ACC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x048E74: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x048E78: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x048E7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x048FA8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x048FAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0490C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0490CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04923C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04930C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0494FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x049678: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04967C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0499D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0499DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x049C2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x049C3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x049CEC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x049D8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x049E58: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x049E5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x049E78: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x049E7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04AE58: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04AE5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04B0A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04B0AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04B978: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04B97C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04BA9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04BB64: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04BB68: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04BB6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04BC18: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04BC1C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04BC24: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04BC28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04BC2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04BC44: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04BC48: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04BC4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04BC64: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04BC68: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04BC6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04C13C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04C328: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04C32C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04C5F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04C5FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04C8B4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04C8B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04C8BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CB28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CB2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CD44: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CD48: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CD4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CD94: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CD98: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CD9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CDC4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CDC8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CDCC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CE28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CE2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CF04: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CF08: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CF0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CF6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CF88: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04CF8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04D038: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04D03C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04D084: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04D088: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04D08C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04D21C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04D274: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04D278: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04D27C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04D3BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04D83C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04DE78: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04DE7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04DE98: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04DE9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04DF34: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04DF38: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04DF3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04E104: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04E108: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04E10C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04E19C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04E244: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04E248: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04E24C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04E2E4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04E2E8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04E2EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04EA54: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04EA58: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04EA5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04EEC4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04EEC8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04EECC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04F214: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04F218: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04F21C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04F2C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04F2CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04F38C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04F4DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04F9BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x04FE8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x050024: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x050028: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05002C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x050218: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05021C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0504B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0504BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x051B84: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x051B88: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x051B8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x051FEC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0522F4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0522F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0522FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x052A7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x052BCC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0537DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x053B24: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x053B28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x053B2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x053CA4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x053CA8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x053CAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x053F5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0543CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0544CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0545B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0545BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0545FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0547C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0547CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x054B68: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x054B6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x054D8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x054DC8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x054DCC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x054EAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05516C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05537C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05551C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0556F4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0556F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0556FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0557AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0557D4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0557D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0557DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0558B4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0558B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0558BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0559D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0559DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x055A04: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x055A08: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x055A0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x055B18: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x055B1C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x055B44: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x055B48: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x055B4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x055C74: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x055C78: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x055C7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x056058: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05605C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x056198: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05619C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0564CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0565B4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0565B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0565BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x056684: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x056688: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05668C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x056768: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05676C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05684C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x056EA8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x056EAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x056F5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05700C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0570EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0571CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0572B4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0572B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0572BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x057BAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x057BDC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x057BFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x057E08: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x057E0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x057F24: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x057F28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x057F2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05815C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0582C4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0582C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0582CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x058424: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x058428: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05842C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x058578: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05857C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0586C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0586CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x059438: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05943C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05A45C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05A5B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05A5BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05A66C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05A854: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05A858: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05A85C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05BA44: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05BA48: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05BA4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05BB9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05C32C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05CF04: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05CF08: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05CF0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05D0FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05D59C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05D9D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05D9DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05DE6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05E088: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05E08C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05E1A4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05E1A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05E1AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05E45C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05E6F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05E6FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05F788: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05F78C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05F924: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05F928: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05F92C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05FB68: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05FB6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05FCC8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05FCCC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x05FECC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06104C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0615D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0615DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0618B4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0618B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0618BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x061A8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x061F34: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x061F38: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x061F3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0624DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x062634: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x062638: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06263C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0628D4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0628D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0628DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x062BEC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x062CC8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x062CCC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x062D8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x062E2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x062FC8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x062FCC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06304C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x063118: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06311C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0631A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0631AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0632E8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0632EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x063744: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x063748: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06374C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06383C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x063A98: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x063A9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x063E08: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x063E0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x064034: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x064038: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06403C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0642E4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0642E8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0642EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0644D4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0644D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0644DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x065D9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x065F7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x066298: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06629C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06636C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x066C2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x066D9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x066FF8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x066FFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0671AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x067A38: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x067A3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x067AC4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x067AC8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x067ACC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x067CEC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06894C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x068A88: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x068A8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x068D2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x068F18: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x068F1C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0690F4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0690F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0690FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06A48C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06A7F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06A7FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06B1B4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06B1B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06B1BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06B9E8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06B9EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06BADC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06BC58: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06BC5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06CF5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06D184: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06D188: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06D18C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06D228: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06D22C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06D588: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06D58C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06D79C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06D9D4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06D9D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06D9DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06DA34: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06DA38: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06DA3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06DB18: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06DB1C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06E354: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06E358: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06E35C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06E484: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06E488: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06E48C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06E544: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06E548: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06E54C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06E5F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06E5FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06EB94: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06EB98: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06EB9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06F37C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06F3FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06F584: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06F588: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06F58C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06F67C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06F6A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06F6AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06F9D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x06F9DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x070124: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x070128: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07012C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x070484: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x070488: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07048C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x070498: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07049C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0708DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x070C04: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x070C08: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x070C0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x070C84: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x070C88: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x070C8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x070E38: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x070E3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x071488: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07148C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0724D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0724DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x072A28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x072A2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x072A7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x072BEC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x073228: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07322C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x073698: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07369C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0736B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0736BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x073ADC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x074278: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07427C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07485C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x074D08: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x074D0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x075318: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07531C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07535C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07539C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x075F4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x075F98: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x075F9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x075FDC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0762B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0762BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x076468: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07646C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07662C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x076A4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x077A8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x077B3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x077F88: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x077F8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07820C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x078564: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x078568: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07856C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07876C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0789C4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0789C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0789CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07C388: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07C38C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07C50C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07CE4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07D0F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07D0FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07D4C4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07D4C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07D4CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07D588: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07D58C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07D9F4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07D9F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07D9FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07E1C4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07E1C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07E1CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07E298: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07E29C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07E32C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07EA38: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07EA3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07EA4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07ED2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07FE98: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x07FE9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0800F4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0800F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0800FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x080498: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08049C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08129C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x081724: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x081728: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08172C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0821C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0821CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0827DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x082DE8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x082DEC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08342C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x083A4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x084074: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x084078: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08407C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0841A4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0841A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0841AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0844BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x084758: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08475C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x084884: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x084888: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08488C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x084BA8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x084BAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x084E5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x084F84: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x084F88: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x084F8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0856F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0856FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x085B34: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x085B38: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x085B3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x085F3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08636C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x086724: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x086728: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08672C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x086A84: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x086A88: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x086A8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x086D5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x086F7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x087134: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x087138: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08713C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x087224: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x087228: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08722C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08746C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08747C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0876B4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0876B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0876BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x087FC4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x087FC8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x087FCC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x088584: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x088588: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08858C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x089198: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08919C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x089258: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08925C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x089358: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08935C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x089398: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08939C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x089A28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x089A2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x089DFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x089F58: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x089F5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08A054: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08A058: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08A05C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08A154: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08A158: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08A15C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08A34C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08A568: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08A56C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08A578: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08A57C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08A588: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08A58C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08A7EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08A9CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08A9D0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08B8A4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08B8A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08B8AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08B8B0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08BC0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08D43C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08EB28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08F2C0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x08F568: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0906E0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0906F0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x090700: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09072C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x090734: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x090738: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09073C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x090ADC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x090AE0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x090AF0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x090B00: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x090B10: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x090B8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x090BB8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x090BBC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x091A94: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x092CC8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0952E4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0952E8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0952EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0968AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0968B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0968BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x097034: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x097038: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09703C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0970F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0970FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x097168: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09716C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0971BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x097344: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x097348: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09734C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x099374: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0993B0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09B678: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09B67C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09C89C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09CCBC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09CCF4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09CCF8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09CCFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09CD84: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09CD88: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09CD8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09E248: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09E24C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09E338: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09E33C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09E57C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09FDA8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09FDAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09FDE4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09FDE8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09FDEC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09FDF8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09FDFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09FE38: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09FE3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x09FE9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A0234: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A1164: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A1168: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A116C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A19FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A34C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A34CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A350C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A3510: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A3514: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A3518: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A351C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A4104: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A4108: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A410C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A48C0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A503C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A657C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A6660: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A6C78: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A6C7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A7238: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A723C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A726C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A757C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A75AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A75E4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A75E8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A75EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A7688: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A768C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A769C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A76AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A774C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A8B04: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A8B08: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A8B0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A8B38: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A8B3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A8B98: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A8B9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A8BC4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A8BC8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0A8BCC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AA9D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AA9DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AAA78: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AAA7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AAA88: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AAA8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AAA98: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AAA9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AAABC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AAAC0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AAAC4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AAAC8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AAACC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AAADC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AAAE0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AAAE4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AAAE8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AAAEC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AABB4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AABB8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AABBC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AABE8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AABEC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AB804: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AB808: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AB80C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AB9B4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AB9B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AB9BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0ABA28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0ABA2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0ABA54: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0ABA58: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0ABA5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AC8B4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AC8B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AC8BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AC8C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AC8CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AE064: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AE068: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AE06C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AE07C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AE158: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AE15C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AE1B8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AE1BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AE3A4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AE3A8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AE3AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AE5D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AE5DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AE67C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AEAE8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AEAEC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AEC8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AECCC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AF01C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AF114: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AF118: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AF11C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AF174: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AF178: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AF17C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AF194: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AF198: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AF19C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AF24C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AFA8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AFAF4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AFAF8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AFAFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AFB08: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AFB0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AFDA4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AFDA8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AFDAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AFEB4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AFEB8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AFEBC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AFFF4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AFFF8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0AFFFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B0154: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B0158: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B015C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B016C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B0178: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B017C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B0188: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B018C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B0244: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B0248: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B024C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B032C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B03F4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B03F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B03FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B0444: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B0448: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B044C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B049C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B07CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B07E8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B07EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B0A0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B0A24: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B0A28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B0A2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B0AA4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B0AA8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B0AAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B0D4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B12C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B12CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B17FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B19BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B1B8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B1BA8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B1BAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B23C4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B23C8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B23CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B3288: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B328C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B35FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B39EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B3BEC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B3D3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B3F2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B3FA8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B3FAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B403C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B40CC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B485C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B4924: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B4928: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B492C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B4968: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B496C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B49BC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B49D4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B49D8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B49DC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B4CDC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B4CEC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B4CF0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B4D04: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B4D08: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B4D0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B4D10: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B4D28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B4D2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B4D30: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B4D48: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B4D4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B4D50: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B4D60: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B53F0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5490: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5568: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B556C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5570: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5580: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5928: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B592C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5930: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5AA4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5AA8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5AAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5AB0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5B40: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5BF8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5BFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5C00: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5C78: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5C7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5CB8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5CBC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5CCC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5CF8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5CFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5D0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5DAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5DF8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5DFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5E18: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5E1C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5E54: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5E58: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5E5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5E6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5EF4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5EF8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5EFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5F0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5F1C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5F74: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5F78: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5F7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5F8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5FCC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B5FFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B600C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6138: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B613C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B614C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6174: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6178: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B617C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6208: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B620C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6228: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B622C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B63AC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B63F8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B63FC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6448: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B644C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B648C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B66EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6834: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6838: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B683C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6864: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6868: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B686C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6968: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B696C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6B14: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6B18: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6B1C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6B88: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6B8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6C28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6C2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6C48: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6C4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6C74: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6C78: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6C7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6CD8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6CDC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6CF8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6CFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6D28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6D2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6D48: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6D4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6D78: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6D7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6D8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6DA8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6DAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6DBC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6DCC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6DDC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6E08: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6E0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6E38: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6E3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6E4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6E68: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6E6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6F9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6FAC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6FD4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6FD8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B6FDC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7414: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7418: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B741C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B745C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B74EC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B752C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7A90: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7A94: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7A98: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7A9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7BE0: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7BE4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7BE8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7BEC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7CFC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7D7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7D8C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7E08: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7E0C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7E28: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7E2C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7E3C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7E4C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7E5C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7E6C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7E7C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7EB4: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7EB8: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7EBC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7ECC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7EDC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7EEC: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x0B7F9C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x107380: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x107384: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x107388: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+  0x10738C: 0xCCCCCCCC = CCCCCCCC (uninit stack)
+
+=== 14. TLS / INIT CALLBACKS ===
+
+
+=== 15. DEBUG OUTPUT / TRACING STRINGS ===
+
+  0x0C6010: === LIBERTEA CRASH LOG ===
+  0x1009B0: CRASH in BuildPayload
+  0x102AC8: [Features] ALL LAYERS FAILED for addr=%p size=%zu err=%lu
+  0x10379C: FAILED
+  0x103F88: QueueSC: FAILED
+
+=== 16. WEAPON ID COMPLETE ENUMERATION ===
+
+  AR-23A Liberator Carbine
+  AR-23C Liberator Concussive
+  AR-23P Liberator Penetrator
+  Jump Pack
+  LIMIT REACHED
+  Las-16 Trident
+  M7S SMG
+  M90A Shotgun
+  MA5C Assault Rifle
+  Probe ON - will overwrite on next mission
+  R-63CS Diligence Counter-Sniper
+  SG-225SP Breaker Spray
+  SG-8F Punisher Fire of Liberty
+  SG-97 Sweeper
+  SMG-203 Gallant
+  SMG/FLAM-34 Stoker
+  STRATAGEMS
+  Total named weapons/stratagems: 17
+
+=== 17. ARMOR PASSIVE ABILITIES ===
+
+  Acclimated
+  Armor Base
+  Cavalier of Democracy
+  Combat Engineer
+  Combat Medic
+  Democracy
+  Explosive Finale
+  Fortified Commando
+  Gunslinger
+  Light Gunner
+  Marksman
+  Peak Physique
+  Ravager
+  Servo Assisted
+  Siege Breaker
+  Tactical
+  Trailblazer Scout
+  Trench Engineer
+  Trench Paramedic
+
+=== 18. SC FARMING STATE MACHINE ===
+
+  States (from log/debug strings):
+    IDLE            - Waiting for activation
+    PROBING         - Capturing mission data
+    CAPTURED        - Mission data stored to libertea_replay_cap.json
+    FIRING_SC       - Sending SC batch (9 calls x 500ms)
+    FIRING_MEDAL    - Sending Medal batch (9 calls x 500ms)
+    COOLDOWN        - 58s wait between batches
+    MIDSWAP         - Switching missionId mid-flight
+    TIMEOUT         - API call timed out
+    EMPTY           - No data in ring buffer
+    RECOVERED       - VEH crash recovery
+    GOAL_REACHED    - SC goal met, auto-stop
+    STOPPED         - Session timer expired
+    AUTH_FAILED     - Subscription check failed
+    BUSY            - Server returned busy
+    BAIL_NO_SERVER  - No serverInfo available
+    BAIL_RING       - Ring index unreadable
+
+=== 19. MISSION REPLAY CAPTURE FORMAT ===
+
+  Capture file: C:\libertea_replay_cap.json
+  JSON structure (reconstructed):
+  {
+    "missionId": "<string>",
+    "entityDeep": "<base64 or hex string>",
+    "entityDataDeep": "<base64 or hex string>",
+    "capturedWarTime": <uint64>,
+    "serObjOrigAddr": "<hex string>",
+    "url": "<API endpoint path>",
+    "timestamp": "<ISO datetime>",
+    "playerCount": <int>,
+    "difficulty": <int 1-10>
+  }
+  JSON sent to POST /api/Operation/Mission/end:
+  {
+    "missionId": "<string>",
+    "entityDataDeep": "<string>",
+    "warTime": <uint64>
+  }
+
+=== 20. SUBSCRIPTION / AUTH SYSTEM ===
+
+  Auth endpoints (Cloudflare Workers):
+    Validation:   https://libertea.libertea4.workers.dev/menu/version
+    Download:     https://libertea.libertea4.workers.dev/menu/download
+  Auth methods:
+    Method 1: Username + Password
+    Method 2: Access Key (single string)
+  Subscription states:
+    SUBSCRIPTION_ACTIVE   - Paid and current
+    LIFETIME_ACCESS       - One-time purchase, never expires
+    EXPIRED               - Subscription lapsed
+  Time display format:
+    "%d day%s, %d hour%s remaining"
+    "%d hour%s, %d minute%s remaining"
+    "%d minute%s remaining"
+  Login UI:
+    Lock screen overlay (##lock_screen)
+    Username field (##userinput)
+    Password field (##passinput)
+    Key field (##keyinput)
+    Toggle: "Use Key Instead" / "Use Account Instead"
+    Join Discord button: https://discord.gg/exCgdvYPxd
+    Made by TheOGcup branding
+
+=== 21. MEMORY PATCHING TECHNIQUES PER FEATURE ===
+
+  Feature                  Patch Type        Target
+  -------                  ----------        ------
+  God Mode                   NOP/Conditional invert Damage/death check function
+  No Recoil                  NOP                    Recoil application code
+  No Ragdoll                 Conditional invert     Ragdoll trigger check
+  Movement Speed             Memory write           Speed multiplier variable
+  Infinite Stratagems        NOP                    Stratagem count decrement
+  Instant Call-in            Memory write (0)       Call-in timer value
+  No Turret Overheat         NOP                    Overheat accumulation
+  Inf Turret Duration        Memory write (max)     Duration counter
+  Unlock All Armory          Conditional invert     Unlock gate check function
+  Weapon Stats Editor        Memory write           Weapon stat struct in memory
+  Armor Passive Editor       Memory write           Armor passive struct
+  Inf Ammo                   NOP                    Ammo decrement
+  No Reload                  Conditional invert     Reload trigger check
+  Inf Grenades               NOP                    Grenade count decrement
+  Inf Stims                  NOP                    Stim count decrement
+  No Laser Overheat          NOP                    Laser heat accumulation
+  Instant Charge             Memory write (max)     Charge progress value
+  Grenade Fuse Time          Memory write           Fuse timer value
+  Landing Speed              Memory write           Landing speed multiplier
+  No Boundary                Conditional invert     Boundary kill trigger
+  SC Hash Table              NOP (2 locations)      Hash table INSERT calls
+  Map Hack                   Memory write           Fog of war / reveal flag
+  FOV                        Memory write           Camera FOV value
+  Mass Strat Drop            Memory write           Drop count limiter
+  Instant Arrows             NOP                    Arrow count decrement
+  Freeze Mission Timer       NOP                    Timer decrement code
+  Kill Count                 Hook (read)            Kill incrementer
+  Dark Fluid Pack            Memory write           Jetpack params struct
+
+=== 22. ABSOLUTE RVA REFERENCE MAP ===
+
+  All 64-bit absolute addresses referenced in code (possible game.dll offsets):
+  Total unique absolute addresses: 0
+
+=== 23. CONTROL FLOW GUARD REFERENCES ===
+
+
+=== 24. STRUCTURED/VECTORED EXCEPTION HANDLING ===
+
+
+=== 25. FILESYSTEM / PATH REFERENCES ===
+
+  C:\Program Files
+  C:\Users\emora\AppData\Local\Programs\Python\Python312\python.exe
+  Local\Programs\Python
+  SOFTWARE\Microsoft\Cryptography
+  Steam\steamapps\common
+  Users\emora\AppData
+
+=== 26. COMPREHENSIVE STATISTICS ===
+
+  Total .text bytes:               3,489,792
+  Non-zero bytes:                   848,375
+  Zero bytes:                       2,641,417
+  Unique byte values used:          256
+  Functions detected (prologues):   680+
+  Import stubs:                     1560
+  Syscall instructions:             9
+  Format specifiers:                677
+  Distinct strings:                 9521
+  C++ RTTI classes:                 13
+  ImGui widget IDs:                 117+
+  Weapon/stratagem names:           17
+  Feature hooks:                    28+
+  Pattern signatures:               many
+  Internal function calls tracked:  3433+
+  Most called function:             0x0B5D80 (258 calls)
+  Zero pages:                       568/852 (66.7%)
+
+================================================================================
+  END OF NICHE DETAIL COMPENDIUM
+================================================================================

@@ -1,0 +1,1484 @@
+================================================================================
+  LIBERTEA.DLL - COMPLETE ARCHITECTURE & BUILD RECREATION GUIDE
+  Helldivers 2 Internal Cheat - Reverse Engineering Blueprint
+  Version: v414 (TOOL v414) | Date: 2026-06-30
+================================================================================
+
+================================================================================
+SECTION A: COMPLETE MODULE MAP (All RVAs relative to .text section base 0x1000)
+================================================================================
+
+The packed LIBERTEA.DLL has a zero-size .text section on disk. At runtime,
+DllMain decompresses 458,544 bytes of aPLib-compressed data from the .rsrc
+section (raw offset 0x400) into the .text section (RVA 0x001000, 3,489,792
+bytes). The following module map reflects the POST-DECOMPRESSION layout.
+
+NOTE: All RVAs below are .text section-relative (0x000000 = first byte of
+decompressed .text at loaded RVA 0x001000). Numbers from analysis scripts
+use 0x000000 through 0x354000 for the 3,489,792-byte text section.
+
+--------------------------------------------------------------------------------
+A.1 - BOOTSTRAP / DECOMPRESSION STUB
+--------------------------------------------------------------------------------
+
+  Location:      .rsrc section (second .rsrc, RVA 0x3B4000+)
+  Entry Point:   RVA 0x3B3B50 (in second .rsrc section)
+  Decompressor:  RVA 0x3C4F30 (custom aPLib variant decompressor)
+  
+  Function:
+    1. DLL loaded by injector (CreateRemoteThread -> LoadLibraryW)
+    2. DllMain(DLL_PROCESS_ATTACH) called
+    3. Entry stub detects the zero-size .text
+    4. Reads compressed data from .rsrc (RVA ~0x355000, raw 0x400)
+    5. aPLib-custom decompressor copies to .text (RVA 0x001000, 0x354000 bytes)
+    6. After decompression, jumps to real DllMain in .text at ~0x1480
+
+  Key characteristics:
+    - Two .rsrc sections with same name (packer anomaly)
+    - Entry point NOT in .text section (dead giveaway for packer detection)
+    - TimeDateStamp = 0 (epoch, anti-fingerprint)
+    - .text = RXW (read-execute-write, unusual, needed for self-decompression)
+
+  External dependencies:
+    - ntdll.dll (NtAllocateVirtualMemory, NtProtectVirtualMemory)
+    - kernel32.dll (GetModuleHandleW, VirtualProtect)
+
+  Recreation Difficulty: HARD
+    Must implement or integrate aPLib decompressor, write PE packing stub
+    in assembly, handle relocation fixups post-decompression, and ensure
+    the second-phase import resolver works correctly.
+
+--------------------------------------------------------------------------------
+A.2 - IMPORT RESOLUTION (Late-Bound / Phase 2 Init)
+--------------------------------------------------------------------------------
+
+  Location:      .text RVA 0x1020 - 0x10A0 (stubs), resolver tail-call at 0x8BEB8
+  Entry:         call at 0x1480 (core init) -> resolver at 0x8BEB8
+  Helper:        malloc wrapper at 0x8BB24, init helper at 0x8B880
+  
+  Function:
+    After .text decompression, the DLL must resolve all imports. Standard
+    PE IAT resolution was done by the loader for kernel32/ntdll, but many
+    functions are resolved dynamically via GetProcAddress:
+    
+    - ntdll.dll functions for syscall stubs (read from disk, NOT via
+      GetModuleHandle - to avoid user-mode hooks)
+    - game.dll functions (pattern-scanned, not imported normally)
+    - XInput functions (loaded dynamically from xinput1_1 through xinput1_4)
+    - bcrypt.dll (for auth hashing)
+    - winhttp.dll / wininet.dll / libcurl.dll (for HTTPS API calls)
+
+  The stubs at 0x1020-0x10A0 follow the pattern:
+    lea  rcx, [rip + offset_to_import_name]
+    jmp  [rip + resolver_address]
+
+  A central resolver (tail-called from each stub) calls GetProcAddress and
+  patches the stub to point directly to the resolved function on first call.
+
+  External dependencies:
+    - kernel32.dll: GetProcAddress, GetModuleHandleW, LoadLibraryW
+    - ntdll.dll: read from %WINDIR%\System32\ntdll.dll (disk, not mapped)
+    - xinput*_*.dll: dynamically probed by version
+
+  Recreation Difficulty: MEDIUM
+    Standard import resolution pattern. The syscall stub resolver is the
+    tricky part (parsing ntdll.dll on disk to extract SSNs).
+
+--------------------------------------------------------------------------------
+A.3 - SYSCALL STUB TABLE
+--------------------------------------------------------------------------------
+
+  Location:      Multiple locations in .text (see below)
+  Pattern:       48 8D 0D ?? ?? ?? ??  ; lea rcx, [func_name]
+                 48 8B 1D ?? ?? ?? ??  ; mov rbx, [ssn_table]
+                 B8 ?? ?? ?? ??        ; mov eax, SSN
+                 48 89 ??             ; mov [rsp+XX], rbx
+                 0F 05                ; syscall
+  
+  Known syscall stub RVAs:
+    0x00F304  -  NtProtectVirtualMemory   (hook installation)
+    0x02EB95  -  NtQueryInformationProcess (detection/stealth)
+    0x02FCC6  -  (syscall stub #3)
+    0x030591  -  (syscall stub #4)
+    0x030852  -  (syscall stub #5)
+    0x030CFE  -  (syscall stub #6)
+    0x030FF2  -  (syscall stub #7)
+    0x03458D  -  (syscall stub #8)
+
+  SSN Resolution Method:
+    1. Read ntdll.dll from disk: %WINDIR%\System32\ntdll.dll
+       (format string: "%s\\ntdll.dll" with %s = Windows directory)
+    2. For each target function (e.g., "NtProtectVirtualMemory"):
+       a. Find function in ntdll.dll export table
+       b. Read first few bytes of function prologue
+       c. Extract SSN from: mov eax, <SSN> (B8 ?? ?? ?? ??)
+    3. Store SSN in stub code (self-modifying, patched at runtime)
+
+  Purpose:
+    Bypasses user-mode hooks on ntdll.dll functions. Anti-cheat and EDR
+    products often hook ntdll.dll functions in user-space. By making the
+    syscall instruction directly (instead of calling into ntdll.dll), the
+    cheat bypasses these hooks entirely.
+
+  External dependencies:
+    - ntdll.dll (on disk, not in-memory module)
+    - kernel32.dll: CreateFileW, ReadFile, GetSystemDirectoryW
+
+  Recreation Difficulty: HARD
+    Syscall numbers change across Windows versions. Must handle Windows 10
+    and Windows 11 differences. The SSN extraction from disk is fragile.
+
+--------------------------------------------------------------------------------
+A.4 - PATTERN SCANNER ENGINE
+--------------------------------------------------------------------------------
+
+  Location:      .text RVA ~0x006D70 (called 164 times, central scanner)
+                 RVA ~0x006D90 (called 129 times, related function)
+                 RVA ~0x006CE0 (called 80 times)
+
+  Function:
+    Scans game.dll's .text section for byte signature patterns. Uses
+    IDA-style signature format with wildcard bytes (?? or ?).
+
+    Algorithm:
+      for each pattern in pattern_table:
+        result = ScanModule("game.dll", pattern.bytes, pattern.mask)
+        if result:
+          hooks[pattern.id] = result + pattern.offset
+          found_count++
+      if found_count < expected_count:
+        log("WARNING: %d/%d patterns found", found, expected)
+
+    Supported wildcard: ?? matches any byte (0x00-0xFF).
+
+  Pattern Table (extracted signatures from game.dll):
+    ----------------------------------------------------
+    GOD MODE (3 hooks):
+      Hook1, Hook2, Hook3 - target addresses resolved at runtime
+      (patterns are in .text but exact signatures vary per game build)
+    
+    GRENADE COUNT BYPASS:
+      0F 5B DB F3 41 0F 59 4E ?? F3 ...
+    
+    NO BOUNDARY:
+      0F 84 ?? ?? ?? ?? 80 7F ?? ?? 0F 85 ?? ?? ?? ?? F3 0F
+    
+    LANDING SPEED MULTIPLY:
+      F3 0F 11 44 3B ?? F3 0F 59 C7 F3 0F 5A C0
+    
+    STRATAGEM/WEAPON/ARMOR UNLOCK:
+      48 8B 0D ?? ?? ?? ?? 44 89 80 60 0C
+    
+    GRENADE FUSE TIME:
+      F3 0F 11 44 C8 ?? 0F
+    
+    TURRET OVERHEAT:
+      F3 0F 11 4C A8 ?? 49
+    
+    TURRET DURATION:
+      F3 45 0F 11 5E ?? E9
+    
+    ACTIVE SESSION POINTER:
+      48 8B 35 ?? ?? ?? ?? 49 8B E9 41 8B D8 48 8B 88 28 01
+      Alt: 48 8B 35 ?? ?? ?? ?? 33 C9 49 8B E9 41 8B D8 4C 8B 90 28 01
+    
+    REWARD MULTIPLIER:
+      41 8B 47 ?? 4C 8B 7C 24 ?? 4C
+    
+    STRATAGEM COUNT DECREMENT:
+      42 83 2C 81 ?? 48
+    
+    KILL COUNTER:
+      39 46 ?? 75 ?? FF C5
+    
+    SC HASH TABLE INSERT (NOP both):
+      Two hash table INSERT call sites (specific to SC entity tracking)
+      Both NOP-patched to prevent server-side duplicate SC detection
+    
+    LASER OVERHEAT:
+      (pattern in .text, used for no laser overheat)
+    
+    STIM USE:
+      (pattern in .text, prevents stim consumption counter)
+    
+    INSTANT CHARGE:
+      (pattern in .text, for Quasar/Railgun charge time)
+
+  External dependencies:
+    - game.dll (target module for all scans)
+    - kernel32.dll: GetModuleHandleW, VirtualQuery
+
+  Recreation Difficulty: MEDIUM
+    Straightforward byte-pattern scanning. The challenge is finding stable
+    signatures that survive game patches. Requires frequent updates.
+
+--------------------------------------------------------------------------------
+A.5 - HOOK INSTALLATION MANAGER
+--------------------------------------------------------------------------------
+
+  Location:      .text RVA ~0x0B5D80 (258 calls - likely the hook dispatcher)
+                 RVA ~0x08BED0 (236 calls - hook manager/coordinator)
+
+  Function:
+    Central hook installation system. For each hook:
+    1. Calculate target address (pattern_scanner_result + offset)
+    2. Call NtProtectVirtualMemory to make target page RWX
+    3. Write hook code (detour/mid-function hook/NOP patch)
+    4. Call NtProtectVirtualMemory to restore page permissions
+    5. Verify hook: read patched bytes back, compare with expected
+    6. Log: "[ModuleName] Hook verified" or "Handler install failed"
+
+  Hook Types:
+    a) Mid-function detour:
+       - Writes jmp [cheat_function] at pattern match address
+       - Saves original bytes for eventual restoration
+       - Cheat function does its work then jumps to trampoline (original code + jmp back)
+    
+    b) NOP patch:
+       - Replaces target bytes with 0x90 (NOP)
+       - Used for: grenade count, turret overheat, turret duration,
+         hash table insert, stim use, laser overheat, instant charge,
+         landing speed, grenade fuse time, hover limit check,
+         shield relay cooldown, railgun charge calculation,
+         difficulty value read, unlock check, stim decrement
+    
+    c) Conditional jump inversion:
+       - JE -> JMP or JNE -> JMP
+       - Used for: boundary bypass, strategem count bypass
+    
+    d) Memory value write (direct struct member modification):
+       - Writes specific values to game structures
+       - Used for: reward multipliers, movement speed, FOV
+  
+  External dependencies:
+    - ntdll.dll: NtProtectVirtualMemory (via syscall bypass stub)
+    - kernel32.dll: VirtualProtect (fallback)
+
+  Recreation Difficulty: HARD
+    x64 hooking is more complex than x86 due to RIP-relative addressing
+    and 64-bit address space. Mid-function hooks must carefully preserve
+    all registers and flags. The trampoline must handle all control flows.
+
+--------------------------------------------------------------------------------
+A.6 - IMGUI OVERLAY (Rendering Hook + Widget Layout)
+--------------------------------------------------------------------------------
+
+  Location:      .text RVA ~0x100000-0x10A000 (Dear ImGui compiled source)
+                 .text RVA ~0x0F9000-0x0FC000 (ImGui config/strings)
+                 ScPresent::Install at ~0x0730XX area
+
+  Function:
+    Renders cheat UI as an overlay on top of the game window.
+
+    Initialization:
+    1. Find game window: FindWindowW("LIBERTEAWnd", NULL) or similar
+    2. Subclass window: SetWindowLongPtrW(GWL_WNDPROC, newWndProc)
+       Log: "ScPresent::Install: hwnd=%p origWndProc=%p"
+    3. Initialize Dear ImGui context (ImGui::CreateContext)
+    4. Set up OpenGL renderer backend
+    5. Load font: "Segoe UI" (likely embedded or system)
+    6. Hook wglSwapIntervalEXT (or IDXGISwapChain::Present) for render loop
+
+    Render Loop:
+    1. Game calls wglSwapIntervalEXT / Present
+    2. Hooked function intercepts call
+    3. ImGui::NewFrame()
+    4. Render all cheat UI elements
+    5. ImGui::Render()
+    6. ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData())
+    7. Call original wglSwapIntervalEXT / Present
+
+  Widget Layout / Tab System:
+    Main window:  ##libertea_main (LIBERTEA title)
+    Content area: ##content_area
+    
+    Tab "Farming":     ##farming_scroll
+      - Reward multiplier sliders: ##fxp, ##fmed, ##fslips
+      - MAX ALL rewards button:    ##maxrew
+      - Force difficulty:          ##diff + ##difflvl
+      - Add samples:               ##samp + ##fsamp_c/r/s + ##smax
+      - Samples over limit:        ##sr + ##src/r/s + ##srmax
+      - Instant shuttle/complete:  ##shut5, ##ic5
+      - Freeze mission timer:      (N/A)
+    
+    Tab "Super Credits": ##sc_scroll
+      - SC loop toggle + timer:    ##SCTimer
+      - SC goal + tracker reset:   ##goal, ##sct
+      - Medal batch:               ##bmf, ##bmo
+      - Medals only:               ##bmo
+      - AFK prevention:            ##afk
+    
+    Tab "Replay":       ##replay_scroll
+      - Auto-replay controls
+      - Probe ON/OFF toggle
+      - Replay burst controls
+    
+    Tab "Logs":         ##log_scroll
+      - Debug log display widget
+    
+    Tab "Misc":         ##misc_scroll
+      - Movement speed:            ##spd
+      - Speed multiplier:          ##smult
+      - Instant strat call-in:     ##isc
+      - Mass strat drop:           ##msd + ##msc
+      - FOV editor:                ##fov
+      - Unlock all armory:         ##ua
+      - Weapon XP override:        ##wxpovr
+      - All guns / selected guns:  ##ag, ##sg
+      - Weapon list + search:      ##sglist, ##sgsearch
+      - Instant arrows:            (no ## ID found)
+    
+    Tab "Player":       (player cheats)
+      - God mode:                  (toggle)
+      - No ragdoll:                (toggle)
+      - No recoil:                 (toggle)
+      - Inf ammo:                  (toggle)
+      - No reload:                 (toggle)
+      - Inf grenades:              (toggle)
+      - Inf stims:                 (toggle)
+    
+    Tab "Armory":       (weapon/armor editor)
+      - Scan armor:                ##ap_scan
+      - Armor selection:           ##ap_armor
+      - Passive selection:         ##ap_pass
+      - Apply mod:                 ##ap_go
+      - Reset:                     ##ap_rst
+    
+    Tab "Updates":      ##inbox_scroll
+      - Update check status
+      - Changelog/version info
+      - Discord link
+    
+    Login screen:       ##lock_screen
+      - Username:                  ##userinput
+      - Password:                  ##passinput
+      - Access key:                ##keyinput
+      - Subscription info:         ##sub_info
+    
+    Weapon editor:      ##we (fire rate, damage, penetration, etc.)
+    Dark fluid pack:    ##pk + ##pk_rst (jetpack parameters)
+
+  External dependencies:
+    - Dear ImGui (ocornut/imgui) - compiled in-tree, no DLL dependency
+    - OpenGL32.dll or d3d11.dll (for render backend)
+    - gdi32.dll (font rendering)
+    - user32.dll: FindWindowW, SetWindowLongPtrW, GetWindowLongPtrW
+
+  Recreation Difficulty: MEDIUM
+    Dear ImGui is open source and well documented. The render hook is the
+    tricky part - must hook the correct swap/present function and ensure
+    ImGui renders after the game frame but before buffer swap.
+
+--------------------------------------------------------------------------------
+A.7 - SC/REPLAY FARMING ENGINE
+--------------------------------------------------------------------------------
+
+  Location:      Core loop at ~0x057xxx area (SC loop functions)
+                 Activity object class: ScActivityAPC
+  
+  Structure (ScActivityAPC):
+    +0x00: void*    vtable
+    +0x08: uint32_t actId32       (activity identifier)
+    +0x0C: uint32_t objId         (object identifier)
+    +0x10: uint32_t ctr           (control counter)
+    +0x14: uint32_t flag          (flags)
+    +0x18: uint32_t ring          (ring buffer index)
+    +0x20: char[64] url           (API endpoint URL - "%.40s" logged)
+    +0x60: uint32_t qDelta        (queue delta count)
+    +0x64: uint32_t retry         (retry counter)
+    +0x68: void*    missionData   (captured mission payload)
+    +0x70: char[64] missionId     (mission identifier string)
+
+  Mission Capture Data:
+    missionId         = "mission_string_id"     (e.g., "d10_mission_hub")
+    capturedWarTime   = uint64_t (war time at capture)
+    serObjOrigAddr    = uint64_t (server object original address)
+    entityDeep        = JSON string (entity hierarchy dump)
+    entityDataDeep    = JSON string (entity data payload dump)
+    Stored in:        C:\libertea_replay_cap.json
+
+  Capture Flow:
+    1. User clicks "Probe ON" (waits for next mission load)
+    2. Hook intercepts session creation in game.dll
+    3. Reads GetActiveSession() -> Session*
+    4. Session+0x28 -> sub-object pointer
+    5. Session+0x128 -> activity list pointer
+    6. Extracts: missionId, warTime, entityDeep, entityDataDeep
+    7. Serializes to JSON: {"missionId":"...","serObj":"...",
+       "entityDeep":"...","entityDataDeep":"...","capturedWarTime":1234}
+    8. Writes to C:\libertea_replay_cap.json
+    9. Log: "CAPTURED missionId=%s"
+
+  Replay/Farming Flow:
+    1. Load capture from C:\libertea_replay_cap.json
+    2. Auto-replay toggle ON starts a timer (configurable, default 2 min)
+    3. SC timer counts down; when 0:
+       a. Start batch fire: "Firing SC batch (9 calls x 500ms)..." 
+          or "Firing MEDAL batch (9 calls x 500ms)..."
+       b. Fire 9 HTTP POST requests to:
+          https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end
+       c. Each call spaced 500ms apart
+       d. After 9 calls, enter 58-second cooldown
+       e. Log: "Cooldown: %ds remaining..."
+    4. Alternate SC and Medal batches (configurable)
+    5. SC goal reached -> auto-stop
+    6. Auto-sync distributes SC across lobby members
+
+  HTTP Implementation:
+    - Uses winhttp.dll / wininet.dll / libcurl.dll for HTTPS
+    - POST with Content-Type: application/json
+    - Body: {"missionId":"...", "entityDataDeep":"...", 
+             "entittyDeep":"...", "capturedWarTime":...}
+    - Handles timeouts, retries (retry #%d/%d)
+    - Golden capture handling: "[HTTP-RESP] Golden capture: hi2=%p rawPost=%p"
+
+  Hash Table Bypass (Critical for SC farming):
+    - Game.dll maintains a hash table of consumed SC entities
+    - Two INSERT call sites add entity IDs to prevent double-claiming
+    - Both sites are NOP-patched (0x90 0x90 ...)
+    - This is what allows repeated API replay without server rejection
+    - Also "NOP shield relay cooldown write" - prevents cooldown on relay
+
+  External dependencies:
+    - game.dll: GetActiveSession, Session structure offsets
+    - winhttp.dll: WinHttpOpen, WinHttpConnect, WinHttpOpenRequest,
+      WinHttpSendRequest, WinHttpReceiveResponse, WinHttpReadData
+    - libcurl.dll: curl_easy_init, curl_easy_setopt, curl_easy_perform
+    - kernel32.dll: CreateFileW, WriteFile, ReadFile (for capture JSON)
+
+  Recreation Difficulty: EXTREME
+    Requires deep understanding of game's network protocol, session
+    structures, and server-side validation. The hash table NOP bypass
+    is critical and highly version-specific. Server rate limiting
+    must be respected or you'll be detected.
+
+--------------------------------------------------------------------------------
+A.8 - WEAPON XP OVERRIDE SYSTEM
+--------------------------------------------------------------------------------
+
+  Location:      .text RVA ~0x073A30 area (86 calls, weapon XP functions)
+                 Log strings: "[WeaponEditor] Hook", "[WeaponOvr] Patched %d..."
+
+  Function:
+    Overrides weapon XP assignment in the game's lobby system.
+
+    51 Primary Weapons (full list in analysis file):
+      AR-23P Liberator Penetrator, AR-23C Liberator Concussive,
+      AR-23A Liberator Carbine, AR-48 Truth Whisperer,
+      AR-59 Suppressor, R-72 Censor, R-63CS Diligence Counter-Sniper,
+      MA5C Assault Rifle, M7S SMG, SMG-203 Gallant,
+      SMG/FLAM-34 Stoker, SG-8F Punisher Fire of Liberty,
+      SG-225SP Breaker Spray & Pray, SG-97 Sweeper,
+      M90A Shotgun, DBS-2 Double Freedom, AR/GL-21 One-Two,
+      Las-16 Trident, Autocannon, Laser Cannon, Quasar Cannon,
+      Flamethrower, Railgun, ... (28 more)
+
+  Operation:
+    1. Select primary weapon via combo dropdown (##pwcombo)
+    2. Configure replays per gun (##repperwep)
+    3. Mode: All Guns ON (##ag) cycles through all 51 weapons
+    4. Mode: Selected Guns ON (##sg) with checkbox list (##sglist)
+    5. Each cycle: patches lobby weapon slot data structure
+       - Target: weapon slot array in session/lobby object
+       - Writes weapon ID to override the equipped primary weapon
+       - All 4 lobby members receive XP for the overridden weapon
+    6. Weapon search filter (##sgsearch) for the checkbox list
+    7. Select all / Deselect all buttons (##sgall, ##sgnone)
+
+  Log entries:
+    "[AllGuns] Weapon: %s (%d/%d), cycle %d/%d"
+    "[SelectedGuns] Weapon: %s (slot %d/%d), cycle %d/%d"
+    "[WeaponOvr] Patched %d weapon slot(s) -> ID %u (%s)"
+    "Last replay: %d slot(s) patched"
+
+  External dependencies:
+    - game.dll: lobby weapon slot data structure
+    - user32.dll: (PostMessage for WM_SC_DISPATCH)
+
+  Recreation Difficulty: HARD
+    Must reverse engineer the lobby weapon assignment system, find
+    the weapon ID enum mapping, and understand the weapon slot array
+    layout in the session structure.
+
+--------------------------------------------------------------------------------
+A.9 - PLAYER CHEAT MODULES
+--------------------------------------------------------------------------------
+
+  God Mode (Player Only):
+    Location: ~0x0011D0 area (64 calls)
+    3 hooks installed: Hook1, Hook2, Hook3
+    Targets: damage receive function, death flag setter, health check bypass
+    Log: "[GodMode] READY ... Hook1=0x%llX Hook2=0x%llX Hook3=0x%llX"
+    
+  Movement Speed:
+    Slider: ##spd (0.1f precision)
+    Multiplier: ##smult
+    Patches speed value in player movement structure
+
+  No Ragdoll:
+    Disables ragdoll physics flag on player
+
+  No Recoil:
+    NOPs recoil calculation in weapon fire function
+
+  No Boundary:
+    Signature: 0F 84 ?? ?? ?? ?? 80 7F ?? ?? 0F 85 ?? ?? ?? ?? F3 0F
+    Forces unconditional jump at boundary check (bypasses kill trigger)
+    Description: "Force unconditional jump (bypass boundary)"
+
+  Landing Speed Multiply:
+    Signature: F3 0F 11 44 3B ?? F3 0F 59 C7 F3 0F 5A C0
+    NOPs landing speed multiplier write
+
+  Fast Landing:
+    Reduces landing animation time
+
+  Longer Hover:
+    NOPs hover time limit check
+
+  Fly Speed (for Dark Fluid / Hover / Jetpack):
+    Part of Dark Fluid Pack editor
+    Edits: fly speed, gravity, fuel, impulse, boost duration
+
+  External dependencies: game.dll (various functions)
+  Difficulty: MEDIUM-HARD (game-specific offsets, must survive patches)
+
+--------------------------------------------------------------------------------
+A.10 - COMBAT CHEAT MODULES
+--------------------------------------------------------------------------------
+
+  Infinite Stratagems:
+    Pattern: 42 83 2C 81 ?? 48
+    Patches strategem count decrement to NOP
+    Description: "Force unconditional jump (bypass strategem count)"
+
+  Instant Stratagem Call-in:
+    Toggle: ##isc
+    Patches call-in time to zero (NOP timer countdown write)
+
+  Mass Strat Drop:
+    Toggle: ##msd, Count: ##msc
+    Marked [N/A] in current version (not working after patch)
+
+  No Turret Overheat:
+    Signature: F3 0F 11 4C A8 ?? 49
+    NOPs turret overheat accumulation
+    Description: "NOP turret heat accumulation"
+
+  Infinite Turret Duration:
+    Signature: F3 45 0F 11 5E ?? E9
+    NOPs turret timer write
+    Description: "NOP turret timer write"
+
+  Expire All Turrets:
+    Button - destroys all placed turrets
+    Description: "NOP conditional jump so turrets always expire immediately"
+
+  Kill Counter:
+    Signature: 39 46 ?? 75 ?? FF C5
+    Display: "Kill Count: %.0f"
+    Hooks the kill increment function for stats tracking
+
+  Infinite Horde Mode:
+    Toggle: ##erad_ih
+    Enemy Spawner control (marked "Coming Soon" in earlier versions)
+
+  Infinite Ammo:
+    Patches ammo decrement
+
+  No Reload:
+    Bypasses reload animation/sequence
+
+  Infinite Grenades:
+    NOPs grenade count conversion (CVTSS2SD + MULSS patched)
+    Signature: 0F 5B DB F3 41 0F 59 4E ?? F3
+
+  Infinite Stims:
+    NOPs stim count decrement
+
+  No Laser Overheat:
+    NOPs laser heat accumulation for laser weapons
+
+  Instant Charge:
+    NOPs railgun/quasar charge calculation
+    Description: "NOP railgun charge calculation"
+
+  Grenade Fuse Time:
+    Signature: F3 0F 11 44 C8 ?? 0F
+    NOPs grenade fuse timer write
+    Description: "NOP fuse timer write"
+
+  External dependencies: game.dll (multiple functions)
+  Difficulty: MEDIUM (mostly simple NOP patches)
+
+--------------------------------------------------------------------------------
+A.11 - AUTH / SUBSCRIPTION SYSTEM
+--------------------------------------------------------------------------------
+
+  Location:      Login widget area (##lock_screen)
+  
+  Function:
+    1. On startup, show login overlay blocking main UI
+    2. User enters: username (##userinput) + password (##passinput)
+       OR access key (##keyinput)
+    3. Sends HTTPS request to Cloudflare Workers backend:
+       https://libertea.libertea4.workers.dev/
+       (exact auth endpoint not fully exposed in strings)
+    4. Backend validates subscription:
+       - Returns expiry date, subscription tier, status
+       - States: Active, Lifetime, Expired
+    5. If valid: unlock main UI, display ##sub_info
+    6. If invalid/expired: show error, stay on login screen
+
+  GUID: 60862556-ee16-4ae4-b002-64f6acbc66c6
+    (likely embedded as client identifier or version tracking ID)
+
+  External dependencies:
+    - winhttp.dll or libcurl.dll (for HTTPS)
+    - bcrypt.dll (for password/key hashing, if client-side)
+
+  Recreation Difficulty: EASY-MEDIUM
+    Simple HTTPS POST to a REST endpoint. The backend is the real work.
+
+--------------------------------------------------------------------------------
+A.12 - UPDATE CHECKER
+--------------------------------------------------------------------------------
+
+  Location:      .text, likely near startup code
+
+  Function:
+    1. On injector startup (LIBERTEA_Bypass.exe):
+       GET https://libertea.libertea4.workers.dev/menu/version
+       Returns: integer version number (e.g., "15")
+    2. Compare against local LIBERTEA.version file
+    3. If server version > local:
+       a. GET https://libertea.libertea4.workers.dev/menu/download
+       b. Download new LIBERTEA.DLL
+       c. Save as LIBERTEA.DLL.tmp
+       d. Atomically rename to LIBERTEA.DLL
+       e. Update LIBERTEA.version with new version number
+       f. Relaunch injector with --retry flag
+    4. Version shown in UI: "TOOL  v414"
+
+  External dependencies:
+    - winhttp.dll or libcurl.dll (HTTPS)
+    - kernel32.dll: MoveFileExW (MOVEFILE_REPLACE_EXISTING)
+
+  Recreation Difficulty: EASY
+    Simple version check GET + binary download. Standard update pattern.
+
+--------------------------------------------------------------------------------
+A.13 - DEBUG / LOGGING SYSTEM
+--------------------------------------------------------------------------------
+
+  Location:      .text RVA ~0x0A44D0 (173 calls - likely log function)
+                 Debug strings scattered throughout .text
+
+  Function:
+    Conditional debug logging to file and optional in-game overlay.
+    
+    Log file format:
+      === LIBERTEA CRASH LOG ===
+      Time: %04u-%02u-%02u %02u:%02u:%02u
+      (followed by runtime state dump)
+
+    Log levels/types:
+      [HTTP]        - Network request/response logging
+      [HTTP-RESP]   - Server response details
+      [SC]          - SC/Medal farming state
+      [WEAPON]      - Weapon override operations
+      [GodMode]     - Hook installation status
+      [UnlockArmory]- Armory unlock status
+      [Auto]        - Auto-replay operations
+      [Replay]      - Replay watchdog
+      [Burst]       - Burst replay operations
+      [WeaponOvr]   - Weapon override details
+      [+]           - Success/info messages
+
+    In-game overlay log: ##log_scroll tab shows filtered log entries
+
+  External dependencies: kernel32.dll (WriteFile, GetLocalTime)
+  Difficulty: EASY (standard logging)
+
+--------------------------------------------------------------------------------
+A.14 - VEH CRASH RECOVERY SYSTEM
+--------------------------------------------------------------------------------
+
+  Location:      .text (VEH registration at startup)
+                 VEH handler address embedded in TLS or explicit AddVectoredExceptionHandler call
+
+  Function:
+    1. AddVectoredExceptionHandler(1, VEH_Handler) called at init
+       (1 = first in handler chain, before SEH)
+    2. VEH_Handler catches:
+       - EXCEPTION_ACCESS_VIOLATION
+       - EXCEPTION_ILLEGAL_INSTRUCTION
+       - EXCEPTION_STACK_OVERFLOW
+    3. On crash:
+       a. Log crash time and context
+       b. Save SC loop state (batch position, cooldown timer, mission ID)
+       c. Save replay progress
+       d. Reset stuck state flags
+       e. Log: "[SC] VEH recovered crash"
+       f. Increment "Crashes absorbed: %d" counter
+       g. Return EXCEPTION_CONTINUE_EXECUTION (resume from crash)
+    4. Replay Watchdog:
+       - Monitors replayInProgress flag
+       - If stuck > timeout, resets it
+       - Log: "[Replay] Watchdog: reset stuck replayInProgress flag"
+
+  External dependencies:
+    - kernel32.dll: AddVectoredExceptionHandler, RemoveVectoredExceptionHandler
+
+  Recreation Difficulty: HARD
+    Exception handlers in x64 are complex. Must correctly restore register
+    state and resume execution. VEH + memory access violations = fragile.
+
+--------------------------------------------------------------------------------
+A.15 - INJECTOR (LIBERTEA_Bypass.exe)
+--------------------------------------------------------------------------------
+
+  Location:      Separate executable, not in LIBERTEA.DLL
+                 (Hash: 3DE503976D6E5EB6...)
+
+  Function:
+    1. Self-update check (version check against Workers endpoint)
+    2. Enable SeDebugPrivilege via ntdll.dll (token privilege elevation)
+    3. Find process: helldivers2.exe
+    4. Block GameGuard:
+       a. Find GameMon.des / GameMon64.des kernel driver files
+       b. Rename or delete driver files before GameGuard loads them
+       c. OR inject before GameGuard initializes (race condition)
+       d. OR suspend GameGuard threads post-initialization
+    5. Allocate memory in target: VirtualAllocEx(PROCESS_VM_OPERATION | PROCESS_VM_WRITE)
+    6. Write DLL path string to target memory: WriteProcessMemory
+    7. Create remote thread: CreateRemoteThread(kernel32!LoadLibraryW, dll_path)
+    8. Wait for thread to complete
+    9. DLL's DllMain now runs: decompresses .text, resolves imports,
+       installs hooks, creates overlay
+
+  External dependencies:
+    - ntdll.dll: RtlAdjustPrivilege (SeDebugPrivilege), NtOpenProcess
+    - kernel32.dll: OpenProcess, VirtualAllocEx, WriteProcessMemory,
+      CreateRemoteThread, WaitForSingleObject
+
+  Recreation Difficulty: MEDIUM
+    Standard DLL injection with GameGuard bypass (the hard part is
+    finding a reliable way to disable GameGuard before injection).
+
+
+================================================================================
+SECTION B: DATA FLOW DIAGRAM (Text-Based)
+================================================================================
+
+  [LIBERTEA_Bypass.exe]                    [helldivers2.exe process]
+       |                                          |
+       | 1. Enable SeDebugPrivilege               |
+       | 2. Block GameMon.des/.sys                 |
+       | 3. OpenProcess(helldivers2.exe)           |
+       | 4. VirtualAllocEx (allocate DLL path)     |
+       | 5. WriteProcessMemory (write path)        |
+       | 6. CreateRemoteThread(LoadLibraryW)  ---->|
+       |                                          |
+       |                        [DLL loaded into game process]
+       |                                          |
+       |                    DllMain(DLL_PROCESS_ATTACH)  - Entry in .rsrc
+       |                          |                  |
+       |                          v                  |
+       |                    [.rsrc stub code]        |
+       |                    1. Read compressed data  |
+       |                    2. aPLib decompress      |
+       |                    3. Write to .text RVA    |---- .text: 0x001000
+       |                    4. Jump to real DllMain  |     (3,489,792 bytes)
+       |                          |                  |
+       |                          v                  |
+       |                    [Real DllMain @ 0x1480]  |
+       |                    1. Call import resolver  |----> .text stubs (0x1020)
+       |                    2. Resolve IAT entries   |----> kernel32, ntdll, etc.
+       |                    3. Parse ntdll.dll disk  |----> Extract SSNs
+       |                    4. Build syscall stubs   |----> Patch stub code
+       |                    5. Find game.dll         |----> GetModuleHandle
+       |                          |                  |
+       |                          v                  |
+       |                    [Pattern Scanner]        |
+       |                    For each pattern:        |
+       |                      Scan game.dll .text    |
+       |                      Record found addrs     |
+       |                      Log %d/%d found        |
+       |                          |                  |
+       |                          v                  |
+       |                    [Hook Installation]      |
+       |                    For each hook type:      |
+       |                      NtProtectVirtualMemory |
+       |                      Write detour/NOP/jmp   |
+       |                      Verify hook integrity  |
+       |                      Log status             |
+       |                          |                  |
+       |                          v                  |
+       |                    [ImGui Overlay Init]     |
+       |                    1. CreateContext()       |
+       |                    2. Init OpenGL backend   |
+       |                    3. Find game window      |
+       |                    4. SetWindowLongPtr      |
+       |                    5. Hook wglSwapInterval  |
+       |                          |                  |
+       |                          v                  |
+       |  +---> [Game render loop] ---+              |
+       |  |                           |              |
+       |  |   wglSwapIntervalEXT hook |              |
+       |  |       |                   |              |
+       |  |       v                   |              |
+       |  |   ImGui::NewFrame()      |              |
+       |  |   Render login/form UI   |              |
+       |  |   ImGui::Render()        |              |
+       |  |   Call original swap     |              |
+       |  |                           |              |
+       |  +--- Game frame drawn    <--+              |
+       |                          |                  |
+       |                          v                  |
+       |                    [Message Loop]           |
+       |                    Process user input       |
+       |                    Toggle features          |
+       |                          |                  |
+       |         +----------------+------------------+
+       |         |                |                   |
+       |         v                v                   v
+       |   [SC Farming]   [Weapon XP]    [Player Cheats]
+       |         |                |                   |
+       |   Capture mission   Override weapon    Memory patches
+       |   Replay API calls  XP assignment      on game.dll
+       |   Burst fire loop   Auto-cycle guns    via syscall
+       |   Cooldown timer    Distribution       NtProtectVm
+       |
+       |   [Network Threads]
+       |   winhttp/libcurl POST
+       |   -> api.live.prod.thehelldiversgame.com
+       |   -> libertea.libertea4.workers.dev
+       |
+       |   [VEH Crash Recovery]
+       |   Catch exceptions
+       |   Save state
+       |   Resume operation
+
+================================================================================
+SECTION C: RECREATION STRATEGY (Per Component)
+================================================================================
+
+--------------------------------------------------------------------------------
+C.1 - PE PACKER / DECOMPRESSION STUB
+--------------------------------------------------------------------------------
+
+  What it does:
+    Compresses the .text section with a custom aPLib variant, stores it
+    in the .rsrc section, and writes a decompression stub as the entry
+    point. At runtime, decompresses .text into memory.
+
+  Key functions/RVAs:
+    - Entry stub: PE Entry Point RVA 0x3B3B50 (in second .rsrc section)
+    - Decompressor: RVA 0x3C4F30 (custom aPLib variant)
+    - Source data: RVA ~0x355000 in first .rsrc section (raw offset 0x400)
+    - Destination: RVA 0x001000 (.text section start, 0x354000 bytes)
+    - Post-decomp: jump to real DllMain at ~0x1480
+
+  External dependencies:
+    - aPLib compression library (customized - sar/xor NOT encoding)
+    - Assembly knowledge (the stub is hand-written x64 asm)
+
+  How to recreate:
+    1. Write cheat as normal DLL with standard .text section
+    2. Extract .text section bytes (from Object Contents after link)
+    3. Compress with aPLib (or implement the custom variant):
+       - Standard aPLib uses (offset, length) pairs with gamma encoding
+       - Custom variant uses: sar eax,1 for offset encoding with
+         LSB determining copy setup path
+       - End-of-phase sentinel: eax XOR 0xFFFFFFFF == 0
+    4. Create packing stub:
+       ```nasm
+       ; Entry point
+       DllMain_Stub:
+           sub  rsp, 0x28
+           lea  rsi, [rip + compressed_data]   ; source
+           lea  rdi, [rip + .text_base]       ; destination
+           call aPLib_Decompress
+           ; Jump to real DllMain
+           lea  rax, [rip + real_DllMain]
+           add  rsp, 0x28
+           jmp  rax
+       ```
+    5. Modify PE to zero .text raw size, adjust section table
+    6. Link stub as new entry point
+
+  Difficulty: HARD
+    Requires deep understanding of PE format, compression algorithms,
+    and x64 assembly. The aPLib variant is non-standard.
+
+--------------------------------------------------------------------------------
+C.2 - IMPORT RESOLUTION SYSTEM
+--------------------------------------------------------------------------------
+
+  What it does:
+    Resolves delayed imports after .text decompression. Uses stubs
+    at 0x1020-0x10A0 that lazily resolve functions on first call.
+
+  Key functions/RVAs:
+    - Stubs: 0x1020 through 0x10A0 (group)
+    - Tail-call resolver: 0x8BEB8
+    - Allocator (malloc wrapper): 0x8BB24
+    - Init helper: 0x8B880
+
+  How to recreate:
+    Each import stub:
+    ```nasm
+    ImportStub_SomeFunction:
+        lea  rcx, [rip + _str_SomeFunction]  ; "SomeFunction" string
+        jmp  qword ptr [rip + _ptr_resolver] ; common resolver
+    ```
+    
+    Resolver:
+    ```c
+    void* ResolverFunc(const char* func_name, const char* dll_name) {
+        HMODULE mod = GetModuleHandleA(dll_name);
+        if (!mod) mod = LoadLibraryA(dll_name);
+        void* proc = GetProcAddress(mod, func_name);
+        // Self-patch the stub to avoid re-resolution
+        PatchStubToDirect(func_name, proc);
+        return proc;
+    }
+    ```
+
+  Difficulty: EASY
+    Standard lazy import resolution. Well-documented technique.
+
+--------------------------------------------------------------------------------
+C.3 - SYSCALL STUB GENERATION
+--------------------------------------------------------------------------------
+
+  What it does:
+    Reads ntdll.dll from disk, extracts system service numbers (SSNs),
+    and builds direct syscall stubs that bypass user-mode hooks.
+
+  Key functions/RVAs:
+    - SSN parser: reads ntdll.dll export table, parses mov eax, imm
+    - Stub RVAs: 0x00F304, 0x02EB95, 0x02FCC6, 0x030591, 0x030852,
+      0x030CFE, 0x030FF2, 0x03458D
+
+  How to recreate:
+    ```c
+    // 1. Read ntdll.dll from disk
+    HANDLE hFile = CreateFileW(ntdll_path, GENERIC_READ, ...);
+    BYTE* ntdll_bytes = ReadFile(hFile);
+    
+    // 2. For each target function
+    int GetSSN(const char* funcName, BYTE* ntdll_data) {
+        DWORD rva = GetExportRVA(ntdll_data, funcName);
+        BYTE* func_bytes = ntdll_data + RvaToOffset(rva);
+        // Parse: B8 XX XX XX XX (mov eax, imm32)
+        if (func_bytes[0] == 0xB8)
+            return *(int*)&func_bytes[1];
+        // Some functions: 4C 8B D1 B8 XX XX XX XX
+        // (mov r10, rcx; mov eax, imm32) - Windows 10 1809+
+        if (func_bytes[0] == 0x4C && func_bytes[1] == 0x8B &&
+            func_bytes[2] == 0xD1 && func_bytes[3] == 0xB8)
+            return *(int*)&func_bytes[4];
+        return -1;
+    }
+    
+    // 3. Build stub
+    // mov r10, rcx
+    // mov eax, <SSN>
+    // syscall
+    // ret
+    ```
+
+  Difficulty: HARD
+    SSNs vary per Windows build. Must handle multiple prologue patterns.
+    Reading ntdll from disk is detectable by some anti-cheats.
+
+--------------------------------------------------------------------------------
+C.4 - PATTERN SCANNER
+--------------------------------------------------------------------------------
+
+  What it does:
+    Scans game.dll's .text section for byte signatures with wildcards.
+    Essential for version-independent hook targeting.
+
+  How to recreate:
+    ```c
+    struct Pattern {
+        const char* name;
+        const BYTE* bytes;
+        const char* mask;   // 'x' for exact, '?' for wildcard
+        int offset;         // added to match address
+    };
+    
+    uintptr_t FindPattern(HMODULE module, const Pattern& pat) {
+        MODULEINFO info;
+        GetModuleInformation(GetCurrentProcess(), module, &info, sizeof(info));
+        BYTE* start = (BYTE*)info.lpBaseOfDll;
+        BYTE* end = start + info.SizeOfImage - pat.len;
+        
+        for (BYTE* p = start; p < end; p++) {
+            bool found = true;
+            for (int i = 0; i < pat.len; i++) {
+                if (pat.mask[i] == 'x' && p[i] != pat.bytes[i]) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) return (uintptr_t)(p + pat.offset);
+        }
+        return 0;
+    }
+    ```
+
+  Difficulty: EASY-MEDIUM
+    Basic string search with wildcards. The challenge is choosing
+    stable signatures that survive game updates.
+
+--------------------------------------------------------------------------------
+C.5 - HOOK INSTALLER
+--------------------------------------------------------------------------------
+
+  What it does:
+    Installs code hooks (detours, NOPs, JMPs) into game.dll using
+    direct syscalls to bypass EDR/anti-cheat hooks on VirtualProtect.
+
+  How to recreate:
+    ```c
+    bool InstallHook(uintptr_t target, void* detour, void** original, int length) {
+        DWORD old;
+        // Use syscall, not VirtualProtect (bypasses user-mode hooks)
+        NTSTATUS st = SysNtProtectVirtualMemory(
+            GetCurrentProcess(), (void**)&target, &length,
+            PAGE_EXECUTE_READWRITE, &old);
+        if (st < 0) return false;
+        
+        // Save original bytes for trampoline
+        memcpy(trampoline_bytes, (void*)target, length);
+        
+        // Write JMP [RIP+0] to detour (12-byte absolute jump)
+        // FF 25 00 00 00 00 [8-byte address of detour]
+        BYTE patch[14] = {0xFF, 0x25, 0x00, 0x00, 0x00, 0x00};
+        *(uint64_t*)&patch[6] = (uint64_t)detour;
+        memcpy((void*)target, patch, 14);
+        
+        // Write JMP back after original code in trampoline
+        trampoline_bytes[length] = 0xFF; trampoline_bytes[length+1] = 0x25;
+        trampoline_bytes[length+2] = 0x00; trampoline_bytes[length+3] = 0x00;
+        trampoline_bytes[length+4] = 0x00; trampoline_bytes[length+5] = 0x00;
+        *(uint64_t*)&trampoline_bytes[length+6] = target + length;
+        
+        SysNtProtectVirtualMemory(GetCurrentProcess(), (void**)&target,
+                                   &length, old, &old);
+        *original = trampoline;
+        return true;
+    }
+    ```
+
+  Difficulty: HARD
+    x64 absolute jumps need 14 bytes minimum. Must handle RIP-relative
+    code in the original function. Trampoline construction is complex.
+
+--------------------------------------------------------------------------------
+C.6 - IMGUI OVERLAY
+--------------------------------------------------------------------------------
+
+  What it does:
+    Renders cheat UI as overlay on the game. Uses Dear ImGui with
+    OpenGL backend, hooked via wglSwapIntervalEXT.
+
+  How to recreate:
+    ```c
+    // 1. Initialize
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGui_ImplWin32_Init(gameHwnd);
+    ImGui_ImplOpenGL3_Init("#version 130");
+    
+    // 2. Hook wglSwapIntervalEXT
+    // Using MinHook or similar
+    MH_CreateHook(wglSwapIntervalEXT, &HookedSwapInterval, &origSwap);
+    
+    // 3. In hook:
+    BOOL WINAPI HookedSwapInterval(int interval) {
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplWin32_NewFrame();
+        ImGui::NewFrame();
+        
+        // Render UI
+        RenderLiberTeaUI();
+        
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        
+        return origSwap(interval);
+    }
+    ```
+
+  Difficulty: MEDIUM
+    Dear ImGui is well-documented. The hook point and window management
+    are the tricky parts. Must not interfere with game rendering.
+
+--------------------------------------------------------------------------------
+C.7 - SC FARMING ENGINE
+--------------------------------------------------------------------------------
+
+  What it does:
+    Captures mission completion API calls and replays them to farm
+    Super Credits and Medals without playing missions.
+
+  How to recreate:
+    ```c
+    // Capture phase
+    struct MissionCapture {
+        char missionId[64];
+        uint64_t warTime;
+        char entityDeep[8192];    // JSON
+        char entityDataDeep[8192]; // JSON
+        uint64_t serObjOrigAddr;
+    };
+    
+    void CaptureMission() {
+        void* session = GetActiveSession();
+        if (!session) return;
+        
+        MissionCapture cap = {};
+        strcpy(cap.missionId, ReadMissionId(session));
+        cap.warTime = ReadWarTime(session);
+        cap.serObjOrigAddr = ReadSerObjAddr(session);
+        ExtractEntityDeep(session, cap.entityDeep);
+        ExtractEntityDataDeep(session, cap.entityDataDeep);
+        
+        // Serialize to JSON and save
+        SaveToFile("C:\\libertea_replay_cap.json", SerializeCapture(cap));
+    }
+    
+    // Replay/farm phase
+    void FireSCBatch() {
+        MissionCapture cap = LoadCapture("C:\\libertea_replay_cap.json");
+        
+        for (int i = 0; i < 9; i++) {
+            // Build POST body
+            char body[32768];
+            snprintf(body, sizeof(body),
+                "{\"missionId\":\"%s\",\"entityDataDeep\":\"%s\","
+                "\"entityDeep\":\"%s\",\"capturedWarTime\":%llu}",
+                cap.missionId, cap.entityDataDeep,
+                cap.entityDeep, cap.warTime);
+            
+            // Send via HTTPS
+            WinHttpPost("api.live.prod.thehelldiversgame.com",
+                        "/api/Operation/Mission/end", body);
+            
+            Sleep(500);  // 500ms spacing
+        }
+        
+        cooldown_timer = 58000;  // 58 second cooldown
+    }
+    ```
+
+  Difficulty: EXTREME
+    Requires deep reverse engineering of game session structures,
+    server API protocol, and entity serialization. Also needs the
+    hash table NOP bypass to prevent duplicate detection.
+
+--------------------------------------------------------------------------------
+C.8 - AUTH / SUBSCRIPTION
+--------------------------------------------------------------------------------
+
+  What it does:
+    Validates user subscription via HTTPS to Cloudflare Workers.
+    Blocks UI access until authenticated.
+
+  How to recreate:
+    ```c
+    bool Authenticate(const char* user, const char* pass) {
+        char payload[512];
+        snprintf(payload, sizeof(payload),
+            "{\"user\":\"%s\",\"pass\":\"%s\"}", user, pass);
+        
+        std::string response = HttpPost(
+            "libertea.libertea4.workers.dev",
+            "/auth", payload);
+        
+        // Parse JSON response
+        json j = json::parse(response);
+        return j["status"] == "Active" || j["status"] == "Lifetime";
+    }
+    ```
+
+  Difficulty: EASY
+    Standard REST API. The backend is the real work (subscription
+    management, payment processing, license validation).
+
+
+================================================================================
+SECTION D: USABLE SCRIPT IDEAS
+================================================================================
+
+--------------------------------------------------------------------------------
+D.1 - EXTRACT AND DECOMPRESS PACKED .TEXT
+--------------------------------------------------------------------------------
+
+  Script: extract_text_section.py
+
+  Function:
+    Reads the packed LIBERTEA.DLL, locates the compressed .text data
+    in the .rsrc section, and applies the custom aPLib decompression
+    algorithm to produce the original .text section bytes.
+
+  Approach:
+    1. Parse PE headers to find sections
+    2. Locate .rsrc section #1 (raw offset 0x400)
+    3. Read compressed data (raw 0x400 through end of section)
+    4. Implement the custom aPLib decompressor:
+       - Bit reader with add ebx,ebx / adc ebx,ebx semantics
+       - Literal/match loop with custom gamma offset encoding
+       - SAR-based offset classification (LONG vs SHORT match)
+       - LSB-driven copy setup path selection
+       - Sentry detection: eax XOR 0xFFFFFFFF == 0
+    5. Write decompressed data to output file
+    6. Verify: first bytes should look like x64 code (not MZ header)
+
+  Key insight: The decompressor at RVA 0x3C4F30 is the reference
+  implementation. Reverse-engineer it instruction by instruction.
+
+  Output: .text_decompressed.bin (3,489,792 bytes)
+
+  Difficulty: HARD (requires reverse-engineering custom compression)
+
+
+--------------------------------------------------------------------------------
+D.2 - PARSE AND VALIDATE PATTERN SIGNATURES
+--------------------------------------------------------------------------------
+
+  Script: validate_patterns.py
+
+  Function:
+    Given the decompressed .text section and a copy of game.dll,
+    validates all byte-pattern signatures to determine which hooks
+    are still valid for the current game version.
+
+  Approach:
+    1. Load pattern database (signatures from architecture doc)
+    2. Load game.dll into memory
+    3. For each pattern:
+       a. Scan game.dll .text for byte match (with ?? wildcards)
+       b. Report: FOUND/MISSING, address if found
+       c. Calculate: how many patterns match out of total
+    4. Print compatibility matrix
+    5. Suggest: which features will work vs. which are broken
+    6. If broken, suggest: how to find new signature (search for
+       nearby unique byte sequences)
+
+  Output: Pattern validation report showing game version compatibility
+
+  Difficulty: EASY (simple byte search)
+
+
+--------------------------------------------------------------------------------
+D.3 - MONITOR SC FARMING API TRAFFIC
+--------------------------------------------------------------------------------
+
+  Script: monitor_sc_traffic.py
+
+  Function:
+    Sniffs network traffic from the game process to detect and
+    analyze SC farming HTTP requests. Works at the packet level
+    or via API hooking.
+
+  Approach:
+    Option A - Packet capture:
+    1. Use pcap/scapy to capture HTTPS traffic
+    2. Filter for traffic to api.live.prod.thehelldiversgame.com
+    3. Decode HTTPS (requires MITM proxy or SSLKEYLOGFILE)
+    4. Analyze POST body patterns:
+       - Look for repeated identical missionId
+       - Count requests per batch (should be 9)
+       - Measure inter-request timing (should be ~500ms)
+       - Measure batch cooldown (should be ~58s)
+    5. Alert if:
+       - >9 identical POSTs per minute
+       - Multiple batches without game activity
+       - Same warTime in multiple requests
+
+    Option B - DLL hooking:
+    1. Inject DLL into game process
+    2. Hook winhttp.dll: WinHttpSendRequest
+    3. Log all API calls with timestamps
+    4. Pattern-match for farming signatures
+
+  Difficulty: MEDIUM (HTTPS makes it harder; needs SSL interception)
+
+
+--------------------------------------------------------------------------------
+D.4 - DUMP IMGUI WIDGET TREE
+--------------------------------------------------------------------------------
+
+  Script: dump_imgui_widgets.py
+
+  Function:
+    Given the decompressed .text section, extracts and catalogs all
+    Dear ImGui widget identifiers, building a map of the UI layout.
+
+  Approach:
+    1. Open decompressed .text section
+    2. Scan for `##` in ASCII range (32-126 only)
+    3. Extract complete widget IDs (until whitespace or non-ASCII)
+    4. Deduplicate and sort
+    5. Classify by context:
+       - Input fields: sliders, combos, text inputs
+       - Buttons: "..." patterns, ##xx formats
+       - Labels: static text strings
+       - Containers: scrolling areas, tabs
+    6. Build widget hierarchy by matching parent/child patterns
+    7. Output: structured JSON with widget tree
+    8. Validate: compare against known list of 115 ImGui IDs
+
+  Added value: Can detect new UI features added in updates.
+
+  Difficulty: EASY (simple string scanning in binary)
+
+
+--------------------------------------------------------------------------------
+D.5 - ANALYZE HOOK INTEGRITY
+--------------------------------------------------------------------------------
+
+  Script: check_hook_integrity.py
+
+  Function:
+    Checks whether LIBERTEA's hooks are currently active in a
+    running game process by scanning memory for hook signatures.
+
+  Approach:
+    1. Attach to running helldivers2.exe process
+    2. For each known hook:
+       a. Locate pattern match address in game.dll (via scanner)
+       b. Read first 14 bytes at that address
+       c. Check if they match expected NOP/detour signature
+       d. If FF 25 00 00 00 00 detected: absolute JMP -> cheat hook
+       e. If sequence is 90 90 90...: NOP patch active
+    3. Report active vs inactive hooks
+    4. Detect hook tampering (unexpected bytes at hook site)
+    5. Check if original functions were restored (anti-cheat repair)
+
+  Output: Hook integrity report per feature module
+
+  Difficulty: MEDIUM (requires process memory access with SeDebugPrivilege)
+
+
+--------------------------------------------------------------------------------
+D.6 - DETECT CHEAT PRESENCE IN GAME PROCESS
+--------------------------------------------------------------------------------
+
+  Script: detect_libertea.py
+
+  Function:
+    Scans a running Helldivers 2 process for traces of LIBERTEA.DLL
+    to determine if the cheat is currently loaded.
+
+  Detection methods:
+    1. Module enumeration:
+       - EnumerateProcessModules -> look for LIBERTEA.DLL
+    2. Window detection:
+       - FindWindowW("LIBERTEAWnd", NULL) or "LIBERTEAOverlay"
+    3. ImGui artifact scan:
+       - Search process memory for "ImGui" strings
+       - Look for ## IDs unique to LiberTea (e.g., ##libertea_main)
+    4. Hook signature scan:
+       - Check game.dll .text for FF 25 00 00 00 00 at known hook sites
+       - Check for NOP sequences at known patch locations
+    5. Syscall stub detection:
+       - Search memory for B8 ?? ?? ?? ?? 0F 05 (mov eax, SSN; syscall)
+       - Cross-reference SSNs with ntdll.dll syscall table
+    6. Network traffic correlation:
+       - Monitor for HTTPS traffic to libertea.libertea4.workers.dev
+       - Monitor for rapid-fire POSTs to thehelldiversgame.com API
+    7. Filesystem artifacts:
+       - Check for C:\libertea_replay_cap.json
+       - Check for LIBERTEA.DLL* in common locations
+    8. GameGuard state check:
+       - Verify GameMon64.des driver is loaded
+       - Check if SeDebugPrivilege was used
+
+  Output: Detection confidence score with evidence list
+
+  Difficulty: MEDIUM (combines multiple detection vectors)
+
+
+================================================================================
+SECTION E: DLL DEPENDENCIES (FULL IAT)
+================================================================================
+
+  The import table resolves these DLLs (some dynamically):
+
+    Kernel/System:
+      kernel32.dll          - Core APIs (threads, memory, file I/O)
+      ntdll.dll             - Native API (syscalls, loaded from disk)
+      user32.dll            - Window management, input handling
+      gdi32.dll             - Fonts, basic drawing
+      opengl32.dll          - Overlay rendering
+      bcrypt.dll            - Cryptographic hashing (auth)
+
+    Network:
+      winhttp.dll           - HTTPS requests (SC farming, auth)
+      wininet.dll           - Alternative HTTP stack
+      libcurl.dll           - Alternative HTTP stack (in-game libcurl)
+
+    Game Input:
+      xinput1_1.dll         - Xbox controller support
+      xinput1_2.dll         - (probed in order of preference)
+      xinput1_3.dll         -
+      xinput1_4.dll         -
+      xinput9_1_0.dll       -
+
+    Game Integration:
+      game.dll              - Host game module (pattern-scanned, not imported)
+
+    API Sets (resolve to real DLLs at runtime):
+      api-ms-win-core-*     - Windows core API umbrella libraries
+      ext-ms-win-*          - Extended Windows API sets
+
+
+================================================================================
+SECTION F: KEY TECHNICAL INSIGHTS
+================================================================================
+
+  F.1 - Custom aPLib Variant:
+    The compression algorithm is NOT standard aPLib. Key differences:
+    - Uses sar eax, 1 (signed shift) for offset encoding, not shr
+    - LSB of offset is shifted out and used as COPY_SETUP selector
+    - End-of-phase sentry: eax XOR 0xFFFFFFFF == 0 (not eax == -1)
+    - Gamma encoding uses different bit ordering than standard
+    - COPY_SETUP_A vs alternate path decided by offset LSB
+
+  F.2 - Syscall Bypass Architecture:
+    - ntdll.dll is read raw from %WINDIR%\System32\ntdll.dll
+    - NOT via GetModuleHandle (would get hooked copy)
+    - SSNs extracted by parsing mov eax, XXXX in function prologue
+    - Each stub is self-patching (SSN written at runtime)
+    - Bypasses: EDR hooks, anti-cheat user-mode hooks, AV hooks
+
+  F.3 - GameGuard Bypass:
+    - Files targeted: GameMon.des, GameMon64.des (kernel drivers)
+    - Must be removed BEFORE they load (early boot or post-update)
+    - Some versions use a race condition: inject before GG init
+    - SeDebugPrivilege required for process manipulation
+
+  F.4 - Anti-Detection in the Packed DLL:
+    - .text section: 0 bytes on disk (RESOURCE section flag confusion)
+    - Entry point: in .rsrc section (confuses analysis tools)
+    - TimeDateStamp: zeroed (hides compilation date)
+    - Duplicate section names: two ".rsrc" sections
+    - RWX permissions on .text (suspicious but needed for runtime decompress)
+    - No export table (DLL has no exports - injector uses LoadLibrary, not GetProcAddress)
+
+  F.5 - Crash Resilience:
+    - VEH handlers catch access violations during SC farming
+    - State is persisted across crashes (C:\libertea_replay_cap.json)
+    - Watchdog timer resets stuck replay flags
+    - "Crashes absorbed" counter tracks how many crashes were survived
+
+================================================================================
+END OF ARCHITECTURE & BUILD RECREATION GUIDE
+================================================================================

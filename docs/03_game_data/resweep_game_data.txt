@@ -1,0 +1,2221 @@
+Strings: 11736 (7.3s)
+Instructions: 114801 (20.0s)
+################################################################################
+#  1. WEAPON ENUM VALUES
+################################################################################
+--- Weapon Names Found in Binary ---
+  02DB6F: "YE 3" [model number]
+  0C0400: "UTF-8" [model number]
+  0C0408: "UTF-16LEUNICODE" [model number]
+  0FD5E8: "AR-23 Liberator"
+  0FD5F8: "AR-61 Tenderizer"
+  0FD610: "BR-14 Adjudicator"
+  0FD640: "AR-32 Pacifier" [model number]
+  0FD650: "AR-2 Coyote" [model number]
+  0FD670: "R-63 Diligence"
+  0FD698: "R-6 Deadeye"
+  0FD6A8: "MP-98 Knight"
+  0FD6B8: "SMG-37 Defender"
+  0FD6C8: "SMG-72 Pummeler"
+  0FD6D8: "SMG-32 Reprimand"
+  0FD700: "SG-8 Punisher"
+  0FD710: "SG-8S Slugger"
+  0FD720: "SG-451 Cookout"
+  0FD730: "SG-225 Breaker"
+  0FD740: "SG-225IE Breaker Incendiary"
+  0FD760: "SG-20 Halt"
+  0FD770: "CB-9 Exploding Crossbow"
+  0FD788: "R-36 Eruptor"
+  0FD798: "PLAS-39 Accelerator Rifle" [model number]
+  0FD7B8: "SG-8P Punisher Plasma"
+  0FD7D0: "ARC-12 Blitzer"
+  0FD7E0: "LAS-5 Scythe"
+  0FD7F0: "LAS-16 Sickle"
+  0FD800: "PLAS-1 Scorcher"
+  0FD810: "PLAS-101 Purifier"
+  0FD828: "LAS-17 Double-Edged Sickle"
+  0FD848: "FLAM-66 Torcher"
+  0FD858: "JAR-5 Dominator"
+  0FD868: "VG-70 Variable" [model number]
+  0FD930: "Gas Resistance"
+  0FD968: "Siege Breaker"
+  0FDA28: "Concussive Reinforced"
+  0FDA40: "Concussive Grenadier"
+  0FDA58: "Concussive Hazmat"
+  0FDA98: "FS-37 Ravager" [model number]
+  0FDAA8: "FS-55 Devastator" [model number]
+  0FDAC0: "CW-4 Arctic Ranger" [model number]
+  0FDAD8: "CW-22 Kodiak" [model number]
+  0FDAE8: "SA-25 Steel Trooper" [model number]
+  0FDB00: "SA-12 Servo Assisted" [model number]
+  0FDB18: "SA-32 Dynamo" [model number]
+  0FDB28: "CE-74 Breaker"
+  0FDB38: "DP-00 Tactical" [model number]
+  0FDB48: "CE-35 Trench Engineer" [model number]
+  0FDB60: "CE-67 Titan" [model number]
+  0FDB70: "CE-27 Ground Breaker"
+  0FDB88: "CM-09 Bonesnapper" [model number]
+  0FDBA0: "CM-21 Trench Paramedic" [model number]
+  0FDBB8: "CM-17 Butcher" [model number]
+  0FDBC8: "CM-10 Clinician" [model number]
+  0FDBF0: "FS-61 Dreadnought" [model number]
+  0FDC08: "CE-07 Demolition Specialist" [model number]
+  0FDC28: "SC-15 Drone Master" [model number]
+  0FDC40: "FS-38 Eradicator" [model number]
+  0FDC58: "EX-03 Prototype 3" [model number]
+  0FDC70: "EX-16 Prototype 16" [model number]
+  0FDC88: "FS-34 Exterminator" [model number]
+  0FDCA0: "DP-40 Hero of the Federation" [model number]
+  0FDCC0: "TR-9 Cavalier of Democracy" [model number]
+  0FDCE0: "DP-11 Champion of the People" [model number]
+  0FDD00: "CM-14 Physician" [model number]
+  0FDD10: "TR-117 Alpha Commander" [model number]
+  0FDD28: "B-27 Fortified Commando"
+  0FDD40: "EX-00 Prototype X" [model number]
+  0FDD58: "CE-81 Juggernaut" [model number]
+  0FDD70: "DP-8 Mountain-Scaled" [model number]
+  0FDD88: "SC-37 Legionnaire" [model number]
+  0FDDD8: "DP-53 Saviour of the Free" [model number]
+  0FDDF8: "SC-30 Trailblazer Scout" [model number]
+  0FDE20: "FS-05 Marksman" [model number]
+  0FDE30: "FS-11 Executioner" [model number]
+  0FDE48: "SC-34 Infiltrator" [model number]
+  0FDE60: "TR-7 Ambassador of the Brand" [model number]
+  0FDE80: "AF-52 Lockdown" [model number]
+  0FDE90: "AF-91 Field Chemist" [model number]
+  0FDEA8: "UF-84 Doubt Killer" [model number]
+  0FDEC0: "SR-64 Cinderblock" [model number]
+  0FDED8: "IE-57 Hell-Bent" [model number]
+  0FDEE8: "GS-11 Democracy's Deputy" [model number]
+  0FDF08: "RE-824 Bearer of the Standard" [model number]
+  0FDF28: "AD-11 Livewire" [model number]
+  0FDF38: "BP-77 Grand Juror" [model number]
+  0FDF50: "DS-10 Big Game Hunter" [model number]
+  0FDF68: "CW-9 White Wolf" [model number]
+  0FDF78: "CE-64 Grenadier" [model number]
+  0FDF88: "PH-56 Jaguar" [model number]
+  0FDF98: "CE-101 Guerilla Gorilla" [model number]
+  0FDFD8: "KDM-500 Outrider" [model number]
+  0FDFF0: "RS-6 Fiend Destroyer" [model number]
+  0FE020: "RS-100 Sanctioner" [model number]
+  0FE038: "CPR-80 Bulwark" [model number]
+  0FE048: "SA-04 Combat Technician" [model number]
+  0FE060: "AF-50 Noxious Ranger" [model number]
+  0FE078: "AF-02 Haz-Master" [model number]
+  0FE090: "UF-50 Bloodhound" [model number]
+  0FE0A8: "UF-16 Inspector" [model number]
+  0FE0B8: "SR-24 Street Scout" [model number]
+  0FE0D0: "SR-18 Roadblock" [model number]
+  0FE0E0: "IE-3 Martyr" [model number]
+  0FE0F0: "IE-12 Righteous" [model number]
+  0FE100: "GS-17 Frontier Marshall" [model number]
+  0FE118: "GS-66 Lawmaker" [model number]
+  0FE128: "RE-2310 Honorary Guard" [model number]
+  0FE140: "RE-1861 Parade Commander" [model number]
+  0FE160: "AD-26 Bleeding Edge" [model number]
+  0FE178: "AD-49 Apollonian" [model number]
+  0FE190: "BP-20 Correct Officer" [model number]
+  0FE1A8: "BP-32 Jackboot" [model number]
+  0FE1B8: "DS-42 Federation's Blade" [model number]
+  0FE1D8: "DS-191 Scorpion" [model number]
+  0FE1E8: "RS-20 Constrictor" [model number]
+  0FE200: "RS-40 Beast of Prey" [model number]
+  0FE218: "SA-7 Headfirst" [model number]
+  0FE228: "SA-8 Ram" [model number]
+  0FE238: "PH-9 Predator" [model number]
+  0FE248: "PH-202 Twigsnapper" [model number]
+  0FE260: "I-09 Heatseeker"
+  0FE288: "KDM-763 Pacesetter" [model number]
+  0FE2A0: "KDM-73 Dragoon" [model number]
+  0FE2B0: "AC-1 Dutiful" [model number]
+  0FE2C0: "AC-2 Obedient" [model number]
+  0FE2F8: "RS-89 Shadow Paragon" [model number]
+  0FE310: "RS-67 Null Cipher" [model number]
+  0FE328: "CPG-48 Sapper" [model number]
+  0FE338: "CPH-26 Commandant" [model number]
+  0FE350: "FS-23 Battle Master" [model number]
+  0FE368: "TR-62 Knight"
+  0FE378: "CW-36 Winter Warrior" [model number]
+  0FECD0: "AR-23P Liberator Penetrator"
+  0FECF0: "AR-23C Liberator Concussive"
+  0FED10: "AR-23A Liberator Carbine"
+  0FED30: "AR-48 Truth Whisperer" [model number]
+  0FED60: "R-63CS Diligence Counter-Sniper"
+  0FED88: "SG-8F Punisher Fire of Liberty"
+  0FEDA8: "SG-225SP Breaker Spray&Pray"
+  0FEDD8: "AR-59 Suppressor" [model number]
+  0FEE10: "DBS-2 Double Freedom" [model number]
+  0FEE40: "SG-97 Sweeper" [model number]
+  0FEE68: "SMG-203 Gallant" [model number]
+  103220: "Instant Railgun"
+  103250: "NOP railgun charge calculation"
+  103A48: "Hulk Scorcher"
+  104198: "FF 0F 83 FE ?? 0F 84" [model number]
+  104670: "Recoilless Rifle"
+  104738: "Railgun"
+  104740: "Autocannon"
+  104750: "Laser Cannon"
+  104760: "Quasar Cannon"
+  104770: "Flamethrower"
+  104780: "Arc Thrower"
+  104790: "Machine Gun"
+  10479C: "Spear"
+  1047A8: "Anti-Materiel Rifle"
+  104818: "Autocannon Sentry"
+  1048E0: "Spire Sterilizer"
+
+  Total weapon name matches: 159
+
+--- Weapon ID Mapping Analysis ---
+  The cheat tracks 51 weapons (All Guns: %s  (%d/51, Rep %d/%d)).
+  IDs are referenced via combo box "pwcombo" which displays weapon names.
+
+  SEARCH: Looking for cmp/switch patterns with values 0-51 near weapon strings...
+  Values 0-100 near weapon strings:
+     48 (30): 2 refs
+      2 (02): 2 refs
+     60 (3C): 2 refs
+
+################################################################################
+#  2. ARMOR ENUM VALUES
+################################################################################
+  0FD8D0: "Combat Medic"
+  0FD920: "Peak Physique"
+  0FD958: "Acclimated"
+  0FDA40: "Concussive Grenadier"
+  0FDAA8: "FS-55 Devastator"
+  0FDAC0: "CW-4 Arctic Ranger"
+  0FDAD8: "CW-22 Kodiak"
+  0FDAE8: "SA-25 Steel Trooper"
+  0FDB18: "SA-32 Dynamo"
+  0FDB38: "DP-00 Tactical"
+  0FDB48: "CE-35 Trench Engineer"
+  0FDB60: "CE-67 Titan"
+  0FDB70: "CE-27 Ground Breaker"
+  0FDB88: "CM-09 Bonesnapper"
+  0FDBA0: "CM-21 Trench Paramedic"
+  0FDBB8: "CM-17 Butcher"
+  0FDBD8: "B-22 Model Citizen"
+  0FDC08: "CE-07 Demolition Specialist"
+  0FDC28: "SC-15 Drone Master"
+  0FDC40: "FS-38 Eradicator"
+  0FDC58: "EX-03 Prototype 3"
+  0FDC70: "EX-16 Prototype 16"
+  0FDC88: "FS-34 Exterminator"
+  0FDCA0: "DP-40 Hero of the Federation"
+  0FDCC0: "TR-9 Cavalier of Democracy"
+  0FDCE0: "DP-11 Champion of the People"
+  0FDD00: "CM-14 Physician"
+  0FDD10: "TR-117 Alpha Commander"
+  0FDD28: "B-27 Fortified Commando"
+  0FDD40: "EX-00 Prototype X"
+  0FDD58: "CE-81 Juggernaut"
+  0FDD88: "SC-37 Legionnaire"
+  0FDDA0: "B-08 Light Gunner"
+  0FDDF8: "SC-30 Trailblazer Scout"
+  0FDE10: "B-24 Enforcer"
+  0FDE20: "FS-05 Marksman"
+  0FDE30: "FS-11 Executioner"
+  0FDE48: "SC-34 Infiltrator"
+  0FDE60: "TR-7 Ambassador of the Brand"
+  0FDE80: "AF-52 Lockdown"
+  0FDE90: "AF-91 Field Chemist"
+  0FDED8: "IE-57 Hell-Bent"
+  0FDF68: "CW-9 White Wolf"
+  0FDF78: "CE-64 Grenadier"
+  0FDFB0: "I-44 Salamander"
+  0FDFC0: "I-92 Fire Fighter"
+  0FE048: "SA-04 Combat Technician"
+  0FE060: "AF-50 Noxious Ranger"
+  0FE0B8: "SR-24 Street Scout"
+  0FE0D0: "SR-18 Roadblock"
+  0FE0F0: "IE-12 Righteous"
+  0FE238: "PH-9 Predator"
+  0FE248: "PH-202 Twigsnapper"
+  0FE260: "I-09 Heatseeker"
+  0FE270: "I-102 Draconaught"
+  0FE2B0: "AC-1 Dutiful"
+  0FE2C0: "AC-2 Obedient"
+  0FE350: "FS-23 Battle Master"
+  0FE378: "CW-36 Winter Warrior"
+  0FFEB0: "  Armor Passive Editor"
+  1039D8: "Scavenger"
+  1039F0: "Bile Titan"
+  103A60: "Devastator"
+  103A70: "Heavy Devastator"
+  103A88: "Rocket Devastator"
+  103AB0: "Scout Strider"
+  103D20: "Demolition##we"
+  1040B0: "Armor Passive"
+
+  Total armor-related strings: 68
+
+  NOTE: Armor passive IDs found in UI as "ap_pass" (armor passive combo).
+  The cheat scans current armor via "ap_scan" button.
+  Passive values are written via armor passive editor.
+
+################################################################################
+#  3. STRATAGEM IDS
+################################################################################
+  0F87A0: "7])#######hV0qs'/###[),##/l:$#Q6>##5[n42>c-TH`->>#/e>11NNV=Bv(*:.F?uu#(gRU.o0XGH`$vhLG1hxt9?W`#,5LsCp#-i>.r$<$6pD>Lb';9Crc6tgXmKVeU2cD4Eo3R/2*>]b(MC;$jPfY.;h^`IWM9<Lh2TlS+f-s$o6Q<BWH`YiU.xfLq$N;$0iR/GX:U(jcW2p/W*q?-qmnUCI;jHSAiFWM.R*kU@C=GH?a9wp8f$e.-4^Qg1)Q-GL(lf(r/7GrRgwV%MS=C#`8ND>Qo#t'X#(v#Y9w0#1D$CIf;W'#pWUPXOuxXuU(H9M(1<q-UE31#^-V'8IRUo7Qf./L>=Ke$$'5F%)]0^#0X@U.a<r:QLtFsLcL6##lOj)#.Y5<-R&KgLwqJfLgN&;Q?gI^#DY2uLi@^rMl9t=cWq6##weg>$FBjVQTSDgEKnIS7EM9>ZY9w0#L;>>#Mx&4Mvt//L[MkA#W@lK.N'[0#7RL_&#w+F%HtG9M#XL`N&.,GM4Pg;-<nLENhvx>-VsM.M0rJfLH2eTM`*oJMHRC`NkfimM2J,W-jXS:)r0wK#@Fge$U>`w'N7G#$#fB#$E^$#:9:hk+eOe--6x)F7*E%?76%^GMHePW-Z5l'&GiF#$956:rS?dA#fiK:)Yr+`&#0j@'DbG&#^$PG.Ll+DNa<XCMKEV*N)LN/N*b=%Q6pia-Xg8I$<MR&,VdJe$<(7G;Ckl'&hF;;$<_=X(b.RS%%)###MPBuuE1V:v&cX&#2m#(&cV]`k9OhLMbn%s$G2,B$BfD3X*sp5#l,$R#]x_X1xKX%b5U*[r5iMfUo9U`N99hG)tm+/Us9pG)XPu`<0s-)WTt(gCRxIg(%6sfh=ktMKn3j)<6<b5Sk_/0(^]AaN#(p/L>&VZ>1i%h1S9u5o@YaaW$e+b<TWFn/Z:Oh(Cx2$lNEoN^e)#CFY@@I;BOQ*sRwZtZxRcU7uW6CXow0i(?$Q[cjOd[P4d)]>ROPOpxTO7Stwi1::iB1q)C_=dV26J;2,]7op$]uQr@_V7$q^%lQwtuHY]=DX,n3L#0PHDO4f9>dC@O>HBuKPpP*E,N+b3L#lpR/MrTEH.IAQk.a>D[.e;mc.x]Ip.PH^'/aqUO/$1WxLoW0[iLA<QT;5HKD+@qQ'NQ(3_PLhE48R.qAPSwQ0/WK?Z,[x?-J;jQTWA0X@KJ(_Y8N-:/M74:/-ZpKrUss?d#dZq]DAbkU*JqkL+nwX@@47`5>w=4h(9.`GCRUxHPeR`5Mjol(dUWxZa(>STrPkrJiWx`5U7F#.g*jrohGg`cg:lSTvEY/EV_7H4Q9[Z%cnv;JQYZ5q.l7Zeas:HOIZOB?G<Nald$qs]@]L<J7bR*>gv:[7MI2k).'2($5FNP&EQ(,)U]W]+fh18.vsai00);D3@4ku5P?DP8aJt+;qUM]=+b'8@;mViBKx0DE[-auGl8:PJ&Dj+M6OC]O^((##]`0i)drT;-7X`=-H3[igUnPG-NZlo.#k@h#=Ork$m>a>$-?Tm$UV(?#P6YY#'/###xe7q.73rI3*pP/$1>s9)W,JrM7SN]'/4C#v$U`0#V.[0>xQsH$fEmPMgY2u7Kh(G%siIfLSoS+MK2eTM$=5,M8p`A.;_R%#u[K#$x4AG8.kK/HSB==-'Ie/QTtG?-.*^N-4B/ZM_3YlQC7(p7q)&](`6_c)$/*JL(L-^(]$wIM`dPtOdGA,U3:w2M-0<q-]L_?^)1vw'.,MRsqVr.L;aN&#/EgJ)PBc[-f>+WomX2u7lqM2iEumMTcsF?-aT=Z-97UEnXglEn1K-bnEO`guFt(c%=;Am_Qs@jLooI&NX;]0#j4#F14;gl8-GQpgwhrq8'=l_f-b49'UOqkLu7-##oDY2L(te+Mch&gLYtJ,MEtJfLh'x'M=$CS-ZZ%P]8bZ>#S?YY#%Q&q'3^Fw&?D)UDNrocM3A76//oL?#h7gl85[qW/NDOk%16ij;+:1a'iNIdb-ou8.P*w,v5#EI$TWS>Pot-R*H'-SEpA:g)f+O$%%`kA#G=8RMmG1&O`>to8bC]T&$,n.LoO>29sp3dt-52U%VM#q7'DHpg+#Z9%H[K<L%a2E-grWVM3@2=-k22tL]4$##6We'8UJCKE[d_=%wI;'6X-GsLX4j^SgJ$##R*w,vP3wK#iiW&#*h^D&R?jp7+/u&#(AP##XU8c$fSYW-J95_-Dp[g9wcO&#M-h1OcJlc-*vpw0xUX&#OQFKNX@QI'IoPp7nb,QU//MQ&ZDkKP)X<WSVL(68uVl&#c'[0#(s1X&xm$Y%B7*K:eDA323j998GXbA#pwMs-jgD$9QISB-A_(aN4xoFM^@C58D0+Q+q3n0#3U1InDjF682-SjMXJK)(h$hxua_K]ul92%'BOU&#BRRh-slg8KDlr:%L71Ka:.A;%YULjDPmL<LYs8i#XwJOYaKPKc1h:'9Ke,g)b),78=I39B;xiY$bgGw-&.Zi9InXDuYa%G*f2Bq7mn9^#p1vv%#(Wi-;/Z5ho;#2:;%d&#x9v68C5g?ntX0X)pT`;%pB3q7mgGN)3%(P8nTd5L7GeA-GL@+%J3u2:(Yf>et`e;)f#Km8&+DC$I46>#Kr]]u-[=99tts1.qb#q72g1WJO81q+eN'03'eM>&1XxY-caEnOj%2n8)),?ILR5^.Ibn<-X-Mq7[a82Lq:F&#ce+S9wsCK*x`569E8ew'He]h:sI[2LM$[guka3ZRd6:t%IG:;$%YiJ:Nq=?eAw;/:nnDq0(CYcMpG)qLN4$##&J<j$UpK<Q4a1]MupW^-sj_$%[HK%'F####QRZJ::Y3EGl4'@%FkiAOg#p[##O`gukTfBHagL<LHw%q&OV0##F=6/:chIm0@eCP8X]:kFI%hl8hgO@RcBhS-@Qb$%+m=hPDLg*%K8ln(wcf3/'DW-$.lR?n[nCH-eXOONTJlh:.RYF%3'p6sq:UIMA945&^HFS87@$EP2iG<-lCO$%c`uKGD3rC$x0BL8aFn--`ke%#HMP'vh1/R&O_J9'um,.<tx[@%wsJk&bUT2`0uMv7gg#qp/ij.L56'hl;.s5CUrxjOM7-##.l+Au'A&O:-T72L]P`&=;ctp'XScX*rU.>-XTt,%OVU4)S1+R-#dg0/Nn?Ku1^0f$B*P:Rowwm-`0PKjYDDM'3]d39VZHEl4,.j']Pk-M.h^&:0FACm$maq-&sgw0t7/6(^xtk%LuH88Fj-ekm>GA#_>568x6(OFRl-IZp`&b,_P'$M<Jnq79VsJW/mWS*PUiq76;]/NM_>hLbxfc$mj`,O;&%W2m`Zh:/)Uetw:aJ%]K9h:TcF]u_-Sj9,VK3M.*'&0D[Ca]J9gp8,kAW]%(?A%R$f<->Zts'^kn=-^@c4%-pY6qI%J%1IGxfLU9CP8cbPlXv);C=b),<2mOvP8up,UVf3839acAWAW-W?#ao/^#%KYo8fRULNd2.>%m]UK:n%r$'sw]J;5pAoO_#2mO3n,'=H5(etHg*`+RLgv>=4U8guD$I%D:W>-r5V*%j*W:Kvej.Lp$<M-SGZ':+Q_k+uvOSLiEo(<aD/K<CCc`'Lx>'?;++O'>()jLR-^u68PHm8ZFWe+ej8h:9r6L*0//c&iH&R8pRbA#Kjm%upV1g:a_#Ur7FuA#(tRh#.Y5K+@?3<-8m0$PEn;J:rh6?I6uG<-`wMU'ircp0LaE_OtlMb&1#6T.#FDKu#1Lw%u%+GM+X'e?YLfjM[VO0MbuFp7;>Q&#WIo)0@F%q7c#4XAXN-U&VB<HFF*qL($/V,;(kXZejWO`<[5??ewY(*9=%wDc;,u<'9t3W-(H1th3+G]ucQ]kLs7df($/*JL]@*t7Bu_G3_7mp7<iaQjO@.kLg;x3B0lqp7Hf,^Ze7-##@/c58Mo(3;knp0%)A7?-W+eI'o8)b<nKnw'Ho8C=Y>pqB>0ie&jhZ[?iLR@@_AvA-iQC(=ksRZRVp7`.=+NpBC%rh&3]R:8XDmE5^V8O(x<<aG/1N$#FX$0V5Y6x'aErI3I$7x%E`v<-BY,)%-?Psf*l?%C3.mM(=/M0:JxG'?7WhH%o'a<-80g0NBxoO(GH<dM]n.+%q@jH?f.UsJ2Ggs&4<-e47&Kl+f//9@`b+?.TeN_&B8Ss?v;^Trk;f#YvJkl&w$]>-+k?'(<S:68tq*WoDfZu';mM?8X[ma8W%*`-=;D.(nc7/;)g:T1=^J$&BRV(-lTmNB6xqB[@0*o.erM*<SWF]u2=st-*(6v>^](H.aREZSi,#1:[IXaZFOm<-ui#qUq2$##Ri;u75OK#(RtaW-K-F`S+cF]uN`-KMQ%rP/Xri.LRcB##=YL3BgM/3MD?@f&1'BW-)Ju<L25gl8uhVm1hL$##*8###'A3/LkKW+(^rWX?5W_8g)a(m&K8P>#bmmWCMkk&#TR`C,5d>g)F;t,4:@_l8G/5h4vUd%&%950:VXD'QdWoY-F$BtUwmfe$YqL'8(PWX(P?^@Po3$##`MSs?DWBZ/S>+4%>fX,VWv/w'KD`LP5IbH;rTV>n3cEK8U#bX]l-/V+^lj3;vlMb&[5YQ8#pekX9JP3XUC72L,,?+Ni&co7ApnO*5NK,((W-i:$,kp'UDAO(G0Sq7MVjJsbIu)'Z,*[>br5fX^:FPAWr-m2KgL<LUN098kTF&#lvo58=/vjDo;.;)Ka*hLR#/k=rKbxuV`>Q_nN6'8uTG&#1T5g)uLv:873UpTLgH+#FgpH'_o1780Ph8KmxQJ8#H72L4@768@Tm&Qh4CB/5OvmA&,Q&QbUoi$a_%3M01H)4x7I^&KQVgtFnV+;[Pc>[m4k//,]1?#`VY[Jr*3&&slRfLiVZJ:]?=K3Sw=[$=uRB?3xk48@aeg<Z'<$#4H)6,>e0jT6'N#(q%.O=?2S]u*(m<-V8J'(1)G][68hW$5'q[GC&5j`TE?m'esFGNRM)j,ffZ?-qx8;->g4t*:CIP/[Qap7/9'#(1sao7w-.qNUdkJ)tCF&#B^;xGvn2r9FEPFFFcL@.iFNkTve$m%#QvQS8U@)2Z+3K:AKM5isZ88+dKQ)W6>J%CL<KE>`.d*(B`-n8D9oK<Up]c$X$(,)M8Zt7/[rdkqTgl-0cuGMv'?>-XV1q['-5k'cAZ69e;D_?$ZPP&s^+7])$*$#@QYi9,5P&#9r+$%CE=68>K8r0=dSC%%(@p7.m7jilQ02'0-VWAg<a/''3u.=4L$Y)6k/K:_[3=&jvL<L0C/2'v:^;-DIBW,B4E68:kZ;%?8(Q8BH=kO65BW?xSG&#@uU,DS*,?.+(o(#1vCS8#CHF>TlGW'b)Tq7VT9q^*^$$.:&N@@$&)WHtPm*5_rO0&e%K&#-30j(E4#'Zb.o/(Tpm$>K'f@[PvFl,hfINTNU6u'0pao7%XUp9]5.>%h`8_=VYbxuel.NTSsJfLacFu3B'lQSu/m6-Oqem8T+oE--$0a/k]uj9EwsG>%veR*hv^BFpQj:K'#SJ,sB-'#](j.Lg92rTw-*n%@/;39rrJF,l#qV%OrtBeC6/,;qB3ebNW[?,Hqj2L.1NP&GjUR=1D8QaS3Up&@*9wP?+lo7b?@%'k4`p0Z$22%K3+iCZj?XJN4Nm&+YF]u@-W$U%VEQ/,,>>#)D<h#`)h0:<Q6909ua+&VU%n2:cG3FJ-%@Bj-DgLr`Hw&HAKjKjseK</xKT*)B,N9X3]krc12t'pgTV(Lv-tL[xg_%=M_q7a^x?7Ubd>#%8cY#YZ?=,`Wdxu/ae&#w6)R89tI#6@s'(6Bf7a&?S=^ZI_kS&ai`&=tE72L_D,;^R)7[$s<Eh#c&)q.MXI%#v9ROa5FZO%sF7q7Nwb&#ptUJ:aqJe$Sl68%.D###EC><?-aF&#RNQv>o8lKN%5/$(vdfq7+ebA#u1p]ovUKW&Y%q]'>$1@-[xfn$7ZTp7mM,G,Ko7a&Gu%G[RMxJs[0MM%wci.LFDK)(<c`Q8N)jEIF*+?P2a8g%)$q]o2aH8C&<SibC/q,(e:v;-b#6[$NtDZ84Je2KNvB#$P5?tQ3nt(0d=j.LQf./Ll33+(;q3L-w=8dX$#WF&uIJ@-bfI>%:_i2B5CsR8&9Z&#=mPEnm0f`<&c)QL5uJ#%u%lJj+D-r;BoF&#4DoS97h5g)E#o:&S4weDF,9^Hoe`h*L+_a*NrLW-1pG_&2UdB86e%B/:=>)N4xeW.*wft-;$'58-ESqr<b?UI(_%@[P46>#U`'6AQ]m&6/`Z>#S?YY#Vc;r7U2&326d=w&H####?TZ`*4?&.MK?LP8Vxg>$[QXc%QJv92.(Db*B)gb*BM9dM*hJMAo*c&#b0v=Pjer]$gG&JXDf->'StvU7505l9$AFvgYRI^&<^b68?j#q9QX4SM'RO#&sL1IM.rJfLUAj221]d##DW=m83u5;'bYx,*Sl0hL(W;;$doB&O/TQ:(Z^xBdLjL<Lni;''X.`$#8+1GD:k$YUWsbn8ogh6rxZ2Z9]%nd+>V#*8U_72Lh+2Q8Cj0i:6hp&$C/:p(HK>T8Y[gHQ4`4)'$Ab(Nof%V'8hL&#<NEdtg(n'=S1A(Q1/I&4([%dM`,Iu'1:_hL>SfD07&6D<fp8dHM7/g+tlPN9J*rKaPct&?'uBCem^jn%9_K)<,C5K3s=5g&GmJb*[SYq7K;TRLGCsM-$$;S%:Y@r7AK0pprpL<Lrh,q7e/%KWK:50I^+m'vi`3?%Zp+<-d+$L-Sv:@.o19n$s0&39;kn;S%BSq*$3WoJSCLweV[aZ'MQIjO<7;X-X;&+dMLvu#^UsGEC9WEc[X(wI7#2.(F0jV*eZf<-Qv3J-c+J5AlrB#$p(H68LvEA'q3n0#m,[`*8Ft)FcYgEud]CWfm68,(aLA$@EFTgLXoBq/UPlp7:d[/;r_ix=:TF`S5H-b<LI&HY(K=h#)]Lk$K14lVfm:x$H<3^Ql<M`$OhapBnkup'D#L$Pb_`N*g]2e;X/Dtg,bsj&K#2[-:iYr'_wgH)NUIR8a1n#S?Yej'h8^58UbZd+^FKD*T@;6A7aQC[K8d-(v6GI$x:T<&'Gp5Uf>@M.*J:;$-rv29'M]8qMv-tLp,'886iaC=Hb*YJoKJ,(j%K=H`K.v9HggqBIiZu'QvBT.#=)0ukruV&.)3=(^1`o*Pj4<-<aN((^7('#Z0wK#5GX@7u][`*S^43933A4rl][`*O4CgLEl]v$1Q3AeF37dbXk,.)vj#x'd`;qgbQR%FW,2(?LO=s%Sc68%NP'##Aotl8x=BE#j1UD([3$M(]UI2LX3RpKN@;/#f'f/&_mt&F)XdF<9t4)Qa.*kTLwQ'(TTB9.xH'>#MJ+gLq9-##@HuZPN0]u:h7.T..G:;$/Usj(T7`Q8tT72LnYl<-qx8;-HV7Q-&Xdx%1a,hC=0u+HlsV>nuIQL-5<N?)NBS)QN*_I,?&)2'IM%L3I)X((e/dl2&8'<M:^#M*Q+[T.Xri.LYS3v%fF`68h;b-X[/En'CR.q7E)p'/kle2HM,u;^%OKC-N+Ll%F9CF<Nf'^#t2L,;27W:0O@6##U6W7:$rJfLWHj$#)woqBefIZ.PK<b*t7ed;p*_m;4ExK#h@&]>_>@kXQtMacfD.m-VAb8;IReM3$wf0''hra*so568'Ip&vRs849'MRYSp%:t:h5qSgwpEr$B>Q,;s(C#$)`svQuF$##-D,##,g68@2[T;.XSdN9Qe)rpt._K-#5wF)sP'##p#C0c%-Gb%hd+<-j'Ai*x&&HMkT]C'OSl##5RG[JXaHN;d'uA#x._U;.`PU@(Z3dt4r152@:v,'R.Sj'w#0<-;kPI)FfJ&#AYJ&#//)>-k=m=*XnK$>=)72L]0I%>.G690a:$##<,);?;72#?x9+d;^V'9;jY@;)br#q^YQpx:X#Te$Z^'=-=bGhLf:D6&bNwZ9-ZD#n^9HhLMr5G;']d&6'wYmTFmL<LD)F^%[tC'8;+9E#C$g%#5Y>q9wI>P(9mI[>kC-ekLC/R&CH+s'B;K-M6$EB%is00:+A4[7xks.LrNk0&E)wILYF@2L'0Nb$+pv<(2.768/FrY&h$^3i&@+G%JT'<-,v`3;_)I9M^AE]CN?Cl2AZg+%4iTpT3<n-&%H%b<FDj2M<hH=&Eh<2Len$b*aTX=-8QxN)k11IM1c^j%9s<L<NFSo)B?+<-(GxsF,^-Eh@$4dXhN$+#rxK8'je'D7k`e;)2pYwPA'_p9&@^18ml1^[@g4t*[JOa*[=Qp7(qJ_oOL^('7fB&Hq-:sf,sNj8xq^>$U4O]GKx'm9)b@p7YsvK3w^YR-CdQ*:Ir<($u&)#(&?L9Rg3H)4fiEp^iI9O8KnTj,]H?D*r7'M;PwZ9K0E^k&-cpI;.p/6_vwoFMV<->#%Xi.LxVnrU(4&8/P+:hLSKj$#U%]49t'I:rgMi'FL@a:0Y-uA[39',(vbma*hU%<-SRF`Tt:542R_VV$p@[p8DV[A,?1839FWdF<TddF<9Ah-6&9tWoDlh]&1SpGMq>Ti1O*H&#(AL8[_P%.M>v^-))qOT*F5Cq0`Ye%+$B6i:7@0IX<N+T+0MlMBPQ*Vj>SsD<U4JHY8kD2)2fU/M#$e.)T4,_=8hLim[&);?UkK'-x?'(:siIfL<$pFM`i<?%W(mGDHM%>iWP,##P`%/L<eXi:@Z9C.7o=@(pXdAO/NLQ8lPl+HPOQa8wD8=^GlPa8TKI1CjhsCTSLJM'/Wl>-S(qw%sf/@%#B6;/U7K]uZbi^Oc^2n<bhPmUkMw>%t<)'mEVE''n`WnJra$^TKvX5B>;_aSEK',(hwa0:i4G?.Bci.(X[?b*($,=-n<.Q%`(X=?+@Am*Js0&=3bh8K]mL<LoNs'6,'85`0?t/'_U59@]ddF<#LdF<eWdF<OuN/45rY<-L@&#+fm>69=Lb,OcZV/);TTm8VI;?%OtJ<(b4mq7M6:u?KRdF<gR@2L=FNU-<b[(9c/ML3m;Z[$oF3g)GAWqpARc=<ROu7cL5l;-[A]%/+fsd;l#SafT/f*W]0=O'$(Tb<[)*@e775R-:Yob%g*>l*:xP?Yb.5)%w_I?7uk5JC+FS(m#i'k.'a0i)9<7b'fs'59hq$*5Uhv##pi^8+hIEBF`nvo`;'l0.^S1<-wUK2/Coh58KKhLjM=SO*rfO`+qC`W-On.=AJ56>>i2@2LH6A:&5q`?9I3@@'04&p2/LVa*T-4<-i3;M9UvZd+N7>b*eIwg:CC)c<>nO&#<IGe;__.thjZl<%w(Wk2xmp4Q@I#I9,DF]u7-P=.-_:YJ]aS@V?6*C()dOp7:WL,b&3Rg/.cmM9&r^>$(>.Z-I&J(Q0Hd5Q%7Co-b`-c<N(6r@ip+AurK<m86QIth*#v;-OBqi+L7wDE-Ir8K['m+DDSLwK&/.?-V%U_%3:qKNu$_b*B-kp7NaD'QdWQPKYq[@>P)hI;*_F]u`Rb[.j8_Q/<&>uu+VsH$sM9TA%?)(vmJ80),P7E>)tjD%2L=-t#fK[%`v=Q8<FfNkgg^oIbah*#8/Qt$F&:K*-(N/'+1vMB,u()-a.VUU*#[e%gAAO(S>WlA2);Sa>gXm8YB`1d@K#n]76-a$U,mF<fX]idqd)<3,]J7JmW4`6]uks=4-72L(jEk+:bJ0M^q-8Dm_Z?0olP1C9Sa&H[d&c$ooQUj]Exd*3ZM@-WGW2%s',B-_M%>%Ul:#/'xoFM9QX-$.QN'>[%$Z$uF6pA6Ki2O5:8w*vP1<-1`[G,)-m#>0`P&#eb#.3i)rtB61(o'$?X3B</R90;eZ]%Ncq;-Tl]#F>2Qft^ae_5tKL9MUe9b*sLEQ95C&`=G?@Mj=wh*'3E>=-<)Gt*Iw)'QG:`@IwOf7&]1i'S01B+Ev/Nac#9S;=;YQpg_6U`*kVY39xK,[/6Aj7:'1Bm-_1EYfa1+o&o4hp7KN_Q(OlIo@S%;jVdn0'1<Vc52=u`3^o-n1'g4v58Hj&6_t7$##?M)c<$bgQ_'SY((-xkA#Y(,p'H9rIVY-b,'%bCPF7.J<Up^,(dU1VY*5#WkTU>h19w,WQhLI)3S#f$2(eb,jr*b;3Vw]*7NH%$c4Vs,eD9>XW8?N]o+(*pgC%/72LV-u<Hp,3@e^9UB1J+ak9-TN/mhKPg+AJYd$MlvAF_jCK*.O-^(63adMT->W%iewS8W6m2rtCpo'RS1R84=@paTKt)>=%&1[)*vp'u+x,VrwN;&]kuO9JDbg=pO$J*.jVe;u'm0dr9l,<*wMK*Oe=g8lV_KEBFkO'oU]^=[-792#ok,)i]lR8qQ2oA8wcRCZ^7w/Njh;?.stX?Q1>S1q4Bn$)K1<-rGdO'$Wr.Lc.CG)$/*JL4tNR/,SVO3,aUw'DJN:)Ss;wGn9A32ijw%FL+Z0Fn.U9;reSq)bmI32U==5ALuG&#Vf1398/pVo1*c-(aY168o<`JsSbk-,1N;$>0:OUas(3:8Z972LSfF8eb=c-;>SPw7.6hn3m`9^Xkn(r.qS[0;T%&Qc=+STRxX'q1BNk3&*eu2;&8q$&x>Q#Q7^Tf+6<(d%ZVmj2bDi%.3L2n+4W'$PiDDG)g,r%+?,$@?uou5tSe2aN_AQU*<h`e-GI7)?OK2A.d7_c)?wQ5AS@DL3r#7fSkgl6-++D:'A,uq7SvlB$pcpH'q3n0#_%dY#xCpr-l<F0NR@-##FEV6NTF6##$l84N1w?AO>'IAOURQ##V^Fv-XFbGM7Fl(N<3DhLGF%q.1rC$#:T__&Pi68%0xi_&[qFJ(77j_&JWoF.V735&T,[R*:xFR*K5>>#`bW-?4Ne_&6Ne_&6Ne_&n`kr-#GJcM6X;uM6X;uM(.a..^2TkL%oR(#;u.T%fAr%4tJ8&><1=GHZ_+m9/#H1F^R#SC#*N=BA9(D?v[UiFY>>^8p,KKF.W]L29uLkLlu/+4T<XoIB&hx=T1PcDaB&;HH+-AFr?(m9HZV)FKS8JCw;SD=6[^/DZUL`EUDf]GGlG&>w$)F./^n3+rlo+DB;5sIYGNk+i1t-69Jg--0pao7Sm#K)pdHW&;LuDNH@H>#/X-TI(;P>#,Gc>#0Su>#4`1?#8lC?#<xU?#@.i?#D:%@#HF7@#LRI@#P_[@#Tkn@#Xw*A#]-=A#a9OA#d<F&#*;G##.GY##2Sl##6`($#:l:$#>xL$#B.`$#F:r$#JF.%#NR@%#R_R%#Vke%#Zww%#_-4&#3^Rh%Sflr-k'MS.o?.5/sWel/wpEM0%3'/1)K^f1-d>G21&v(35>V`39V7A4=onx4A1OY5EI0;6Ibgr6M$HS7Q<)58C5w,;WoA*#[%T*#`1g*#d=#+#hI5+#lUG+#pbY+#tnl+#x$),#&1;,#*=M,#.I`,#2Ur,#6b.-#;w[H#iQtA#m^0B#qjBB#uvTB##-hB#'9$C#+E6C#/QHC#3^ZC#7jmC#;v)D#?,<D#C8ND#GDaD#KPsD#O]/E#g1A5#KA*1#gC17#MGd;#8(02#L-d3#rWM4#Hga1#,<w0#T.j<#O#'2#CYN1#qa^:#_4m3#o@/=#eG8=#t8J5#`+78#4uI-#m3B2#SB[8#Q0@8#i[*9#iOn8#1Nm;#^sN9#qh<9#:=x-#P;K2#$%X9#bC+.#Rg;<#mN=.#MTF.#RZO.#2?)4#Y#(/#[)1/#b;L/#dAU/#0Sv;#lY$0#n`-0#sf60#(F24#wrH0#%/e0#TmD<#%JSMFove:CTBEXI:<eh2g)B,3h2^G3i;#d3jD>)4kMYD4lVu`4m`:&5niUA5@(A5BA1]PBB:xlBCC=2CDLXMCEUtiCf&0g2'tN?PGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CP-qekC`.9kEg^+F$kwViFJTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5o,^<-28ZI'O?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xp;7q-#lLYI:xvD=#"
+  0FD8F8: "Reinforced Epaulettes"
+  0FD930: "Gas Resistance"
+  0FDA28: "Concussive Reinforced"
+  0FE390: "Jump Pack"
+  0FE3A0: "Hover Pack"
+  0FF868: "[5] Instant Shuttle + Instant Complete"
+  0FF890: "Instant Shuttle: ON ##shut5"
+  0FF8B0: "Instant Shuttle: OFF##shut5"
+  0FF948: "Freezes all countdown timers (mission, extraction, etc.)"
+  0FFC18: "STRATAGEMS"
+  0FFC28: "Infinite Stratagems"
+  0FFC40: "Instant Strat Callin##isc"
+  0FFC60: "  [N/A] Mass Strat Drop"
+  0FFC78: "Mass Strat Drop##msd"
+  0FFCA0: "TURRETS"
+  0FFCA8: "No Turret Overheat"
+  0FFCC0: "Inf Turret Duration"
+  0FFCD8: "Expire All Turrets"
+  0FFD00: "Dark Fluid Pack"
+  0FFE08: "  Patches stratagem/weapon/armor unlock checks."
+  102BF8: "Inf Strategems"
+  103000: "Instant Hellbomb"
+  103040: "NOP hellbomb arm timer write"
+  103168: "NOP turret heat accumulation"
+  1031A0: "NOP turret timer write"
+  1031E0: "NOP conditional jump so turrets always expire immediately"
+  104058: "No Laser Overheat"
+  1040C0: "Mass Strat Drop"
+  104688: "Emancipator Exosuit"
+  1046A0: "Fast Recon Vehicle"
+  1046C8: "Eagle Strikes"
+  1046E8: "Backpacks"
+  104708: "Orbitals"
+  104728: "Resupply"
+  104750: "Laser Cannon"
+  1047C0: "Guard Dog (Lib)"
+  1047D0: "Backpack"
+  1047E0: "Guard Dog Rover"
+  1047F0: "Shield Backpack"
+  104800: "Gatling Sentry"
+  104810: "Sentry"
+  104818: "Autocannon Sentry"
+  104830: "Rocket Sentry"
+  104840: "Mortar Sentry"
+  104850: "Patriot Exosuit"
+  104878: "Reinforcement"
+  104888: "SOS Beacon"
+  104898: "Extraction"
+  1048A8: "Hellbomb"
+  104918: "Prospecting Drill"
+  104930: "Seismic Probe"
+  104950: "Extraction Beacon"
+  105D00: "Programmer error: %d visible items with conflicting ID!"
+
+  Total stratagem-related strings: 54
+
+--- Turret Types Explicitly Named ---
+  104800: "Gatling Sentry"
+  104818: "Autocannon Sentry"
+  104830: "Rocket Sentry"
+  104840: "Mortar Sentry"
+
+################################################################################
+#  4. DIFFICULTY ENUM
+################################################################################
+--- Difficulty Strings ---
+  0C624C: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0C6ED0: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0CA292: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0CA2F0: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0CAFBC: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0CBCC0: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0CFD02: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0CFD60: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0D093C: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0D15C0: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0D4912: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0D4970: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0D54DC: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0D6160: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0D94B2: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0D9510: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0DA07C: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0DAD10: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0DE112: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0DE170: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0DECDC: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0DF960: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0E2CB2: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0E2D10: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0E386C: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0E44F0: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0E7842: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0E78A0: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0E83FC: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0E9080: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0EC3D2: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0EC430: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0ECF8C: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0EDC10: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0F0F62: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0F0FC0: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0F1E9C: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0F2B20: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0F5E72: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0F5ED0: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0FD8E0: "Battle Hardened"
+  0FF548: "[2] Force Apply Difficulty Multiplier"
+  0FF570: "Difficulty tier (1-10)"
+  0FF588: "Force Difficulty: ON ##diff"
+  0FF5A8: "Force Difficulty: OFF##diff"
+  0FF5C8: "1 - Trivial (0%)"
+  0FF5E0: "2 - Easy (0%)"
+  0FF5F0: "3 - Medium (25%)"
+  0FF608: "4 - Challenging (50%)"
+  0FF620: "5 - Hard (75%)"
+  0FF630: "6 - Extreme (100%)"
+  0FF648: "7 - Super Helldive (150%)"
+  102188: "[HTTP] >>> curl_easy_perform %s h=%p"
+  1026E0: "curl_easy_setopt"
+  1026F8: "curl_easy_perform"
+  102710: "curl_easy_getinfo"
+  102728: "curl_easy_cleanup"
+  102780: "curl_easy_init"
+  1028C8: "Helldivers2"
+  102E90: "Force highest difficulty reward tier (NOP jl at cmp esi,7)"
+  102F20: "Difficulty Mult"
+  102F30: "NOP difficulty value read"
+  103F28: "HELLDIVERS"
+  103F38: "helldivers2"
+  103F48: "HELLDIVERS 2"
+
+--- Difficulty Tier Strings ---
+  0F87A0: "7])#######hV0qs'/###[),##/l:$#Q6>##5[n42>c-TH`->>#/e>11NNV=Bv(*:.F?uu#(gRU.o0XGH`$vhLG1hxt9?W`#,5LsCp#-i>.r$<$6pD>Lb';9Crc6tgXmKVeU2cD4Eo3R/2*>]b(MC;$jPfY.;h^`IWM9<Lh2TlS+f-s$o6Q<BWH`YiU.xfLq$N;$0iR/GX:U(jcW2p/W*q?-qmnUCI;jHSAiFWM.R*kU@C=GH?a9wp8f$e.-4^Qg1)Q-GL(lf(r/7GrRgwV%MS=C#`8ND>Qo#t'X#(v#Y9w0#1D$CIf;W'#pWUPXOuxXuU(H9M(1<q-UE31#^-V'8IRUo7Qf./L>=Ke$$'5F%)]0^#0X@U.a<r:QLtFsLcL6##lOj)#.Y5<-R&KgLwqJfLgN&;Q?gI^#DY2uLi@^rMl9t=cWq6##weg>$FBjVQTSDgEKnIS7EM9>ZY9w0#L;>>#Mx&4Mvt//L[MkA#W@lK.N'[0#7RL_&#w+F%HtG9M#XL`N&.,GM4Pg;-<nLENhvx>-VsM.M0rJfLH2eTM`*oJMHRC`NkfimM2J,W-jXS:)r0wK#@Fge$U>`w'N7G#$#fB#$E^$#:9:hk+eOe--6x)F7*E%?76%^GMHePW-Z5l'&GiF#$956:rS?dA#fiK:)Yr+`&#0j@'DbG&#^$PG.Ll+DNa<XCMKEV*N)LN/N*b=%Q6pia-Xg8I$<MR&,VdJe$<(7G;Ckl'&hF;;$<_=X(b.RS%%)###MPBuuE1V:v&cX&#2m#(&cV]`k9OhLMbn%s$G2,B$BfD3X*sp5#l,$R#]x_X1xKX%b5U*[r5iMfUo9U`N99hG)tm+/Us9pG)XPu`<0s-)WTt(gCRxIg(%6sfh=ktMKn3j)<6<b5Sk_/0(^]AaN#(p/L>&VZ>1i%h1S9u5o@YaaW$e+b<TWFn/Z:Oh(Cx2$lNEoN^e)#CFY@@I;BOQ*sRwZtZxRcU7uW6CXow0i(?$Q[cjOd[P4d)]>ROPOpxTO7Stwi1::iB1q)C_=dV26J;2,]7op$]uQr@_V7$q^%lQwtuHY]=DX,n3L#0PHDO4f9>dC@O>HBuKPpP*E,N+b3L#lpR/MrTEH.IAQk.a>D[.e;mc.x]Ip.PH^'/aqUO/$1WxLoW0[iLA<QT;5HKD+@qQ'NQ(3_PLhE48R.qAPSwQ0/WK?Z,[x?-J;jQTWA0X@KJ(_Y8N-:/M74:/-ZpKrUss?d#dZq]DAbkU*JqkL+nwX@@47`5>w=4h(9.`GCRUxHPeR`5Mjol(dUWxZa(>STrPkrJiWx`5U7F#.g*jrohGg`cg:lSTvEY/EV_7H4Q9[Z%cnv;JQYZ5q.l7Zeas:HOIZOB?G<Nald$qs]@]L<J7bR*>gv:[7MI2k).'2($5FNP&EQ(,)U]W]+fh18.vsai00);D3@4ku5P?DP8aJt+;qUM]=+b'8@;mViBKx0DE[-auGl8:PJ&Dj+M6OC]O^((##]`0i)drT;-7X`=-H3[igUnPG-NZlo.#k@h#=Ork$m>a>$-?Tm$UV(?#P6YY#'/###xe7q.73rI3*pP/$1>s9)W,JrM7SN]'/4C#v$U`0#V.[0>xQsH$fEmPMgY2u7Kh(G%siIfLSoS+MK2eTM$=5,M8p`A.;_R%#u[K#$x4AG8.kK/HSB==-'Ie/QTtG?-.*^N-4B/ZM_3YlQC7(p7q)&](`6_c)$/*JL(L-^(]$wIM`dPtOdGA,U3:w2M-0<q-]L_?^)1vw'.,MRsqVr.L;aN&#/EgJ)PBc[-f>+WomX2u7lqM2iEumMTcsF?-aT=Z-97UEnXglEn1K-bnEO`guFt(c%=;Am_Qs@jLooI&NX;]0#j4#F14;gl8-GQpgwhrq8'=l_f-b49'UOqkLu7-##oDY2L(te+Mch&gLYtJ,MEtJfLh'x'M=$CS-ZZ%P]8bZ>#S?YY#%Q&q'3^Fw&?D)UDNrocM3A76//oL?#h7gl85[qW/NDOk%16ij;+:1a'iNIdb-ou8.P*w,v5#EI$TWS>Pot-R*H'-SEpA:g)f+O$%%`kA#G=8RMmG1&O`>to8bC]T&$,n.LoO>29sp3dt-52U%VM#q7'DHpg+#Z9%H[K<L%a2E-grWVM3@2=-k22tL]4$##6We'8UJCKE[d_=%wI;'6X-GsLX4j^SgJ$##R*w,vP3wK#iiW&#*h^D&R?jp7+/u&#(AP##XU8c$fSYW-J95_-Dp[g9wcO&#M-h1OcJlc-*vpw0xUX&#OQFKNX@QI'IoPp7nb,QU//MQ&ZDkKP)X<WSVL(68uVl&#c'[0#(s1X&xm$Y%B7*K:eDA323j998GXbA#pwMs-jgD$9QISB-A_(aN4xoFM^@C58D0+Q+q3n0#3U1InDjF682-SjMXJK)(h$hxua_K]ul92%'BOU&#BRRh-slg8KDlr:%L71Ka:.A;%YULjDPmL<LYs8i#XwJOYaKPKc1h:'9Ke,g)b),78=I39B;xiY$bgGw-&.Zi9InXDuYa%G*f2Bq7mn9^#p1vv%#(Wi-;/Z5ho;#2:;%d&#x9v68C5g?ntX0X)pT`;%pB3q7mgGN)3%(P8nTd5L7GeA-GL@+%J3u2:(Yf>et`e;)f#Km8&+DC$I46>#Kr]]u-[=99tts1.qb#q72g1WJO81q+eN'03'eM>&1XxY-caEnOj%2n8)),?ILR5^.Ibn<-X-Mq7[a82Lq:F&#ce+S9wsCK*x`569E8ew'He]h:sI[2LM$[guka3ZRd6:t%IG:;$%YiJ:Nq=?eAw;/:nnDq0(CYcMpG)qLN4$##&J<j$UpK<Q4a1]MupW^-sj_$%[HK%'F####QRZJ::Y3EGl4'@%FkiAOg#p[##O`gukTfBHagL<LHw%q&OV0##F=6/:chIm0@eCP8X]:kFI%hl8hgO@RcBhS-@Qb$%+m=hPDLg*%K8ln(wcf3/'DW-$.lR?n[nCH-eXOONTJlh:.RYF%3'p6sq:UIMA945&^HFS87@$EP2iG<-lCO$%c`uKGD3rC$x0BL8aFn--`ke%#HMP'vh1/R&O_J9'um,.<tx[@%wsJk&bUT2`0uMv7gg#qp/ij.L56'hl;.s5CUrxjOM7-##.l+Au'A&O:-T72L]P`&=;ctp'XScX*rU.>-XTt,%OVU4)S1+R-#dg0/Nn?Ku1^0f$B*P:Rowwm-`0PKjYDDM'3]d39VZHEl4,.j']Pk-M.h^&:0FACm$maq-&sgw0t7/6(^xtk%LuH88Fj-ekm>GA#_>568x6(OFRl-IZp`&b,_P'$M<Jnq79VsJW/mWS*PUiq76;]/NM_>hLbxfc$mj`,O;&%W2m`Zh:/)Uetw:aJ%]K9h:TcF]u_-Sj9,VK3M.*'&0D[Ca]J9gp8,kAW]%(?A%R$f<->Zts'^kn=-^@c4%-pY6qI%J%1IGxfLU9CP8cbPlXv);C=b),<2mOvP8up,UVf3839acAWAW-W?#ao/^#%KYo8fRULNd2.>%m]UK:n%r$'sw]J;5pAoO_#2mO3n,'=H5(etHg*`+RLgv>=4U8guD$I%D:W>-r5V*%j*W:Kvej.Lp$<M-SGZ':+Q_k+uvOSLiEo(<aD/K<CCc`'Lx>'?;++O'>()jLR-^u68PHm8ZFWe+ej8h:9r6L*0//c&iH&R8pRbA#Kjm%upV1g:a_#Ur7FuA#(tRh#.Y5K+@?3<-8m0$PEn;J:rh6?I6uG<-`wMU'ircp0LaE_OtlMb&1#6T.#FDKu#1Lw%u%+GM+X'e?YLfjM[VO0MbuFp7;>Q&#WIo)0@F%q7c#4XAXN-U&VB<HFF*qL($/V,;(kXZejWO`<[5??ewY(*9=%wDc;,u<'9t3W-(H1th3+G]ucQ]kLs7df($/*JL]@*t7Bu_G3_7mp7<iaQjO@.kLg;x3B0lqp7Hf,^Ze7-##@/c58Mo(3;knp0%)A7?-W+eI'o8)b<nKnw'Ho8C=Y>pqB>0ie&jhZ[?iLR@@_AvA-iQC(=ksRZRVp7`.=+NpBC%rh&3]R:8XDmE5^V8O(x<<aG/1N$#FX$0V5Y6x'aErI3I$7x%E`v<-BY,)%-?Psf*l?%C3.mM(=/M0:JxG'?7WhH%o'a<-80g0NBxoO(GH<dM]n.+%q@jH?f.UsJ2Ggs&4<-e47&Kl+f//9@`b+?.TeN_&B8Ss?v;^Trk;f#YvJkl&w$]>-+k?'(<S:68tq*WoDfZu';mM?8X[ma8W%*`-=;D.(nc7/;)g:T1=^J$&BRV(-lTmNB6xqB[@0*o.erM*<SWF]u2=st-*(6v>^](H.aREZSi,#1:[IXaZFOm<-ui#qUq2$##Ri;u75OK#(RtaW-K-F`S+cF]uN`-KMQ%rP/Xri.LRcB##=YL3BgM/3MD?@f&1'BW-)Ju<L25gl8uhVm1hL$##*8###'A3/LkKW+(^rWX?5W_8g)a(m&K8P>#bmmWCMkk&#TR`C,5d>g)F;t,4:@_l8G/5h4vUd%&%950:VXD'QdWoY-F$BtUwmfe$YqL'8(PWX(P?^@Po3$##`MSs?DWBZ/S>+4%>fX,VWv/w'KD`LP5IbH;rTV>n3cEK8U#bX]l-/V+^lj3;vlMb&[5YQ8#pekX9JP3XUC72L,,?+Ni&co7ApnO*5NK,((W-i:$,kp'UDAO(G0Sq7MVjJsbIu)'Z,*[>br5fX^:FPAWr-m2KgL<LUN098kTF&#lvo58=/vjDo;.;)Ka*hLR#/k=rKbxuV`>Q_nN6'8uTG&#1T5g)uLv:873UpTLgH+#FgpH'_o1780Ph8KmxQJ8#H72L4@768@Tm&Qh4CB/5OvmA&,Q&QbUoi$a_%3M01H)4x7I^&KQVgtFnV+;[Pc>[m4k//,]1?#`VY[Jr*3&&slRfLiVZJ:]?=K3Sw=[$=uRB?3xk48@aeg<Z'<$#4H)6,>e0jT6'N#(q%.O=?2S]u*(m<-V8J'(1)G][68hW$5'q[GC&5j`TE?m'esFGNRM)j,ffZ?-qx8;->g4t*:CIP/[Qap7/9'#(1sao7w-.qNUdkJ)tCF&#B^;xGvn2r9FEPFFFcL@.iFNkTve$m%#QvQS8U@)2Z+3K:AKM5isZ88+dKQ)W6>J%CL<KE>`.d*(B`-n8D9oK<Up]c$X$(,)M8Zt7/[rdkqTgl-0cuGMv'?>-XV1q['-5k'cAZ69e;D_?$ZPP&s^+7])$*$#@QYi9,5P&#9r+$%CE=68>K8r0=dSC%%(@p7.m7jilQ02'0-VWAg<a/''3u.=4L$Y)6k/K:_[3=&jvL<L0C/2'v:^;-DIBW,B4E68:kZ;%?8(Q8BH=kO65BW?xSG&#@uU,DS*,?.+(o(#1vCS8#CHF>TlGW'b)Tq7VT9q^*^$$.:&N@@$&)WHtPm*5_rO0&e%K&#-30j(E4#'Zb.o/(Tpm$>K'f@[PvFl,hfINTNU6u'0pao7%XUp9]5.>%h`8_=VYbxuel.NTSsJfLacFu3B'lQSu/m6-Oqem8T+oE--$0a/k]uj9EwsG>%veR*hv^BFpQj:K'#SJ,sB-'#](j.Lg92rTw-*n%@/;39rrJF,l#qV%OrtBeC6/,;qB3ebNW[?,Hqj2L.1NP&GjUR=1D8QaS3Up&@*9wP?+lo7b?@%'k4`p0Z$22%K3+iCZj?XJN4Nm&+YF]u@-W$U%VEQ/,,>>#)D<h#`)h0:<Q6909ua+&VU%n2:cG3FJ-%@Bj-DgLr`Hw&HAKjKjseK</xKT*)B,N9X3]krc12t'pgTV(Lv-tL[xg_%=M_q7a^x?7Ubd>#%8cY#YZ?=,`Wdxu/ae&#w6)R89tI#6@s'(6Bf7a&?S=^ZI_kS&ai`&=tE72L_D,;^R)7[$s<Eh#c&)q.MXI%#v9ROa5FZO%sF7q7Nwb&#ptUJ:aqJe$Sl68%.D###EC><?-aF&#RNQv>o8lKN%5/$(vdfq7+ebA#u1p]ovUKW&Y%q]'>$1@-[xfn$7ZTp7mM,G,Ko7a&Gu%G[RMxJs[0MM%wci.LFDK)(<c`Q8N)jEIF*+?P2a8g%)$q]o2aH8C&<SibC/q,(e:v;-b#6[$NtDZ84Je2KNvB#$P5?tQ3nt(0d=j.LQf./Ll33+(;q3L-w=8dX$#WF&uIJ@-bfI>%:_i2B5CsR8&9Z&#=mPEnm0f`<&c)QL5uJ#%u%lJj+D-r;BoF&#4DoS97h5g)E#o:&S4weDF,9^Hoe`h*L+_a*NrLW-1pG_&2UdB86e%B/:=>)N4xeW.*wft-;$'58-ESqr<b?UI(_%@[P46>#U`'6AQ]m&6/`Z>#S?YY#Vc;r7U2&326d=w&H####?TZ`*4?&.MK?LP8Vxg>$[QXc%QJv92.(Db*B)gb*BM9dM*hJMAo*c&#b0v=Pjer]$gG&JXDf->'StvU7505l9$AFvgYRI^&<^b68?j#q9QX4SM'RO#&sL1IM.rJfLUAj221]d##DW=m83u5;'bYx,*Sl0hL(W;;$doB&O/TQ:(Z^xBdLjL<Lni;''X.`$#8+1GD:k$YUWsbn8ogh6rxZ2Z9]%nd+>V#*8U_72Lh+2Q8Cj0i:6hp&$C/:p(HK>T8Y[gHQ4`4)'$Ab(Nof%V'8hL&#<NEdtg(n'=S1A(Q1/I&4([%dM`,Iu'1:_hL>SfD07&6D<fp8dHM7/g+tlPN9J*rKaPct&?'uBCem^jn%9_K)<,C5K3s=5g&GmJb*[SYq7K;TRLGCsM-$$;S%:Y@r7AK0pprpL<Lrh,q7e/%KWK:50I^+m'vi`3?%Zp+<-d+$L-Sv:@.o19n$s0&39;kn;S%BSq*$3WoJSCLweV[aZ'MQIjO<7;X-X;&+dMLvu#^UsGEC9WEc[X(wI7#2.(F0jV*eZf<-Qv3J-c+J5AlrB#$p(H68LvEA'q3n0#m,[`*8Ft)FcYgEud]CWfm68,(aLA$@EFTgLXoBq/UPlp7:d[/;r_ix=:TF`S5H-b<LI&HY(K=h#)]Lk$K14lVfm:x$H<3^Ql<M`$OhapBnkup'D#L$Pb_`N*g]2e;X/Dtg,bsj&K#2[-:iYr'_wgH)NUIR8a1n#S?Yej'h8^58UbZd+^FKD*T@;6A7aQC[K8d-(v6GI$x:T<&'Gp5Uf>@M.*J:;$-rv29'M]8qMv-tLp,'886iaC=Hb*YJoKJ,(j%K=H`K.v9HggqBIiZu'QvBT.#=)0ukruV&.)3=(^1`o*Pj4<-<aN((^7('#Z0wK#5GX@7u][`*S^43933A4rl][`*O4CgLEl]v$1Q3AeF37dbXk,.)vj#x'd`;qgbQR%FW,2(?LO=s%Sc68%NP'##Aotl8x=BE#j1UD([3$M(]UI2LX3RpKN@;/#f'f/&_mt&F)XdF<9t4)Qa.*kTLwQ'(TTB9.xH'>#MJ+gLq9-##@HuZPN0]u:h7.T..G:;$/Usj(T7`Q8tT72LnYl<-qx8;-HV7Q-&Xdx%1a,hC=0u+HlsV>nuIQL-5<N?)NBS)QN*_I,?&)2'IM%L3I)X((e/dl2&8'<M:^#M*Q+[T.Xri.LYS3v%fF`68h;b-X[/En'CR.q7E)p'/kle2HM,u;^%OKC-N+Ll%F9CF<Nf'^#t2L,;27W:0O@6##U6W7:$rJfLWHj$#)woqBefIZ.PK<b*t7ed;p*_m;4ExK#h@&]>_>@kXQtMacfD.m-VAb8;IReM3$wf0''hra*so568'Ip&vRs849'MRYSp%:t:h5qSgwpEr$B>Q,;s(C#$)`svQuF$##-D,##,g68@2[T;.XSdN9Qe)rpt._K-#5wF)sP'##p#C0c%-Gb%hd+<-j'Ai*x&&HMkT]C'OSl##5RG[JXaHN;d'uA#x._U;.`PU@(Z3dt4r152@:v,'R.Sj'w#0<-;kPI)FfJ&#AYJ&#//)>-k=m=*XnK$>=)72L]0I%>.G690a:$##<,);?;72#?x9+d;^V'9;jY@;)br#q^YQpx:X#Te$Z^'=-=bGhLf:D6&bNwZ9-ZD#n^9HhLMr5G;']d&6'wYmTFmL<LD)F^%[tC'8;+9E#C$g%#5Y>q9wI>P(9mI[>kC-ekLC/R&CH+s'B;K-M6$EB%is00:+A4[7xks.LrNk0&E)wILYF@2L'0Nb$+pv<(2.768/FrY&h$^3i&@+G%JT'<-,v`3;_)I9M^AE]CN?Cl2AZg+%4iTpT3<n-&%H%b<FDj2M<hH=&Eh<2Len$b*aTX=-8QxN)k11IM1c^j%9s<L<NFSo)B?+<-(GxsF,^-Eh@$4dXhN$+#rxK8'je'D7k`e;)2pYwPA'_p9&@^18ml1^[@g4t*[JOa*[=Qp7(qJ_oOL^('7fB&Hq-:sf,sNj8xq^>$U4O]GKx'm9)b@p7YsvK3w^YR-CdQ*:Ir<($u&)#(&?L9Rg3H)4fiEp^iI9O8KnTj,]H?D*r7'M;PwZ9K0E^k&-cpI;.p/6_vwoFMV<->#%Xi.LxVnrU(4&8/P+:hLSKj$#U%]49t'I:rgMi'FL@a:0Y-uA[39',(vbma*hU%<-SRF`Tt:542R_VV$p@[p8DV[A,?1839FWdF<TddF<9Ah-6&9tWoDlh]&1SpGMq>Ti1O*H&#(AL8[_P%.M>v^-))qOT*F5Cq0`Ye%+$B6i:7@0IX<N+T+0MlMBPQ*Vj>SsD<U4JHY8kD2)2fU/M#$e.)T4,_=8hLim[&);?UkK'-x?'(:siIfL<$pFM`i<?%W(mGDHM%>iWP,##P`%/L<eXi:@Z9C.7o=@(pXdAO/NLQ8lPl+HPOQa8wD8=^GlPa8TKI1CjhsCTSLJM'/Wl>-S(qw%sf/@%#B6;/U7K]uZbi^Oc^2n<bhPmUkMw>%t<)'mEVE''n`WnJra$^TKvX5B>;_aSEK',(hwa0:i4G?.Bci.(X[?b*($,=-n<.Q%`(X=?+@Am*Js0&=3bh8K]mL<LoNs'6,'85`0?t/'_U59@]ddF<#LdF<eWdF<OuN/45rY<-L@&#+fm>69=Lb,OcZV/);TTm8VI;?%OtJ<(b4mq7M6:u?KRdF<gR@2L=FNU-<b[(9c/ML3m;Z[$oF3g)GAWqpARc=<ROu7cL5l;-[A]%/+fsd;l#SafT/f*W]0=O'$(Tb<[)*@e775R-:Yob%g*>l*:xP?Yb.5)%w_I?7uk5JC+FS(m#i'k.'a0i)9<7b'fs'59hq$*5Uhv##pi^8+hIEBF`nvo`;'l0.^S1<-wUK2/Coh58KKhLjM=SO*rfO`+qC`W-On.=AJ56>>i2@2LH6A:&5q`?9I3@@'04&p2/LVa*T-4<-i3;M9UvZd+N7>b*eIwg:CC)c<>nO&#<IGe;__.thjZl<%w(Wk2xmp4Q@I#I9,DF]u7-P=.-_:YJ]aS@V?6*C()dOp7:WL,b&3Rg/.cmM9&r^>$(>.Z-I&J(Q0Hd5Q%7Co-b`-c<N(6r@ip+AurK<m86QIth*#v;-OBqi+L7wDE-Ir8K['m+DDSLwK&/.?-V%U_%3:qKNu$_b*B-kp7NaD'QdWQPKYq[@>P)hI;*_F]u`Rb[.j8_Q/<&>uu+VsH$sM9TA%?)(vmJ80),P7E>)tjD%2L=-t#fK[%`v=Q8<FfNkgg^oIbah*#8/Qt$F&:K*-(N/'+1vMB,u()-a.VUU*#[e%gAAO(S>WlA2);Sa>gXm8YB`1d@K#n]76-a$U,mF<fX]idqd)<3,]J7JmW4`6]uks=4-72L(jEk+:bJ0M^q-8Dm_Z?0olP1C9Sa&H[d&c$ooQUj]Exd*3ZM@-WGW2%s',B-_M%>%Ul:#/'xoFM9QX-$.QN'>[%$Z$uF6pA6Ki2O5:8w*vP1<-1`[G,)-m#>0`P&#eb#.3i)rtB61(o'$?X3B</R90;eZ]%Ncq;-Tl]#F>2Qft^ae_5tKL9MUe9b*sLEQ95C&`=G?@Mj=wh*'3E>=-<)Gt*Iw)'QG:`@IwOf7&]1i'S01B+Ev/Nac#9S;=;YQpg_6U`*kVY39xK,[/6Aj7:'1Bm-_1EYfa1+o&o4hp7KN_Q(OlIo@S%;jVdn0'1<Vc52=u`3^o-n1'g4v58Hj&6_t7$##?M)c<$bgQ_'SY((-xkA#Y(,p'H9rIVY-b,'%bCPF7.J<Up^,(dU1VY*5#WkTU>h19w,WQhLI)3S#f$2(eb,jr*b;3Vw]*7NH%$c4Vs,eD9>XW8?N]o+(*pgC%/72LV-u<Hp,3@e^9UB1J+ak9-TN/mhKPg+AJYd$MlvAF_jCK*.O-^(63adMT->W%iewS8W6m2rtCpo'RS1R84=@paTKt)>=%&1[)*vp'u+x,VrwN;&]kuO9JDbg=pO$J*.jVe;u'm0dr9l,<*wMK*Oe=g8lV_KEBFkO'oU]^=[-792#ok,)i]lR8qQ2oA8wcRCZ^7w/Njh;?.stX?Q1>S1q4Bn$)K1<-rGdO'$Wr.Lc.CG)$/*JL4tNR/,SVO3,aUw'DJN:)Ss;wGn9A32ijw%FL+Z0Fn.U9;reSq)bmI32U==5ALuG&#Vf1398/pVo1*c-(aY168o<`JsSbk-,1N;$>0:OUas(3:8Z972LSfF8eb=c-;>SPw7.6hn3m`9^Xkn(r.qS[0;T%&Qc=+STRxX'q1BNk3&*eu2;&8q$&x>Q#Q7^Tf+6<(d%ZVmj2bDi%.3L2n+4W'$PiDDG)g,r%+?,$@?uou5tSe2aN_AQU*<h`e-GI7)?OK2A.d7_c)?wQ5AS@DL3r#7fSkgl6-++D:'A,uq7SvlB$pcpH'q3n0#_%dY#xCpr-l<F0NR@-##FEV6NTF6##$l84N1w?AO>'IAOURQ##V^Fv-XFbGM7Fl(N<3DhLGF%q.1rC$#:T__&Pi68%0xi_&[qFJ(77j_&JWoF.V735&T,[R*:xFR*K5>>#`bW-?4Ne_&6Ne_&6Ne_&n`kr-#GJcM6X;uM6X;uM(.a..^2TkL%oR(#;u.T%fAr%4tJ8&><1=GHZ_+m9/#H1F^R#SC#*N=BA9(D?v[UiFY>>^8p,KKF.W]L29uLkLlu/+4T<XoIB&hx=T1PcDaB&;HH+-AFr?(m9HZV)FKS8JCw;SD=6[^/DZUL`EUDf]GGlG&>w$)F./^n3+rlo+DB;5sIYGNk+i1t-69Jg--0pao7Sm#K)pdHW&;LuDNH@H>#/X-TI(;P>#,Gc>#0Su>#4`1?#8lC?#<xU?#@.i?#D:%@#HF7@#LRI@#P_[@#Tkn@#Xw*A#]-=A#a9OA#d<F&#*;G##.GY##2Sl##6`($#:l:$#>xL$#B.`$#F:r$#JF.%#NR@%#R_R%#Vke%#Zww%#_-4&#3^Rh%Sflr-k'MS.o?.5/sWel/wpEM0%3'/1)K^f1-d>G21&v(35>V`39V7A4=onx4A1OY5EI0;6Ibgr6M$HS7Q<)58C5w,;WoA*#[%T*#`1g*#d=#+#hI5+#lUG+#pbY+#tnl+#x$),#&1;,#*=M,#.I`,#2Ur,#6b.-#;w[H#iQtA#m^0B#qjBB#uvTB##-hB#'9$C#+E6C#/QHC#3^ZC#7jmC#;v)D#?,<D#C8ND#GDaD#KPsD#O]/E#g1A5#KA*1#gC17#MGd;#8(02#L-d3#rWM4#Hga1#,<w0#T.j<#O#'2#CYN1#qa^:#_4m3#o@/=#eG8=#t8J5#`+78#4uI-#m3B2#SB[8#Q0@8#i[*9#iOn8#1Nm;#^sN9#qh<9#:=x-#P;K2#$%X9#bC+.#Rg;<#mN=.#MTF.#RZO.#2?)4#Y#(/#[)1/#b;L/#dAU/#0Sv;#lY$0#n`-0#sf60#(F24#wrH0#%/e0#TmD<#%JSMFove:CTBEXI:<eh2g)B,3h2^G3i;#d3jD>)4kMYD4lVu`4m`:&5niUA5@(A5BA1]PBB:xlBCC=2CDLXMCEUtiCf&0g2'tN?PGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CP-qekC`.9kEg^+F$kwViFJTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5o,^<-28ZI'O?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xp;7q-#lLYI:xvD=#"
+  0FF5C8: "1 - Trivial (0%)"
+  0FF5E0: "2 - Easy (0%)"
+  0FF5F0: "3 - Medium (25%)"
+  0FF608: "4 - Challenging (50%)"
+  0FF620: "5 - Hard (75%)"
+  0FF630: "6 - Extreme (100%)"
+  0FF648: "7 - Super Helldive (150%)"
+  0FF668: "8 - (200%)"
+  0FF678: "9 - (250%)"
+  0FF688: "10 - (300%)"
+
+--- Difficulty Constant Analysis ---
+  Known from code: "cmp esi,7" pattern (7 = Suicide Mission threshold)
+  "Force unconditional jump (bypass boundary)" references
+  "Force unconditional jump (bypass strategem count)" - cmp esi,5
+
+  INTERNAL DIFFICULTY MAPPING (HD2):
+    1 = Trivial
+    2 = Easy
+    3 = Medium
+    4 = Challenging
+    5 = Hard
+    6 = Extreme
+    7 = Suicide Mission
+    8 = Impossible
+    9 = Helldive
+    10 = Super Helldive
+
+  The cheat patches the difficulty comparison to always give max rewards.
+  "NOP difficulty value read" and "Force highest difficulty reward tier"
+  Multiplier slider: "Difficulty Mult" applies to rewards.
+
+################################################################################
+#  5. MISSION TYPE IDS
+################################################################################
+--- Mission Type Strings ---
+  0C618E: "Probe:       %s"
+  0FD6B8: "SMG-37 Defender"
+  0FD7D0: "ARC-12 Blitzer"
+  0FD8F8: "Reinforced Epaulettes"
+  0FDA28: "Concussive Reinforced"
+  0FDFF0: "RS-6 Fiend Destroyer"
+  0FE440: "  Probe ON - will overwrite on next mission"
+  0FE470: "Probe: ON - waiting for mission"
+  0FE498: "Probe: OFF - %d player%s saved"
+  0FE4B8: "Probe: OFF"
+  0FF178: "[Replay] Watchdog: reset stuck replayInProgress flag"
+  0FF1CA: " probe a mission first"
+  0FF948: "Freezes all countdown timers (mission, extraction, etc.)"
+  100628: "  BEFORE: ctr=0x%X flag=0x%X ring=%u url="%.40s""
+  100680: "  AFTER(0s): ctr=0x%X flag=0x%X ring=%u rax=0x%llX url="%.40s" qDelta=%d"
+  1013F8: "[Probe] Game thread captured"
+  101438: "Probe data saved"
+  101450: "Probe aborted: module not found"
+  101470: "Probe aborted: BP address out of valid range"
+  101576: " run probe first!"
+  101B74: "Probe:"
+  102ED0: "Skip Launch Code"
+  102F00: "NOP launch code comparison jne"
+  104708: "Orbitals"
+  104878: "Reinforcement"
+  104898: "Extraction"
+  1048B8: "Drilling Charge"
+  1048E0: "Spire Sterilizer"
+  1048F8: "Raise Flag"
+  104918: "Prospecting Drill"
+  104930: "Seismic Probe"
+  104950: "Extraction Beacon"
+  104F78: "Invalid flags for IsItemHovered()!"
+  105010: "(Debug Log: Auto-disabled some ImGuiDebugLogFlags after 2 frames)"
+  1051C0: "Calling PopItemFlag() too many times!"
+  1058A0: "SetShortcutRouting(%s, flags=%04X, owner_id=0x%08X) -> always, no register"
+  1058F0: "SetShortcutRouting(%s, flags=%04X, owner_id=0x%08X) -> filtered as potential char input"
+  105950: "SetShortcutRouting(%s, flags=%04X, owner_id=0x%08X) -> score %d"
+  105C00: "Missing PopItemFlag()"
+
+  Total mission type strings: 39
+
+  NOTE: Mission types are likely referenced via missionId UUIDs.
+  The replay capture stores "capturedWarTime" and "missionId".
+  Internal mission type might be in entityDeep/entityDataDeep JSON.
+
+################################################################################
+#  6. ENEMY TYPE IDS
+################################################################################
+--- Enemy Type Strings ---
+  0FDAA8: "FS-55 Devastator"
+  0FDAE8: "SA-25 Steel Trooper"
+  0FDF50: "DS-10 Big Game Hunter"
+  0FE378: "CW-36 Winter Warrior"
+  0FFDA0: "Infinite Horde Mode##erad_ih"
+  0FFF60: "  Enemy Spawner - Coming Soon"
+  1034D0: "NOP both hash table INSERT calls that mark SC entities as collected"
+  103950: "Impaler"
+  103960: "Brood Commander"
+  103970: "Stalker"
+  103978: "Warrior"
+  103980: "Hunter"
+  103998: "Bile Spewer"
+  1039A8: "Nursing Spewer"
+  1039B8: "Hive Guard"
+  1039C8: "Shrieker"
+  1039D8: "Scavenger"
+  1039F0: "Bile Titan"
+  103A00: "Charger"
+  103A08: "Charger Behemoth"
+  103A20: "Factory Strider"
+  103A38: "Hulk Bruiser"
+  103A48: "Hulk Scorcher"
+  103A58: "Tank"
+  103A60: "Devastator"
+  103A70: "Heavy Devastator"
+  103A88: "Rocket Devastator"
+  103AA0: "Berserker"
+  103AB0: "Scout Strider"
+  103AC0: "Trooper"
+  103AC8: "Gunship"
+  103AD0: "Harvester"
+  103B20: "Overseer"
+  104868: "Bastion Tank"
+  1048D0: "Bug Plug"
+  104908: "Bug Thumper"
+  105010: "(Debug Log: Auto-disabled some ImGuiDebugLogFlags after 2 frames)"
+  105058: "Debug##Default"
+  105E00: "Set io.ConfigDebugDetectIdConflicts=false to disable this warning in non-programmers builds."
+  106500: "Click %s Button to break in debugger! (remap w/ Ctrl+Shift)"
+
+  Total enemy-related strings: 40
+  NOTE: "Enemy Spawner - Coming Soon" suggests future spawn control.
+  "Infinite Horde Mode" (##erad_ih) enables endless spawns.
+
+################################################################################
+#  7. SAMPLE TYPE IDS
+################################################################################
+--- Sample-Related Strings ---
+  0CA292: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0CA2F0: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0CFD02: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0CFD60: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0D4912: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0D4970: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0D94B2: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0D9510: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0DE112: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0DE170: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0E2CB2: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0E2D10: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0E7842: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0E78A0: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0EC3D2: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0EC430: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0F0F62: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0F0FC0: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0F5E72: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0F5ED0: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0FF6A8: "[3] Add Samples Instantly"
+  0FF6C8: "Add Samples: ON ##samp"
+  0FF6E0: "Add Samples: OFF##samp"
+  0FF708: "Common##fsamp_c"
+  0FF770: "[4] Samples Over Limit Reward"
+  0FF790: "Override sample amounts awarded at end of mission (-1 = default)"
+  0FF7D8: "Samples Reward: ON ##sr"
+  0FF7F0: "Samples Reward: OFF##sr"
+  0FF820: "Common Reward##src"
+  0FF838: "Rare Reward##srr"
+  103580: "Add Samples"
+  1035A8: "Freeze sample values (prevents loss)"
+
+--- Sample Enum Analysis ---
+  Common Sample:  ID=0  (slider ##fsamp_c)
+  Rare Sample:    ID=1  (slider ##fsamp_r)
+  Super Sample:   ID=2  (slider ##fsamp_s)
+
+  Clamping: "Total %d > 100 ... will auto-clamp to 34/33/33"
+  This distributes 100 samples across types: 34 Common, 33 Rare, 33 Super.
+
+  "Add Samples Instantly" - applies samples at mission start.
+  "Samples Over Limit" - overrides end-of-mission reward samples.
+
+################################################################################
+#  8. WARBOND IDS
+################################################################################
+--- Warbond Strings ---
+
+  Total warbond strings: 0
+  NOTE: The "Unlock All Armory" feature patches warbond unlock checks.
+  "NOP unlock check jump" bypasses warbond/premium gating.
+
+################################################################################
+#  9. BOOSTER IDS
+################################################################################
+--- Booster Strings ---
+  0FDA10: "Supplemental Stamina"
+  102B08: "Inf Stamina"
+  102B38: "NOP stamina read/drain"
+
+  Total booster strings: 3
+
+################################################################################
+#  10. PLANET / BIOME REFERENCES
+################################################################################
+--- Planet / Biome Strings ---
+  0B9B18: [BIOME] "device or resource busy"
+  0BCB08: [BIOME] "cross device link"
+  0BCD40: [BIOME] "no space on device"
+  0BCD70: [BIOME] "no such device or address"
+  0BCD90: [BIOME] "no such device"
+  0FD9C8: [BIOME] "Desert Stormer"
+  0FE190: [BIOME] "BP-20 Correct Officer"
+  101F94: "planet"
+  101F9C: "Planet"
+
+  Total planet/biome strings: 9
+
+################################################################################
+#  11. GAME PHASE / STATE ENUM
+################################################################################
+--- Game State Strings ---
+  0BCA10: "already connected"
+  0BCAB8: "connection already in progress"
+  0BCEF0: "state not recoverable"
+  0BDE10: "`udt returning'"
+  0C5D48: "[+] Ready"
+  0C5D78: "[+] Ready "
+  0C5EF8: "[SC] Ready"
+  0FDFF0: "RS-6 Fiend Destroyer"
+  0FE418: "  Session captured"
+  0FE548: "Stop after##session"
+  0FE560: "##sessionmins"
+  0FE978: "No lobby found"
+  0FEE90: "Give all lobby members the selected primary weapon XP."
+  0FF15F: " session timer expired"
+  1005C8: "HAS SESSION"
+  1005D8: "NULL SESSION"
+  1005E8: "  GetActiveSession() = 0x%llX "
+  100610: "SC skip: no session"
+  10099A: " %d lobby player(s)"
+  100A48: "[R] Ready"
+  1017A0: "Session expired or access revoked. Contact TheOGcup."
+  101FD4: "lobby"
+  101FDC: "Lobby"
+  101FF8: "session"
+  102000: "Session"
+  1020C8: "X-Session"
+  102428: "frame4_lobby"
+  103794: "READY"
+  103890: "[GodMode] READY "
+  103C68: "[WeaponEditor] Init complete, ready=%s"
+  104548: "AOB not found in game.dll"
+  106B50: "XInputGetState"
+
+  Total state-related strings: 32
+
+  INFERRED GAME STATES (from cheat behavior):
+    STATE_LOADING        - Game loading, no module available
+    STATE_MAIN_MENU      - On ship, in main menu
+    STATE_IN_LOBBY       - In mission lobby/prep screen
+    STATE_IN_MISSION     - Active mission gameplay
+    STATE_POST_MISSION   - Mission results/debrief
+    STATE_EXTRACTING     - Pelican extraction sequence
+
+  The cheat detects states via:
+    - GetActiveSession() = NULL -> not in game
+    - "Probe ON - will overwrite on next mission" -> mission start detection
+    - "Waiting for mission to capture" -> lobby detection
+    - "Session captured" -> mission in progress
+
+################################################################################
+#  12. NETWORK MESSAGE IDS
+################################################################################
+--- Network / API Strings ---
+  02C62D: "<$f2s7"
+  02C7E8: "<$f2s7uIL"
+  0BCC80: "network down"
+  0BCC90: "network reset"
+  0BCCA0: "network unreachable"
+  0BCDD0: "not a socket"
+  0C5C78: "libertea_replay_cap.json"
+  0C5EC0: "Mission/end "
+  0C6128: "--- Replay ---"
+  0C6138: "Auto Replay: %s  Interval: %.0fs  Count: %d"
+  0C6176: "Burst:       %s  %d/%d"
+  0C624C: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0FE3C8: "##replay_subtabs"
+  0FE3E0: "Replay##rsub"
+  0FE4E0: "Auto-Replay STOPPED by user"
+  0FE520: "Auto-Replay STARTED (2 min interval)"
+  0FE5A0: "##maxreplays"
+  0FE5B0: "replays"
+  0FE6B8: "Burst##rsub"
+  0FE6C8: "Burst Replay"
+  0FE6D8: "%d replays"
+  0FE6E8: "##BurstCount"
+  0FE6F8: "Burst Send (%d replays)"
+  0FE710: "Queues all replays instantly -- server may rate-limit"
+  0FE748: "Sending %d/%d..."
+  0FE788: "Burst complete -- %d/%d sent. Safe to exit game!"
+  0FE7C0: "BurstDonePopup"
+  0FE7D0: "Burst Complete!"
+  0FE7E0: "All replays dispatched."
+  0FE828: "Burst Loop"
+  0FE848: "minutes between bursts"
+  0FE860: "Burst Loop: ON ##bl"
+  0FE878: "Burst Loop: OFF##bl"
+  0FE890: "Burst Loop started -- interval %d min"
+  0FE8B8: "Burst Loop stopped"
+  0FE8D0: "Burst Loop fired -- next in %d min"
+  0FE8F8: "Next burst in %dm %02ds"
+  0FE910: "Auto-fires burst every N minutes when ON"
+  0FEA80: "Firing MEDAL batch (9 calls x 500ms)..."
+  0FEAA8: "Firing SC batch (9 calls x 500ms)..."
+  0FEAE0: "  |  Skipped (replay): %d"
+  0FEC28: "Alternates SC / Medal batches"
+  0FEED8: "Replays/gun:"
+  0FF008: "Last replay: %d slot(s) patched"
+  0FF028: "Last replay: 0 matches in capture"
+  0FF148: "Auto-Replay STOPPED "
+  0FF178: "[Replay] Watchdog: reset stuck replayInProgress flag"
+  0FF2D0: "https://discord.gg/exCgdvYPxd"
+  0FF428: "Replay"
+  0FF998: "##replay_scroll"
+  0FF9A8: "Mission Replay Log"
+  0FF9D0: "QUEUED = processing"
+  0FFA60: "[QUEUED]"
+  1005A0: "=== ScActivityAPC === actObj=%p TID=%u"
+  100728: "Medal Batch Firing"
+  100740: "SC Batch Firing"
+  100990: "Replay "
+  1009B0: "CRASH in BuildPayload"
+  100A00: "Replay Sent"
+  100A88: "Replay Queued"
+  100A98: "[Replay] Dispatch failed"
+  100AB8: "[Burst] Sent %d/%d"
+  100AD0: "[Burst] %d/%d failed"
+  100AE8: "[Burst] Done "
+  100AF8: " %d replays dispatched"
+  100B30: "[Burst] Starting %d staggered replays (5s apart)..."
+  101708: "Network error. Check connection and try again."
+  101808: "winhttp.dll"
+  101BD8: "Recvd:"
+  101D10: "[HTTP] SWAP: replacing missionId (old %d chars) with %s"
+  101D58: "[HTTP] INJECT: missionId="%s" (%s) injected (%d "
+  101DAC: " next POST will use missionId=%s"
+  101E18: "[RECON-BODY] %ld %s "
+  101E38: "Mission/end"
+  101E60: "[HTTP] >>> Activity WRITE CB first_chunk: status=%ld size=%zu fwd=%s"
+  101EA8: "[HTTP] <<< BODY: %s"
+  101EC0: "[HTTP-RESP] POST missionId=%s"
+  101EE0: "[HTTP-RESP] Golden capture: hi2=%p rawPostLen=%d"
+  101F28: "Activity"
+  102028: "[RECON-URL] TID=%lu %s"
+  102040: "[HTTP] SETOPT WRITEFUNCTION h=%p fn=%p (act=%d mg=%d recon=%d)"
+  102080: "[RECON-HDR] h=%p [%d] %s"
+  1020A0: "X-Signature:"
+  1020B0: "Authorization:"
+  1020C0: "Cookie:"
+  1020C8: "X-Session"
+  1020E8: "Content-Type:"
+  102100: "/api/"
+  102128: "Captured Mission/end POST body: %d bytes"
+  102158: "[HTTP] SETOPT POSTFIELDS h=%p len=%d (%s)"
+  102188: "[HTTP] >>> curl_easy_perform %s h=%p"
+  1021B0: "[RECON-RESP] %ld %s"
+  102218: "[HTTP]   %s "
+  102238: "[SIG-CAPTURE] SINGLE #%d bufLen=%lu bodyXorLen=%lu nonce=%s"
+  102278: "[SIG-CHUNK] Tracking handle %p "
+  10229A: " got f2s7"
+  1022CA: " got f2s7+nonce (%lu bytes)"
+  102312: " got f2s7+partial (%lu bytes)"
+  102330: "[SIG-CHUNK] handle %p "
+  102349: " nonce captured (%lu bytes)"
+  1026C0: "[HTTP] Found libcurl at %p"
+  1026E0: "curl_easy_setopt"
+  1026F8: "curl_easy_perform"
+  102710: "curl_easy_getinfo"
+  102728: "curl_easy_cleanup"
+  102740: "[HTTP] Resolved: setopt=%p perform=%p getinfo=%p cleanup=%p"
+  102780: "curl_easy_init"
+  102790: "curl_slist_append"
+  1027A8: "curl_slist_free_all"
+  1027C0: "[HTTP] Clone curl: init=%p slist_append=%p slist_free=%p"
+  102800: "bcrypt.dll"
+  102810: "BCryptHashData"
+  103F88: "QueueSC: FAILED "
+  103FB8: "QueueSC: PostMessage(hwnd=%p, actObj=%p) = %d, LastErr=%u"
+  105ED0: "https://github.com/ocornut/imgui/blob/master/docs/FAQ.md#qa-usage"
+  106130: "[nav] NavInitRequest: from NavInitWindow(), init_for_nav=%d, window="%s", layer=%d"
+  106190: "[nav] NavInitRequest: ApplyResult: NavID 0x%08X in Layer %d Window "%s""
+  1061E0: "[nav] NavMoveRequestForward %d"
+  106200: "[nav] NavInitRequest: from move, window "%s", layer=%d"
+  106238: "[nav] NavMoveRequest: clamp NavRectRel for gamepad move"
+  1062B0: "[focus] NavMoveRequest: SetNavWindow("%s")"
+  1062E0: "[nav] NavMoveRequest: result NavID 0x%08X in Layer %d Window "%s""
+  106328: "[nav] NavUpdateCancelRequest()"
+  106920: "[selection] %s: Request: SetAll %d (= %s)"
+  106950: "[selection] %s: Request: SetRange %I64d..%I64d (0x%I64X..0x%I64X) = %d (dir %d)"
+
+  Total network strings: 125
+
+--- Network Message Types (Inferred) ---
+  MISSION_END_POST   - POST to Mission/end with JSON body
+  ACTIVITY_CALL      - SC farming uses "actFn" with actId32
+  WAR_STATUS_GET     - "/war/" API for war progression
+  SIGNATURE_HANDSHAKE - X-Signature header auth
+  RECON_BODY         - Man-in-the-middle HTTP body interception
+
+  The replay system:
+    1. Captures Mission/end POST body during real mission completion
+    2. Stores missionId, entityDeep, entityDataDeep, slotData
+    3. Replays by POSTing captured body with new missionId
+    4. "mid=%s" replacement swaps mission IDs
+
+################################################################################
+#  13. PLAYER CLASS / ROLE / SLOT IDS
+################################################################################
+--- Player-Related Strings ---
+  0BCBC0: "host unreachable"
+  0BE0B8: " Base Class Descriptor at ("
+  0BE0D8: " Base Class Array'"
+  0BE0F0: " Class Hierarchy Descriptor'"
+  0C5CF0: "slotData"
+  0C624C: "https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end"
+  0CA292: "x86)\Steam\steamapps\common\Helldivers 2\bin/data/exploded_dat"
+  0CA2F0: "am Files (x86)\Steam\steamapps\common\Helldivers 2\bin/data"
+  0FE430: "(%d/4 players)"
+  0FE498: "Probe: OFF - %d player%s saved"
+  0FE960: "%d player%s added to SC"
+  0FE978: "No lobby found"
+  0FEE90: "Give all lobby members the selected primary weapon XP."
+  0FF008: "Last replay: %d slot(s) patched"
+  0FFBA0: "PLAYER"
+  0FFBA8: "God Mode (Player Only)"
+  100750: "SCLoop[%d]: actObj=%p missionId=%s actId32=0x%08X objId=0x%08X pids=%d (retry=%d)"
+  100860: "[SC AutoSync] %d player(s) synced"
+  100920: "[SelectedGuns] Weapon: %s (slot %d/%d), cycle %d/%d"
+  100958: "[WeaponOvr] Patched %d weapon slot(s) -> ID %u (%s)"
+  10099A: " %d lobby player(s)"
+  100B68: "[SC] SyncNow: %d player(s) synced on inject"
+  101370: "  "slotData": "%s","
+  101FD4: "lobby"
+  101FDC: "Lobby"
+  102428: "frame4_lobby"
+  1028C8: "Helldivers2"
+  103F28: "HELLDIVERS"
+  103F38: "helldivers2"
+  103F48: "HELLDIVERS 2"
+
+  Total player strings: 30
+
+  PLAYER SLOTS: 4 players per mission ("%d/4 players" format)
+  Auto Sync distributes SC across all lobby members.
+  "pids=%d" in SCLoop tracks number of player IDs.
+
+################################################################################
+#  14. DAMAGE TYPE IDS
+################################################################################
+--- Damage Type Strings ---
+  0BE0F0: " Class Hierarchy Descriptor'"
+  0C00F4: "March"
+  0F87A0: "7])#######hV0qs'/###[),##/l:$#Q6>##5[n42>c-TH`->>#/e>11NNV=Bv(*:.F?uu#(gRU.o0XGH`$vhLG1hxt9?W`#,5LsCp#-i>.r$<$6pD>Lb';9Crc6tgXmKVeU2cD4Eo3R/2*>]b(MC;$jPfY.;h^`IWM9<Lh2TlS+f-s$o6Q<BWH`YiU.xfLq$N;$0iR/GX:U(jcW2p/W*q?-qmnUCI;jHSAiFWM.R*kU@C=GH?a9wp8f$e.-4^Qg1)Q-GL(lf(r/7GrRgwV%MS=C#`8ND>Qo#t'X#(v#Y9w0#1D$CIf;W'#pWUPXOuxXuU(H9M(1<q-UE31#^-V'8IRUo7Qf./L>=Ke$$'5F%)]0^#0X@U.a<r:QLtFsLcL6##lOj)#.Y5<-R&KgLwqJfLgN&;Q?gI^#DY2uLi@^rMl9t=cWq6##weg>$FBjVQTSDgEKnIS7EM9>ZY9w0#L;>>#Mx&4Mvt//L[MkA#W@lK.N'[0#7RL_&#w+F%HtG9M#XL`N&.,GM4Pg;-<nLENhvx>-VsM.M0rJfLH2eTM`*oJMHRC`NkfimM2J,W-jXS:)r0wK#@Fge$U>`w'N7G#$#fB#$E^$#:9:hk+eOe--6x)F7*E%?76%^GMHePW-Z5l'&GiF#$956:rS?dA#fiK:)Yr+`&#0j@'DbG&#^$PG.Ll+DNa<XCMKEV*N)LN/N*b=%Q6pia-Xg8I$<MR&,VdJe$<(7G;Ckl'&hF;;$<_=X(b.RS%%)###MPBuuE1V:v&cX&#2m#(&cV]`k9OhLMbn%s$G2,B$BfD3X*sp5#l,$R#]x_X1xKX%b5U*[r5iMfUo9U`N99hG)tm+/Us9pG)XPu`<0s-)WTt(gCRxIg(%6sfh=ktMKn3j)<6<b5Sk_/0(^]AaN#(p/L>&VZ>1i%h1S9u5o@YaaW$e+b<TWFn/Z:Oh(Cx2$lNEoN^e)#CFY@@I;BOQ*sRwZtZxRcU7uW6CXow0i(?$Q[cjOd[P4d)]>ROPOpxTO7Stwi1::iB1q)C_=dV26J;2,]7op$]uQr@_V7$q^%lQwtuHY]=DX,n3L#0PHDO4f9>dC@O>HBuKPpP*E,N+b3L#lpR/MrTEH.IAQk.a>D[.e;mc.x]Ip.PH^'/aqUO/$1WxLoW0[iLA<QT;5HKD+@qQ'NQ(3_PLhE48R.qAPSwQ0/WK?Z,[x?-J;jQTWA0X@KJ(_Y8N-:/M74:/-ZpKrUss?d#dZq]DAbkU*JqkL+nwX@@47`5>w=4h(9.`GCRUxHPeR`5Mjol(dUWxZa(>STrPkrJiWx`5U7F#.g*jrohGg`cg:lSTvEY/EV_7H4Q9[Z%cnv;JQYZ5q.l7Zeas:HOIZOB?G<Nald$qs]@]L<J7bR*>gv:[7MI2k).'2($5FNP&EQ(,)U]W]+fh18.vsai00);D3@4ku5P?DP8aJt+;qUM]=+b'8@;mViBKx0DE[-auGl8:PJ&Dj+M6OC]O^((##]`0i)drT;-7X`=-H3[igUnPG-NZlo.#k@h#=Ork$m>a>$-?Tm$UV(?#P6YY#'/###xe7q.73rI3*pP/$1>s9)W,JrM7SN]'/4C#v$U`0#V.[0>xQsH$fEmPMgY2u7Kh(G%siIfLSoS+MK2eTM$=5,M8p`A.;_R%#u[K#$x4AG8.kK/HSB==-'Ie/QTtG?-.*^N-4B/ZM_3YlQC7(p7q)&](`6_c)$/*JL(L-^(]$wIM`dPtOdGA,U3:w2M-0<q-]L_?^)1vw'.,MRsqVr.L;aN&#/EgJ)PBc[-f>+WomX2u7lqM2iEumMTcsF?-aT=Z-97UEnXglEn1K-bnEO`guFt(c%=;Am_Qs@jLooI&NX;]0#j4#F14;gl8-GQpgwhrq8'=l_f-b49'UOqkLu7-##oDY2L(te+Mch&gLYtJ,MEtJfLh'x'M=$CS-ZZ%P]8bZ>#S?YY#%Q&q'3^Fw&?D)UDNrocM3A76//oL?#h7gl85[qW/NDOk%16ij;+:1a'iNIdb-ou8.P*w,v5#EI$TWS>Pot-R*H'-SEpA:g)f+O$%%`kA#G=8RMmG1&O`>to8bC]T&$,n.LoO>29sp3dt-52U%VM#q7'DHpg+#Z9%H[K<L%a2E-grWVM3@2=-k22tL]4$##6We'8UJCKE[d_=%wI;'6X-GsLX4j^SgJ$##R*w,vP3wK#iiW&#*h^D&R?jp7+/u&#(AP##XU8c$fSYW-J95_-Dp[g9wcO&#M-h1OcJlc-*vpw0xUX&#OQFKNX@QI'IoPp7nb,QU//MQ&ZDkKP)X<WSVL(68uVl&#c'[0#(s1X&xm$Y%B7*K:eDA323j998GXbA#pwMs-jgD$9QISB-A_(aN4xoFM^@C58D0+Q+q3n0#3U1InDjF682-SjMXJK)(h$hxua_K]ul92%'BOU&#BRRh-slg8KDlr:%L71Ka:.A;%YULjDPmL<LYs8i#XwJOYaKPKc1h:'9Ke,g)b),78=I39B;xiY$bgGw-&.Zi9InXDuYa%G*f2Bq7mn9^#p1vv%#(Wi-;/Z5ho;#2:;%d&#x9v68C5g?ntX0X)pT`;%pB3q7mgGN)3%(P8nTd5L7GeA-GL@+%J3u2:(Yf>et`e;)f#Km8&+DC$I46>#Kr]]u-[=99tts1.qb#q72g1WJO81q+eN'03'eM>&1XxY-caEnOj%2n8)),?ILR5^.Ibn<-X-Mq7[a82Lq:F&#ce+S9wsCK*x`569E8ew'He]h:sI[2LM$[guka3ZRd6:t%IG:;$%YiJ:Nq=?eAw;/:nnDq0(CYcMpG)qLN4$##&J<j$UpK<Q4a1]MupW^-sj_$%[HK%'F####QRZJ::Y3EGl4'@%FkiAOg#p[##O`gukTfBHagL<LHw%q&OV0##F=6/:chIm0@eCP8X]:kFI%hl8hgO@RcBhS-@Qb$%+m=hPDLg*%K8ln(wcf3/'DW-$.lR?n[nCH-eXOONTJlh:.RYF%3'p6sq:UIMA945&^HFS87@$EP2iG<-lCO$%c`uKGD3rC$x0BL8aFn--`ke%#HMP'vh1/R&O_J9'um,.<tx[@%wsJk&bUT2`0uMv7gg#qp/ij.L56'hl;.s5CUrxjOM7-##.l+Au'A&O:-T72L]P`&=;ctp'XScX*rU.>-XTt,%OVU4)S1+R-#dg0/Nn?Ku1^0f$B*P:Rowwm-`0PKjYDDM'3]d39VZHEl4,.j']Pk-M.h^&:0FACm$maq-&sgw0t7/6(^xtk%LuH88Fj-ekm>GA#_>568x6(OFRl-IZp`&b,_P'$M<Jnq79VsJW/mWS*PUiq76;]/NM_>hLbxfc$mj`,O;&%W2m`Zh:/)Uetw:aJ%]K9h:TcF]u_-Sj9,VK3M.*'&0D[Ca]J9gp8,kAW]%(?A%R$f<->Zts'^kn=-^@c4%-pY6qI%J%1IGxfLU9CP8cbPlXv);C=b),<2mOvP8up,UVf3839acAWAW-W?#ao/^#%KYo8fRULNd2.>%m]UK:n%r$'sw]J;5pAoO_#2mO3n,'=H5(etHg*`+RLgv>=4U8guD$I%D:W>-r5V*%j*W:Kvej.Lp$<M-SGZ':+Q_k+uvOSLiEo(<aD/K<CCc`'Lx>'?;++O'>()jLR-^u68PHm8ZFWe+ej8h:9r6L*0//c&iH&R8pRbA#Kjm%upV1g:a_#Ur7FuA#(tRh#.Y5K+@?3<-8m0$PEn;J:rh6?I6uG<-`wMU'ircp0LaE_OtlMb&1#6T.#FDKu#1Lw%u%+GM+X'e?YLfjM[VO0MbuFp7;>Q&#WIo)0@F%q7c#4XAXN-U&VB<HFF*qL($/V,;(kXZejWO`<[5??ewY(*9=%wDc;,u<'9t3W-(H1th3+G]ucQ]kLs7df($/*JL]@*t7Bu_G3_7mp7<iaQjO@.kLg;x3B0lqp7Hf,^Ze7-##@/c58Mo(3;knp0%)A7?-W+eI'o8)b<nKnw'Ho8C=Y>pqB>0ie&jhZ[?iLR@@_AvA-iQC(=ksRZRVp7`.=+NpBC%rh&3]R:8XDmE5^V8O(x<<aG/1N$#FX$0V5Y6x'aErI3I$7x%E`v<-BY,)%-?Psf*l?%C3.mM(=/M0:JxG'?7WhH%o'a<-80g0NBxoO(GH<dM]n.+%q@jH?f.UsJ2Ggs&4<-e47&Kl+f//9@`b+?.TeN_&B8Ss?v;^Trk;f#YvJkl&w$]>-+k?'(<S:68tq*WoDfZu';mM?8X[ma8W%*`-=;D.(nc7/;)g:T1=^J$&BRV(-lTmNB6xqB[@0*o.erM*<SWF]u2=st-*(6v>^](H.aREZSi,#1:[IXaZFOm<-ui#qUq2$##Ri;u75OK#(RtaW-K-F`S+cF]uN`-KMQ%rP/Xri.LRcB##=YL3BgM/3MD?@f&1'BW-)Ju<L25gl8uhVm1hL$##*8###'A3/LkKW+(^rWX?5W_8g)a(m&K8P>#bmmWCMkk&#TR`C,5d>g)F;t,4:@_l8G/5h4vUd%&%950:VXD'QdWoY-F$BtUwmfe$YqL'8(PWX(P?^@Po3$##`MSs?DWBZ/S>+4%>fX,VWv/w'KD`LP5IbH;rTV>n3cEK8U#bX]l-/V+^lj3;vlMb&[5YQ8#pekX9JP3XUC72L,,?+Ni&co7ApnO*5NK,((W-i:$,kp'UDAO(G0Sq7MVjJsbIu)'Z,*[>br5fX^:FPAWr-m2KgL<LUN098kTF&#lvo58=/vjDo;.;)Ka*hLR#/k=rKbxuV`>Q_nN6'8uTG&#1T5g)uLv:873UpTLgH+#FgpH'_o1780Ph8KmxQJ8#H72L4@768@Tm&Qh4CB/5OvmA&,Q&QbUoi$a_%3M01H)4x7I^&KQVgtFnV+;[Pc>[m4k//,]1?#`VY[Jr*3&&slRfLiVZJ:]?=K3Sw=[$=uRB?3xk48@aeg<Z'<$#4H)6,>e0jT6'N#(q%.O=?2S]u*(m<-V8J'(1)G][68hW$5'q[GC&5j`TE?m'esFGNRM)j,ffZ?-qx8;->g4t*:CIP/[Qap7/9'#(1sao7w-.qNUdkJ)tCF&#B^;xGvn2r9FEPFFFcL@.iFNkTve$m%#QvQS8U@)2Z+3K:AKM5isZ88+dKQ)W6>J%CL<KE>`.d*(B`-n8D9oK<Up]c$X$(,)M8Zt7/[rdkqTgl-0cuGMv'?>-XV1q['-5k'cAZ69e;D_?$ZPP&s^+7])$*$#@QYi9,5P&#9r+$%CE=68>K8r0=dSC%%(@p7.m7jilQ02'0-VWAg<a/''3u.=4L$Y)6k/K:_[3=&jvL<L0C/2'v:^;-DIBW,B4E68:kZ;%?8(Q8BH=kO65BW?xSG&#@uU,DS*,?.+(o(#1vCS8#CHF>TlGW'b)Tq7VT9q^*^$$.:&N@@$&)WHtPm*5_rO0&e%K&#-30j(E4#'Zb.o/(Tpm$>K'f@[PvFl,hfINTNU6u'0pao7%XUp9]5.>%h`8_=VYbxuel.NTSsJfLacFu3B'lQSu/m6-Oqem8T+oE--$0a/k]uj9EwsG>%veR*hv^BFpQj:K'#SJ,sB-'#](j.Lg92rTw-*n%@/;39rrJF,l#qV%OrtBeC6/,;qB3ebNW[?,Hqj2L.1NP&GjUR=1D8QaS3Up&@*9wP?+lo7b?@%'k4`p0Z$22%K3+iCZj?XJN4Nm&+YF]u@-W$U%VEQ/,,>>#)D<h#`)h0:<Q6909ua+&VU%n2:cG3FJ-%@Bj-DgLr`Hw&HAKjKjseK</xKT*)B,N9X3]krc12t'pgTV(Lv-tL[xg_%=M_q7a^x?7Ubd>#%8cY#YZ?=,`Wdxu/ae&#w6)R89tI#6@s'(6Bf7a&?S=^ZI_kS&ai`&=tE72L_D,;^R)7[$s<Eh#c&)q.MXI%#v9ROa5FZO%sF7q7Nwb&#ptUJ:aqJe$Sl68%.D###EC><?-aF&#RNQv>o8lKN%5/$(vdfq7+ebA#u1p]ovUKW&Y%q]'>$1@-[xfn$7ZTp7mM,G,Ko7a&Gu%G[RMxJs[0MM%wci.LFDK)(<c`Q8N)jEIF*+?P2a8g%)$q]o2aH8C&<SibC/q,(e:v;-b#6[$NtDZ84Je2KNvB#$P5?tQ3nt(0d=j.LQf./Ll33+(;q3L-w=8dX$#WF&uIJ@-bfI>%:_i2B5CsR8&9Z&#=mPEnm0f`<&c)QL5uJ#%u%lJj+D-r;BoF&#4DoS97h5g)E#o:&S4weDF,9^Hoe`h*L+_a*NrLW-1pG_&2UdB86e%B/:=>)N4xeW.*wft-;$'58-ESqr<b?UI(_%@[P46>#U`'6AQ]m&6/`Z>#S?YY#Vc;r7U2&326d=w&H####?TZ`*4?&.MK?LP8Vxg>$[QXc%QJv92.(Db*B)gb*BM9dM*hJMAo*c&#b0v=Pjer]$gG&JXDf->'StvU7505l9$AFvgYRI^&<^b68?j#q9QX4SM'RO#&sL1IM.rJfLUAj221]d##DW=m83u5;'bYx,*Sl0hL(W;;$doB&O/TQ:(Z^xBdLjL<Lni;''X.`$#8+1GD:k$YUWsbn8ogh6rxZ2Z9]%nd+>V#*8U_72Lh+2Q8Cj0i:6hp&$C/:p(HK>T8Y[gHQ4`4)'$Ab(Nof%V'8hL&#<NEdtg(n'=S1A(Q1/I&4([%dM`,Iu'1:_hL>SfD07&6D<fp8dHM7/g+tlPN9J*rKaPct&?'uBCem^jn%9_K)<,C5K3s=5g&GmJb*[SYq7K;TRLGCsM-$$;S%:Y@r7AK0pprpL<Lrh,q7e/%KWK:50I^+m'vi`3?%Zp+<-d+$L-Sv:@.o19n$s0&39;kn;S%BSq*$3WoJSCLweV[aZ'MQIjO<7;X-X;&+dMLvu#^UsGEC9WEc[X(wI7#2.(F0jV*eZf<-Qv3J-c+J5AlrB#$p(H68LvEA'q3n0#m,[`*8Ft)FcYgEud]CWfm68,(aLA$@EFTgLXoBq/UPlp7:d[/;r_ix=:TF`S5H-b<LI&HY(K=h#)]Lk$K14lVfm:x$H<3^Ql<M`$OhapBnkup'D#L$Pb_`N*g]2e;X/Dtg,bsj&K#2[-:iYr'_wgH)NUIR8a1n#S?Yej'h8^58UbZd+^FKD*T@;6A7aQC[K8d-(v6GI$x:T<&'Gp5Uf>@M.*J:;$-rv29'M]8qMv-tLp,'886iaC=Hb*YJoKJ,(j%K=H`K.v9HggqBIiZu'QvBT.#=)0ukruV&.)3=(^1`o*Pj4<-<aN((^7('#Z0wK#5GX@7u][`*S^43933A4rl][`*O4CgLEl]v$1Q3AeF37dbXk,.)vj#x'd`;qgbQR%FW,2(?LO=s%Sc68%NP'##Aotl8x=BE#j1UD([3$M(]UI2LX3RpKN@;/#f'f/&_mt&F)XdF<9t4)Qa.*kTLwQ'(TTB9.xH'>#MJ+gLq9-##@HuZPN0]u:h7.T..G:;$/Usj(T7`Q8tT72LnYl<-qx8;-HV7Q-&Xdx%1a,hC=0u+HlsV>nuIQL-5<N?)NBS)QN*_I,?&)2'IM%L3I)X((e/dl2&8'<M:^#M*Q+[T.Xri.LYS3v%fF`68h;b-X[/En'CR.q7E)p'/kle2HM,u;^%OKC-N+Ll%F9CF<Nf'^#t2L,;27W:0O@6##U6W7:$rJfLWHj$#)woqBefIZ.PK<b*t7ed;p*_m;4ExK#h@&]>_>@kXQtMacfD.m-VAb8;IReM3$wf0''hra*so568'Ip&vRs849'MRYSp%:t:h5qSgwpEr$B>Q,;s(C#$)`svQuF$##-D,##,g68@2[T;.XSdN9Qe)rpt._K-#5wF)sP'##p#C0c%-Gb%hd+<-j'Ai*x&&HMkT]C'OSl##5RG[JXaHN;d'uA#x._U;.`PU@(Z3dt4r152@:v,'R.Sj'w#0<-;kPI)FfJ&#AYJ&#//)>-k=m=*XnK$>=)72L]0I%>.G690a:$##<,);?;72#?x9+d;^V'9;jY@;)br#q^YQpx:X#Te$Z^'=-=bGhLf:D6&bNwZ9-ZD#n^9HhLMr5G;']d&6'wYmTFmL<LD)F^%[tC'8;+9E#C$g%#5Y>q9wI>P(9mI[>kC-ekLC/R&CH+s'B;K-M6$EB%is00:+A4[7xks.LrNk0&E)wILYF@2L'0Nb$+pv<(2.768/FrY&h$^3i&@+G%JT'<-,v`3;_)I9M^AE]CN?Cl2AZg+%4iTpT3<n-&%H%b<FDj2M<hH=&Eh<2Len$b*aTX=-8QxN)k11IM1c^j%9s<L<NFSo)B?+<-(GxsF,^-Eh@$4dXhN$+#rxK8'je'D7k`e;)2pYwPA'_p9&@^18ml1^[@g4t*[JOa*[=Qp7(qJ_oOL^('7fB&Hq-:sf,sNj8xq^>$U4O]GKx'm9)b@p7YsvK3w^YR-CdQ*:Ir<($u&)#(&?L9Rg3H)4fiEp^iI9O8KnTj,]H?D*r7'M;PwZ9K0E^k&-cpI;.p/6_vwoFMV<->#%Xi.LxVnrU(4&8/P+:hLSKj$#U%]49t'I:rgMi'FL@a:0Y-uA[39',(vbma*hU%<-SRF`Tt:542R_VV$p@[p8DV[A,?1839FWdF<TddF<9Ah-6&9tWoDlh]&1SpGMq>Ti1O*H&#(AL8[_P%.M>v^-))qOT*F5Cq0`Ye%+$B6i:7@0IX<N+T+0MlMBPQ*Vj>SsD<U4JHY8kD2)2fU/M#$e.)T4,_=8hLim[&);?UkK'-x?'(:siIfL<$pFM`i<?%W(mGDHM%>iWP,##P`%/L<eXi:@Z9C.7o=@(pXdAO/NLQ8lPl+HPOQa8wD8=^GlPa8TKI1CjhsCTSLJM'/Wl>-S(qw%sf/@%#B6;/U7K]uZbi^Oc^2n<bhPmUkMw>%t<)'mEVE''n`WnJra$^TKvX5B>;_aSEK',(hwa0:i4G?.Bci.(X[?b*($,=-n<.Q%`(X=?+@Am*Js0&=3bh8K]mL<LoNs'6,'85`0?t/'_U59@]ddF<#LdF<eWdF<OuN/45rY<-L@&#+fm>69=Lb,OcZV/);TTm8VI;?%OtJ<(b4mq7M6:u?KRdF<gR@2L=FNU-<b[(9c/ML3m;Z[$oF3g)GAWqpARc=<ROu7cL5l;-[A]%/+fsd;l#SafT/f*W]0=O'$(Tb<[)*@e775R-:Yob%g*>l*:xP?Yb.5)%w_I?7uk5JC+FS(m#i'k.'a0i)9<7b'fs'59hq$*5Uhv##pi^8+hIEBF`nvo`;'l0.^S1<-wUK2/Coh58KKhLjM=SO*rfO`+qC`W-On.=AJ56>>i2@2LH6A:&5q`?9I3@@'04&p2/LVa*T-4<-i3;M9UvZd+N7>b*eIwg:CC)c<>nO&#<IGe;__.thjZl<%w(Wk2xmp4Q@I#I9,DF]u7-P=.-_:YJ]aS@V?6*C()dOp7:WL,b&3Rg/.cmM9&r^>$(>.Z-I&J(Q0Hd5Q%7Co-b`-c<N(6r@ip+AurK<m86QIth*#v;-OBqi+L7wDE-Ir8K['m+DDSLwK&/.?-V%U_%3:qKNu$_b*B-kp7NaD'QdWQPKYq[@>P)hI;*_F]u`Rb[.j8_Q/<&>uu+VsH$sM9TA%?)(vmJ80),P7E>)tjD%2L=-t#fK[%`v=Q8<FfNkgg^oIbah*#8/Qt$F&:K*-(N/'+1vMB,u()-a.VUU*#[e%gAAO(S>WlA2);Sa>gXm8YB`1d@K#n]76-a$U,mF<fX]idqd)<3,]J7JmW4`6]uks=4-72L(jEk+:bJ0M^q-8Dm_Z?0olP1C9Sa&H[d&c$ooQUj]Exd*3ZM@-WGW2%s',B-_M%>%Ul:#/'xoFM9QX-$.QN'>[%$Z$uF6pA6Ki2O5:8w*vP1<-1`[G,)-m#>0`P&#eb#.3i)rtB61(o'$?X3B</R90;eZ]%Ncq;-Tl]#F>2Qft^ae_5tKL9MUe9b*sLEQ95C&`=G?@Mj=wh*'3E>=-<)Gt*Iw)'QG:`@IwOf7&]1i'S01B+Ev/Nac#9S;=;YQpg_6U`*kVY39xK,[/6Aj7:'1Bm-_1EYfa1+o&o4hp7KN_Q(OlIo@S%;jVdn0'1<Vc52=u`3^o-n1'g4v58Hj&6_t7$##?M)c<$bgQ_'SY((-xkA#Y(,p'H9rIVY-b,'%bCPF7.J<Up^,(dU1VY*5#WkTU>h19w,WQhLI)3S#f$2(eb,jr*b;3Vw]*7NH%$c4Vs,eD9>XW8?N]o+(*pgC%/72LV-u<Hp,3@e^9UB1J+ak9-TN/mhKPg+AJYd$MlvAF_jCK*.O-^(63adMT->W%iewS8W6m2rtCpo'RS1R84=@paTKt)>=%&1[)*vp'u+x,VrwN;&]kuO9JDbg=pO$J*.jVe;u'm0dr9l,<*wMK*Oe=g8lV_KEBFkO'oU]^=[-792#ok,)i]lR8qQ2oA8wcRCZ^7w/Njh;?.stX?Q1>S1q4Bn$)K1<-rGdO'$Wr.Lc.CG)$/*JL4tNR/,SVO3,aUw'DJN:)Ss;wGn9A32ijw%FL+Z0Fn.U9;reSq)bmI32U==5ALuG&#Vf1398/pVo1*c-(aY168o<`JsSbk-,1N;$>0:OUas(3:8Z972LSfF8eb=c-;>SPw7.6hn3m`9^Xkn(r.qS[0;T%&Qc=+STRxX'q1BNk3&*eu2;&8q$&x>Q#Q7^Tf+6<(d%ZVmj2bDi%.3L2n+4W'$PiDDG)g,r%+?,$@?uou5tSe2aN_AQU*<h`e-GI7)?OK2A.d7_c)?wQ5AS@DL3r#7fSkgl6-++D:'A,uq7SvlB$pcpH'q3n0#_%dY#xCpr-l<F0NR@-##FEV6NTF6##$l84N1w?AO>'IAOURQ##V^Fv-XFbGM7Fl(N<3DhLGF%q.1rC$#:T__&Pi68%0xi_&[qFJ(77j_&JWoF.V735&T,[R*:xFR*K5>>#`bW-?4Ne_&6Ne_&6Ne_&n`kr-#GJcM6X;uM6X;uM(.a..^2TkL%oR(#;u.T%fAr%4tJ8&><1=GHZ_+m9/#H1F^R#SC#*N=BA9(D?v[UiFY>>^8p,KKF.W]L29uLkLlu/+4T<XoIB&hx=T1PcDaB&;HH+-AFr?(m9HZV)FKS8JCw;SD=6[^/DZUL`EUDf]GGlG&>w$)F./^n3+rlo+DB;5sIYGNk+i1t-69Jg--0pao7Sm#K)pdHW&;LuDNH@H>#/X-TI(;P>#,Gc>#0Su>#4`1?#8lC?#<xU?#@.i?#D:%@#HF7@#LRI@#P_[@#Tkn@#Xw*A#]-=A#a9OA#d<F&#*;G##.GY##2Sl##6`($#:l:$#>xL$#B.`$#F:r$#JF.%#NR@%#R_R%#Vke%#Zww%#_-4&#3^Rh%Sflr-k'MS.o?.5/sWel/wpEM0%3'/1)K^f1-d>G21&v(35>V`39V7A4=onx4A1OY5EI0;6Ibgr6M$HS7Q<)58C5w,;WoA*#[%T*#`1g*#d=#+#hI5+#lUG+#pbY+#tnl+#x$),#&1;,#*=M,#.I`,#2Ur,#6b.-#;w[H#iQtA#m^0B#qjBB#uvTB##-hB#'9$C#+E6C#/QHC#3^ZC#7jmC#;v)D#?,<D#C8ND#GDaD#KPsD#O]/E#g1A5#KA*1#gC17#MGd;#8(02#L-d3#rWM4#Hga1#,<w0#T.j<#O#'2#CYN1#qa^:#_4m3#o@/=#eG8=#t8J5#`+78#4uI-#m3B2#SB[8#Q0@8#i[*9#iOn8#1Nm;#^sN9#qh<9#:=x-#P;K2#$%X9#bC+.#Rg;<#mN=.#MTF.#RZO.#2?)4#Y#(/#[)1/#b;L/#dAU/#0Sv;#lY$0#n`-0#sf60#(F24#wrH0#%/e0#TmD<#%JSMFove:CTBEXI:<eh2g)B,3h2^G3i;#d3jD>)4kMYD4lVu`4m`:&5niUA5@(A5BA1]PBB:xlBCC=2CDLXMCEUtiCf&0g2'tN?PGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CP-qekC`.9kEg^+F$kwViFJTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5o,^<-28ZI'O?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xp;7q-#lLYI:xvD=#"
+  0FD740: "SG-225IE Breaker Incendiary"
+  0FD7B8: "SG-8P Punisher Plasma"
+  0FD7D0: "ARC-12 Blitzer"
+  0FD8A0: "Fire Support"
+  0FD910: "Fire Resistant"
+  0FD930: "Gas Resistance"
+  0FD978: "Explosive Finale"
+  0FD9B0: "Ballistic Padding"
+  0FDAC0: "CW-4 Arctic Ranger"
+  0FDFC0: "I-92 Fire Fighter"
+  0FE8D0: "Burst Loop fired -- next in %d min"
+  0FE910: "Auto-fires burst every N minutes when ON"
+  0FEC58: "Every batch fires medals "
+  0FEC80: "Calls fire in batches of 9, spaced 500ms apart, followed by a 58s cooldown."
+  0FECD0: "AR-23P Liberator Penetrator"
+  0FED88: "SG-8F Punisher Fire of Liberty"
+  0FF0B0: "Search weapons..."
+  0FF0C8: "##sgsearch"
+  103328: "Instant Arcade Round"
+  103388: "Arcade Combo"
+  1033B0: "NOP arcade combo sequence check"
+  103C90: "  Fire any weapon to populate stats."
+  103CC8: "Damage##we"
+  103CD8: "Struct. Penetration##we"
+  103D30: "FireRate (Trident)##we"
+  104058: "No Laser Overheat"
+  104750: "Laser Cannon"
+  104780: "Arc Thrower"
+
+  Total damage strings: 31
+
+  NOTE: The weapon stats editor (##we) edits damage and fire rate.
+  "Damage##we" and "FireRate (Trident)##we" are UI labels.
+  Damage type enum is NOT explicitly in the cheat binary.
+  Likely game-internal enum with values like:
+    0 = Ballistic
+    1 = Explosive  
+    2 = Fire
+    3 = Gas
+    4 = Arc
+    5 = Plasma
+    6 = Laser/Energy
+    7 = Acid
+
+################################################################################
+#  15. UI STATE IDS
+################################################################################
+--- UI State Strings ---
+  0FFDE4: "ARMORY"
+  0FFDF0: "Unlock All Armory##ua"
+  101AC0: "LIBERTEA HUD"
+  103B70: "[UnlockArmory] %s"
+  104E58: "(Main menu bar)"
+  105C60: "[imgui-error] (current settings: Assert=%d, Log=%d, Tooltip=%d)"
+
+  Total UI strings: 6
+
+  The cheat overlays on the game via Present hook.
+  Key UI sections in cheat:
+    - FARMING tab
+    - SUPER CREDITS tab
+    - WEAPON XP tab
+    - PLAYER tab
+    - COMBAT tab
+    - STRATAGEMS tab
+    - SPAWNING tab
+    - STEALTH/VISUAL tab
+    - EXPLORATION tab
+    - ARMORY tab
+    - MISSION tab
+
+################################################################################
+#  16. STRUCTURE SIZE CONSTANTS
+################################################################################
+--- Potential Struct Sizes (0x20-0x2000 in mov/cmp) ---
+  Aligned sizes (multiples of 8):
+    0x0020 (   32): 541 refs
+    0x1000 ( 4096): 309 refs
+    0x0040 (   64): 253 refs
+    0x0030 (   48): 244 refs
+    0x0028 (   40): 144 refs
+    0x0080 (  128): 105 refs
+    0x0038 (   56): 82 refs
+    0x0050 (   80): 70 refs
+    0x0100 (  256): 62 refs
+    0x0070 (  112): 50 refs
+    0x0048 (   72): 46 refs
+    0x0090 (  144): 35 refs
+    0x0060 (   96): 34 refs
+    0x0088 (  136): 28 refs
+    0x0058 (   88): 27 refs
+    0x2000 ( 8192): 24 refs
+    0x0200 (  512): 23 refs
+    0x00A0 (  160): 21 refs
+    0x0068 (  104): 20 refs
+    0x0098 (  152): 19 refs
+    0x0110 (  272): 18 refs
+    0x0078 (  120): 18 refs
+    0x00F0 (  240): 16 refs
+    0x00B8 (  184): 15 refs
+    0x0298 (  664): 15 refs
+    0x00C0 (  192): 14 refs
+    0x0EE0 ( 3808): 13 refs
+    0x0800 ( 2048): 12 refs
+    0x04D0 ( 1232): 11 refs
+    0x00D0 (  208): 10 refs
+    0x0208 (  520): 9 refs
+    0x00B0 (  176): 9 refs
+    0x00E0 (  224): 9 refs
+    0x0C88 ( 3208): 8 refs
+    0x00E8 (  232): 8 refs
+    0x0150 (  336): 7 refs
+    0x00C8 (  200): 7 refs
+    0x0238 (  568): 7 refs
+    0x0500 ( 1280): 7 refs
+    0x0BB8 ( 3000): 6 refs
+    0x0268 (  616): 6 refs
+    0x0140 (  320): 6 refs
+    0x0120 (  288): 6 refs
+    0x0130 (  304): 6 refs
+    0x03E8 ( 1000): 5 refs
+    0x0170 (  368): 5 refs
+    0x01B0 (  432): 5 refs
+    0x0108 (  264): 5 refs
+    0x1388 ( 5000): 4 refs
+    0x0158 (  344): 4 refs
+    0x07D0 ( 2000): 4 refs
+    0x0138 (  312): 4 refs
+    0x01C0 (  448): 4 refs
+    0x0160 (  352): 4 refs
+    0x01E0 (  480): 4 refs
+    0x00D8 (  216): 4 refs
+    0x01A8 (  424): 4 refs
+    0x00F8 (  248): 4 refs
+    0x0180 (  384): 3 refs
+    0x0528 ( 1320): 3 refs
+    0x0190 (  400): 3 refs
+    0x0260 (  608): 3 refs
+    0x0250 (  592): 3 refs
+
+--- Alloc-Size Candidates (mov reg, SIZE; ... call) ---
+  Sizes in ecx/rcx before call (likely alloc/malloc):
+       22 (0x0016): 19 occurrences
+       21 (0x0015): 16 occurrences
+       23 (0x0017): 8 occurrences
+      100 (0x0064): 7 occurrences
+      500 (0x01F4): 5 occurrences
+     1000 (0x03E8): 4 occurrences
+       40 (0x0028): 4 occurrences
+       64 (0x0040): 3 occurrences
+       90 (0x005A): 3 occurrences
+       72 (0x0048): 3 occurrences
+       26 (0x001A): 2 occurrences
+       50 (0x0032): 2 occurrences
+     5000 (0x1388): 2 occurrences
+      250 (0x00FA): 2 occurrences
+      200 (0x00C8): 2 occurrences
+     2000 (0x07D0): 2 occurrences
+     4644 (0x1224): 2 occurrences
+      517 (0x0205): 2 occurrences
+      518 (0x0206): 2 occurrences
+
+--- Known Structure Sizes (from existing analysis) ---
+  ScActivityAPC struct: ~0xB0+ bytes (large, contains URL[0x40], missionId[0x40])
+  MissionCapture:  variable size (JSON strings)
+  GameSession:     0x130+ bytes (refs at +0x28, +0x128)
+  Player slot data: 0x18 stride ("48 83 C0 18" iterator pattern)
+  Hash table entry: unknown but has INSERT operations NOPed
+
+################################################################################
+#  17. MAGIC / HASH CONSTANTS
+################################################################################
+--- 32-bit Constants (>= 0x1000) in Instructions ---
+  Top 60 32-bit constants (>= 0x1000):
+    0xFFFFFFFF (4294967295): 439 refs
+    0x00001000 (      4096): 310 refs
+    0x2AAAAAAB ( 715827883): 123 refs
+    0x3F800000 (1065353216): 107 refs
+    0x7F7FFFFF (2139095039):  67 refs
+    0xBF800000 (3212836864):  61 refs
+    0x7FFFFFFF (2147483647):  53 refs
+    0x00008000 (     32768):  42 refs
+    0x7FFFFFFE (2147483646):  36 refs
+    0x3F000000 (1056964608):  31 refs
+    0xFF000000 (4278190080):  29 refs
+    0x00010000 (     65536):  29 refs
+    0x01000000 (  16777216):  28 refs
+    0x00002000 (      8192):  27 refs
+    0x00004000 (     16384):  27 refs
+    0x00AAA0A0 (  11182240):  26 refs
+    0x00003000 (     12288):  24 refs
+    0x0000F000 (     61440):  23 refs
+    0x0000FFFF (     65535):  21 refs
+    0x00100010 (   1048592):  20 refs
+    0xFF7FFFFF (4286578687):  19 refs
+    0x3ECCCCCD (1053609165):  15 refs
+    0x3E851EB8 (1048911544):  15 refs
+    0x00FFFFFF (  16777215):  15 refs
+    0x3F7AE148 (1065017672):  15 refs
+    0x3E4CCCCD (1045220557):  14 refs
+    0x04000000 (  67108864):  14 refs
+    0x3F170A3D (1058474557):  14 refs
+    0x01010101 (  16843009):  13 refs
+    0xFFFFFFE0 (4294967264):  12 refs
+    0x00020000 (    131072):  11 refs
+    0x08000000 ( 134217728):  11 refs
+    0xFFFFFFFC (4294967292):  11 refs
+    0x000025FF (      9727):  11 refs
+    0xFFFFFFFB (4294967291):  11 refs
+    0x40000000 (1073741824):  10 refs
+    0x3E99999A (1050253722):   9 refs
+    0xFFFFFFF8 (4294967288):   9 refs
+    0x3F4CCCCD (1061997773):   9 refs
+    0xDC82AAB4 (3699550900):   9 refs
+    0x0050DC50 (   5299280):   9 refs
+    0x42C80000 (1120403456):   8 refs
+    0xFFFFFFFE (4294967294):   8 refs
+    0x0000FDE9 (     65001):   8 refs
+    0xFFFF0FFF (4294905855):   8 refs
+    0x3F666666 (1063675494):   7 refs
+    0x3DCCCCCD (1036831949):   7 refs
+    0xFFFFFFF2 (4294967282):   7 refs
+    0x40400000 (1077936128):   7 refs
+    0x42DC0000 (1121714176):   7 refs
+    0x40800000 (1082130432):   7 refs
+    0x05000000 (  83886080):   7 refs
+    0x00100000 (   1048576):   7 refs
+    0x3F400000 (1061158912):   6 refs
+    0x41200000 (1092616192):   6 refs
+    0x3F333333 (1060320051):   6 refs
+    0x3D75C28F (1031127695):   6 refs
+    0x3EB33333 (1051931443):   6 refs
+    0xC1000000 (3238002688):   6 refs
+    0x0032C8FF (   3328255):   6 refs
+
+--- Known Hash Constant Detection ---
+  No known hash constants found (game hashing done in game.dll, not cheat)
+
+--- Potential Custom Hashes (values used in comparisons) ---
+  High 32-bit values (0xA0000000-0xFFFFFFFF) in cmp:
+    0xFFFFFFFF: 207 refs
+    0xC0000005: 4 refs
+    0xC000008E: 3 refs
+    0xC00000FD: 3 refs
+    0xC000001D: 1 refs
+    0xC0000094: 1 refs
+    0xFFFFFF80: 1 refs
+
+################################################################################
+#  18. POINTER CHAINS
+################################################################################
+--- Dereference Chains (2+ levels) ---
+  Most common dereference chains:
+    [ 23x] [rbp+0x-49] -> [rcx+0x-8]
+    [  8x] [rsp+0x50] -> [rcx+0x-8]
+    [  8x] [rbx+0x110] -> [r8d+rrax*4+0x-4]
+    [  7x] [rcx+0x1368] -> [r8d+0x1CC]
+    [  6x] [rsp+0x58] -> [rcx+0x-8]
+    [  6x] [rsp+0x40] -> [rcx+0x-8]
+    [  6x] [rbp+0x-58] -> [rcx+0x-8]
+    [  6x] [rdx+0x8] -> [rcx+0x8]
+    [  5x] [rbp+0x-21] -> [rcx+0x-8]
+    [  5x] [rdx+0x1E48] -> [r8d+rrcx*4+0x-8]
+    [  5x] [rbp+0x-80] -> [rcx+0x-8]
+    [  5x] [rbp+0x-40] -> [rcx+0x-8]
+    [  5x] [rbp+0x-78] -> [rcx+0x-8]
+    [  4x] [rcx+0x1368] -> [r10+0x2B0]
+    [  4x] [rbp+0x-29] -> [rcx+0x-8]
+    [  4x] [rbp+0x-50] -> [rcx+0x-8]
+    [  4x] [rbx+0xB0] -> [rax+rrcx*8+0x-10]
+    [  4x] [rax+0xA0] -> [eax+rrcx*8+0x-10]
+    [  4x] [r8+0x1EA8] -> [rcx+0x3B8]
+    [  3x] [rbp+0x7] -> [rcx+0x-8]
+    [  3x] [rax+0x1368] -> [r8d+0x1CC]
+    [  3x] [rbp+0x-59] -> [rcx+0x-8]
+    [  3x] [rbp+0x-9] -> [rcx+0x-8]
+    [  3x] [rbp+0x-41] -> [rcx+0x-8]
+    [  3x] [rbp+0x-60] -> [rcx+0x-8]
+
+--- Documented Pointer Chains ---
+  Chain 1: GetActiveSession() -> +0x28 -> activity object
+  Chain 2: GetActiveSession() -> +0x128 -> alternate activity ref
+  Chain 3: session -> ring buffer -> .url[0x40]
+  Chain 4: session -> ring buffer -> .ctr, .flag, .ring
+  Chain 5: entityDeep -> entityDataDeep -> JSON fields
+  Chain 6: slotData -> entity array -> individual entity states
+
+################################################################################
+#  19. GLOBAL VARIABLE OFFSETS (game.dll+X patterns)
+################################################################################
+--- RIP-Relative Targets (potential game.dll globals) ---
+  Total RIP-relative refs: 0
+  Unique targets: 0
+
+  Top 40 most-referenced RIP targets (internal to .text):
+
+################################################################################
+#  20. VTABLE / VIRTUAL CALL ANALYSIS
+################################################################################
+--- VTable Slots (virtual function indices) ---
+
+  Total virtual calls: 0
+
+  VTABLE slots 0-3: Often destructor, virtual methods
+  VTABLE slots 4+: Specific class methods
+
+  Known virtual call sites from cheat:
+    "call [rax+0x28]" -> GetActiveSession (session vtable?)
+    "call [rax+0x30]" -> Various activity methods
+    "call [rax+0x38]" -> Ring buffer operations
+
+################################################################################
+#  ADDITIONAL: PATTERN SIGNATURES FOR GAME HOOKS
+################################################################################
+  Pattern signature matches in .text:
+  0F 2F C1 48 89 44 24 ?? 76
+    -> Float comparison + conditional branch
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+  0F 5B DB F3 41 0F 59 4E ?? F3
+    -> Grenade count: CVTDQ2PD + MULSS
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+  39 50 04 74 ?? FF C1 48 83 C0 18 ...
+    -> Iterator: stride 0x18 (player/entity array?)
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+  41 0F 2F 45 ?? 77 ?? 48
+    -> Float compare + ja
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+  42 83 2C 81 ?? 48
+    -> SUB [rcx+r8*4+?] - Stratagem count decrement
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+  44 8B C5 4C 8B 89 ?? ?? ?? ?? 48 8B CB 41 FF 91 ?? ?? ?? ??
+    -> 2-level vtable dispatch
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+  83 F8 10 0F 82 ?? ?? ?? ?? 41 8B 4E 08
+    -> Array bounds check (cmp eax, 0x10)
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+  83 FE 07 7C 07 BA ?? ?? ?? ?? EB 16 83 FE 05
+    -> Difficulty tier check
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+  F3 0F 10 46 ?? 0F 2F C6 72 ?? F3
+    -> Health/damage float check
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+  F3 0F 11 44 3B ?? F3 0F 59 C7 F3 0F 5A C0
+    -> Landing speed: MOVSS + MULSS + CVTSS2SD
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+  F3 41 0F 5C ?? BA ?? ?? ?? ?? F3 0F 11 04 01
+    -> SUBSS + store (damage?)
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+  48 8B 0D ?? ?? ?? ?? 44 89 80 60 0C
+    -> Global ref -> write +0xC60 (unlock?)
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+  48 8B 35 ?? ?? ?? ?? 49 8B E9 41 8B D8 48 8B 88 28 01
+    -> GetActiveSession v1
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+  48 8B 35 ?? ?? ?? ?? 33 C9 49 8B E9 41 8B D8 4C 8B 90 28 01
+    -> GetActiveSession v2
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+  F3 0F 11 4C A8 ?? 49
+    -> Turret overheat: MOVSS write
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+  F3 45 0F 11 5E ?? E9
+    -> Turret duration: MOVSS write + JMP
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+  42 83 2C 81 ?? 48
+    -> Stratagem count: SUB write
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+  F3 0F 11 44 C8 ?? 0F
+    -> Grenade fuse: MOVSS write
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+  41 8B 47 ?? 4C 8B 7C 24 ?? 4C
+    -> Reward multiplier read
+    -> at 0x103E78
+
+  48 8D 04 52 48 8D 0C 85 ?? ?? ?? ??
+    -> Array index: LEA [rdx*2] + LEA [rax*4]
+    -> NOT IN .TEXT (runtime-patched or in game.dll)
+
+################################################################################
+#  BINARY OVERVIEW & REGION MAP
+################################################################################
+
+  0x000000-0x010000:  85.8% dense [Code (.text)]
+  0x010000-0x020000:  87.0% dense [Code (.text)]
+  0x020000-0x030000:  88.4% dense [Code (.text)]
+  0x030000-0x040000:  85.5% dense [Code (.text)]
+  0x040000-0x050000:  84.7% dense [Code (.text)]
+  0x050000-0x060000:  89.3% dense [Code (.text)]
+  0x060000-0x070000:  90.1% dense [Code (.text)]
+  0x070000-0x080000:  88.6% dense [Code (.text)]
+  0x080000-0x090000:  89.3% dense [Code (.text)]
+  0x090000-0x0A0000:  90.3% dense [Code (.text)]
+  0x0A0000-0x0B0000:  90.7% dense [Code (.text)]
+  0x0B0000-0x0C0000:  75.5% dense [Code (.text)]
+  0x0C0000-0x0D0000:  36.7% dense [Data (rdata/IAT)]
+  0x0D0000-0x0E0000:  20.2% dense [Encoded Data]
+  0x0E0000-0x0F0000:  21.7% dense [Encoded Data]
+  0x0F0000-0x100000:  54.8% dense [Encoded Data]
+  0x100000-0x110000:  74.6% dense [Feature Strings]
+  0x110000-0x120000:  41.3% dense [Hook/Logic Strings]
+  0x120000-0x130000:   0.0% dense [Metadata/RTTI]
+  0x130000-0x140000:   0.0% dense [Metadata/RTTI]
+  0x140000-0x150000:   0.0% dense [Metadata/RTTI]
+  0x150000-0x160000:   0.0% dense [Metadata/RTTI]
+  0x160000-0x170000:   0.0% dense [Metadata/RTTI]
+  0x170000-0x180000:   0.0% dense [Metadata/RTTI]
+  0x180000-0x190000:   0.0% dense [Metadata/RTTI]
+  0x190000-0x1A0000:   0.0% dense [Metadata/RTTI]
+  0x1A0000-0x1B0000:   0.0% dense [Metadata/RTTI]
+  0x1B0000-0x1C0000:   0.0% dense [Metadata/RTTI]
+  0x1C0000-0x1D0000:   0.0% dense [Metadata/RTTI]
+  0x1D0000-0x1E0000:   0.0% dense [Metadata/RTTI]
+  0x1E0000-0x1F0000:   0.0% dense [Metadata/RTTI]
+  0x1F0000-0x200000:   0.0% dense [Metadata/RTTI]
+  0x200000-0x210000:   0.0% dense [Metadata/RTTI]
+  0x210000-0x220000:   0.0% dense [Metadata/RTTI]
+  0x220000-0x230000:   0.0% dense [Metadata/RTTI]
+  0x230000-0x240000:   0.0% dense [Metadata/RTTI]
+  0x240000-0x250000:   0.0% dense [Metadata/RTTI]
+  0x250000-0x260000:   0.0% dense [Metadata/RTTI]
+  0x260000-0x270000:   0.0% dense [Metadata/RTTI]
+  0x270000-0x280000:   0.0% dense [Metadata/RTTI]
+  0x280000-0x290000:   0.0% dense [Metadata/RTTI]
+  0x290000-0x2A0000:   0.0% dense [Metadata/RTTI]
+  0x2A0000-0x2B0000:   0.0% dense [Metadata/RTTI]
+  0x2B0000-0x2C0000:   0.0% dense [Metadata/RTTI]
+  0x2C0000-0x2D0000:   0.0% dense [Metadata/RTTI]
+  0x2D0000-0x2E0000:   0.0% dense [Metadata/RTTI]
+  0x2E0000-0x2F0000:   0.0% dense [Metadata/RTTI]
+  0x2F0000-0x300000:   0.0% dense [Metadata/RTTI]
+  0x300000-0x310000:   0.0% dense [Metadata/RTTI]
+  0x310000-0x320000:   0.0% dense [Metadata/RTTI]
+  0x320000-0x330000:   0.0% dense [Metadata/RTTI]
+  0x330000-0x340000:   0.0% dense [Metadata/RTTI]
+  0x340000-0x350000:   0.0% dense [Metadata/RTTI]
+  0x350000-0x354000:   0.0% dense [Metadata/RTTI]
+
+  Total analysis time: 66.2s
+
+
+################################################################################
+#  SUPPLEMENT A: COMPLETE GAME DATA STRING CATALOG
+################################################################################
+
+--- WEAPON NAMES (130 found) ---
+  0FE2B0: "AC-1 Dutiful"
+  0FE2C0: "AC-2 Obedient"
+  0FDF28: "AD-11 Livewire"
+  0FE160: "AD-26 Bleeding Edge"
+  0FE178: "AD-49 Apollonian"
+  0FE078: "AF-02 Haz-Master"
+  0FE060: "AF-50 Noxious Ranger"
+  0FDE80: "AF-52 Lockdown"
+  0FDE90: "AF-91 Field Chemist"
+  0FD650: "AR-2 Coyote"
+  0FD5E8: "AR-23 Liberator"
+  0FED10: "AR-23A Liberator Carbine"
+  0FECF0: "AR-23C Liberator Concussive"
+  0FECD0: "AR-23P Liberator Penetrator"
+  0FD640: "AR-32 Pacifier"
+  0FED30: "AR-48 Truth Whisperer"
+  0FEDD8: "AR-59 Suppressor"
+  0FD5F8: "AR-61 Tenderizer"
+  0FD7D0: "ARC-12 Blitzer"
+  0FE190: "BP-20 Correct Officer"
+  0FE1A8: "BP-32 Jackboot"
+  0FDF38: "BP-77 Grand Juror"
+  0FD610: "BR-14 Adjudicator"
+  0FD770: "CB-9 Exploding Crossbow"
+  0FDC08: "CE-07 Demolition Specialist"
+  0FDF98: "CE-101 Guerilla Gorilla"
+  0FDB70: "CE-27 Ground Breaker"
+  0FDB48: "CE-35 Trench Engineer"
+  0FDF78: "CE-64 Grenadier"
+  0FDB60: "CE-67 Titan"
+  0FDB28: "CE-74 Breaker"
+  0FDD58: "CE-81 Juggernaut"
+  0FDB88: "CM-09 Bonesnapper"
+  0FDBC8: "CM-10 Clinician"
+  0FDD00: "CM-14 Physician"
+  0FDBB8: "CM-17 Butcher"
+  0FDBA0: "CM-21 Trench Paramedic"
+  0FE328: "CPG-48 Sapper"
+  0FE338: "CPH-26 Commandant"
+  0FE038: "CPR-80 Bulwark"
+  0FDAD8: "CW-22 Kodiak"
+  0FE378: "CW-36 Winter Warrior"
+  0FDAC0: "CW-4 Arctic Ranger"
+  0FDF68: "CW-9 White Wolf"
+  0FEE10: "DBS-2 Double Freedom"
+  0FDB38: "DP-00 Tactical"
+  0FDCE0: "DP-11 Champion of the People"
+  0FDCA0: "DP-40 Hero of the Federation"
+  0FDDD8: "DP-53 Saviour of the Free"
+  0FDD70: "DP-8 Mountain-Scaled"
+  0FDF50: "DS-10 Big Game Hunter"
+  0FE1D8: "DS-191 Scorpion"
+  0FE1B8: "DS-42 Federation's Blade"
+  0FDD40: "EX-00 Prototype X"
+  0FDC58: "EX-03 Prototype 3"
+  0FDC70: "EX-16 Prototype 16"
+  104198: "FF 0F 83 FE ?? 0F 84"
+  0FD848: "FLAM-66 Torcher"
+  0FDE20: "FS-05 Marksman"
+  0FDE30: "FS-11 Executioner"
+  0FE350: "FS-23 Battle Master"
+  0FDC88: "FS-34 Exterminator"
+  0FDA98: "FS-37 Ravager"
+  0FDC40: "FS-38 Eradicator"
+  0FDAA8: "FS-55 Devastator"
+  0FDBF0: "FS-61 Dreadnought"
+  0FDEE8: "GS-11 Democracy's Deputy"
+  0FE100: "GS-17 Frontier Marshall"
+  0FE118: "GS-66 Lawmaker"
+  0FE0F0: "IE-12 Righteous"
+  0FE0E0: "IE-3 Martyr"
+  0FDED8: "IE-57 Hell-Bent"
+  0FD858: "JAR-5 Dominator"
+  0FDFD8: "KDM-500 Outrider"
+  0FE2A0: "KDM-73 Dragoon"
+  0FE288: "KDM-763 Pacesetter"
+  0FD7F0: "LAS-16 Sickle"
+  0FD828: "LAS-17 Double-Edged Sickle"
+  0FD7E0: "LAS-5 Scythe"
+  0FD6A8: "MP-98 Knight"
+  0FE248: "PH-202 Twigsnapper"
+  0FDF88: "PH-56 Jaguar"
+  0FE238: "PH-9 Predator"
+  0FD800: "PLAS-1 Scorcher"
+  0FD810: "PLAS-101 Purifier"
+  0FD798: "PLAS-39 Accelerator Rifle"
+  0FE140: "RE-1861 Parade Commander"
+  0FE128: "RE-2310 Honorary Guard"
+  0FDF08: "RE-824 Bearer of the Standard"
+  0FE020: "RS-100 Sanctioner"
+  0FE1E8: "RS-20 Constrictor"
+  0FE200: "RS-40 Beast of Prey"
+  0FDFF0: "RS-6 Fiend Destroyer"
+  0FE310: "RS-67 Null Cipher"
+  0FE2F8: "RS-89 Shadow Paragon"
+  0FE048: "SA-04 Combat Technician"
+  0FDB00: "SA-12 Servo Assisted"
+  0FDAE8: "SA-25 Steel Trooper"
+  0FDB18: "SA-32 Dynamo"
+  0FE218: "SA-7 Headfirst"
+  0FE228: "SA-8 Ram"
+  0FDC28: "SC-15 Drone Master"
+  0FDDF8: "SC-30 Trailblazer Scout"
+  0FDE48: "SC-34 Infiltrator"
+  0FDD88: "SC-37 Legionnaire"
+  0FD760: "SG-20 Halt"
+  0FD730: "SG-225 Breaker"
+  0FD740: "SG-225IE Breaker Incendiary"
+  0FEDA8: "SG-225SP Breaker Spray&Pray"
+  0FD720: "SG-451 Cookout"
+  0FD700: "SG-8 Punisher"
+  0FED88: "SG-8F Punisher Fire of Liberty"
+  0FD7B8: "SG-8P Punisher Plasma"
+  0FD710: "SG-8S Slugger"
+  0FEE40: "SG-97 Sweeper"
+  0FEE68: "SMG-203 Gallant"
+  0FD6D8: "SMG-32 Reprimand"
+  0FD6B8: "SMG-37 Defender"
+  0FD6C8: "SMG-72 Pummeler"
+  0FE0D0: "SR-18 Roadblock"
+  0FE0B8: "SR-24 Street Scout"
+  0FDEC0: "SR-64 Cinderblock"
+  0FDD10: "TR-117 Alpha Commander"
+  0FE368: "TR-62 Knight"
+  0FDE60: "TR-7 Ambassador of the Brand"
+  0FDCC0: "TR-9 Cavalier of Democracy"
+  0FE0A8: "UF-16 Inspector"
+  0FE090: "UF-50 Bloodhound"
+  0FDEA8: "UF-84 Doubt Killer"
+  0FD868: "VG-70 Variable"
+
+--- ARMOR NAMES (0 found) ---
+
+--- STRATAGEM NAMES (37 found) ---
+  104818: "Autocannon Sentry"
+  1047D0: "Backpack"
+  1046E8: "Backpacks"
+  1048D0: "Bug Plug"
+  104908: "Bug Thumper"
+  0FDA28: "Concussive Reinforced"
+  1048B8: "Drilling Charge"
+  1046C8: "Eagle Strikes"
+  104688: "Emancipator Exosuit"
+  0FFCD8: "Expire All Turrets"
+  104898: "Extraction"
+  104950: "Extraction Beacon"
+  0FF948: "Freezes all countdown timers (mission, extraction, etc.)"
+  104800: "Gatling Sentry"
+  1047C0: "Guard Dog (Lib)"
+  1047E0: "Guard Dog Rover"
+  1048A8: "Hellbomb"
+  0FFCC0: "Inf Turret Duration"
+  103000: "Instant Hellbomb"
+  104840: "Mortar Sentry"
+  1031E0: "NOP conditional jump so turrets always expire immediately"
+  103040: "NOP hellbomb arm timer write"
+  103168: "NOP turret heat accumulation"
+  1031A0: "NOP turret timer write"
+  0FFCA8: "No Turret Overheat"
+  104708: "Orbitals"
+  104850: "Patriot Exosuit"
+  104918: "Prospecting Drill"
+  0FD8F8: "Reinforced Epaulettes"
+  104878: "Reinforcement"
+  104728: "Resupply"
+  104830: "Rocket Sentry"
+  104930: "Seismic Probe"
+  104810: "Sentry"
+  1047F0: "Shield Backpack"
+  1048E0: "Spire Sterilizer"
+  0FFCA0: "TURRETS"
+
+--- ENEMY NAMES (28 found) ---
+  104868: "Bastion Tank"
+  103AA0: "Berserker"
+  103998: "Bile Spewer"
+  1039F0: "Bile Titan"
+  103960: "Brood Commander"
+  103A00: "Charger"
+  103A08: "Charger Behemoth"
+  103A60: "Devastator"
+  103A20: "Factory Strider"
+  103AC8: "Gunship"
+  103AD0: "Harvester"
+  103A70: "Heavy Devastator"
+  1039B8: "Hive Guard"
+  103A38: "Hulk Bruiser"
+  103A48: "Hulk Scorcher"
+  103980: "Hunter"
+  103950: "Impaler"
+  1039A8: "Nursing Spewer"
+  103B20: "Overseer"
+  103A88: "Rocket Devastator"
+  1039D8: "Scavenger"
+  103AB0: "Scout Strider"
+  1039C8: "Shrieker"
+  103970: "Stalker"
+  103A58: "Tank"
+  103AC0: "Trooper"
+  103978: "Warrior"
+  100A10: "[R] Guard reset"
+
+--- OTHER GAME DATA (35 found) ---
+  0FD958: "Acclimated"
+  1047A8: "Anti-Materiel Rifle"
+  104780: "Arc Thrower"
+  104740: "Autocannon"
+  0FDD28: "B-27 Fortified Commando"
+  0FD9B0: "Ballistic Padding"
+  0FD8D0: "Combat Medic"
+  0FDA40: "Concussive Grenadier"
+  0FDA58: "Concussive Hazmat"
+  0FD978: "Explosive Finale"
+  0FD910: "Fire Resistant"
+  104770: "Flamethrower"
+  0FD930: "Gas Resistance"
+  0FE3A0: "Hover Pack"
+  102B08: "Inf Stamina"
+  103220: "Instant Railgun"
+  0FE390: "Jump Pack"
+  104750: "Laser Cannon"
+  104790: "Machine Gun"
+  103250: "NOP railgun charge calculation"
+  102FE0: "NOP shield relay cooldown write"
+  102B38: "NOP stamina read/drain"
+  104058: "No Laser Overheat"
+  0FD920: "Peak Physique"
+  104760: "Quasar Cannon"
+  0FD788: "R-36 Eruptor"
+  0FD698: "R-6 Deadeye"
+  0FD670: "R-63 Diligence"
+  0FED60: "R-63CS Diligence Counter-Sniper"
+  104738: "Railgun"
+  104670: "Recoilless Rifle"
+  102FB8: "Shield Cooldown"
+  0FD968: "Siege Breaker"
+  10479C: "Spear"
+  0FDA10: "Supplemental Stamina"
+
+################################################################################
+#  SUPPLEMENT B: BYTE-LEVEL RIP-RELATIVE REFERENCE SCAN
+################################################################################
+
+Total unique RIP-relative targets: 1684
+Total RIP-relative instructions: 4154
+
+--- Most Referenced RIP Targets ---
+  Target=0x11E578 x870  data=00000000000000000000000000000000  from=0x005DF8, 0x00608C, 0x0062BE, 0x00630E
+  Target=0x11A080 x190  data=5474a1bd14a100000000000000000000  from=0x0007FF, 0x0009BF, 0x000DD1, 0x0010D7
+  Target=0x-01000 x100  [EXTERNAL - game.dll?]  from=0x0021E6, 0x00BB2E, 0x00BEB5, 0x00D2C0
+  Target=0x373120 x 58  [EXTERNAL - game.dll?]  from=0x00049D, 0x0032CC, 0x0032F8, 0x003308
+  Target=0x11DAC0 x 58  data=905fb266da0100000000000000000000  from=0x090D20, 0x090E14, 0x090EEF, 0x091CCD
+  Target=0x371880 x 32  [EXTERNAL - game.dll?]  from=0x02B1EE, 0x02B2A7, 0x02B2D0, 0x02B32E
+  Target=0x371C90 x 31  [EXTERNAL - game.dll?]  from=0x02EC3E, 0x02EEE5, 0x02F01A, 0x02F27E
+  Target=0x371DE0 x 31  [EXTERNAL - game.dll?]  from=0x02ECA3, 0x02EF44, 0x02F071, 0x02F2F3
+  Target=0x102AC8 x 31  data=5b46656174757265735d20414c4c204c  from=0x02ED54, 0x02F100, 0x02F1B7, 0x02F3B2
+  Target=0x0FE3AF x 28  data=00435241534800000025730000252e31  from=0x006628, 0x008698, 0x00CE56, 0x00CE8E
+  Target=0x0FE3B8 x 24  data=25730000252e31667800000000000000  from=0x008925, 0x00924B, 0x00929B, 0x00932B
+  Target=0x101800 x 20  data=0d0a00000000000077696e687474702e  from=0x0399CC, 0x039A98, 0x039CBC, 0x039D88
+  Target=0x0F7EB0 x 18  data=00000000963007772c610eeeba510999  from=0x038589, 0x0385DA, 0x03C815, 0x03D847
+  Target=0x1201A0 x 17  data=00000000000000000000000000000000  from=0x028834, 0x028A2C, 0x028B52, 0x028C45
+  Target=0x0B9BD0 x 16  data=9012e2cdfc7f00007012e2cdfc7f0000  from=0x00023C, 0x00029A, 0x0002E0, 0x00035C
+  Target=0x0C5DB8 x 15  data=67616d652e646c6c0000000000000000  from=0x0028B9, 0x002F07, 0x003148, 0x0031AA
+  Target=0x373128 x 15  [EXTERNAL - game.dll?]  from=0x003490, 0x0034EF, 0x0061FA, 0x00BE57
+  Target=0x373178 x 14  [EXTERNAL - game.dll?]  from=0x00070D, 0x000782, 0x0007BA, 0x006901
+  Target=0x120170 x 14  data=00000000000000000000000000000000  from=0x027573, 0x0275C4, 0x02760E, 0x027655
+  Target=0x1202F0 x 13  data=00000000000000000000000000000000  from=0x02B915, 0x02BB99, 0x02BC1E, 0x02BC53
+  Target=0x0C5FDC x 12  data=4f4e00004f4646004143544956450000  from=0x004081, 0x011F41, 0x011FF6, 0x0122D2
+  Target=0x11ADE0 x 12  data=02000000000000000000000000000000  from=0x00861E, 0x00868C, 0x0157D1, 0x015835
+  Target=0x11AF70 x 12  data=02000000000000000000000000000000  from=0x01F1B8, 0x01FBE2, 0x0200CA, 0x020E7B
+  Target=0x11D6C0 x 12  data=7007f866da0100000000000000000000  from=0x09D034, 0x09D41A, 0x09D4AE, 0x09D4BE
+  Target=0x11AFE0 x 11  data=00000000000000000000000000000000  from=0x01EB96, 0x01EFB4, 0x01F372, 0x01F4BF
+  Target=0x371E28 x 10  [EXTERNAL - game.dll?]  from=0x003B66, 0x033233, 0x03336D, 0x0334E1
+  Target=0x0FD5D0 x 10  data=30313233343536373839414243444546  from=0x018829, 0x018944, 0x018AF9, 0x018C14
+  Target=0x11E620 x 10  data=00000000000000000000000000000000  from=0x027533, 0x027551, 0x02797D, 0x027D62
+  Target=0x1063A8 x 10  data=252a73252e2a73007774000023232300  from=0x039A80, 0x039D70, 0x03A31F, 0x03A911
+  Target=0x373180 x  9  [EXTERNAL - game.dll?]  from=0x000749, 0x000778, 0x0034B5, 0x006227
+  Target=0x104D18 x  9  data=43616c6c696e6720506f705374796c65  from=0x00875B, 0x00886E, 0x008C4C, 0x009581
+  Target=0x11E668 x  9  data=00000000000000000000000000000000  from=0x00B3D9, 0x00B3E6, 0x00BAE8, 0x00BBDE
+  Target=0x11AE40 x  9  data=02000000000000000000000000000000  from=0x01EB5C, 0x01EF5D, 0x01F6B3, 0x01F988
+  Target=0x11AF20 x  9  data=02000000000000000000000000000000  from=0x0227D5, 0x02282D, 0x022976, 0x022C41
+  Target=0x371D70 x  9  [EXTERNAL - game.dll?]  from=0x02F66A, 0x02F9F0, 0x02FB05, 0x02FC2D
+  Target=0x371E50 x  9  [EXTERNAL - game.dll?]  from=0x033243, 0x03337D, 0x0334F1, 0x033592
+  Target=0x372F40 x  9  [EXTERNAL - game.dll?]  from=0x0683BE, 0x06846C, 0x06850B, 0x068576
+  Target=0x372F30 x  9  [EXTERNAL - game.dll?]  from=0x0683D1, 0x06848A, 0x06851C, 0x06859B
+  Target=0x0FEEE8 x  8  data=25640000000000002323726570706572  from=0x006DC6, 0x0097CF, 0x009DFB, 0x00FB1A
+  Target=0x11C4B8 x  8  data=00000000000000000000000000000000  from=0x009FFC, 0x016B94, 0x016C40, 0x016CDB
+  Target=0x11C3B0 x  8  data=4e6f74207363616e6e65640000000000  from=0x012540, 0x034393, 0x0343A8, 0x0343C2
+  Target=0x11E628 x  8  data=00000000000000000000000000000000  from=0x027470, 0x02752C, 0x027984, 0x027D6F
+  Target=0x371D88 x  8  [EXTERNAL - game.dll?]  from=0x02F5C6, 0x02F8B1, 0x02F9CA, 0x02FC61
+  Target=0x11A770 x  8  data=01000000000000000000000000000000  from=0x0A0FF4, 0x0A1667, 0x0A16F0, 0x0A9955
+  Target=0x11E120 x  8  data=0000a766da0100005474a1bd14a10000  from=0x0A34DF, 0x0A3520, 0x0A3856, 0x0A4142
+  Target=0x371B40 x  7  [EXTERNAL - game.dll?]  from=0x00323B, 0x02D4DE, 0x02D50D, 0x02D56C
+  Target=0x0C5FE0 x  7  data=4f464600414354495645000069646c65  from=0x004088, 0x029519, 0x029A6C, 0x02EDE8
+  Target=0x1051E8 x  7  data=43616c6c696e6720456e644469736162  from=0x006D1C, 0x0078C3, 0x007E61, 0x048473
+  Target=0x1016A0 x  7  data=227d000000000000602076616c696461  from=0x01E56A, 0x01ED87, 0x01F84A, 0x0204E4
+  Target=0x11AF00 x  7  data=00000000000000000000000000000000  from=0x01F20D, 0x0201EC, 0x0224B0, 0x022B48
+  Target=0x128600 x  7  data=00000000000000000000000000000000  from=0x02B1FE, 0x02B2DD, 0x02B594, 0x02B80A
+  Target=0x371C78 x  7  [EXTERNAL - game.dll?]  from=0x030346, 0x030519, 0x030622, 0x030641
+  Target=0x371C98 x  7  [EXTERNAL - game.dll?]  from=0x030A9E, 0x030C86, 0x030D8F, 0x030DAE
+  Target=0x371CB0 x  7  [EXTERNAL - game.dll?]  from=0x031236, 0x031418, 0x031527, 0x031546
+  Target=0x106828 x  7  data=235343524f4c4c59000000005b7e5d00  from=0x070C2F, 0x079081, 0x0790A8, 0x0790DD
+  Target=0x11CFA8 x  7  data=00000000000000000200000000000000  from=0x08AA09, 0x08AA16, 0x08AA45, 0x08AA58
+  Target=0x0BFD80 x  7  data=4010eecdfc7f00004410eecdfc7f0000  from=0x09E888, 0x09ED91, 0x0A1070, 0x0A10C6
+  Target=0x11DA60 x  7  data=00000000000000000000000000000000  from=0x0A0ABC, 0x0A0AE7, 0x0A0B0E, 0x0AA5D6
+  Target=0x371DF0 x  6  [EXTERNAL - game.dll?]  from=0x003AF4, 0x003B2A, 0x015DA1, 0x015DE0
+  Target=0x1200B0 x  6  data=00000000000000000000000000000000  from=0x003BB0, 0x003BC7, 0x017827, 0x017861
+  Target=0x1201A8 x  6  data=00000000000000000000000000000000  from=0x0067AC, 0x0285E4, 0x028658, 0x02A2C4
+  Target=0x11E6B8 x  6  data=00000000000000000000000000000000  from=0x008659, 0x015809, 0x016264, 0x017BBC
+  Target=0x11B020 x  6  data=02000000000000000000000000000000  from=0x01F15C, 0x01FB86, 0x0200D1, 0x020B58
+  Target=0x11AEE0 x  6  data=00000000000000000000000000000000  from=0x01F1A3, 0x01FBCD, 0x020165, 0x020B95
+  Target=0x11E5C0 x  6  data=00000000000000000000000000000000  from=0x02462B, 0x02484D, 0x0248BB, 0x024917
+  Target=0x101BD8 x  6  data=52656376643a00005365742058502062  from=0x029161, 0x029194, 0x0291FA, 0x02922B
+  Target=0x101C24 x  6  data=47756e733a0000000000000025732028  from=0x0296BE, 0x0296F1, 0x02987E, 0x0298AF
+  Target=0x371C08 x  6  [EXTERNAL - game.dll?]  from=0x02D916, 0x02D933, 0x02D951, 0x02D960
+  Target=0x11E0E0 x  6  data=4002f166da0100000000000001000000  from=0x0A0FDA, 0x0A0FED, 0x0A41E2, 0x0A4216
+  Target=0x0C5330 x  6  data=000000000000004020e01fe01fe0ff3f  from=0x0AF315, 0x0AF5F3, 0x0B1382, 0x0B1633
+  Target=0x11B340 x  5  data=083bf2cdfc7f00000000000000000000  from=0x00341C, 0x01404F, 0x02EDBA, 0x02F232
+  Target=0x1201C0 x  5  data=00000000000000000000000000000000  from=0x00524D, 0x0071D4, 0x007215, 0x0290C1
+  Target=0x1201E0 x  5  data=00000000000000000000000000000000  from=0x00526A, 0x007431, 0x02A4AB, 0x02A5E1
+  Target=0x11E4C0 x  5  data=00000000000000000000000000000000  from=0x005EB6, 0x0162A6, 0x0182A7, 0x01B338
+  Target=0x0FE490 x  5  data=730000000000000050726f62653a204f  from=0x00662F, 0x00869F, 0x00CE3F, 0x00CE4B
+  Target=0x11E658 x  5  data=00000000000000000000000000000000  from=0x00B38C, 0x00B399, 0x00B3B0, 0x013BA7
+  Target=0x372F50 x  5  [EXTERNAL - game.dll?]  from=0x00C3AB, 0x00C3C1, 0x00C907, 0x00CC12
+  Target=0x1200E8 x  5  data=00000000000000000000000000000000  from=0x014CC7, 0x014D0F, 0x015E21, 0x015E74
+  Target=0x11E4C8 x  5  data=00000000000000000000000000000000  from=0x014F4D, 0x015CF6, 0x017144, 0x01B34A
+  Target=0x100728 x  5  data=4d6564616c2042617463682046697269  from=0x015689, 0x01611B, 0x016137, 0x016151
+
+################################################################################
+#  SUPPLEMENT C: BYTE-LEVEL VTABLE CALL SCAN
+################################################################################
+
+Total virtual calls found: 6
+
+--- VTable Slot Distribution ---
+  vfunc[  1] (offset +0x008):    1 calls
+  vfunc[  2] (offset +0x010):    1 calls
+  vfunc[  4] (offset +0x020):    4 calls
+
+--- Detailed VTable Call Sites (most called slots first) ---
+  Slot   4 (+0x020) x4:
+    0x0039FB: this_reg=r1, call [rax+0x20] vfunc[4]                   ctx=488b01ff502048897dc8488b
+    0x003A23: this_reg=r1, call [rax+0x20] vfunc[4]                   ctx=488b01ff502048897c2460e8
+    0x01C012: this_reg=r1, call [rax+0x20] vfunc[4]                   ctx=488b01ff502090488bcfe87f
+  Slot   2 (+0x010) x1:
+    0x01C02E: this_reg=r1, call [rax+0x10] vfunc[2]                   ctx=488b01ff5010488b8c24a800
+  Slot   1 (+0x008) x1:
+    0x026444: this_reg=r3, call [rax+0x08] vfunc[1]                   ctx=488bd3ff500848894338488b
+
+################################################################################
+#  SUPPLEMENT D: ALL 32-BIT IMMEDIATES IN CMP INSTRUCTIONS
+################################################################################
+
+Total cmp immediate values: 1801
+
+--- Values 0-200 (potential enum IDs) ---
+    0 (0x00): 156 refs
+    1 (0x01): 333 refs
+    2 (0x02): 117 refs
+    3 (0x03): 62 refs
+    4 (0x04): 64 refs
+    5 (0x05): 43 refs
+    6 (0x06): 23 refs
+    7 (0x07): 29 refs
+    8 (0x08): 35 refs
+    9 (0x09): 32 refs
+   10 (0x0A): 30 refs
+   11 (0x0B): 21 refs
+   12 (0x0C): 9 refs
+   13 (0x0D): 13 refs
+   14 (0x0E): 7 refs
+   15 (0x0F): 261 refs
+   16 (0x10): 22 refs
+   17 (0x11): 2 refs
+   18 (0x12): 1 refs
+   20 (0x14): 5 refs
+   21 (0x15): 1 refs
+   22 (0x16): 11 refs
+   23 (0x17): 4 refs
+   24 (0x18): 1 refs
+   25 (0x19): 11 refs
+   26 (0x1A): 2 refs
+   28 (0x1C): 24 refs
+   29 (0x1D): 1 refs
+   30 (0x1E): 13 refs
+   31 (0x1F): 219 refs
+   32 (0x20): 28 refs
+   34 (0x22): 7 refs
+   35 (0x23): 4 refs
+   36 (0x24): 2 refs
+   37 (0x25): 1 refs
+   40 (0x28): 1 refs
+   45 (0x2D): 5 refs
+   47 (0x2F): 2 refs
+   48 (0x30): 9 refs
+   49 (0x31): 1 refs
+   50 (0x32): 3 refs
+   51 (0x33): 4 refs
+   52 (0x34): 3 refs
+   54 (0x36): 2 refs
+   56 (0x38): 2 refs
+   57 (0x39): 3 refs
+   58 (0x3A): 3 refs
+   59 (0x3B): 3 refs
+   60 (0x3C): 34 refs
+   61 (0x3D): 3 refs
+   62 (0x3E): 2 refs
+   63 (0x3F): 6 refs
+   64 (0x40): 31 refs
+   65 (0x41): 2 refs
+   69 (0x45): 1 refs
+   71 (0x47): 4 refs
+   73 (0x49): 1 refs
+   79 (0x4F): 1 refs
+   80 (0x50): 1 refs
+   83 (0x53): 5 refs
+   87 (0x57): 3 refs
+   88 (0x58): 3 refs
+   90 (0x5A): 4 refs
+   91 (0x5B): 1 refs
+   93 (0x5D): 1 refs
+   96 (0x60): 1 refs
+   97 (0x61): 4 refs
+   98 (0x62): 2 refs
+   99 (0x63): 8 refs
+  100 (0x64): 10 refs
+  101 (0x65): 2 refs
+  104 (0x68): 2 refs
+  105 (0x69): 1 refs
+  107 (0x6B): 3 refs
+  109 (0x6D): 1 refs
+  110 (0x6E): 1 refs
+  111 (0x6F): 3 refs
+  112 (0x70): 6 refs
+  114 (0x72): 1 refs
+  115 (0x73): 35 refs
+  116 (0x74): 1 refs
+  117 (0x75): 4 refs
+  118 (0x76): 3 refs
+  119 (0x77): 2 refs
+  120 (0x78): 2 refs
+  122 (0x7A): 2 refs
+  125 (0x7D): 1 refs
+  126 (0x7E): 2 refs
+  127 (0x7F): 364 refs
+  128 (0x80): 48 refs
+  130 (0x82): 1 refs
+  153 (0x99): 2 refs
+  160 (0xA0): 3 refs
+  162 (0xA2): 1 refs
+  200 (0xC8): 3 refs
+
+--- Values 201-10000 (potential struct offsets, sizes, flags) ---
+    208 (0x00D0): 2 refs
+    214 (0x00D6): 3 refs
+    228 (0x00E4): 2 refs
+    256 (0x0100): 29 refs
+    257 (0x0101): 2 refs
+    365 (0x016D): 2 refs
+    512 (0x0200): 16 refs
+    520 (0x0208): 2 refs
+    666 (0x029A): 7 refs
+    768 (0x0300): 3 refs
+    958 (0x03BE): 2 refs
+    990 (0x03DE): 2 refs
+    999 (0x03E7): 4 refs
+   1010 (0x03F2): 2 refs
+   1023 (0x03FF): 3 refs
+   1024 (0x0400): 7 refs
+   1033 (0x0409): 2 refs
+   1280 (0x0500): 2 refs
+   2000 (0x07D0): 2 refs
+   2046 (0x07FE): 5 refs
+   2047 (0x07FF): 4 refs
+   2048 (0x0800): 10 refs
+   2609 (0x0A31): 2 refs
+   3000 (0x0BB8): 3 refs
+   3073 (0x0C01): 4 refs
+   3208 (0x0C88): 2 refs
+   4080 (0x0FF0): 2 refs
+   4088 (0x0FF8): 2 refs
+   4096 (0x1000): 251 refs
+   5000 (0x1388): 2 refs
+   8192 (0x2000): 27 refs
+   9999 (0x270F): 7 refs
+  10000 (0x2710): 2 refs
+
+--- High Values 0x1000-0xFFFFFFFF (potential hashes, magic numbers) ---
+  0x00001000 (      4096): 251 refs
+  0x00004000 (     16384): 30 refs
+  0x7FFE4CE6 (2147372262): 30 refs
+  0x7F800000 (2139095040): 29 refs
+  0x00002000 (      8192): 27 refs
+  0x7FFFFFFF (2147483647): 21 refs
+  0x00008000 (     32768): 21 refs
+  0x3D3D3D3D (1027423549): 21 refs
+  0x3F800000 (1065353216): 15 refs
+  0xC73F170A (3342800650): 14 refs
+  0x6C257830 (1814394928): 11 refs
+  0x01000000 (  16777216): 10 refs
+  0x3F6F7FAE (1064271790): 10 refs
+  0xBF5334EA (3209901290): 10 refs
+  0xED834D7C (3984805244): 10 refs
+  0x3D0D6935 (1024289077): 10 refs
+  0x3F7F581C (1065310236): 10 refs
+  0x19930520 ( 429065504): 9 refs
+  0x58257830 (1478850608): 9 refs
+  0x00003000 (     12288): 8 refs
+  0x00006425 (     25637): 8 refs
+  0x0000270F (      9999): 7 refs
+  0x4B000000 (1258291200): 7 refs
+  0x00007325 (     29477): 7 refs
+  0x73207025 (1931505701): 7 refs
+  0x7FFCCDF2 (2147274226): 7 refs
+  0xC0000005 (3221225477): 6 refs
+  0x00006000 (     24576): 6 refs
+  0x30257830 ( 807761968): 6 refs
+  0x00007025 (     28709): 6 refs
+  0x8B48FFFF (2336817151): 5 refs
+  0x0000FFFF (     65535): 5 refs
+  0x4800001E (1207959582): 5 refs
+  0x00007530 (     30000): 4 refs
+  0x48D78B48 (1222085448): 4 refs
+  0x04000000 (  67108864): 4 refs
+  0x20000000 ( 536870912): 4 refs
+  0x03000000 (  50331648): 4 refs
+  0x00200000 (   2097152): 4 refs
+  0x0000FDE9 (     65001): 4 refs
+  0x3F490FDB (1061752795): 4 refs
+  0xFF800000 (4286578688): 4 refs
+  0x7FC00000 (2143289344): 4 refs
+  0x41200000 (1092616192): 4 refs
+
+################################################################################
+#  SUPPLEMENT E: ALLOCATION SIZE PATTERNS
+################################################################################
+
+Top alloc sizes (size -> call pattern):
+     64 (0x0040): 53 occurrences
+     22 (0x0016): 25 occurrences
+     32 (0x0020): 19 occurrences
+    128 (0x0080): 19 occurrences
+   4096 (0x1000): 17 occurrences
+     21 (0x0015): 16 occurrences
+    460 (0x01CC): 16 occurrences
+     23 (0x0017): 13 occurrences
+     40 (0x0028): 13 occurrences
+     24 (0x0018): 12 occurrences
+   2048 (0x0800): 12 occurrences
+    100 (0x0064): 10 occurrences
+     20 (0x0014): 10 occurrences
+   2049 (0x0801): 10 occurrences
+   2081 (0x0821): 10 occurrences
+     48 (0x0030): 8 occurrences
+   8192 (0x2000): 8 occurrences
+   3553 (0x0DE1): 8 occurrences
+     72 (0x0048): 7 occurrences
+     16 (0x0010): 6 occurrences
+    256 (0x0100): 6 occurrences
+    512 (0x0200): 6 occurrences
+   4000 (0x0FA0): 6 occurrences
+    500 (0x01F4): 5 occurrences
+     80 (0x0050): 5 occurrences
+     92 (0x005C): 4 occurrences
+   1000 (0x03E8): 4 occurrences
+     26 (0x001A): 4 occurrences
+     88 (0x0058): 4 occurrences
+    202 (0x00CA): 4 occurrences
+   4644 (0x1224): 4 occurrences
+    665 (0x0299): 4 occurrences
+     54 (0x0036): 4 occurrences
+   5000 (0x1388): 3 occurrences
+     18 (0x0012): 3 occurrences
+   2000 (0x07D0): 3 occurrences
+     90 (0x005A): 3 occurrences
+    259 (0x0103): 3 occurrences
+    161 (0x00A1): 3 occurrences
+     31 (0x001F): 3 occurrences
+    526 (0x020E): 3 occurrences
+    515 (0x0203): 3 occurrences
+    516 (0x0204): 3 occurrences
+    517 (0x0205): 3 occurrences
+    518 (0x0206): 3 occurrences
+     91 (0x005B): 3 occurrences
+     57 (0x0039): 3 occurrences
+    255 (0x00FF): 3 occurrences
+     38 (0x0026): 3 occurrences
+   2047 (0x07FF): 3 occurrences
+    260 (0x0104): 2 occurrences
+   3000 (0x0BB8): 2 occurrences
+     45 (0x002D): 2 occurrences
+     50 (0x0032): 2 occurrences
+     33 (0x0021): 2 occurrences
+     36 (0x0024): 2 occurrences
+    344 (0x0158): 2 occurrences
+    250 (0x00FA): 2 occurrences
+    200 (0x00C8): 2 occurrences
+     51 (0x0033): 2 occurrences
+
+################################################################################
+#  SUPPLEMENT F: DIFFICULTY SYSTEM ANALYSIS
+################################################################################
+
+--- Difficulty Tier Display Strings ---
+  0FF5C8: "1 - Trivial (0%)"
+  0FF5E0: "2 - Easy (0%)"
+  0FF5F0: "3 - Medium (25%)"
+  0FF608: "4 - Challenging (50%)"
+  0FF620: "5 - Hard (75%)"
+  0FF630: "6 - Extreme (100%)"
+  0FF648: "7 - Super Helldive (150%)"
+  0FF668: "8 - (200%)"
+  0FF678: "9 - (250%)"
+  0FF688: "10 - (300%)"
+
+--- Difficulty Reward Multipliers (from cheat UI) ---
+  1 - Trivial (0%)          -> No extra reward
+  2 - Easy (0%)             -> No extra reward
+  3 - Medium (25%)          -> 1.25x
+  4 - Challenging (50%)     -> 1.50x
+  5 - Hard (75%)            -> 1.75x
+  6 - Extreme (100%)        -> 2.00x
+  7 - Super Helldive (150%) -> 2.50x
+  8 - (200%)                -> 3.00x
+  9 - (250%)                -> 3.50x
+  10 - (300%)               -> 4.00x
+
+  NOTE: Tiers 8-10 exist in cheat but may not be available in-game.
+  The "cmp esi,7" NOP forces max tier rewards by bypassing the
+  difficulty comparison that gates higher reward multipliers.
+  "cmp esi,5" bypasses stratagem count limit check.
+
+
+################################################################################
+#  SUPPLEMENT G: ARMOR PASSIVE ABILITY ENUM
+################################################################################
+
+--- Armor Passive Names Found ---
+  "Acclimated"
+  "B-27 Fortified Commando"
+  "Ballistic Padding"
+  "Battle Hardened"
+  "CM-21 Trench Paramedic"
+  "Combat Medic"
+  "Concussive Grenadier"
+  "Concussive Hazmat"
+  "Concussive Reinforced"
+  "Desert Stormer"
+  "Explosive Finale"
+  "Fire Resistant"
+  "Fire Support"
+  "Gas Resistance"
+  "Peak Physique"
+  "Reinforced Epaulettes"
+  "SC-30 Trailblazer Scout"
+  "SR-24 Street Scout"
+  "Scout Strider"
+  "Siege Breaker"
+  "Supplemental Stamina"
+
+  NOTE: These are likely the internal armor passive ability names,
+  mapped to enum values in the game. The cheat scans current armor
+  and lets the user select a different passive from the combo box.
+
+
+################################################################################
+#  SUPPLEMENT H: KNOWN GAME.DLL OFFSET REFERENCES
+################################################################################
+
+--- Documented Pattern Offsets (from existing analysis) ---
+  These patterns are searched for in game.dll at runtime:
+
+  [God Mode]
+    - 3 hooks for player god mode
+    - Patches damage receive, death flag, health check
+
+  [Grenade Count]
+    - 0F 5B DB F3 41 0F 59 4E ?? F3
+    - CVTSS2SD + MULSS (conversion + multiply)
+    - NOPed to prevent grenade consumption
+
+  [No Boundary]
+    - "Force unconditional jump (bypass boundary)"
+    - Patches mission boundary kill trigger
+
+  [Landing Speed]
+    - F3 0F 11 44 3B ?? F3 0F 59 C7 F3 0F 5A C0
+    - MOVSS write + MULSS + CVTSS2SD
+
+  [Stratagem Unlock]
+    - 48 8B 0D ?? ?? ?? ?? 44 89 80 60 0C
+    - Global reference with write to offset +0xC60
+    - "Unlock All Armory" patches this
+
+  [Turret Overheat]
+    - F3 0F 11 4C A8 ?? 49
+    - "NOP turret heat accumulation"
+
+  [Turret Duration]
+    - F3 45 0F 11 5E ?? E9
+    - "Inf Turret Duration" -> sets timer to infinite
+
+  [Active Session]
+    - 48 8B 35 ?? ?? ?? ?? 49 8B E9 41 8B D8 48 8B 88 28 01
+    - GetActiveSession() entry point
+    - Session+0x28 -> activity container
+    - Session+0x128 -> alternate reference
+
+  [Reward Multiplier]
+    - 41 8B 47 ?? 4C 8B 7C 24 ?? 4C
+    - XP/Medals/Slips multiplier hooks
+
+  [Stratagem Count]
+    - 42 83 2C 81 ?? 48
+    - SUB [rcx+r8*4+imm8], imm8 -> NOPed for infinite uses
+
+  [Kill Counter]
+    - 39 46 ?? 75 ?? FF C5
+    - Increment counter hook for stats display
+
+  [Stim Use]
+    - NOP stim count decrement -> infinite stims
+
+  [Laser Overheat]
+    - "NOP turret heat accumulation" (applies to laser weapons)
+
+  [Instant Charge]
+    - "NOP railgun charge calculation"
+    - 0x103250: "NOP railgun charge calculation"
+
+  [Grenade Fuse]
+    - F3 0F 11 44 C8 ?? 0F
+    - "NOP fuse timer write"
+
+  [SC Hash Table]
+    - "NOP both hash table INSERT calls"
+    - Prevents server from marking SC as collected
+
+  [Instant Strat Call-in]
+    - Patches call-in time to zero
+
+  [Instant Shuttle]
+    - "Instant Shuttle: ON ##shut5"
+    - Skips shuttle timer
+
+  [No Recoil]
+    - Patches recoil pattern
+
+  [Inf Ammo]
+    - Patches ammo consumption
+
+  [Inf Stamina]
+    - "NOP stamina read/drain" at 0x102B38
+
+  [Longer Hover]
+    - "NOP hover time limit check"
+
+  [Shield Cooldown]
+    - "NOP shield relay cooldown write"
+
+  [Instant Hellbomb]
+    - "NOP hellbomb arm timer write"
+
+
+################################################################################
+#  SUPPLEMENT I: API ENDPOINTS & NETWORK PROTOCOL
+################################################################################
+
+--- Discovered API Endpoint ---
+  https://api.live.prod.thehelldiversgame.com/api/Operation/Mission/end
+
+--- HTTP Headers Used ---
+  X-Signature:     (cryptographic signature for auth)
+  X-Session:       (session identifier)
+  Authorization:   (standard auth header)
+  Cookie:          (session cookies)
+  Content-Type:    (likely application/json)
+
+--- Signature Capture Protocol ---
+  The cheat intercepts HTTP traffic (MITM) to capture:
+    1. "f2s7" - First signature chunk
+    2. "f2s7+nonce" - Signature + cryptographic nonce
+    3. "f2s7+partial" - Partial signature data
+  These are used to reconstruct the X-Signature header for replay.
+
+--- JSON Payload Fields (Mission/end POST) ---
+  "capturedWarTime" - Current war time value (uint)
+  "missionId"       - UUID mission identifier
+  "serObj"          - Server object data
+  "serObjOrigAddr"  - Original server object address (uint64)
+  "slotData"        - Player slot data
+  "entityDeep"      - Entity hierarchy (JSON)
+  "entityDataDeep"  - Entity data payload (JSON)
+  "ac"              - Activity count (int)
+  "oi"              - Object ID (uint)
+  "gs"              - Game state (string)
+
+
+################################################################################
+#  SUPPLEMENT J: SC/MEDAL FARMING - INTERNAL PROTOCOL
+################################################################################
+
+--- ScActivityAPC Structure (from code analysis) ---
+  struct ScActivityAPC {
+      // +0x00: vtable pointer
+      // +0x08: actId32   (activity identifier)
+      // +0x0C: objId     (object identifier)
+      // +0x10: ctr       (control/state counter)
+      // +0x14: flag      (flags)
+      // +0x18: ring      (ring buffer index)
+      // +0x20: url[0x40] (API endpoint URL)
+      // +0x60: qDelta    (queue delta)
+      // +0x64: retry     (retry counter)
+      // +0x68: missionData (pointer)
+      // +0x70: missionId[0x40] (UUID string)
+  };
+
+--- SC Loop Algorithm ---
+  1. Wait for game session (GetActiveSession() != NULL)
+  2. Capture Mission/end POST body via HTTP hook
+  3. Store: missionId, warTime, entityDeep, entityDataDeep, slotData
+  4. On loop trigger:
+     a. Read ring buffer state (ctr, flag, ring)
+     b. Modify missionId to new UUID
+     c. POST captured body with new missionId
+     d. 9 calls per batch, 500ms apart
+     e. 58 second cooldown between batches
+  5. If crash: VEH recovers state, increments crash counter
+  6. If no capture: waits for next mission
+
+--- Medal Farming ---
+  - Alternates between SC and Medal batches
+  - "Medals Only" mode skips SC, only sends medals
+  - Same batch pattern: 9 calls x 500ms
+
+--- Anti-Duplicate Bypass ---
+  - "NOP both hash table INSERT calls"
+  - Prevents game.dll from marking SC entities as already collected
+  - Allows repeated claims from the same mission data
+
+--- SC Goal / Tracker ---
+  - User sets SC goal count
+  - Auto-stops when goal reached
+  - Tracks: calls sent, SC earned, x100 bonuses, crashes
+  - Auto Sync: distributes SC across all lobby players
+
+--- Burst Replay System ---
+  - Queues N replays instantly (with 5s stagger)
+  - Server may rate-limit bursts
+  - Burst Loop: auto-fires every N minutes
+  - Max replays configurable
+
+
+################################################################################
+#  SUPPLEMENT K: WEAPON XP FARMING SYSTEM
+################################################################################
+
+--- Weapon XP System ---
+  51 total weapons tracked
+  IDs: 0-50 or 1-51 (index into weapon array)
+
+  Modes:
+    - All Guns: cycles through all 51 weapons
+    - Selected Guns: user picks specific weapons
+    - Primary Override: sets one weapon for all lobby members
+
+  "Replays/gun" counter: configurable number of replays per weapon
+  "Patching %d weapon slot(s) -> ID %u (%s)"
+
+
+################################################################################
+#  SUPPLEMENT L: VEH CRASH RECOVERY SYSTEM
+################################################################################
+
+--- Vectored Exception Handler ---
+  Registered via AddVectoredExceptionHandler(1, handler)
+  Handles: ACCESS_VIOLATION (0xC0000005)
+           STACK_OVERFLOW (0xC00000FD)
+           ILLEGAL_INSTRUCTION (0xC000001D)
+           (and others)
+
+  On crash:
+    1. Save SC loop state (ring index, batch progress)
+    2. Save replay data
+    3. Increment crash counter
+    4. Write crash log: "=== LIBERTEA CRASH LOG ==="
+    5. Restore state on next loop iteration
+
+  Replay watchdog: resets stuck replayInProgress flag
+
+
+################################################################################
+#  SUPPLEMENT M: DATA REGION STRING MAP
+################################################################################
+
+--- Game Data String Regions ---
+  0x0FD000-0x0FE400: Weapon and armor name strings
+  0x0FE400-0x0FF000: SC/Replay/Probe UI strings
+  0x0FF000-0x100000: Weapon selection, farming UI strings
+  0x100000-0x101000: Feature descriptions, tooltips
+  0x101000-0x102000: HTTP/replay/capture strings
+  0x102000-0x103000: Network/signature/crypto strings
+  0x103000-0x104000: NOP descriptions, feature details
+  0x104000-0x105000: Stratagem/enemy/weapon list strings
+  0x105000-0x106000: ImGui key names, error strings
