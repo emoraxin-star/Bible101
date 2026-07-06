@@ -1,14 +1,14 @@
 # Gap Analysis — LIBERTEA.DLL Knowledgebase Audit
 
-> **Audit date:** 2026-07-05
-> **Scope:** All 10 skill files (00-10) in `.skills/`, SC_SO source implementation
+> **Audit date:** 2026-07-05 (updated 2026-07-05)
+> **Scope:** All 11 skill files (00-11) in `.skills/`, SC_SO source implementation
 > **Baseline accuracy:** 93.4% (203 claims tested)
 
 ---
 
 ## Summary
 
-**11 gaps identified** across 4 severity levels. 2 gaps closed this audit (CROSS_REFERENCE.md, this document). 9 remain for future work.
+**11 gaps identified** across 4 severity levels. 5 gaps closed (10_CROSS_REFERENCE.md, GAP_ANALYSIS.md, 11_STRUCT_SUPPLEMENT.md, injection+memory in 07_DEV_GUIDE.md). 6 remain for future work.
 
 ---
 
@@ -24,37 +24,40 @@
 - **Content:** Formal gap tracking with severity, effort estimates, and remediation paths
 - **Impact:** Provides a decision framework for prioritizing future work
 
+### GAP-A: Missing Data Structure Definitions (CLOSED)
+- **File created:** `11_STRUCT_SUPPLEMENT.md`
+- **Content:** HashTable (112B entry, 3 instances at Session+0xF0/0xF8/0x100), PeerManager (4 slots × 0x20B, GS::rv_gp7), GameSession/SessionData (GS::rv_gp3, includes liveEntity+0x10), Entity (partial layout, known offsets to +0x07C), CapturedMission hex encoding spec, FarmingConfig, ThreadPool model (6 threads, 4 sync patterns)
+- **Impact:** LLM can now generate type-safe code referencing all key game structures
+
+### GAP-C: Injection & Bootstrapping Protocol (CLOSED)
+- **Added to:** `07_DEV_GUIDE.md`
+- **Content:** Full injection API chain (OpenProcess → VirtualAllocEx → WriteProcessMemory → CreateRemoteThread → LoadLibraryW), injector pseudocode, GameGuard bypass (file rename + SCM stop), self-update flow, reflective DLL injection overview
+- **Impact:** LLM can generate production injection code including bypass
+
+### GAP-G: Memory Manager / W^X Allocation Strategy (CLOSED)
+- **Added to:** `07_DEV_GUIDE.md`
+- **Content:** MemMgr class (RW→RX seal), AllocNear (±0x70000000 for rel32), TrampolinePool (64×128B fixed slots), InstallInlineHook helper (W^X safe), W^X enforcement policy table (Build=RW, Seal=RX, Runtime=RX locked)
+- **Impact:** LLM generates W^X-compliant code instead of RWX allocations
+
 ---
 
 ## Open Gaps
-
-### GAP-A: Missing Data Structure Definitions (HIGH)
-- **Missing:** `HashTable`, `PeerManager`, `GameSession`/`SessionData`, `Entity` (player/character)
-- **Referenced in:** 00, 04, 05, 08 (various struct tables)
-- **Impact:** LLM cannot generate code referencing these types without hallucinating field layouts
-- **Remediation:** Create `11_STRUCT_SUPPLEMENT.md` with these 4+ missing structs
-- **Effort:** Medium (2-4 hours cross-referencing SC_SO and game.dll analysis)
 
 ### GAP-B: Threading & Concurrency Model (HIGH)
 - **Missing:** Dedicated specification of which threads exist, their responsibilities, synchronization primitives, and ownership rules
 - **Referenced in:** 03 (WM_SC_DISPATCH), 04 (VEH on exception thread), 05 (ImGui on render thread)
 - **Impact:** LLM generates thread-unsafe code, race conditions in production
-- **Remediation:** Create dedicated section or new skill file: "Threading Model & Synchronization"
-- **Effort:** Medium (2-3 hours)
-
-### GAP-C: Injection & Bootstrapping Protocol (HIGH)
-- **Missing:** No detailed specification of the injection mechanism (CreateRemoteThread), bootstrap sequence, or reflective loader alternative
-- **Referenced in:** 00 (injector summary), 06 (weakness #9)
-- **Impact:** LLM cannot generate injection code or understand the boot sequence
-- **Remediation:** Add injection specification to 07_DEV_GUIDE.md or create dedicated protocol section
-- **Effort:** Low-Medium (1-2 hours)
+- **Partially addressed in:** 11_STRUCT_SUPPLEMENT.md (6 thread roles table + 4 sync patterns)
+- **Remaining:** No formal thread state machine, no deadlock analysis, no thread lifecycle management
+- **Effort:** Medium (1-2 hours remaining)
 
 ### GAP-D: Game State Interaction Layer (MEDIUM)
 - **Missing:** No formal specification of how the cheat reads war time, parses ServerInfo, reads peer list, or interacts with game state globals
 - **Referenced in:** 04 (lobby sync), 08 (GS:: namespace globals)
 - **Impact:** LLM must reverse-engineer interaction patterns from vague descriptions
-- **Remediation:** Add `PlayerSession` read patterns, `ServerInfo` interaction, `PeerManager` polling to 07_DEV_GUIDE.md
-- **Effort:** Medium (2-3 hours)
+- **Partially addressed in:** 11_STRUCT_SUPPLEMENT.md (PeerManager read pattern), 10_CROSS_REFERENCE.md (GS:: namespace mapped)
+- **Remaining:** No step-by-step recipes for reading war time, ServerInfo traversal, peer list polling
+- **Effort:** Low-Medium (1-2 hours remaining)
 
 ### GAP-E: Anti-Debug Implementation Code (MEDIUM)
 - **Missing:** No compilable C++ code for self-integrity checking, hardware breakpoint detection, VM/sandbox detection
@@ -70,12 +73,26 @@
 - **Remediation:** Add `CMakeLists.txt` example + build pipeline spec to 07_DEV_GUIDE.md
 - **Effort:** Low-Medium (1-2 hours)
 
-### GAP-G: Memory Manager / W^X Allocation Strategy (MEDIUM)
-- **Missing:** No specification of how hook trampolines, syscall stubs, patch bytes are allocated and managed
-- **Referenced in:** 03 (stub building), 06 (RWX weakness, stealth_call W^X)
-- **Impact:** LLM produces memory-unsafe code with RWX pages
-- **Remediation:** Add memory management specification to 07_DEV_GUIDE.md or create dedicated section
+### GAP-H: Pattern Scanner Implementation — SIMD Code (LOW)
+- **Missing:** No AVX2/SIMD scanner implementation despite 03 identifying this as a limitation
+- **Referenced in:** 03 (scanner limitations)
+- **Impact:** LLM uses the same slow linear scanner
+- **Remediation:** Add SIMD scanner recipe to 07_DEV_GUIDE.md
+- **Effort:** Low (0.5-1 hour)
+
+### GAP-I: Syscall Stub Diversity Code (LOW)
+- **Missing:** No compilable code for register rotation, junk insertion, XOR-obfuscated SSN, or per-call generation
+- **Referenced in:** 03 (stub diversity), 06 (weakness #2, variants proposed but not compilable)
+- **Impact:** 03 shows assembly variants but 07 doesn't include a syscall diversity recipe
+- **Remediation:** Add "Diversifying Syscall Stubs" recipe to 07_DEV_GUIDE.md
 - **Effort:** Low (1 hour)
+
+### GAP-J: Polymorphic Build Implementation (LOW)
+- **Missing:** No LLVM pass code or build script for per-user polymorphic builds
+- **Referenced in:** 06 (weakness #10)
+- **Impact:** Cannot defeat single-signature detection
+- **Remediation:** Provide Kagura/Hikari pass configuration or Python polymorphic build script
+- **Effort:** Medium (2-3 hours)
 
 ### GAP-H: Pattern Scanner Implementation — SIMD Code (LOW)
 - **Missing:** No AVX2/SIMD scanner implementation despite 03 identifying this as a limitation
@@ -105,17 +122,16 @@
 ```
         HIGH EFFORT ←───────────────→ LOW EFFORT
               │                            │
- HIGH         │  GAP-A (structs)           │  GAP-C (injection)
- SEVERITY     │  GAP-B (threading)         │  GAP-G (W^X alloc)
-              │  GAP-D (game state)        │
-              │                            │
-              │  GAP-E (anti-debug code)   │  GAP-H (SIMD scanner)
- LOW          │  GAP-F (build system)      │  GAP-I (syscall diversity)
- SEVERITY     │  GAP-J (polymorphic build) │
+ HIGH         │  GAP-B (threading)         │
+ SEVERITY     │  GAP-D (game state)        │
+              │  GAP-E (anti-debug code)   │
+              │  GAP-F (build system)      │
+ LOW          │  GAP-J (polymorphic build) │  GAP-H (SIMD scanner)
+ SEVERITY     │                            │  GAP-I (syscall diversity)
               │                            │
 ```
 
-**Recommended order:** GAP-A → GAP-C → GAP-G → GAP-B → GAP-D → GAP-E → GAP-F → GAP-H → GAP-I → GAP-J
+**Recommended order:** GAP-B → GAP-D → GAP-E → GAP-F → GAP-H → GAP-I → GAP-J
 
 ---
 
@@ -130,23 +146,24 @@
 | 04_NETWORK_FARMING.md | 261 | Good for protocols | 0 |
 | 05_GAME_DATA_FEATURES.md | 192 | Good for features | 0 |
 | 06_EVASION_WEAKNESSES.md | 359 | Good for weaknesses | 0 |
-| 07_DEV_GUIDE.md | 311 | Partial (missing anti-debug, build, memory) | GAP-E, GAP-F, GAP-G, GAP-H, GAP-I |
-| 08_STRUCT_DEFINITIONS.md | 608 | Good (missing HashTable, PeerManager, GameSession) | GAP-A |
+| 07_DEV_GUIDE.md | ~570 | Good (added injection + W^X + memory mgr) | GAP-E, GAP-F, GAP-H, GAP-I |
+| 08_STRUCT_DEFINITIONS.md | 608 | Good | 0 |
 | 09_PROTOCOL_SPEC.md | 482 | Complete for protocols | 0 |
-| 10_CROSS_REFERENCE.md | ~400 | New — covers all | 0 (see GAP-A for missing structs) |
+| 10_CROSS_REFERENCE.md | ~350 | Complete index (updated for new structs) | 0 |
+| 11_STRUCT_SUPPLEMENT.md | ~400 | New — fills remaining struct gaps | 0 (partially GAP-B, GAP-D) |
 | SC_SO source tree | ~5000 | Ground truth | N/A |
 
 ---
 
 ## Recommendations
 
-1. **IMMEDIATE**: Tackle GAP-A (missing struct definitions) — most impactful for LLM code generation quality. Without HashTable, PeerManager, and GameSession, the LLM will hallucinate field layouts.
+1. **COMPLETE**: GAP-A (all missing structs defined in 11_STRUCT_SUPPLEMENT.md), GAP-C (injection + bootstrapping added to 07_DEV_GUIDE.md), GAP-G (W^X memory manager added to 07_DEV_GUIDE.md)
 
-2. **NEXT**: GAP-C + GAP-G (injection + memory management) — these are prerequisites for generating a working cheat from scratch.
+2. **NEXT**: GAP-B (threading — partially addressed in 11, needs formal thread state machine) + GAP-D (game state interaction — partially addressed, needs step-by-step recipes)
 
-3. **THEN**: GAP-B (threading model) — prevents race conditions and crash bugs in generated code.
+3. **THEN**: GAP-E (anti-debug implementation code) + GAP-F (build system specification)
 
-4. **FINALLY**: Remaining medium/low gaps in priority order.
+4. **FINALLY**: GAP-H (SIMD scanner), GAP-I (syscall diversity), GAP-J (polymorphic build)
 
 ---
 

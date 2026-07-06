@@ -180,9 +180,9 @@ bcrypt.dll patterns (#72, #73): Target `BCryptHashData` for f2s7 nonce/key captu
 | FarmingConfig | 09 | `SC_SO/farming.h` | scGoal, sessionLimitMinutes, maxReplays, cooldownSeconds |
 | LogEntry | 08 | `SC_SO/state.h` | message[256], isError, timestamp |
 | RvaReport | 08 | `SC_SO/resolver.h` | name, hardcoded, resolved, found, updated |
-| **HashTable** (NOT DEFINED) | — | — | Missing: used at Session+0xF0/0xF8/0x100 |
-| **PeerManager** (NOT DEFINED) | — | `SC_SO/farming.cpp` | Missing: used for lobby sync via GS::rv_gp7 |
-| **GameSession/SessionData** (NOT DEFINED) | — | — | Missing: referenced as GS::rv_gp3 |
+| **HashTable** | 11 | — | Consumed entity tracking. 3 tables at Session+0xF0/0xF8/0x100. Entry: 112 bytes. |
+| **PeerManager** | 11 | `SC_SO/farming.cpp`, `replay.cpp` | Lobby peer management via GS::rv_gp7. 4 slots × 0x20 bytes each. |
+| **GameSession/SessionData** | 11 | — | Session container via GS::rv_gp3. Contains liveEntity, warData, difficulty, peerManager. |
 
 ---
 
@@ -315,21 +315,28 @@ bcrypt.dll patterns (#72, #73): Target `BCryptHashData` for f2s7 nonce/key captu
 
 ---
 
-## 12. Known Missing Definitions
+## 12. Previously Missing — Now Defined
+
+| Item | File | Status |
+|------|------|--------|
+| `HashTable` struct | 11_STRUCT_SUPPLEMENT.md | DEFINED (entry=112B, 3 instances at Session+0xF0/0xF8/0x100) |
+| `PeerManager` struct | 11_STRUCT_SUPPLEMENT.md | DEFINED (4 slots × 0x20B, count at +0x16390, slots at +0x16398) |
+| `GameSession` / `SessionData` struct | 11_STRUCT_SUPPLEMENT.md | DEFINED (GS::rv_gp3, includes liveEntity+0x10, warData, difficulty) |
+| `Entity` struct (player/character) | 11_STRUCT_SUPPLEMENT.md | DEFINED (partial, known offsets up to +0x07C, large gaps mapped) |
+| `CapturedMission` binary encoding | 11_STRUCT_SUPPLEMENT.md | DEFINED (hex encoding rules, field size ranges, JSON schema) |
+| `FarmingConfig` | 11_STRUCT_SUPPLEMENT.md | DEFINED (batch control, limits, mode flags) |
+| Threading model | 11_STRUCT_SUPPLEMENT.md | DEFINED (6 thread roles, 4 sync patterns) |
+
+## 13. Remaining Missing Definitions
 
 | Missing Item | Referenced In | Priority | Description |
 |-------------|--------------|----------|-------------|
-| `HashTable` struct | 00, 05, 08 (PlayerSession+0xF0/0xF8/0x100) | HIGH | Hash table for consumed entities — NOP target |
-| `PeerManager` struct | 04 (lobby sync), 08 (GS::rv_gp7) | HIGH | Peer management for lobby player distribution |
-| `GameSession` / `SessionData` struct | 05 (referred as GS::rv_gp3) | HIGH | Session state container |
-| `Entity` struct (player/character) | 05, 08 (entityDeep, entityData) | MEDIUM | Entity memory layout (up to 4MB) |
 | `CapturedMission` full binary encoding | 09 (hex field specs) | MEDIUM | Exact byte layout for each hex-encoded field |
 | Build system `CMakeLists.txt` | 02 (3-phase build) | MEDIUM | Compiler flags, packer invocation |
 | Reflective loader implementation | 06 (suggestion #9) | MEDIUM | LoadLibraryW alternative |
 | Self-integrity check implementation | 06 (weakness #1) | MEDIUM | CRC/code hashing |
 | HW breakpoint detection code | 06 (weakness #7) | LOW | DR0-DR7 register checking |
 | VM/sandbox detection code | 06 (weakness #6) | LOW | Environment fingerprinting |
-| Thread pool / worker thread model | 03, 04 (WM_SC_DISPATCH) | MEDIUM | Thread ownership, synchronization |
 | Polymorphic build implementation | 06 (weakness #10) | MEDIUM | LLVM pass for per-user builds |
 | `FarmingState` transition handlers | 09 (state machine) | MEDIUM | Actual handler function signatures |
 
