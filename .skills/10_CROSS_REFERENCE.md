@@ -319,6 +319,8 @@ bcrypt.dll patterns (#72, #73): Target `BCryptHashData` for f2s7 nonce/key captu
 │   └── depends on 11; feeds into 07
 ├── 13_RECIPES_ADVANCED.md (advanced recipes)
 │   └── extends 07; depends on 03, 06, 11, 12
+├── 14_POLYMORPHIC_BUILD.md (polymorphic build system)
+│   └── depends on 06, 13; closes GAP-J
 └── GAP_ANALYSIS.md (gap tracker)
 ```
 
@@ -343,7 +345,7 @@ bcrypt.dll patterns (#72, #73): Target `BCryptHashData` for f2s7 nonce/key captu
 
 ## 13. All Gaps Closed
 
-All 11 gaps identified in the initial audit have been resolved. No remaining missing definitions.
+All 11 gaps identified in the initial audit have been resolved, including GAP-J (polymorphic build). Knowledgebase complete.
 
 ---
 
