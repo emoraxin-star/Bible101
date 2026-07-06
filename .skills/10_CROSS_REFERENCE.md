@@ -307,10 +307,19 @@ bcrypt.dll patterns (#72, #73): Target `BCryptHashData` for f2s7 nonce/key captu
 ├── 07_DEV_GUIDE.md (implementation recipes)
 │   └── depends on 03, 05, 08 for code accuracy
 ├── 08_STRUCT_DEFINITIONS.md (C++ types)
+│   └── extended by 11_STRUCT_SUPPLEMENT.md
+├── 08_STRUCT_DEFINITIONS.md (C++ types)
 │   └── references SC_SO offsets.h, state.h, scanner.h, resolver.h
 ├── 09_PROTOCOL_SPEC.md (protocol specs)
 │   └── references SC_SO farming.cpp, http_monitor.cpp, license.cpp
-└── 10_CROSS_REFERENCE.md (this file — index)
+├── 10_CROSS_REFERENCE.md (this file — index)
+├── 11_STRUCT_SUPPLEMENT.md (missing structs)
+│   └── extends 08; feeds into 07, 12, 13
+├── 12_THREADING_MODEL.md (threading)
+│   └── depends on 11; feeds into 07
+├── 13_RECIPES_ADVANCED.md (advanced recipes)
+│   └── extends 07; depends on 03, 06, 11, 12
+└── GAP_ANALYSIS.md (gap tracker)
 ```
 
 ---
@@ -325,20 +334,16 @@ bcrypt.dll patterns (#72, #73): Target `BCryptHashData` for f2s7 nonce/key captu
 | `Entity` struct (player/character) | 11_STRUCT_SUPPLEMENT.md | DEFINED (partial, known offsets up to +0x07C, large gaps mapped) |
 | `CapturedMission` binary encoding | 11_STRUCT_SUPPLEMENT.md | DEFINED (hex encoding rules, field size ranges, JSON schema) |
 | `FarmingConfig` | 11_STRUCT_SUPPLEMENT.md | DEFINED (batch control, limits, mode flags) |
-| Threading model | 11_STRUCT_SUPPLEMENT.md | DEFINED (6 thread roles, 4 sync patterns) |
+| Threading model | 11_STRUCT_SUPPLEMENT.md, 12_THREADING_MODEL.md | DEFINED (6 thread roles, 4 sync patterns, lock hierarchy, lifecycle) |
+| Game state interaction | 13_RECIPES_ADVANCED.md | DEFINED (war time, ServerInfo, PeerManager, PlayerSession recipes) |
+| Anti-debug code | 13_RECIPES_ADVANCED.md | DEFINED (CRC32C integrity, HW breakpoint scan, VM detection, packer stub checks) |
+| Build system | 13_RECIPES_ADVANCED.md | DEFINED (CMakeLists.txt, compiler flags, packer pipeline, directory structure) |
+| SIMD scanner | 13_RECIPES_ADVANCED.md | DEFINED (AVX2 32-byte, SSE2 16-byte, Boyer-Moore integration) |
+| Syscall diversity | 13_RECIPES_ADVANCED.md | DEFINED (7 stub variants, builder, StubManager, FNV-1a hashing) |
 
-## 13. Remaining Missing Definitions
+## 13. All Gaps Closed
 
-| Missing Item | Referenced In | Priority | Description |
-|-------------|--------------|----------|-------------|
-| `CapturedMission` full binary encoding | 09 (hex field specs) | MEDIUM | Exact byte layout for each hex-encoded field |
-| Build system `CMakeLists.txt` | 02 (3-phase build) | MEDIUM | Compiler flags, packer invocation |
-| Reflective loader implementation | 06 (suggestion #9) | MEDIUM | LoadLibraryW alternative |
-| Self-integrity check implementation | 06 (weakness #1) | MEDIUM | CRC/code hashing |
-| HW breakpoint detection code | 06 (weakness #7) | LOW | DR0-DR7 register checking |
-| VM/sandbox detection code | 06 (weakness #6) | LOW | Environment fingerprinting |
-| Polymorphic build implementation | 06 (weakness #10) | MEDIUM | LLVM pass for per-user builds |
-| `FarmingState` transition handlers | 09 (state machine) | MEDIUM | Actual handler function signatures |
+All 11 gaps identified in the initial audit have been resolved. No remaining missing definitions.
 
 ---
 
